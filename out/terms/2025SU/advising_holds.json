@@ -1,0 +1,452 @@
+[
+  {
+    "hold_id": "f87e7768-d0ab-4689-a738-0e4cab0afc92",
+    "term_code": "2025SU",
+    "student_id": "S000001",
+    "hold_type": "workday_verification",
+    "active": false,
+    "placed_date": "2025-05-14",
+    "cleared_date": "2025-05-20"
+  },
+  {
+    "hold_id": "ac7a9252-a9f7-4b20-b8c3-f69750841e5c",
+    "term_code": "2025SU",
+    "student_id": "S000027",
+    "hold_type": "advising",
+    "active": false,
+    "placed_date": "2025-05-06",
+    "cleared_date": "2025-05-09"
+  },
+  {
+    "hold_id": "53dc4382-b58b-4660-b5e7-cbb5880a4178",
+    "term_code": "2025SU",
+    "student_id": "S000037",
+    "hold_type": "housing",
+    "active": false,
+    "placed_date": "2025-05-04",
+    "cleared_date": "2025-05-06"
+  },
+  {
+    "hold_id": "26867b06-034d-4c52-bab5-77c2e3ce70ad",
+    "term_code": "2025SU",
+    "student_id": null,
+    "hold_type": "workday_verification",
+    "active": true,
+    "placed_date": "2025-05-10",
+    "cleared_date": null
+  },
+  {
+    "hold_id": "109513a0-f612-4343-a58e-9db13127bb46",
+    "term_code": "2025SU",
+    "student_id": "S000059",
+    "hold_type": "conduct",
+    "active": true,
+    "placed_date": "2025-05-16",
+    "cleared_date": null
+  },
+  {
+    "hold_id": "8d683f91-0a18-4f52-b67c-382c930766bd",
+    "term_code": "2025SU",
+    "student_id": "S000064",
+    "hold_type": "advising",
+    "active": false,
+    "placed_date": "2025-05-22",
+    "cleared_date": "2025-05-26"
+  },
+  {
+    "hold_id": "ab99aded-0a45-4808-bef9-601ab7e935d5",
+    "term_code": "2025SU",
+    "student_id": "S000077",
+    "hold_type": "advising",
+    "active": false,
+    "placed_date": "2025-05-14",
+    "cleared_date": "2025-05-16"
+  },
+  {
+    "hold_id": "9fae2104-7958-40f6-ad9a-5b5c7f7cd618",
+    "term_code": "2025SU",
+    "student_id": "S000078",
+    "hold_type": "workday_verification",
+    "active": true,
+    "placed_date": "2025-05-05",
+    "cleared_date": null
+  },
+  {
+    "hold_id": "76b0b28c-9fb9-4b08-aca8-daac82b21ca0",
+    "term_code": "2025SU",
+    "student_id": "S000087",
+    "hold_type": "workday_verification",
+    "active": false,
+    "placed_date": "2025-05-01",
+    "cleared_date": "2025-05-12"
+  },
+  {
+    "hold_id": "35fdffbe-847e-4285-8f4e-9db7376e6420",
+    "term_code": "2025SU",
+    "student_id": "S000088",
+    "hold_type": "housing",
+    "active": true,
+    "placed_date": "2025-05-11",
+    "cleared_date": null
+  },
+  {
+    "hold_id": "50f0a8da-1bfb-422d-bd00-dd806408a2b0",
+    "term_code": "2025SU",
+    "student_id": "S000095",
+    "hold_type": "conduct",
+    "active": false,
+    "placed_date": "2025-05-15",
+    "cleared_date": "2025-05-15"
+  },
+  {
+    "hold_id": "07e679f8-ee9f-4941-b84a-e32397932be8",
+    "term_code": "2025SU",
+    "student_id": null,
+    "hold_type": "immunization",
+    "active": false,
+    "placed_date": "2025-05-15",
+    "cleared_date": "2025-05-24"
+  },
+  {
+    "hold_id": "72c41dc0-df8b-4951-998d-0f0dad3ab29d",
+    "term_code": "2025SU",
+    "student_id": "S000107",
+    "hold_type": "conduct",
+    "active": true,
+    "placed_date": "2025-05-06",
+    "cleared_date": null
+  },
+  {
+    "hold_id": "ea0feb2f-a8ab-4aa8-aa4f-3a6fb41f8df7",
+    "term_code": "2025SU",
+    "student_id": "S000110",
+    "hold_type": "advising",
+    "active": false,
+    "placed_date": "2025-05-23",
+    "cleared_date": "2025-05-28"
+  },
+  {
+    "hold_id": "a931347d-1e85-40f5-bc10-66d749e9161b",
+    "term_code": "2025SU",
+    "student_id": "S000171",
+    "hold_type": "workday_verification",
+    "active": true,
+    "placed_date": "2025-05-04",
+    "cleared_date": null
+  },
+  {
+    "hold_id": "61a30ca6-4244-45e3-9efa-914351044e26",
+    "term_code": "2025SU",
+    "student_id": "S000188",
+    "hold_type": "housing",
+    "active": true,
+    "placed_date": "2025-05-26",
+    "cleared_date": null
+  },
+  {
+    "hold_id": "6e65152f-7836-4571-9686-d47dbfa0ab3f",
+    "term_code": "2025SU",
+    "student_id": "S000211",
+    "hold_type": "housing",
+    "active": false,
+    "placed_date": "2025-05-23",
+    "cleared_date": "2025-05-27"
+  },
+  {
+    "hold_id": "2f34f0d5-3ca8-413e-8108-68d1a268e2bb",
+    "term_code": "2025SU",
+    "student_id": "S000227",
+    "hold_type": "workday_verification",
+    "active": false,
+    "placed_date": "2025-05-02",
+    "cleared_date": "2025-05-06"
+  },
+  {
+    "hold_id": "b6f6b74c-38c7-4670-9b1d-9d137a28ec18",
+    "term_code": "2025SU",
+    "student_id": "S000229",
+    "hold_type": "housing",
+    "active": true,
+    "placed_date": "2025-05-26",
+    "cleared_date": null
+  },
+  {
+    "hold_id": "a78e4377-56b8-4705-8563-9cf67f106a0c",
+    "term_code": "2025SU",
+    "student_id": "S000239",
+    "hold_type": "financial",
+    "active": false,
+    "placed_date": "2025-05-28",
+    "cleared_date": "2025-05-28"
+  },
+  {
+    "hold_id": "cce92c1b-200b-4dda-be88-2c50955a0872",
+    "term_code": "2025SU",
+    "student_id": null,
+    "hold_type": "housing",
+    "active": true,
+    "placed_date": "2025-05-11",
+    "cleared_date": null
+  },
+  {
+    "hold_id": "654670c1-6fdf-4a11-9ec6-ba7e3af35adb",
+    "term_code": "2025SU",
+    "student_id": "S000254",
+    "hold_type": "advising",
+    "active": false,
+    "placed_date": "2025-05-20",
+    "cleared_date": "2025-05-26"
+  },
+  {
+    "hold_id": "16cea587-af2c-4488-8e21-f89e8e4b638c",
+    "term_code": "2025SU",
+    "student_id": "S000259",
+    "hold_type": "immunization",
+    "active": false,
+    "placed_date": "2025-05-08",
+    "cleared_date": "2025-05-15"
+  },
+  {
+    "hold_id": "2fe93705-909d-446b-b21b-c66fec7a71f5",
+    "term_code": "2025SU",
+    "student_id": "S000261",
+    "hold_type": "immunization",
+    "active": false,
+    "placed_date": "2025-05-03",
+    "cleared_date": "2025-05-13"
+  },
+  {
+    "hold_id": "7a75f81a-2d58-45f7-b6a3-d57ae27546cb",
+    "term_code": "2025SU",
+    "student_id": "S000263",
+    "hold_type": "immunization",
+    "active": false,
+    "placed_date": "2025-05-01",
+    "cleared_date": "2025-05-03"
+  },
+  {
+    "hold_id": "ff8d8a79-0229-4f01-b05a-b8b942d9bd67",
+    "term_code": "2025SU",
+    "student_id": "S000285",
+    "hold_type": "financial",
+    "active": true,
+    "placed_date": "2025-05-24",
+    "cleared_date": null
+  },
+  {
+    "hold_id": "ce171bf1-f2c1-4df7-aff0-0d3b590dad33",
+    "term_code": "2025SU",
+    "student_id": "S000292",
+    "hold_type": "workday_verification",
+    "active": false,
+    "placed_date": "2025-05-13",
+    "cleared_date": "2025-05-28"
+  },
+  {
+    "hold_id": "92ee93fd-744b-4972-9eed-2a33ddfd5654",
+    "term_code": "2025SU",
+    "student_id": "S000299",
+    "hold_type": "immunization",
+    "active": false,
+    "placed_date": "2025-05-21",
+    "cleared_date": "2025-05-27"
+  },
+  {
+    "hold_id": "62744a31-6413-49e6-b696-85ddc50aed06",
+    "term_code": "2025SU",
+    "student_id": null,
+    "hold_type": "immunization",
+    "active": true,
+    "placed_date": "2025-05-08",
+    "cleared_date": null
+  },
+  {
+    "hold_id": "06b96ecc-3862-43a4-a84f-defcea9d3762",
+    "term_code": "2025SU",
+    "student_id": "S000321",
+    "hold_type": "housing",
+    "active": true,
+    "placed_date": "2025-05-17",
+    "cleared_date": null
+  },
+  {
+    "hold_id": "3b5f5bda-f2cc-4210-a8f9-05e0dea31fae",
+    "term_code": "2025SU",
+    "student_id": "S000343",
+    "hold_type": "advising",
+    "active": false,
+    "placed_date": "2025-05-11",
+    "cleared_date": "2025-05-11"
+  },
+  {
+    "hold_id": "65a51337-0af1-44ae-904e-9bd1c899194e",
+    "term_code": "2025SU",
+    "student_id": "S000344",
+    "hold_type": "immunization",
+    "active": true,
+    "placed_date": "2025-05-28",
+    "cleared_date": null
+  },
+  {
+    "hold_id": "12da3c6a-1d50-4d27-9b66-07cc233d3b21",
+    "term_code": "2025SU",
+    "student_id": "S000358",
+    "hold_type": "immunization",
+    "active": true,
+    "placed_date": "2025-05-17",
+    "cleared_date": null
+  },
+  {
+    "hold_id": "4f8ae1a5-632d-44eb-9fe8-6ddac6eba2c0",
+    "term_code": "2025SU",
+    "student_id": "S000364",
+    "hold_type": "advising",
+    "active": false,
+    "placed_date": "2025-05-04",
+    "cleared_date": "2025-05-11"
+  },
+  {
+    "hold_id": "1dc40331-83df-49b5-937c-c827658efba5",
+    "term_code": "2025SU",
+    "student_id": "S000369",
+    "hold_type": "housing",
+    "active": false,
+    "placed_date": "2025-05-05",
+    "cleared_date": "2025-05-18"
+  },
+  {
+    "hold_id": "b254911d-93d6-420e-9ad8-ca6ab0784be7",
+    "term_code": "2025SU",
+    "student_id": "S000375",
+    "hold_type": "conduct",
+    "active": false,
+    "placed_date": "2025-05-17",
+    "cleared_date": "2025-05-27"
+  },
+  {
+    "hold_id": "cf43687e-3308-49f6-866c-1b474cc3ad34",
+    "term_code": "2025SU",
+    "student_id": "S000383",
+    "hold_type": "workday_verification",
+    "active": true,
+    "placed_date": "2025-05-18",
+    "cleared_date": null
+  },
+  {
+    "hold_id": "18edec63-357e-47c2-9323-c22ef52a2d10",
+    "term_code": "2025SU",
+    "student_id": "S000394",
+    "hold_type": "conduct",
+    "active": false,
+    "placed_date": "2025-05-01",
+    "cleared_date": "2025-05-16"
+  },
+  {
+    "hold_id": "2fdaf45b-a762-4967-aa83-0625f32516e5",
+    "term_code": "2025SU",
+    "student_id": "S000396",
+    "hold_type": "conduct",
+    "active": true,
+    "placed_date": "2025-05-04",
+    "cleared_date": null
+  },
+  {
+    "hold_id": "8fea654f-3c17-42a1-ab6a-081a86ddb241",
+    "term_code": "2025SU",
+    "student_id": "S000410",
+    "hold_type": "conduct",
+    "active": false,
+    "placed_date": "2025-05-13",
+    "cleared_date": "2025-05-21"
+  },
+  {
+    "hold_id": "00150de3-3dcf-4211-88d6-ccd3fa1b946e",
+    "term_code": "2025SU",
+    "student_id": null,
+    "hold_type": "financial",
+    "active": false,
+    "placed_date": "2025-05-28",
+    "cleared_date": "2025-05-28"
+  },
+  {
+    "hold_id": "e6fb36d4-b4df-4c79-8aa3-cdd4c1a575c7",
+    "term_code": "2025SU",
+    "student_id": "S000452",
+    "hold_type": "housing",
+    "active": false,
+    "placed_date": "2025-05-16",
+    "cleared_date": "2025-05-25"
+  },
+  {
+    "hold_id": "a766eccf-51d7-41f9-b682-9beccf152153",
+    "term_code": "2025SU",
+    "student_id": "S000453",
+    "hold_type": "conduct",
+    "active": false,
+    "placed_date": "2025-05-04",
+    "cleared_date": "2025-05-06"
+  },
+  {
+    "hold_id": "af24ceea-b9a5-4de7-be61-7630471e4ae9",
+    "term_code": "2025SU",
+    "student_id": "S000461",
+    "hold_type": "financial",
+    "active": true,
+    "placed_date": "2025-05-14",
+    "cleared_date": null
+  },
+  {
+    "hold_id": "63e3a995-242f-49ad-90ad-0ede17345e95",
+    "term_code": "2025SU",
+    "student_id": null,
+    "hold_type": "workday_verification",
+    "active": true,
+    "placed_date": "2025-05-06",
+    "cleared_date": null
+  },
+  {
+    "hold_id": "6737acb8-c2a3-49a3-b0ec-5d83a7e23ee3",
+    "term_code": "2025SU",
+    "student_id": "S000473",
+    "hold_type": "advising",
+    "active": false,
+    "placed_date": "2025-05-26",
+    "cleared_date": "2025-05-26"
+  },
+  {
+    "hold_id": "c901f457-d074-4e65-bcad-45878cfe1ee2",
+    "term_code": "2025SU",
+    "student_id": "S000486",
+    "hold_type": "immunization",
+    "active": false,
+    "placed_date": "2025-05-01",
+    "cleared_date": "2025-05-20"
+  },
+  {
+    "hold_id": "9a9e8700-00f8-4488-b41e-eeb74fa9146f",
+    "term_code": "2025SU",
+    "student_id": "S000489",
+    "hold_type": "conduct",
+    "active": false,
+    "placed_date": "2025-05-24",
+    "cleared_date": "2025-05-26"
+  },
+  {
+    "hold_id": "fb5878d1-a6d2-4b04-8e2d-fcd5501157fc",
+    "term_code": "2025SU",
+    "student_id": "S000496",
+    "hold_type": "immunization",
+    "active": false,
+    "placed_date": "2025-05-01",
+    "cleared_date": "2025-05-03"
+  },
+  {
+    "hold_id": "78da5059-d898-480b-9f09-a5a8afb43be0",
+    "term_code": "2025SU",
+    "student_id": "S000499",
+    "hold_type": "workday_verification",
+    "active": true,
+    "placed_date": "2025-05-19",
+    "cleared_date": null
+  }
+]

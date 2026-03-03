@@ -1,0 +1,378 @@
+student_id,term_code,class_level,major,credits_attempted,credits_earned,term_gpa,cumulative_gpa,cumulative_credits,enrollment_status,registration_system
+S000001,2023FA,Junior,Physics,18,17,3.36,3.21,88,enrolled,Workday
+S000002,2023FA,Sophomore,English,13,13,3.3,3.41,34,enrolled,Workday
+S000004,2023FA,Sophomore,Mathematics,12,11,2.65,2.57,34,enrolled,Workday
+S000005,2023FA,Sophomore,Economics,14,10,0.12,0.21,38,enrolled,Workday
+S000006,2023FA,Junior,Economics,16,15,3.26,3.13,70,enrolled,Workday
+S000007,2023FA,Senior,Psychology,4,4,3.85,3.12,122,enrolled,Workday
+S000008,2023FA,Freshman,Biochemistry,16,16,3.37,3.31,27,enrolled,Workday
+S000009,2023FA,Sophomore,Biochemistry,12,12,3.72,3.64,47,enrolled,Workday
+S000011,2023FA,Senior,Philosophy,18,18,3.56,3.47,124,enrolled,Workday
+S000012,2023FA,Senior,Politics,3,3,3.54,3.71,104,enrolled,Workday
+S000013,2023FA,Senior,International and Global Studies,17,17,3.69,3.38,120,enrolled,Workday
+S000014,2023FA,Senior,Chemistry,5,5,4.0,3.92,113,enrolled,Workday
+S000015,2023FA,Junior,Economics,18,18,3.9,3.52,71,enrolled,Workday
+S000016,2023FA,Senior,Music,15,15,3.48,3.12,117,enrolled,Workday
+S000017,2023FA,Sophomore,Neuroscience,5,5,3.8,3.95,47,enrolled,Workday
+S000018,2023FA,Freshman,Computer Science,16,14,1.85,2.05,29,enrolled,Workday
+S000019,2023FA,Freshman,Applied Mathematics,7,7,3.03,3.11,12,enrolled,Workday
+S000020,2023FA,Freshman,Anthropology,13,13,3.74,3.73,16,enrolled,Workday
+S000026,2023FA,Senior,Computer Science,12,11,2.19,2.58,96,enrolled,Workday
+S000027,2023FA,Sophomore,Applied Mathematics,14,14,4.0,3.78,33,enrolled,Workday
+S000028,2023FA,Freshman,Economics,15,13,1.67,1.23,26,enrolled,Workday
+S000029,2023FA,Freshman,Biochemistry,17,15,2.45,2.75,29,enrolled,Workday
+S000032,2023FA,Senior,International and Global Studies,13,13,3.68,3.62,110,enrolled,Workday
+S000033,2023FA,Sophomore,American Studies,18,17,3.2,3.19,31,enrolled,Workday
+S000037,2023FA,Junior,Biology,13,12,2.93,3.14,65,enrolled,Workday
+S000038,2023FA,Senior,International and Global Studies,14,14,3.43,3.66,133,enrolled,Workday
+S000039,2023FA,Sophomore,Neuroscience,14,14,3.49,3.4,57,enrolled,Workday
+S000040,2023FA,Sophomore,Music,17,17,3.49,3.21,59,enrolled,Workday
+S000041,2023FA,Sophomore,"Health: Science, Society, and Policy",4,3,1.51,1.44,47,enrolled,Workday
+S000042,2023FA,Freshman,Psychology,13,13,3.55,3.45,21,enrolled,Workday
+S000043,2023FA,Freshman,Neuroscience,4,4,3.91,3.67,15,enrolled,Workday
+S000044,2023FA,Freshman,Biochemistry,15,12,1.31,0.91,26,enrolled,Workday
+S000045,2023FA,Sophomore,International and Global Studies,8,8,4.0,3.69,46,enrolled,Workday
+S000046,2023FA,Freshman,Psychology,16,16,3.47,3.46,21,enrolled,Workday
+S000048,2023FA,Senior,Psychology,17,16,3.22,3.1,96,enrolled,Workday
+S000049,2023FA,Sophomore,Biology,12,11,3.1,3.23,37,enrolled,Workday
+S000050,2023FA,Sophomore,Economics,18,18,3.71,3.89,54,enrolled,Workday
+S000051,2023FA,Freshman,American Studies,15,13,2.39,2.66,21,enrolled,Workday
+S000052,2023FA,Junior,Studio Art,16,14,2.51,3.19,60,enrolled,Workday
+S000053,2023FA,Senior,Economics,13,13,3.36,3.51,109,enrolled,Workday
+S000054,2023FA,Sophomore,Biology,16,15,3.07,3.18,33,enrolled,Workday
+S000055,2023FA,Senior,Biology,4,4,3.0,3.09,110,enrolled,Workday
+S000056,2023FA,Sophomore,Politics,14,14,3.61,3.58,39,enrolled,Workday
+S000057,2023FA,Freshman,Computer Science,,,,3.12,12,not_enrolled,Workday
+S000058,2023FA,Freshman,Politics,18,18,4.0,3.89,29,enrolled,Workday
+S000059,2023FA,Junior,Applied Mathematics,12,12,3.66,3.64,69,enrolled,Workday
+S000060,2023FA,Freshman,Mathematics,6,6,3.82,3.83,12,enrolled,Workday
+S000061,2023FA,Freshman,Neuroscience,17,17,3.72,3.72,18,enrolled,Workday
+S000062,2023FA,Freshman,Computer Science,16,15,3.28,3.19,28,enrolled,Workday
+S000064,2023FA,Freshman,Chemistry,13,11,1.95,2.0,17,enrolled,Workday
+S000065,2023FA,Senior,Biochemistry,13,13,3.29,3.33,129,enrolled,Workday
+S000068,2023FA,Freshman,Philosophy,15,15,3.68,3.68,15,enrolled,Workday
+S000070,2023FA,Freshman,Sociology,,,,3.64,7,not_enrolled,Workday
+S000072,2023FA,Sophomore,Psychology,14,12,1.83,1.85,44,enrolled,Workday
+S000073,2023FA,Sophomore,Biochemistry,,,,1.17,43,not_enrolled,Workday
+S000074,2023FA,Freshman,Economics,13,13,3.79,3.78,28,enrolled,Workday
+S000075,2023FA,Senior,Business,15,15,3.41,3.45,109,enrolled,Workday
+S000076,2023FA,Sophomore,East Asian Studies,12,12,3.82,3.49,57,enrolled,Workday
+S000079,2023FA,Junior,American Studies,16,15,3.18,3.24,72,enrolled,Workday
+S000080,2023FA,Senior,Politics,16,14,2.06,2.53,133,enrolled,Workday
+S000081,2023FA,Freshman,Philosophy,15,14,3.09,3.14,25,enrolled,Workday
+S000082,2023FA,Senior,"Health: Science, Society, and Policy",16,13,1.38,1.5,124,enrolled,Workday
+S000084,2023FA,Sophomore,Neuroscience,17,15,2.59,2.62,44,enrolled,Workday
+S000085,2023FA,Freshman,Economics and Business,12,12,3.64,3.61,18,enrolled,Workday
+S000086,2023FA,Senior,Mathematics,7,7,3.26,3.43,100,enrolled,Workday
+S000087,2023FA,Sophomore,Anthropology,8,8,4.0,3.58,43,enrolled,Workday
+S000089,2023FA,Freshman,International and Global Studies,,,,3.49,27,not_enrolled,Workday
+S000090,2023FA,Junior,Biology,,,,1.85,63,not_enrolled,Workday
+S000091,2023FA,Freshman,Computer Science,,,,3.28,12,not_enrolled,Workday
+S000092,2023FA,Sophomore,English,13,10,1.0,0.63,55,enrolled,Workday
+S000095,2023FA,Senior,Sociology,12,12,3.23,3.2,93,enrolled,Workday
+S000096,2023FA,Junior,Philosophy,13,9,0.27,0.46,75,enrolled,Workday
+S000098,2023FA,Freshman,Biology,12,12,4.0,3.67,27,enrolled,Workday
+S000099,2023FA,Freshman,Computer Science,6,5,2.68,2.3,25,enrolled,Workday
+S000100,2023FA,Senior,Computer Science,9,9,3.29,3.24,103,enrolled,Workday
+S000101,2023FA,Senior,Biochemistry,,,,3.17,113,not_enrolled,Workday
+S000102,2023FA,Sophomore,Psychology,3,3,3.43,3.52,57,enrolled,Workday
+S000103,2023FA,Junior,Computer Science,18,17,3.17,3.06,61,enrolled,Workday
+S000104,2023FA,Junior,Neuroscience,18,17,3.12,3.35,61,enrolled,Workday
+S000105,2023FA,Junior,Economics,13,13,3.66,3.59,69,enrolled,Workday
+S000106,2023FA,Senior,Politics,14,14,3.39,3.08,122,enrolled,Workday
+S000107,2023FA,Senior,Biology,9,9,3.25,3.42,99,enrolled,Workday
+S000108,2023FA,Freshman,Politics,17,13,0.86,0.86,14,enrolled,Workday
+S000109,2023FA,Senior,Computer Science,16,16,3.58,3.49,131,enrolled,Workday
+S000110,2023FA,Sophomore,Environmental Studies,10,10,3.57,3.5,50,enrolled,Workday
+S000114,2023FA,Senior,Biology,6,6,3.78,3.42,108,enrolled,Workday
+S000115,2023FA,Senior,Biology,17,16,3.28,3.02,110,enrolled,Workday
+S000116,2023FA,Freshman,Anthropology,14,11,1.29,1.43,16,enrolled,Workday
+S000117,2023FA,Freshman,Neuroscience,15,12,1.45,1.4,16,enrolled,Workday
+S000119,2023FA,Sophomore,Computer Science,18,17,3.0,3.01,30,enrolled,Workday
+S000120,2023FA,Sophomore,American Studies,16,16,3.92,3.94,40,enrolled,Workday
+S000121,2023FA,Sophomore,Anthropology,14,13,3.12,3.11,42,enrolled,Workday
+S000124,2023FA,Senior,Economics,15,13,1.73,1.93,95,enrolled,Workday
+S000125,2023FA,Sophomore,Sociology,17,16,3.0,2.8,49,enrolled,Workday
+S000126,2023FA,Sophomore,Politics,11,9,1.81,1.83,33,enrolled,Workday
+S000129,2023FA,Senior,Environmental Studies,18,17,3.16,3.14,93,enrolled,Workday
+S000130,2023FA,Senior,Economics,14,14,4.0,3.97,95,enrolled,Workday
+S000131,2023FA,Freshman,Economics,11,11,3.63,3.63,11,enrolled,Workday
+S000132,2023FA,Sophomore,Economics and Business,12,12,3.34,3.45,40,enrolled,Workday
+S000133,2023FA,Senior,Computer Science,15,14,3.14,3.21,111,enrolled,Workday
+S000135,2023FA,Junior,History,16,14,2.39,2.62,68,enrolled,Workday
+S000136,2023FA,Sophomore,Psychology,13,13,3.45,3.39,46,enrolled,Workday
+S000137,2023FA,Senior,Economics,17,12,0.33,0.05,121,enrolled,Workday
+S000138,2023FA,Sophomore,International and Global Studies,10,10,3.15,3.15,31,enrolled,Workday
+S000139,2023FA,Freshman,Neuroscience,8,8,3.69,3.78,28,enrolled,Workday
+S000140,2023FA,Sophomore,International and Global Studies,13,12,3.05,3.38,48,enrolled,Workday
+S000141,2023FA,Junior,Biology,13,13,3.89,3.63,85,enrolled,Workday
+S000142,2023FA,Sophomore,Computer Science,,,,3.76,34,not_enrolled,Workday
+S000143,2023FA,Freshman,Economics,11,11,3.57,3.6,19,enrolled,Workday
+S000144,2023FA,Sophomore,Applied Mathematics,11,10,2.63,2.6,44,enrolled,Workday
+S000146,2023FA,Sophomore,Computer Science,12,11,3.05,3.52,53,enrolled,Workday
+S000147,2023FA,Freshman,Computer Science,,,,3.24,1,not_enrolled,Workday
+S000148,2023FA,Freshman,Economics,15,11,0.46,0.53,17,enrolled,Workday
+S000150,2023FA,Freshman,Studio Art,12,11,2.93,3.0,24,enrolled,Workday
+S000151,2023FA,Sophomore,Psychology,16,16,3.47,3.47,32,enrolled,Workday
+S000153,2023FA,Junior,Anthropology,15,14,3.04,3.19,66,enrolled,Workday
+S000154,2023FA,Sophomore,East Asian Studies,14,14,3.66,3.85,35,enrolled,Workday
+S000155,2023FA,Senior,Music,12,12,3.82,3.86,123,enrolled,Workday
+S000156,2023FA,Freshman,Mathematics,17,17,3.7,3.52,29,enrolled,Workday
+S000159,2023FA,Senior,American Studies,7,7,3.06,3.13,109,enrolled,Workday
+S000160,2023FA,Freshman,Politics,15,14,3.17,3.47,26,enrolled,Workday
+S000162,2023FA,Senior,Computer Science,14,14,3.83,3.58,109,enrolled,Workday
+S000165,2023FA,Sophomore,"Health: Science, Society, and Policy",11,11,3.7,3.67,34,enrolled,Workday
+S000166,2023FA,Freshman,Politics,13,10,0.97,0.91,19,enrolled,Workday
+S000167,2023FA,Freshman,Business,17,16,3.15,3.15,20,enrolled,Workday
+S000168,2023FA,Senior,"Health: Science, Society, and Policy",8,7,2.73,3.46,104,enrolled,Workday
+S000169,2023FA,Senior,Neuroscience,3,3,1.75,1.77,107,enrolled,Workday
+S000171,2023FA,Senior,Biology,13,11,2.05,2.13,103,enrolled,Workday
+S000172,2023FA,Junior,History,4,4,3.34,3.4,67,enrolled,Workday
+S000173,2023FA,Senior,English,10,9,2.93,2.47,112,enrolled,Workday
+S000174,2023FA,Senior,Computer Science,17,17,3.72,3.78,111,enrolled,Workday
+S000175,2023FA,Senior,Economics and Business,14,14,3.49,3.35,91,enrolled,Workday
+S000176,2023FA,Sophomore,Economics,17,17,3.86,3.54,34,enrolled,Workday
+S000177,2023FA,Sophomore,Philosophy,12,11,3.06,3.32,38,enrolled,Workday
+S000179,2023FA,Senior,Mathematics,3,3,3.58,3.71,122,enrolled,Workday
+S000180,2023FA,Sophomore,Biochemistry,14,13,3.23,3.33,35,enrolled,Workday
+S000182,2023FA,Sophomore,Biochemistry,12,12,3.55,3.5,36,enrolled,Workday
+S000185,2023FA,Freshman,Psychology,5,4,1.22,1.56,20,enrolled,Workday
+S000186,2023FA,Freshman,Computer Science,17,17,3.85,3.86,19,enrolled,Workday
+S000191,2023FA,Sophomore,Philosophy,15,14,2.93,3.2,39,enrolled,Workday
+S000192,2023FA,Sophomore,Computer Science,12,11,2.21,2.34,57,enrolled,Workday
+S000194,2023FA,Sophomore,Neuroscience,14,14,3.5,3.57,42,enrolled,Workday
+S000195,2023FA,Freshman,Mathematics,13,13,3.61,3.52,21,enrolled,Workday
+S000196,2023FA,Senior,Psychology,16,16,3.87,3.6,123,enrolled,Workday
+S000197,2023FA,Sophomore,History,18,18,3.84,3.93,55,enrolled,Workday
+S000198,2023FA,Freshman,Computer Science,17,17,3.61,3.39,29,enrolled,Workday
+S000199,2023FA,Senior,Neuroscience,16,15,3.35,3.14,129,enrolled,Workday
+S000200,2023FA,Freshman,Computer Science,18,18,4.0,4.0,18,enrolled,Workday
+S000201,2023FA,Senior,Physics,16,16,3.76,3.79,100,enrolled,Workday
+S000202,2023FA,Junior,"Health: Science, Society, and Policy",13,13,3.76,3.28,63,enrolled,Workday
+S000203,2023FA,Sophomore,Economics and Business,18,14,0.78,0.69,52,enrolled,Workday
+S000205,2023FA,Senior,Business,12,8,0.0,0.29,96,enrolled,Workday
+S000206,2023FA,Junior,Applied Mathematics,14,13,3.22,3.22,61,enrolled,Workday
+S000209,2023FA,Sophomore,International and Global Studies,7,7,3.76,3.95,59,enrolled,Workday
+S000211,2023FA,Sophomore,Biology,6,6,3.58,3.47,33,enrolled,Workday
+S000213,2023FA,Senior,Economics,17,17,3.57,3.7,123,enrolled,Workday
+S000216,2023FA,Senior,Politics,14,13,3.24,3.2,122,enrolled,Workday
+S000217,2023FA,Junior,Economics,,,,3.35,88,not_enrolled,Workday
+S000218,2023FA,Senior,International and Global Studies,17,17,4.0,3.63,103,enrolled,Workday
+S000219,2023FA,Senior,Economics,16,16,4.0,3.82,102,enrolled,Workday
+S000220,2023FA,Freshman,Music,16,15,2.73,2.83,22,enrolled,Workday
+S000221,2023FA,Freshman,Psychology,16,13,1.02,1.07,27,enrolled,Workday
+S000224,2023FA,Freshman,Sociology,7,7,3.76,3.85,25,enrolled,Workday
+S000226,2023FA,Sophomore,Mathematics,17,15,2.6,3.0,47,enrolled,Workday
+S000227,2023FA,Freshman,History,7,5,1.05,1.06,14,enrolled,Workday
+S000229,2023FA,Sophomore,Computer Science,18,18,4.0,3.95,44,enrolled,Workday
+S000230,2023FA,Freshman,Psychology,12,10,1.17,1.38,16,enrolled,Workday
+S000232,2023FA,Freshman,Business,15,14,3.25,3.26,16,enrolled,Workday
+S000233,2023FA,Freshman,Psychology,9,8,2.96,3.28,20,enrolled,Workday
+S000234,2023FA,Freshman,Psychology,,,,3.61,27,not_enrolled,Workday
+S000235,2023FA,Freshman,Computer Science,13,13,3.33,3.35,18,enrolled,Workday
+S000236,2023FA,Freshman,Physics,16,16,3.92,3.92,24,enrolled,Workday
+S000237,2023FA,Sophomore,Politics,18,17,3.13,3.22,45,enrolled,Workday
+S000238,2023FA,Freshman,Psychology,13,13,3.66,3.59,16,enrolled,Workday
+S000239,2023FA,Freshman,English,13,13,3.94,3.83,19,enrolled,Workday
+S000240,2023FA,Freshman,Studio Art,18,18,3.82,3.68,27,enrolled,Workday
+S000241,2023FA,Freshman,Business,13,13,4.0,3.94,22,enrolled,Workday
+S000243,2023FA,Junior,Music,17,16,3.35,3.24,64,enrolled,Workday
+S000245,2023FA,Senior,Economics and Business,,,,3.87,101,not_enrolled,Workday
+S000246,2023FA,Sophomore,Biology,12,11,3.05,3.04,41,enrolled,Workday
+S000250,2023FA,Senior,Anthropology,18,18,3.5,3.49,92,enrolled,Workday
+S000251,2023FA,Sophomore,Sociology,16,15,3.33,3.19,33,enrolled,Workday
+S000252,2023FA,Freshman,Politics,16,13,1.69,1.71,15,enrolled,Workday
+S000253,2023FA,Freshman,Neuroscience,16,15,3.32,3.35,29,enrolled,Workday
+S000256,2023FA,Sophomore,Environmental Studies,14,14,3.57,3.4,43,enrolled,Workday
+S000257,2023FA,Sophomore,Philosophy,16,16,3.52,3.35,54,enrolled,Workday
+S000258,2023FA,Freshman,History,3,3,2.96,3.01,5,enrolled,Workday
+S000259,2023FA,Freshman,Biology,,,,3.25,5,not_enrolled,Workday
+S000260,2023FA,Senior,Applied Mathematics,5,5,3.43,3.36,106,enrolled,Workday
+S000261,2023FA,Sophomore,Neuroscience,12,11,3.01,3.18,37,enrolled,Workday
+S000262,2023FA,Sophomore,Environmental Studies,15,14,2.92,3.3,34,enrolled,Workday
+S000263,2023FA,Sophomore,Psychology,18,16,2.62,2.89,50,enrolled,Workday
+S000264,2023FA,Junior,Computer Science,18,17,3.37,3.74,71,enrolled,Workday
+S000265,2023FA,Junior,Anthropology,13,11,1.94,1.95,65,enrolled,Workday
+S000266,2023FA,Senior,Neuroscience,15,15,3.66,3.53,93,enrolled,Workday
+S000267,2023FA,Sophomore,Economics,18,17,3.05,3.07,41,enrolled,Workday
+S000268,2023FA,Junior,Physics,16,16,4.0,3.77,68,enrolled,Workday
+S000269,2023FA,Sophomore,International and Global Studies,13,13,4.0,3.57,58,enrolled,Workday
+S000270,2023FA,Sophomore,Physics,16,16,3.43,3.5,41,enrolled,Workday
+S000271,2023FA,Senior,East Asian Studies,15,15,3.47,3.49,120,enrolled,Workday
+S000273,2023FA,Freshman,Politics,11,10,3.17,3.13,23,enrolled,Workday
+S000274,2023FA,Freshman,"Health: Science, Society, and Policy",14,14,3.51,3.38,24,enrolled,Workday
+S000275,2023FA,Sophomore,Applied Mathematics,12,12,4.0,3.93,30,enrolled,Workday
+S000276,2023FA,Sophomore,Biology,11,10,3.1,3.17,45,enrolled,Workday
+S000277,2023FA,Senior,Biochemistry,18,18,3.69,3.55,120,enrolled,Workday
+S000280,2023FA,Sophomore,Physics,12,12,3.73,3.71,59,enrolled,Workday
+S000282,2023FA,Senior,Computer Science,10,9,2.7,3.44,123,enrolled,Workday
+S000283,2023FA,Junior,Biochemistry,15,15,3.68,3.5,62,enrolled,Workday
+S000284,2023FA,Freshman,Anthropology,17,16,3.0,3.0,16,enrolled,Workday
+S000285,2023FA,Sophomore,Computer Science,,,,3.36,53,not_enrolled,Workday
+S000287,2023FA,Freshman,"Health: Science, Society, and Policy",5,5,3.37,3.45,14,enrolled,Workday
+S000289,2023FA,Senior,Biology,13,10,1.17,1.19,97,enrolled,Workday
+S000292,2023FA,Junior,Applied Mathematics,,,,3.39,87,not_enrolled,Workday
+S000293,2023FA,Sophomore,Politics,14,13,2.89,3.19,47,enrolled,Workday
+S000295,2023FA,Junior,Politics,7,6,1.23,1.6,64,enrolled,Workday
+S000296,2023FA,Sophomore,"Health: Science, Society, and Policy",3,3,3.51,3.44,59,enrolled,Workday
+S000298,2023FA,Sophomore,Neuroscience,16,15,2.8,3.1,41,enrolled,Workday
+S000299,2023FA,Freshman,Biology,9,8,2.56,2.76,12,enrolled,Workday
+S000300,2023FA,Sophomore,Politics,17,17,4.0,3.94,31,enrolled,Workday
+S000302,2023FA,Sophomore,Neuroscience,12,12,3.99,3.4,33,enrolled,Workday
+S000303,2023FA,Freshman,Biochemistry,12,12,3.44,3.38,29,enrolled,Workday
+S000304,2023FA,Senior,Computer Science,4,4,3.26,3.27,121,enrolled,Workday
+S000305,2023FA,Sophomore,Computer Science,6,5,1.41,1.34,31,enrolled,Workday
+S000306,2023FA,Senior,Psychology,15,15,3.41,3.82,130,enrolled,Workday
+S000307,2023FA,Sophomore,International and Global Studies,4,4,3.78,3.57,30,enrolled,Workday
+S000308,2023FA,Senior,"Health: Science, Society, and Policy",17,17,3.57,3.41,121,enrolled,Workday
+S000310,2023FA,Senior,Politics,4,4,3.91,3.81,90,enrolled,Workday
+S000311,2023FA,Sophomore,Computer Science,15,14,2.94,3.07,43,enrolled,Workday
+S000312,2023FA,Senior,Economics,11,10,2.75,3.07,111,enrolled,Workday
+S000314,2023FA,Freshman,History,18,17,3.13,3.1,18,enrolled,Workday
+S000315,2023FA,Freshman,Economics,5,5,2.74,3.0,25,enrolled,Workday
+S000316,2023FA,Freshman,Psychology,14,10,0.43,0.48,23,enrolled,Workday
+S000317,2023FA,Freshman,Psychology,18,18,4.0,4.0,26,enrolled,Workday
+S000318,2023FA,Sophomore,Anthropology,17,15,2.37,2.77,37,enrolled,Workday
+S000320,2023FA,Sophomore,Sociology,18,17,2.74,3.21,45,enrolled,Workday
+S000321,2023FA,Senior,Applied Mathematics,17,17,4.0,3.63,92,enrolled,Workday
+S000322,2023FA,Freshman,Studio Art,15,12,1.5,1.65,28,enrolled,Workday
+S000323,2023FA,Senior,Neuroscience,15,14,3.32,3.14,124,enrolled,Workday
+S000324,2023FA,Senior,Biology,15,15,4.0,3.97,124,enrolled,Workday
+S000325,2023FA,Senior,Studio Art,13,11,1.77,1.8,107,enrolled,Workday
+S000330,2023FA,Freshman,Computer Science,12,11,3.03,3.07,14,enrolled,Workday
+S000331,2023FA,Sophomore,Studio Art,18,18,3.44,3.42,45,enrolled,Workday
+S000332,2023FA,Sophomore,Biochemistry,8,7,2.39,2.91,31,enrolled,Workday
+S000333,2023FA,Sophomore,Biochemistry,14,13,3.28,3.34,40,enrolled,Workday
+S000334,2023FA,Sophomore,Sociology,16,16,3.63,3.74,43,enrolled,Workday
+S000335,2023FA,Sophomore,Mathematics,18,17,2.77,3.03,36,enrolled,Workday
+S000336,2023FA,Sophomore,Sociology,14,13,3.24,3.59,39,enrolled,Workday
+S000337,2023FA,Sophomore,Politics,15,15,3.46,3.47,36,enrolled,Workday
+S000339,2023FA,Sophomore,Neuroscience,13,13,4.0,3.89,45,enrolled,Workday
+S000340,2023FA,Senior,International and Global Studies,18,18,3.76,3.62,108,enrolled,Workday
+S000341,2023FA,Freshman,Biology,6,6,3.66,3.62,7,enrolled,Workday
+S000342,2023FA,Junior,Neuroscience,12,12,3.53,3.73,80,enrolled,Workday
+S000343,2023FA,Senior,Computer Science,13,13,4.0,3.75,93,enrolled,Workday
+S000344,2023FA,Freshman,Physics,12,12,3.38,3.37,23,enrolled,Workday
+S000345,2023FA,Sophomore,International and Global Studies,17,17,3.61,3.56,31,enrolled,Workday
+S000346,2023FA,Senior,English,18,17,3.14,3.3,106,enrolled,Workday
+S000347,2023FA,Sophomore,Physics,17,16,3.08,3.35,36,enrolled,Workday
+S000349,2023FA,Sophomore,Psychology,17,16,3.19,3.12,46,enrolled,Workday
+S000350,2023FA,Sophomore,International and Global Studies,10,9,2.64,2.95,45,enrolled,Workday
+S000351,2023FA,Sophomore,English,17,17,4.0,3.9,51,enrolled,Workday
+S000352,2023FA,Senior,Biochemistry,13,13,3.36,3.44,130,enrolled,Workday
+S000353,2023FA,Freshman,Biology,16,12,0.72,0.7,13,enrolled,Workday
+S000355,2023FA,Sophomore,Psychology,18,17,3.12,3.2,43,enrolled,Workday
+S000356,2023FA,Senior,American Studies,17,14,1.68,1.92,91,enrolled,Workday
+S000357,2023FA,Sophomore,Biochemistry,15,11,0.6,1.09,37,enrolled,Workday
+S000360,2023FA,Sophomore,International and Global Studies,18,18,3.93,3.64,34,enrolled,Workday
+S000362,2023FA,Freshman,Biology,6,6,3.11,3.41,27,enrolled,Workday
+S000363,2023FA,Sophomore,Economics,17,17,3.66,3.49,52,enrolled,Workday
+S000365,2023FA,Sophomore,Computer Science,12,10,1.81,1.73,36,enrolled,Workday
+S000366,2023FA,Freshman,Psychology,16,16,3.97,3.89,26,enrolled,Workday
+S000367,2023FA,Junior,Neuroscience,18,18,4.0,3.99,64,enrolled,Workday
+S000368,2023FA,Junior,Biology,14,12,1.76,1.22,68,enrolled,Workday
+S000369,2023FA,Senior,Biochemistry,18,17,3.11,3.31,129,enrolled,Workday
+S000371,2023FA,Sophomore,Economics,14,11,0.91,0.62,36,enrolled,Workday
+S000372,2023FA,Freshman,English,14,14,4.0,3.91,19,enrolled,Workday
+S000373,2023FA,Sophomore,Business,18,18,3.43,3.32,50,enrolled,Workday
+S000374,2023FA,Sophomore,Psychology,5,4,0.0,0.01,58,enrolled,Workday
+S000376,2023FA,Freshman,Politics,18,18,3.59,3.54,21,enrolled,Workday
+S000377,2023FA,Sophomore,Computer Science,15,15,3.93,3.63,42,enrolled,Workday
+S000378,2023FA,Junior,Politics,16,16,3.69,3.71,84,enrolled,Workday
+S000379,2023FA,Freshman,English,12,12,3.94,3.83,26,enrolled,Workday
+S000381,2023FA,Junior,Biology,12,12,3.52,3.66,62,enrolled,Workday
+S000382,2023FA,Freshman,Environmental Studies,17,17,3.89,3.84,19,enrolled,Workday
+S000383,2023FA,Freshman,Mathematics,14,12,2.13,2.12,29,enrolled,Workday
+S000385,2023FA,Freshman,Computer Science,10,10,3.24,3.7,28,enrolled,Workday
+S000386,2023FA,Sophomore,Computer Science,15,14,3.27,3.38,43,enrolled,Workday
+S000387,2023FA,Sophomore,Music,12,9,0.82,0.54,41,enrolled,Workday
+S000388,2023FA,Freshman,Economics,,,,3.32,27,not_enrolled,Workday
+S000392,2023FA,Junior,Psychology,18,18,4.0,3.92,73,enrolled,Workday
+S000393,2023FA,Sophomore,History,13,13,3.54,3.33,33,enrolled,Workday
+S000394,2023FA,Freshman,Business,,,,1.67,28,not_enrolled,Workday
+S000395,2023FA,Junior,"Health: Science, Society, and Policy",14,13,2.89,3.47,78,enrolled,Workday
+S000396,2023FA,Junior,American Studies,12,11,3.02,3.29,88,enrolled,Workday
+S000397,2023FA,Sophomore,Business,12,11,3.12,2.93,44,enrolled,Workday
+S000399,2023FA,Junior,Computer Science,18,18,3.64,3.76,64,enrolled,Workday
+S000400,2023FA,Freshman,Computer Science,13,13,3.89,3.89,13,enrolled,Workday
+S000401,2023FA,Junior,Biochemistry,13,13,3.62,3.6,61,enrolled,Workday
+S000402,2023FA,Freshman,History,5,5,3.51,3.51,5,enrolled,Workday
+S000403,2023FA,Sophomore,Business,18,18,3.61,3.71,59,enrolled,Workday
+S000404,2023FA,Senior,History,17,16,3.33,3.52,107,enrolled,Workday
+S000405,2023FA,Senior,Computer Science,14,14,3.38,3.8,118,enrolled,Workday
+S000407,2023FA,Freshman,Psychology,17,16,2.97,2.97,16,enrolled,Workday
+S000408,2023FA,Junior,Computer Science,17,16,3.16,3.46,81,enrolled,Workday
+S000409,2023FA,Junior,Economics,14,13,3.28,3.88,89,enrolled,Workday
+S000410,2023FA,Junior,Economics,,,,2.82,79,not_enrolled,Workday
+S000411,2023FA,Sophomore,"Health: Science, Society, and Policy",13,12,2.7,2.8,36,enrolled,Workday
+S000412,2023FA,Junior,Politics,13,12,2.81,2.69,86,enrolled,Workday
+S000413,2023FA,Senior,Studio Art,10,9,2.57,3.06,119,enrolled,Workday
+S000415,2023FA,Sophomore,American Studies,12,11,2.92,3.02,35,enrolled,Workday
+S000416,2023FA,Junior,Computer Science,6,6,3.47,3.44,80,enrolled,Workday
+S000417,2023FA,Sophomore,Biochemistry,15,15,4.0,3.9,34,enrolled,Workday
+S000418,2023FA,Junior,Environmental Studies,15,11,0.81,0.14,70,enrolled,Workday
+S000419,2023FA,Senior,Psychology,,,,3.64,112,not_enrolled,Workday
+S000420,2023FA,Sophomore,Computer Science,16,14,2.25,2.09,31,enrolled,Workday
+S000421,2023FA,Sophomore,East Asian Studies,12,11,2.31,2.71,51,enrolled,Workday
+S000422,2023FA,Junior,Economics,16,15,3.34,3.51,82,enrolled,Workday
+S000423,2023FA,Sophomore,American Studies,13,12,2.94,3.1,52,enrolled,Workday
+S000426,2023FA,Freshman,Neuroscience,14,13,2.9,2.95,17,enrolled,Workday
+S000428,2023FA,Junior,Politics,15,14,2.91,3.0,71,enrolled,Workday
+S000429,2023FA,Sophomore,Biochemistry,8,8,3.77,3.72,43,enrolled,Workday
+S000431,2023FA,Junior,Anthropology,15,15,4.0,3.8,68,enrolled,Workday
+S000432,2023FA,Sophomore,Computer Science,11,11,4.0,3.99,35,enrolled,Workday
+S000433,2023FA,Freshman,Economics,13,12,3.04,3.29,25,enrolled,Workday
+S000434,2023FA,Junior,Applied Mathematics,16,16,3.58,3.85,65,enrolled,Workday
+S000436,2023FA,Senior,Biology,18,16,2.49,2.24,107,enrolled,Workday
+S000437,2023FA,Senior,Philosophy,18,17,2.8,3.14,102,enrolled,Workday
+S000438,2023FA,Junior,International and Global Studies,5,5,3.71,3.52,63,enrolled,Workday
+S000439,2023FA,Junior,"Health: Science, Society, and Policy",14,14,3.82,3.62,69,enrolled,Workday
+S000440,2023FA,Freshman,International and Global Studies,,,,3.22,3,not_enrolled,Workday
+S000441,2023FA,Senior,Applied Mathematics,14,13,3.26,3.32,101,enrolled,Workday
+S000444,2023FA,Freshman,Economics,13,10,0.49,0.53,15,enrolled,Workday
+S000445,2023FA,Senior,Physics,17,13,1.15,0.93,108,enrolled,Workday
+S000446,2023FA,Senior,Mathematics,16,15,2.96,3.16,112,enrolled,Workday
+S000447,2023FA,Junior,Biology,13,13,4.0,4.0,61,enrolled,Workday
+S000450,2023FA,Senior,Mathematics,13,13,3.52,3.5,97,enrolled,Workday
+S000451,2023FA,Senior,Biochemistry,15,12,1.04,0.77,106,enrolled,Workday
+S000452,2023FA,Senior,Economics,14,13,3.23,3.12,98,enrolled,Workday
+S000453,2023FA,Freshman,Biology,10,10,3.14,3.3,27,enrolled,Workday
+S000454,2023FA,Sophomore,"Health: Science, Society, and Policy",16,16,3.44,3.61,59,enrolled,Workday
+S000456,2023FA,Senior,Computer Science,17,17,3.84,3.56,134,enrolled,Workday
+S000457,2023FA,Sophomore,Computer Science,13,12,2.39,2.55,41,enrolled,Workday
+S000458,2023FA,Senior,Psychology,7,6,1.81,1.91,105,enrolled,Workday
+S000459,2023FA,Freshman,East Asian Studies,,,,,0,not_enrolled,Workday
+S000460,2023FA,Junior,Psychology,7,5,0.0,0.2,62,enrolled,Workday
+S000461,2023FA,Junior,Chemistry,14,14,3.36,3.4,61,enrolled,Workday
+S000462,2023FA,Sophomore,Philosophy,18,18,4.0,3.94,43,enrolled,Workday
+S000463,2023FA,Senior,Mathematics,12,12,3.27,3.03,99,enrolled,Workday
+S000464,2023FA,Freshman,Chemistry,13,12,3.16,3.12,18,enrolled,Workday
+S000465,2023FA,Sophomore,Physics,17,17,3.65,3.45,42,enrolled,Workday
+S000468,2023FA,Junior,Biology,14,11,0.82,1.03,87,enrolled,Workday
+S000470,2023FA,Sophomore,Biochemistry,17,16,3.37,3.26,54,enrolled,Workday
+S000471,2023FA,Sophomore,Economics,12,12,3.36,3.28,41,enrolled,Workday
+S000472,2023FA,Freshman,Computer Science,15,14,2.76,2.83,17,enrolled,Workday
+S000473,2023FA,Sophomore,Biochemistry,17,16,3.29,3.24,41,enrolled,Workday
+S000474,2023FA,Sophomore,International and Global Studies,14,14,4.0,3.82,53,enrolled,Workday
+S000475,2023FA,Freshman,International and Global Studies,9,9,3.43,3.35,15,enrolled,Workday
+S000477,2023FA,Sophomore,Physics,16,15,3.09,3.14,45,enrolled,Workday
+S000478,2023FA,Junior,Physics,12,10,1.19,1.57,61,enrolled,Workday
+S000479,2023FA,Freshman,Studio Art,,,,3.45,7,not_enrolled,Workday
+S000482,2023FA,Sophomore,History,15,15,3.56,3.49,38,enrolled,Workday
+S000483,2023FA,Freshman,Neuroscience,15,15,3.76,3.69,21,enrolled,Workday
+S000484,2023FA,Senior,"Health: Science, Society, and Policy",15,14,2.69,2.27,115,enrolled,Workday
+S000486,2023FA,Senior,Physics,17,16,3.02,3.2,106,enrolled,Workday
+S000487,2023FA,Freshman,Physics,13,11,2.15,2.05,23,enrolled,Workday
+S000488,2023FA,Senior,Biology,16,14,2.52,2.48,120,enrolled,Workday
+S000489,2023FA,Sophomore,Biology,16,15,3.16,3.35,35,enrolled,Workday
+S000490,2023FA,Sophomore,Biochemistry,14,13,3.09,3.32,41,enrolled,Workday
+S000491,2023FA,Senior,Physics,,,,3.74,105,not_enrolled,Workday
+S000492,2023FA,Junior,Biology,18,17,3.03,3.1,72,enrolled,Workday
+S000493,2023FA,Sophomore,Mathematics,14,12,1.85,2.05,34,enrolled,Workday
+S000494,2023FA,Freshman,Chemistry,15,13,1.9,1.91,15,enrolled,Workday
+S000495,2023FA,Freshman,Philosophy,18,18,4.0,3.99,20,enrolled,Workday
+S000496,2023FA,Senior,International and Global Studies,15,11,0.2,0.41,114,enrolled,Workday
+S000497,2023FA,Freshman,Physics,17,16,3.34,3.34,16,enrolled,Workday
+S000498,2023FA,Senior,American Studies,,,,3.73,115,not_enrolled,Workday
+S000499,2023FA,Sophomore,Economics and Business,8,7,2.71,3.03,36,enrolled,Workday
+S000500,2023FA,Freshman,Economics,12,10,1.58,1.75,21,enrolled,Workday

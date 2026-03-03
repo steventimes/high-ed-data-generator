@@ -1,0 +1,5002 @@
+[
+  {
+    "student_id": "S000001",
+    "full_name": "Jordan Nguyen",
+    "email": "jordannguyen@brandeis.edu",
+    "birth_date": "1996-06-18",
+    "admit_term": "2023FA",
+    "initial_major": "Physics",
+    "initial_year": "Junior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000002",
+    "full_name": "Jordan Johnson",
+    "email": "jordanjohnson@brandeis.edu",
+    "birth_date": "2000-02-04",
+    "admit_term": "2023FA",
+    "initial_major": "English",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000003",
+    "full_name": "Kendall Martinez",
+    "email": "kendallmartinez@brandeis.edu",
+    "birth_date": "2001-05-02",
+    "admit_term": "2025SP",
+    "initial_major": "Biology",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000004",
+    "full_name": "Cameron Miller",
+    "email": "cameronmiller@brandeis.edu",
+    "birth_date": "2006-02-07",
+    "admit_term": "2023FA",
+    "initial_major": "Mathematics",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000005",
+    "full_name": "Cameron Thomas",
+    "email": "cameronthomas@brandeis.edu",
+    "birth_date": "2002-12-08",
+    "admit_term": "2023FA",
+    "initial_major": "Economics",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000006",
+    "full_name": "Cameron Smith",
+    "email": "cameronsmith@brandeis.edu",
+    "birth_date": "2007-06-17",
+    "admit_term": "2023FA",
+    "initial_major": "Economics",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000007",
+    "full_name": "Emerson Johnson",
+    "email": "emersonjohnson@brandeis.edu",
+    "birth_date": "2004-06-03",
+    "admit_term": "2023FA",
+    "initial_major": "Psychology",
+    "initial_year": "Senior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000008",
+    "full_name": "Morgan Walker",
+    "email": "morganwalker@brandeis.edu",
+    "birth_date": "2000-07-23",
+    "admit_term": "2023FA",
+    "initial_major": "Biochemistry",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000009",
+    "full_name": "Rowan Clark",
+    "email": "rowanclark@brandeis.edu",
+    "birth_date": "2005-10-20",
+    "admit_term": "2023FA",
+    "initial_major": "Biochemistry",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000010",
+    "full_name": "Drew Patel",
+    "email": "drewpatel@brandeis.edu",
+    "birth_date": "2005-09-14",
+    "admit_term": "2025SP",
+    "initial_major": "Mathematics",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000011",
+    "full_name": "Devin Lewis",
+    "email": "devinlewis@brandeis.edu",
+    "birth_date": "2001-08-12",
+    "admit_term": "2023FA",
+    "initial_major": "Philosophy",
+    "initial_year": "Senior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000012",
+    "full_name": "Sydney Anderson",
+    "email": "sydneyanderson@brandeis.edu",
+    "birth_date": "1996-07-17",
+    "admit_term": "2023FA",
+    "initial_major": "Politics",
+    "initial_year": "Senior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000013",
+    "full_name": "Kendall Walker",
+    "email": "kendallwalker@brandeis.edu",
+    "birth_date": "2000-10-09",
+    "admit_term": "2023FA",
+    "initial_major": "International and Global Studies",
+    "initial_year": "Senior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000014",
+    "full_name": "Kendall Johnson",
+    "email": "kendalljohnson@brandeis.edu",
+    "birth_date": "2006-04-13",
+    "admit_term": "2023FA",
+    "initial_major": "Chemistry",
+    "initial_year": "Senior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000015",
+    "full_name": "Reese White",
+    "email": "reesewhite@brandeis.edu",
+    "birth_date": "1998-11-04",
+    "admit_term": "2023FA",
+    "initial_major": "Economics",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000016",
+    "full_name": "Casey White",
+    "email": "caseywhite@brandeis.edu",
+    "birth_date": "1996-02-01",
+    "admit_term": "2023FA",
+    "initial_major": "Music",
+    "initial_year": "Senior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000017",
+    "full_name": "Morgan Nguyen",
+    "email": "morgannguyen@brandeis.edu",
+    "birth_date": "2007-10-14",
+    "admit_term": "2023FA",
+    "initial_major": "Neuroscience",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000018",
+    "full_name": "Devin Miller",
+    "email": "devinmiller@brandeis.edu",
+    "birth_date": "2007-05-06",
+    "admit_term": "2023FA",
+    "initial_major": "Computer Science",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000019",
+    "full_name": "Alex Davis",
+    "email": "alexdavis@brandeis.edu",
+    "birth_date": "2004-03-18",
+    "admit_term": "2023FA",
+    "initial_major": "Applied Mathematics",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000020",
+    "full_name": "Jordan Walker",
+    "email": "jordanwalker@brandeis.edu",
+    "birth_date": "2000-09-15",
+    "admit_term": "2023FA",
+    "initial_major": "Anthropology",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000021",
+    "full_name": "Skyler Anderson",
+    "email": "skyleranderson@brandeis.edu",
+    "birth_date": "2004-05-25",
+    "admit_term": "2025SU",
+    "initial_major": "Physics",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000022",
+    "full_name": "Devin Smith",
+    "email": "devinsmith@brandeis.edu",
+    "birth_date": "2000-12-19",
+    "admit_term": "2024SP",
+    "initial_major": "Economics",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000023",
+    "full_name": "Morgan Patel",
+    "email": "morganpatel@brandeis.edu",
+    "birth_date": "2007-01-17",
+    "admit_term": "2024SU",
+    "initial_major": "Biochemistry",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000024",
+    "full_name": "Hayden Walker",
+    "email": "haydenwalker@brandeis.edu",
+    "birth_date": "2001-12-07",
+    "admit_term": "2024FA",
+    "initial_major": "International and Global Studies",
+    "initial_year": "Junior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000025",
+    "full_name": "Jamie Johnson",
+    "email": "jamiejohnson@brandeis.edu",
+    "birth_date": "2000-06-13",
+    "admit_term": "2024FA",
+    "initial_major": "Philosophy",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000026",
+    "full_name": "Jordan White",
+    "email": "jordanwhite@brandeis.edu",
+    "birth_date": "1998-01-02",
+    "admit_term": "2023FA",
+    "initial_major": "Computer Science",
+    "initial_year": "Junior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000027",
+    "full_name": "Emerson Jackson",
+    "email": "emersonjackson@brandeis.edu",
+    "birth_date": "1998-02-02",
+    "admit_term": "2023FA",
+    "initial_major": "Applied Mathematics",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000028",
+    "full_name": "Taylor Thomas",
+    "email": "taylorthomas@brandeis.edu",
+    "birth_date": "1998-08-18",
+    "admit_term": "2023FA",
+    "initial_major": "Economics",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000029",
+    "full_name": "Quinn Walker",
+    "email": "quinnwalker@brandeis.edu",
+    "birth_date": "2008-04-26",
+    "admit_term": "2023FA",
+    "initial_major": "Biochemistry",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000030",
+    "full_name": "Alex Smith",
+    "email": "alexsmith@brandeis.edu",
+    "birth_date": "2005-12-19",
+    "admit_term": "2025SU",
+    "initial_major": "Neuroscience",
+    "initial_year": "Senior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000031",
+    "full_name": "Morgan Anderson",
+    "email": "morgananderson@brandeis.edu",
+    "birth_date": "1998-10-08",
+    "admit_term": "2025SU",
+    "initial_major": "Politics",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000032",
+    "full_name": "Taylor Harris",
+    "email": "taylorharris@brandeis.edu",
+    "birth_date": "2004-08-06",
+    "admit_term": "2023FA",
+    "initial_major": "International and Global Studies",
+    "initial_year": "Senior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000033",
+    "full_name": "Kendall Anderson",
+    "email": "kendallanderson@brandeis.edu",
+    "birth_date": "2003-09-26",
+    "admit_term": "2023FA",
+    "initial_major": "American Studies",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000034",
+    "full_name": "Emerson Clark",
+    "email": "emersonclark@brandeis.edu",
+    "birth_date": "2004-09-05",
+    "admit_term": "2024FA",
+    "initial_major": "Psychology",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000035",
+    "full_name": "Quinn Garcia",
+    "email": "quinngarcia@brandeis.edu",
+    "birth_date": "1999-07-02",
+    "admit_term": "2025SU",
+    "initial_major": "American Studies",
+    "initial_year": "Senior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000036",
+    "full_name": "Rowan Jackson",
+    "email": "rowanjackson@brandeis.edu",
+    "birth_date": "2003-10-12",
+    "admit_term": "2024FA",
+    "initial_major": "Applied Mathematics",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000037",
+    "full_name": "Kendall Wilson",
+    "email": "kendallwilson@brandeis.edu",
+    "birth_date": "2005-05-23",
+    "admit_term": "2023FA",
+    "initial_major": "Biology",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000038",
+    "full_name": "Skyler Nguyen",
+    "email": "skylernguyen@brandeis.edu",
+    "birth_date": "2002-05-03",
+    "admit_term": "2023FA",
+    "initial_major": "International and Global Studies",
+    "initial_year": "Senior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000039",
+    "full_name": "Riley Young",
+    "email": "rileyyoung@brandeis.edu",
+    "birth_date": "2000-01-16",
+    "admit_term": "2023FA",
+    "initial_major": "Neuroscience",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000040",
+    "full_name": "Jordan Davis",
+    "email": "jordandavis@brandeis.edu",
+    "birth_date": "1998-04-01",
+    "admit_term": "2023FA",
+    "initial_major": "Music",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000041",
+    "full_name": "Taylor Walker",
+    "email": "taylorwalker@brandeis.edu",
+    "birth_date": "2007-05-08",
+    "admit_term": "2023FA",
+    "initial_major": "Health: Science, Society, and Policy",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000042",
+    "full_name": "Kendall Jackson",
+    "email": "kendalljackson@brandeis.edu",
+    "birth_date": "2008-07-24",
+    "admit_term": "2023FA",
+    "initial_major": "Psychology",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000043",
+    "full_name": "Alex Lewis",
+    "email": "alexlewis@brandeis.edu",
+    "birth_date": "2006-11-03",
+    "admit_term": "2023FA",
+    "initial_major": "Neuroscience",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000044",
+    "full_name": "Casey Smith",
+    "email": "caseysmith@brandeis.edu",
+    "birth_date": "2000-05-17",
+    "admit_term": "2023FA",
+    "initial_major": "Biochemistry",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000045",
+    "full_name": "Riley Lewis",
+    "email": "rileylewis@brandeis.edu",
+    "birth_date": "2008-08-14",
+    "admit_term": "2023FA",
+    "initial_major": "International and Global Studies",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000046",
+    "full_name": "Morgan Patel",
+    "email": "morganpatel2@brandeis.edu",
+    "birth_date": "2003-12-25",
+    "admit_term": "2023FA",
+    "initial_major": "Psychology",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000047",
+    "full_name": "Rowan Harris",
+    "email": "rowanharris@brandeis.edu",
+    "birth_date": "2007-02-14",
+    "admit_term": "2024FA",
+    "initial_major": "Computer Science",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000048",
+    "full_name": "Morgan Garcia",
+    "email": "morgangarcia@brandeis.edu",
+    "birth_date": "1998-02-24",
+    "admit_term": "2023FA",
+    "initial_major": "Psychology",
+    "initial_year": "Junior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000049",
+    "full_name": "Jordan Martinez",
+    "email": "jordanmartinez@brandeis.edu",
+    "birth_date": "2004-06-16",
+    "admit_term": "2023FA",
+    "initial_major": "Biology",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000050",
+    "full_name": "Drew Garcia",
+    "email": "drewgarcia@brandeis.edu",
+    "birth_date": "2008-08-07",
+    "admit_term": "2023FA",
+    "initial_major": "Economics",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000051",
+    "full_name": "Devin Johnson",
+    "email": "devinjohnson@brandeis.edu",
+    "birth_date": "1996-09-28",
+    "admit_term": "2023FA",
+    "initial_major": "American Studies",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000052",
+    "full_name": "Quinn Kim",
+    "email": "quinnkim@brandeis.edu",
+    "birth_date": "1998-12-05",
+    "admit_term": "2023FA",
+    "initial_major": "Studio Art",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000053",
+    "full_name": "Emerson Lewis",
+    "email": "emersonlewis@brandeis.edu",
+    "birth_date": "2005-09-11",
+    "admit_term": "2023FA",
+    "initial_major": "Economics",
+    "initial_year": "Senior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000054",
+    "full_name": "Riley Johnson",
+    "email": "rileyjohnson@brandeis.edu",
+    "birth_date": "2008-09-27",
+    "admit_term": "2023FA",
+    "initial_major": "Biology",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000055",
+    "full_name": "Jamie Walker",
+    "email": "jamiewalker@brandeis.edu",
+    "birth_date": "1997-06-22",
+    "admit_term": "2023FA",
+    "initial_major": "Biology",
+    "initial_year": "Senior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000056",
+    "full_name": "Taylor Garcia",
+    "email": "taylorgarcia@brandeis.edu",
+    "birth_date": "2006-01-05",
+    "admit_term": "2023FA",
+    "initial_major": "Politics",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000057",
+    "full_name": "Cameron Brown",
+    "email": "cameronbrown@brandeis.edu",
+    "birth_date": "2006-08-10",
+    "admit_term": "2023FA",
+    "initial_major": "Computer Science",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000058",
+    "full_name": "Jordan Miller",
+    "email": "jordanmiller@brandeis.edu",
+    "birth_date": "2000-05-03",
+    "admit_term": "2023FA",
+    "initial_major": "Politics",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000059",
+    "full_name": "Avery Garcia",
+    "email": "averygarcia@brandeis.edu",
+    "birth_date": "1998-07-17",
+    "admit_term": "2023FA",
+    "initial_major": "Applied Mathematics",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000060",
+    "full_name": "Jamie Anderson",
+    "email": "jamieanderson@brandeis.edu",
+    "birth_date": "1996-08-25",
+    "admit_term": "2023FA",
+    "initial_major": "Mathematics",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000061",
+    "full_name": "Jamie Anderson",
+    "email": "jamieanderson2@brandeis.edu",
+    "birth_date": "2000-09-14",
+    "admit_term": "2023FA",
+    "initial_major": "Neuroscience",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000062",
+    "full_name": "Reese Walker",
+    "email": "reesewalker@brandeis.edu",
+    "birth_date": "2005-03-22",
+    "admit_term": "2023FA",
+    "initial_major": "Computer Science",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000063",
+    "full_name": "Rowan Anderson",
+    "email": "rowananderson@brandeis.edu",
+    "birth_date": "2008-10-17",
+    "admit_term": "2024SU",
+    "initial_major": "Computer Science",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000064",
+    "full_name": "Sydney Patel",
+    "email": "sydneypatel@brandeis.edu",
+    "birth_date": "1998-12-13",
+    "admit_term": "2023FA",
+    "initial_major": "Chemistry",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000065",
+    "full_name": "Morgan Clark",
+    "email": "morganclark@brandeis.edu",
+    "birth_date": "1998-03-06",
+    "admit_term": "2023FA",
+    "initial_major": "Biochemistry",
+    "initial_year": "Senior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000066",
+    "full_name": "Quinn Walker",
+    "email": "quinnwalker2@brandeis.edu",
+    "birth_date": "2001-05-16",
+    "admit_term": "2024SP",
+    "initial_major": "Health: Science, Society, and Policy",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000067",
+    "full_name": "Alex Wilson",
+    "email": "alexwilson@brandeis.edu",
+    "birth_date": "2001-05-04",
+    "admit_term": "2025SU",
+    "initial_major": "Health: Science, Society, and Policy",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000068",
+    "full_name": "Jordan Walker",
+    "email": "jordanwalker2@brandeis.edu",
+    "birth_date": "1997-12-25",
+    "admit_term": "2023FA",
+    "initial_major": "Philosophy",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000069",
+    "full_name": "Cameron Young",
+    "email": "cameronyoung@brandeis.edu",
+    "birth_date": "2008-09-04",
+    "admit_term": "2024FA",
+    "initial_major": "Sociology",
+    "initial_year": "Junior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000070",
+    "full_name": "Drew Lewis",
+    "email": "drewlewis@brandeis.edu",
+    "birth_date": "2005-04-16",
+    "admit_term": "2023FA",
+    "initial_major": "Sociology",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000071",
+    "full_name": "Alex Kim",
+    "email": "alexkim@brandeis.edu",
+    "birth_date": "1998-09-24",
+    "admit_term": "2024SU",
+    "initial_major": "Biology",
+    "initial_year": "Senior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000072",
+    "full_name": "Drew White",
+    "email": "drewwhite@brandeis.edu",
+    "birth_date": "2004-06-21",
+    "admit_term": "2023FA",
+    "initial_major": "Psychology",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000073",
+    "full_name": "Avery Brown",
+    "email": "averybrown@brandeis.edu",
+    "birth_date": "2002-11-01",
+    "admit_term": "2023FA",
+    "initial_major": "Biochemistry",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000074",
+    "full_name": "Reese Smith",
+    "email": "reesesmith@brandeis.edu",
+    "birth_date": "2006-03-18",
+    "admit_term": "2023FA",
+    "initial_major": "Economics",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000075",
+    "full_name": "Rowan Miller",
+    "email": "rowanmiller@brandeis.edu",
+    "birth_date": "2000-08-26",
+    "admit_term": "2023FA",
+    "initial_major": "Business",
+    "initial_year": "Senior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000076",
+    "full_name": "Drew Johnson",
+    "email": "drewjohnson@brandeis.edu",
+    "birth_date": "2004-09-26",
+    "admit_term": "2023FA",
+    "initial_major": "East Asian Studies",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000077",
+    "full_name": "Cameron Garcia",
+    "email": "camerongarcia@brandeis.edu",
+    "birth_date": "1998-07-19",
+    "admit_term": "2024SU",
+    "initial_major": "Mathematics",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000078",
+    "full_name": "Reese Martinez",
+    "email": "reesemartinez@brandeis.edu",
+    "birth_date": "1999-01-12",
+    "admit_term": "2025SP",
+    "initial_major": "Anthropology",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000079",
+    "full_name": "Emerson Kim",
+    "email": "emersonkim@brandeis.edu",
+    "birth_date": "1997-07-27",
+    "admit_term": "2023FA",
+    "initial_major": "American Studies",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000080",
+    "full_name": "Riley Martinez",
+    "email": "rileymartinez@brandeis.edu",
+    "birth_date": "1998-04-28",
+    "admit_term": "2023FA",
+    "initial_major": "Politics",
+    "initial_year": "Senior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000081",
+    "full_name": "Riley Walker",
+    "email": "rileywalker@brandeis.edu",
+    "birth_date": "2006-12-19",
+    "admit_term": "2023FA",
+    "initial_major": "Philosophy",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000082",
+    "full_name": "Morgan Johnson",
+    "email": "morganjohnson@brandeis.edu",
+    "birth_date": "1999-10-23",
+    "admit_term": "2023FA",
+    "initial_major": "Health: Science, Society, and Policy",
+    "initial_year": "Senior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000083",
+    "full_name": "Quinn Harris",
+    "email": "quinnharris@brandeis.edu",
+    "birth_date": "2005-05-12",
+    "admit_term": "2024SU",
+    "initial_major": "Computer Science",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000084",
+    "full_name": "Casey Harris",
+    "email": "caseyharris@brandeis.edu",
+    "birth_date": "2004-05-17",
+    "admit_term": "2023FA",
+    "initial_major": "Neuroscience",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000085",
+    "full_name": "Morgan Patel",
+    "email": "morganpatel3@brandeis.edu",
+    "birth_date": "1998-11-19",
+    "admit_term": "2023FA",
+    "initial_major": "Economics and Business",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000086",
+    "full_name": "Riley Kim",
+    "email": "rileykim@brandeis.edu",
+    "birth_date": "2003-03-16",
+    "admit_term": "2023FA",
+    "initial_major": "Mathematics",
+    "initial_year": "Senior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000087",
+    "full_name": "Morgan White",
+    "email": "morganwhite@brandeis.edu",
+    "birth_date": "1997-02-25",
+    "admit_term": "2023FA",
+    "initial_major": "Anthropology",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000088",
+    "full_name": "Jamie Martinez",
+    "email": "jamiemartinez@brandeis.edu",
+    "birth_date": "2003-10-11",
+    "admit_term": "2025SU",
+    "initial_major": "Computer Science",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000089",
+    "full_name": "Sydney Kim",
+    "email": "sydneykim@brandeis.edu",
+    "birth_date": "2006-12-04",
+    "admit_term": "2023FA",
+    "initial_major": "International and Global Studies",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000090",
+    "full_name": "Devin Miller",
+    "email": "devinmiller2@brandeis.edu",
+    "birth_date": "2000-08-07",
+    "admit_term": "2023FA",
+    "initial_major": "Biology",
+    "initial_year": "Junior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000091",
+    "full_name": "Sydney Davis",
+    "email": "sydneydavis@brandeis.edu",
+    "birth_date": "2005-12-14",
+    "admit_term": "2023FA",
+    "initial_major": "Computer Science",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000092",
+    "full_name": "Avery Smith",
+    "email": "averysmith@brandeis.edu",
+    "birth_date": "2006-04-24",
+    "admit_term": "2023FA",
+    "initial_major": "English",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000093",
+    "full_name": "Taylor Young",
+    "email": "tayloryoung@brandeis.edu",
+    "birth_date": "2008-02-08",
+    "admit_term": "2024SP",
+    "initial_major": "Chemistry",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000094",
+    "full_name": "Jamie White",
+    "email": "jamiewhite@brandeis.edu",
+    "birth_date": "2004-07-28",
+    "admit_term": "2025SU",
+    "initial_major": "Psychology",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000095",
+    "full_name": "Jordan Anderson",
+    "email": "jordananderson@brandeis.edu",
+    "birth_date": "1999-01-28",
+    "admit_term": "2023FA",
+    "initial_major": "Sociology",
+    "initial_year": "Junior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000096",
+    "full_name": "Sydney Clark",
+    "email": "sydneyclark@brandeis.edu",
+    "birth_date": "1998-04-24",
+    "admit_term": "2023FA",
+    "initial_major": "Philosophy",
+    "initial_year": "Junior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000097",
+    "full_name": "Parker Johnson",
+    "email": "parkerjohnson@brandeis.edu",
+    "birth_date": "2003-11-11",
+    "admit_term": "2024SU",
+    "initial_major": "Computer Science",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000098",
+    "full_name": "Skyler Smith",
+    "email": "skylersmith@brandeis.edu",
+    "birth_date": "2001-09-25",
+    "admit_term": "2023FA",
+    "initial_major": "Biology",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000099",
+    "full_name": "Casey Nguyen",
+    "email": "caseynguyen@brandeis.edu",
+    "birth_date": "2007-04-15",
+    "admit_term": "2023FA",
+    "initial_major": "Computer Science",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000100",
+    "full_name": "Cameron Davis",
+    "email": "camerondavis@brandeis.edu",
+    "birth_date": "1996-01-12",
+    "admit_term": "2023FA",
+    "initial_major": "Computer Science",
+    "initial_year": "Senior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000101",
+    "full_name": "Kendall Harris",
+    "email": "kendallharris@brandeis.edu",
+    "birth_date": "2000-04-04",
+    "admit_term": "2023FA",
+    "initial_major": "Biochemistry",
+    "initial_year": "Senior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000102",
+    "full_name": "Cameron Jackson",
+    "email": "cameronjackson@brandeis.edu",
+    "birth_date": "1998-10-09",
+    "admit_term": "2023FA",
+    "initial_major": "Psychology",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000103",
+    "full_name": "Skyler Lewis",
+    "email": "skylerlewis@brandeis.edu",
+    "birth_date": "1998-11-08",
+    "admit_term": "2023FA",
+    "initial_major": "Computer Science",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000104",
+    "full_name": "Drew Brown",
+    "email": "drewbrown@brandeis.edu",
+    "birth_date": "1999-06-26",
+    "admit_term": "2023FA",
+    "initial_major": "Neuroscience",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000105",
+    "full_name": "Drew White",
+    "email": "drewwhite2@brandeis.edu",
+    "birth_date": "2004-03-04",
+    "admit_term": "2023FA",
+    "initial_major": "Economics",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000106",
+    "full_name": "Cameron Kim",
+    "email": "cameronkim@brandeis.edu",
+    "birth_date": "1999-11-17",
+    "admit_term": "2023FA",
+    "initial_major": "Politics",
+    "initial_year": "Senior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000107",
+    "full_name": "Taylor Martinez",
+    "email": "taylormartinez@brandeis.edu",
+    "birth_date": "2004-06-01",
+    "admit_term": "2023FA",
+    "initial_major": "Biology",
+    "initial_year": "Senior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000108",
+    "full_name": "Taylor Martinez",
+    "email": "taylormartinez2@brandeis.edu",
+    "birth_date": "2005-10-21",
+    "admit_term": "2023FA",
+    "initial_major": "Politics",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000109",
+    "full_name": "Rowan Anderson",
+    "email": "rowananderson2@brandeis.edu",
+    "birth_date": "2001-01-13",
+    "admit_term": "2023FA",
+    "initial_major": "Computer Science",
+    "initial_year": "Senior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000110",
+    "full_name": "Casey Patel",
+    "email": "caseypatel@brandeis.edu",
+    "birth_date": "2004-05-03",
+    "admit_term": "2023FA",
+    "initial_major": "Environmental Studies",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000111",
+    "full_name": "Drew Nguyen",
+    "email": "drewnguyen@brandeis.edu",
+    "birth_date": "1996-01-08",
+    "admit_term": "2025SU",
+    "initial_major": "Sociology",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000112",
+    "full_name": "Parker Patel",
+    "email": "parkerpatel@brandeis.edu",
+    "birth_date": "2007-12-22",
+    "admit_term": "2025SU",
+    "initial_major": "Philosophy",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000113",
+    "full_name": "Sydney Jackson",
+    "email": "sydneyjackson@brandeis.edu",
+    "birth_date": "2005-08-05",
+    "admit_term": "2024SP",
+    "initial_major": "Biology",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000114",
+    "full_name": "Parker Smith",
+    "email": "parkersmith@brandeis.edu",
+    "birth_date": "2003-07-14",
+    "admit_term": "2023FA",
+    "initial_major": "Biology",
+    "initial_year": "Senior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000115",
+    "full_name": "Jordan Jackson",
+    "email": "jordanjackson@brandeis.edu",
+    "birth_date": "1998-08-03",
+    "admit_term": "2023FA",
+    "initial_major": "Biology",
+    "initial_year": "Senior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000116",
+    "full_name": "Kendall Miller",
+    "email": "kendallmiller@brandeis.edu",
+    "birth_date": "2001-07-09",
+    "admit_term": "2023FA",
+    "initial_major": "Anthropology",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000117",
+    "full_name": "Quinn Lewis",
+    "email": "quinnlewis@brandeis.edu",
+    "birth_date": "2008-09-22",
+    "admit_term": "2023FA",
+    "initial_major": "Neuroscience",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000118",
+    "full_name": "Taylor Clark",
+    "email": "taylorclark@brandeis.edu",
+    "birth_date": "1999-12-12",
+    "admit_term": "2024SU",
+    "initial_major": "International and Global Studies",
+    "initial_year": "Senior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000119",
+    "full_name": "Jamie Wilson",
+    "email": "jamiewilson@brandeis.edu",
+    "birth_date": "1997-09-14",
+    "admit_term": "2023FA",
+    "initial_major": "Computer Science",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000120",
+    "full_name": "Devin Patel",
+    "email": "devinpatel@brandeis.edu",
+    "birth_date": "2007-07-06",
+    "admit_term": "2023FA",
+    "initial_major": "American Studies",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000121",
+    "full_name": "Skyler Wilson",
+    "email": "skylerwilson@brandeis.edu",
+    "birth_date": "2005-02-07",
+    "admit_term": "2023FA",
+    "initial_major": "Anthropology",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000122",
+    "full_name": "Reese Miller",
+    "email": "reesemiller@brandeis.edu",
+    "birth_date": "2000-03-03",
+    "admit_term": "2025SU",
+    "initial_major": "Neuroscience",
+    "initial_year": "Junior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000123",
+    "full_name": "Alex Jackson",
+    "email": "alexjackson@brandeis.edu",
+    "birth_date": "1997-09-19",
+    "admit_term": "2025SP",
+    "initial_major": "Economics",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000124",
+    "full_name": "Taylor Thomas",
+    "email": "taylorthomas2@brandeis.edu",
+    "birth_date": "2001-05-08",
+    "admit_term": "2023FA",
+    "initial_major": "Economics",
+    "initial_year": "Junior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000125",
+    "full_name": "Morgan Thomas",
+    "email": "morganthomas@brandeis.edu",
+    "birth_date": "2003-03-23",
+    "admit_term": "2023FA",
+    "initial_major": "Sociology",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000126",
+    "full_name": "Jamie Harris",
+    "email": "jamieharris@brandeis.edu",
+    "birth_date": "2006-12-01",
+    "admit_term": "2023FA",
+    "initial_major": "Politics",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000127",
+    "full_name": "Emerson Nguyen",
+    "email": "emersonnguyen@brandeis.edu",
+    "birth_date": "2005-03-20",
+    "admit_term": "2024SU",
+    "initial_major": "Economics",
+    "initial_year": "Junior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000128",
+    "full_name": "Alex Harris",
+    "email": "alexharris@brandeis.edu",
+    "birth_date": "2005-07-09",
+    "admit_term": "2024SU",
+    "initial_major": "Computer Science",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000129",
+    "full_name": "Alex Walker",
+    "email": "alexwalker@brandeis.edu",
+    "birth_date": "2008-03-26",
+    "admit_term": "2023FA",
+    "initial_major": "Environmental Studies",
+    "initial_year": "Junior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000130",
+    "full_name": "Drew Kim",
+    "email": "drewkim@brandeis.edu",
+    "birth_date": "1996-01-22",
+    "admit_term": "2023FA",
+    "initial_major": "Economics",
+    "initial_year": "Junior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000131",
+    "full_name": "Jordan White",
+    "email": "jordanwhite2@brandeis.edu",
+    "birth_date": "1997-03-03",
+    "admit_term": "2023FA",
+    "initial_major": "Economics",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000132",
+    "full_name": "Hayden Walker",
+    "email": "haydenwalker2@brandeis.edu",
+    "birth_date": "2002-01-15",
+    "admit_term": "2023FA",
+    "initial_major": "Economics and Business",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000133",
+    "full_name": "Avery Lewis",
+    "email": "averylewis@brandeis.edu",
+    "birth_date": "1998-07-10",
+    "admit_term": "2023FA",
+    "initial_major": "Computer Science",
+    "initial_year": "Senior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000134",
+    "full_name": "Quinn Martinez",
+    "email": "quinnmartinez@brandeis.edu",
+    "birth_date": "1997-04-24",
+    "admit_term": "2025SU",
+    "initial_major": "Chemistry",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000135",
+    "full_name": "Devin Johnson",
+    "email": "devinjohnson2@brandeis.edu",
+    "birth_date": "2008-09-03",
+    "admit_term": "2023FA",
+    "initial_major": "History",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000136",
+    "full_name": "Quinn Brown",
+    "email": "quinnbrown@brandeis.edu",
+    "birth_date": "1996-03-21",
+    "admit_term": "2023FA",
+    "initial_major": "Psychology",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000137",
+    "full_name": "Cameron Clark",
+    "email": "cameronclark@brandeis.edu",
+    "birth_date": "2007-04-04",
+    "admit_term": "2023FA",
+    "initial_major": "Economics",
+    "initial_year": "Senior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000138",
+    "full_name": "Morgan Nguyen",
+    "email": "morgannguyen2@brandeis.edu",
+    "birth_date": "1999-10-16",
+    "admit_term": "2023FA",
+    "initial_major": "International and Global Studies",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000139",
+    "full_name": "Sydney Brown",
+    "email": "sydneybrown@brandeis.edu",
+    "birth_date": "2006-07-21",
+    "admit_term": "2023FA",
+    "initial_major": "Neuroscience",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000140",
+    "full_name": "Kendall Thomas",
+    "email": "kendallthomas@brandeis.edu",
+    "birth_date": "2001-12-26",
+    "admit_term": "2023FA",
+    "initial_major": "International and Global Studies",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000141",
+    "full_name": "Parker Jackson",
+    "email": "parkerjackson@brandeis.edu",
+    "birth_date": "2007-08-21",
+    "admit_term": "2023FA",
+    "initial_major": "Biology",
+    "initial_year": "Junior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000142",
+    "full_name": "Hayden Patel",
+    "email": "haydenpatel@brandeis.edu",
+    "birth_date": "1996-07-20",
+    "admit_term": "2023FA",
+    "initial_major": "Computer Science",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000143",
+    "full_name": "Cameron Anderson",
+    "email": "cameronanderson@brandeis.edu",
+    "birth_date": "1999-11-26",
+    "admit_term": "2023FA",
+    "initial_major": "Economics",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000144",
+    "full_name": "Morgan Harris",
+    "email": "morganharris@brandeis.edu",
+    "birth_date": "2004-08-08",
+    "admit_term": "2023FA",
+    "initial_major": "Applied Mathematics",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000145",
+    "full_name": "Quinn Clark",
+    "email": "quinnclark@brandeis.edu",
+    "birth_date": "2006-03-21",
+    "admit_term": "2024SP",
+    "initial_major": "American Studies",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000146",
+    "full_name": "Parker Brown",
+    "email": "parkerbrown@brandeis.edu",
+    "birth_date": "1999-07-01",
+    "admit_term": "2023FA",
+    "initial_major": "Computer Science",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000147",
+    "full_name": "Emerson Jackson",
+    "email": "emersonjackson2@brandeis.edu",
+    "birth_date": "2008-11-17",
+    "admit_term": "2023FA",
+    "initial_major": "Computer Science",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000148",
+    "full_name": "Morgan Young",
+    "email": "morganyoung@brandeis.edu",
+    "birth_date": "2007-10-12",
+    "admit_term": "2023FA",
+    "initial_major": "Economics",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000149",
+    "full_name": "Parker Wilson",
+    "email": "parkerwilson@brandeis.edu",
+    "birth_date": "1997-03-10",
+    "admit_term": "2025SU",
+    "initial_major": "Economics",
+    "initial_year": "Senior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000150",
+    "full_name": "Kendall Anderson",
+    "email": "kendallanderson2@brandeis.edu",
+    "birth_date": "1997-12-03",
+    "admit_term": "2023FA",
+    "initial_major": "Studio Art",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000151",
+    "full_name": "Jamie Young",
+    "email": "jamieyoung@brandeis.edu",
+    "birth_date": "2002-11-06",
+    "admit_term": "2023FA",
+    "initial_major": "Psychology",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000152",
+    "full_name": "Sydney Johnson",
+    "email": "sydneyjohnson@brandeis.edu",
+    "birth_date": "2006-08-02",
+    "admit_term": "2024SU",
+    "initial_major": "Politics",
+    "initial_year": "Junior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000153",
+    "full_name": "Taylor Garcia",
+    "email": "taylorgarcia2@brandeis.edu",
+    "birth_date": "2003-02-03",
+    "admit_term": "2023FA",
+    "initial_major": "Anthropology",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000154",
+    "full_name": "Devin White",
+    "email": "devinwhite@brandeis.edu",
+    "birth_date": "2004-04-26",
+    "admit_term": "2023FA",
+    "initial_major": "East Asian Studies",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000155",
+    "full_name": "Rowan Clark",
+    "email": "rowanclark2@brandeis.edu",
+    "birth_date": "2003-09-10",
+    "admit_term": "2023FA",
+    "initial_major": "Music",
+    "initial_year": "Senior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000156",
+    "full_name": "Rowan Lewis",
+    "email": "rowanlewis@brandeis.edu",
+    "birth_date": "1996-03-19",
+    "admit_term": "2023FA",
+    "initial_major": "Mathematics",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000157",
+    "full_name": "Parker Walker",
+    "email": "parkerwalker@brandeis.edu",
+    "birth_date": "2005-12-01",
+    "admit_term": "2025SU",
+    "initial_major": "Physics",
+    "initial_year": "Junior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000158",
+    "full_name": "Devin Patel",
+    "email": "devinpatel2@brandeis.edu",
+    "birth_date": "2008-06-05",
+    "admit_term": "2025SP",
+    "initial_major": "Neuroscience",
+    "initial_year": "Senior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000159",
+    "full_name": "Hayden Davis",
+    "email": "haydendavis@brandeis.edu",
+    "birth_date": "1999-05-15",
+    "admit_term": "2023FA",
+    "initial_major": "American Studies",
+    "initial_year": "Senior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000160",
+    "full_name": "Alex White",
+    "email": "alexwhite@brandeis.edu",
+    "birth_date": "2006-12-01",
+    "admit_term": "2023FA",
+    "initial_major": "Politics",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000161",
+    "full_name": "Alex Smith",
+    "email": "alexsmith2@brandeis.edu",
+    "birth_date": "1998-01-21",
+    "admit_term": "2024SU",
+    "initial_major": "Economics",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000162",
+    "full_name": "Skyler Brown",
+    "email": "skylerbrown@brandeis.edu",
+    "birth_date": "2003-02-01",
+    "admit_term": "2023FA",
+    "initial_major": "Computer Science",
+    "initial_year": "Senior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000163",
+    "full_name": "Taylor Nguyen",
+    "email": "taylornguyen@brandeis.edu",
+    "birth_date": "1998-04-06",
+    "admit_term": "2024SP",
+    "initial_major": "Computer Science",
+    "initial_year": "Junior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000164",
+    "full_name": "Quinn Jackson",
+    "email": "quinnjackson@brandeis.edu",
+    "birth_date": "2007-12-28",
+    "admit_term": "2025SP",
+    "initial_major": "East Asian Studies",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000165",
+    "full_name": "Alex Thomas",
+    "email": "alexthomas@brandeis.edu",
+    "birth_date": "1996-06-21",
+    "admit_term": "2023FA",
+    "initial_major": "Health: Science, Society, and Policy",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000166",
+    "full_name": "Parker Jackson",
+    "email": "parkerjackson2@brandeis.edu",
+    "birth_date": "2003-12-04",
+    "admit_term": "2023FA",
+    "initial_major": "Politics",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000167",
+    "full_name": "Drew Kim",
+    "email": "drewkim2@brandeis.edu",
+    "birth_date": "2003-10-12",
+    "admit_term": "2023FA",
+    "initial_major": "Business",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000168",
+    "full_name": "Rowan Smith",
+    "email": "rowansmith@brandeis.edu",
+    "birth_date": "2000-03-06",
+    "admit_term": "2023FA",
+    "initial_major": "Health: Science, Society, and Policy",
+    "initial_year": "Senior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000169",
+    "full_name": "Reese White",
+    "email": "reesewhite2@brandeis.edu",
+    "birth_date": "1997-08-05",
+    "admit_term": "2023FA",
+    "initial_major": "Neuroscience",
+    "initial_year": "Senior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000170",
+    "full_name": "Drew Brown",
+    "email": "drewbrown2@brandeis.edu",
+    "birth_date": "2004-03-27",
+    "admit_term": "2024SP",
+    "initial_major": "Economics",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000171",
+    "full_name": "Taylor White",
+    "email": "taylorwhite@brandeis.edu",
+    "birth_date": "2003-11-24",
+    "admit_term": "2023FA",
+    "initial_major": "Biology",
+    "initial_year": "Senior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000172",
+    "full_name": "Avery Patel",
+    "email": "averypatel@brandeis.edu",
+    "birth_date": "1996-05-08",
+    "admit_term": "2023FA",
+    "initial_major": "History",
+    "initial_year": "Junior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000173",
+    "full_name": "Taylor Thomas",
+    "email": "taylorthomas3@brandeis.edu",
+    "birth_date": "2005-11-14",
+    "admit_term": "2023FA",
+    "initial_major": "English",
+    "initial_year": "Senior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000174",
+    "full_name": "Skyler Miller",
+    "email": "skylermiller@brandeis.edu",
+    "birth_date": "2007-02-19",
+    "admit_term": "2023FA",
+    "initial_major": "Computer Science",
+    "initial_year": "Senior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000175",
+    "full_name": "Sydney Young",
+    "email": "sydneyyoung@brandeis.edu",
+    "birth_date": "2006-05-20",
+    "admit_term": "2023FA",
+    "initial_major": "Economics and Business",
+    "initial_year": "Junior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000176",
+    "full_name": "Quinn Harris",
+    "email": "quinnharris2@brandeis.edu",
+    "birth_date": "2008-12-03",
+    "admit_term": "2023FA",
+    "initial_major": "Economics",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000177",
+    "full_name": "Hayden Johnson",
+    "email": "haydenjohnson@brandeis.edu",
+    "birth_date": "1998-12-02",
+    "admit_term": "2023FA",
+    "initial_major": "Philosophy",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000178",
+    "full_name": "Kendall Kim",
+    "email": "kendallkim@brandeis.edu",
+    "birth_date": "2004-01-08",
+    "admit_term": "2025SU",
+    "initial_major": "Biochemistry",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000179",
+    "full_name": "Hayden Young",
+    "email": "haydenyoung@brandeis.edu",
+    "birth_date": "2004-07-04",
+    "admit_term": "2023FA",
+    "initial_major": "Mathematics",
+    "initial_year": "Senior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000180",
+    "full_name": "Emerson Lewis",
+    "email": "emersonlewis2@brandeis.edu",
+    "birth_date": "1998-09-07",
+    "admit_term": "2023FA",
+    "initial_major": "Biochemistry",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000181",
+    "full_name": "Kendall Patel",
+    "email": "kendallpatel@brandeis.edu",
+    "birth_date": "2003-01-03",
+    "admit_term": "2025SU",
+    "initial_major": "Neuroscience",
+    "initial_year": "Junior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000182",
+    "full_name": "Sydney Lewis",
+    "email": "sydneylewis@brandeis.edu",
+    "birth_date": "1997-08-14",
+    "admit_term": "2023FA",
+    "initial_major": "Biochemistry",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000183",
+    "full_name": "Riley Garcia",
+    "email": "rileygarcia@brandeis.edu",
+    "birth_date": "2007-10-22",
+    "admit_term": "2024SP",
+    "initial_major": "Biochemistry",
+    "initial_year": "Junior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000184",
+    "full_name": "Reese Anderson",
+    "email": "reeseanderson@brandeis.edu",
+    "birth_date": "1996-08-24",
+    "admit_term": "2024FA",
+    "initial_major": "English",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000185",
+    "full_name": "Rowan Nguyen",
+    "email": "rowannguyen@brandeis.edu",
+    "birth_date": "2002-03-05",
+    "admit_term": "2023FA",
+    "initial_major": "Psychology",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000186",
+    "full_name": "Cameron Clark",
+    "email": "cameronclark2@brandeis.edu",
+    "birth_date": "1997-02-28",
+    "admit_term": "2023FA",
+    "initial_major": "Computer Science",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000187",
+    "full_name": "Casey Clark",
+    "email": "caseyclark@brandeis.edu",
+    "birth_date": "2003-04-07",
+    "admit_term": "2024SU",
+    "initial_major": "Business",
+    "initial_year": "Senior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000188",
+    "full_name": "Sydney Wilson",
+    "email": "sydneywilson@brandeis.edu",
+    "birth_date": "1998-01-22",
+    "admit_term": "2024SU",
+    "initial_major": "Computer Science",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000189",
+    "full_name": "Devin Wilson",
+    "email": "devinwilson@brandeis.edu",
+    "birth_date": "1999-10-01",
+    "admit_term": "2024FA",
+    "initial_major": "Biology",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000190",
+    "full_name": "Taylor Brown",
+    "email": "taylorbrown@brandeis.edu",
+    "birth_date": "2000-08-17",
+    "admit_term": "2024SP",
+    "initial_major": "Sociology",
+    "initial_year": "Junior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000191",
+    "full_name": "Alex Thomas",
+    "email": "alexthomas2@brandeis.edu",
+    "birth_date": "2008-02-06",
+    "admit_term": "2023FA",
+    "initial_major": "Philosophy",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000192",
+    "full_name": "Riley Brown",
+    "email": "rileybrown@brandeis.edu",
+    "birth_date": "1996-03-26",
+    "admit_term": "2023FA",
+    "initial_major": "Computer Science",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000193",
+    "full_name": "Kendall Young",
+    "email": "kendallyoung@brandeis.edu",
+    "birth_date": "2002-03-14",
+    "admit_term": "2024SU",
+    "initial_major": "Psychology",
+    "initial_year": "Senior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000194",
+    "full_name": "Emerson Harris",
+    "email": "emersonharris@brandeis.edu",
+    "birth_date": "1996-06-28",
+    "admit_term": "2023FA",
+    "initial_major": "Neuroscience",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000195",
+    "full_name": "Cameron Anderson",
+    "email": "cameronanderson2@brandeis.edu",
+    "birth_date": "2000-07-23",
+    "admit_term": "2023FA",
+    "initial_major": "Mathematics",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000196",
+    "full_name": "Skyler Thomas",
+    "email": "skylerthomas@brandeis.edu",
+    "birth_date": "1996-07-09",
+    "admit_term": "2023FA",
+    "initial_major": "Psychology",
+    "initial_year": "Senior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000197",
+    "full_name": "Taylor Walker",
+    "email": "taylorwalker2@brandeis.edu",
+    "birth_date": "1997-12-24",
+    "admit_term": "2023FA",
+    "initial_major": "History",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000198",
+    "full_name": "Avery Nguyen",
+    "email": "averynguyen@brandeis.edu",
+    "birth_date": "1997-04-27",
+    "admit_term": "2023FA",
+    "initial_major": "Computer Science",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000199",
+    "full_name": "Rowan Clark",
+    "email": "rowanclark3@brandeis.edu",
+    "birth_date": "2005-05-10",
+    "admit_term": "2023FA",
+    "initial_major": "Neuroscience",
+    "initial_year": "Senior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000200",
+    "full_name": "Taylor Brown",
+    "email": "taylorbrown2@brandeis.edu",
+    "birth_date": "1997-07-20",
+    "admit_term": "2023FA",
+    "initial_major": "Computer Science",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000201",
+    "full_name": "Morgan Anderson",
+    "email": "morgananderson2@brandeis.edu",
+    "birth_date": "2008-01-17",
+    "admit_term": "2023FA",
+    "initial_major": "Physics",
+    "initial_year": "Junior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000202",
+    "full_name": "Avery Smith",
+    "email": "averysmith2@brandeis.edu",
+    "birth_date": "2008-05-12",
+    "admit_term": "2023FA",
+    "initial_major": "Health: Science, Society, and Policy",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000203",
+    "full_name": "Emerson Smith",
+    "email": "emersonsmith@brandeis.edu",
+    "birth_date": "2002-07-10",
+    "admit_term": "2023FA",
+    "initial_major": "Economics and Business",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000204",
+    "full_name": "Reese Brown",
+    "email": "reesebrown@brandeis.edu",
+    "birth_date": "1996-08-10",
+    "admit_term": "2024SP",
+    "initial_major": "Biochemistry",
+    "initial_year": "Junior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000205",
+    "full_name": "Devin Garcia",
+    "email": "devingarcia@brandeis.edu",
+    "birth_date": "2006-11-15",
+    "admit_term": "2023FA",
+    "initial_major": "Business",
+    "initial_year": "Junior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000206",
+    "full_name": "Reese Martinez",
+    "email": "reesemartinez2@brandeis.edu",
+    "birth_date": "1999-01-03",
+    "admit_term": "2023FA",
+    "initial_major": "Applied Mathematics",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000207",
+    "full_name": "Morgan Patel",
+    "email": "morganpatel4@brandeis.edu",
+    "birth_date": "1998-03-04",
+    "admit_term": "2024SP",
+    "initial_major": "International and Global Studies",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000208",
+    "full_name": "Parker Jackson",
+    "email": "parkerjackson3@brandeis.edu",
+    "birth_date": "2005-02-18",
+    "admit_term": "2025SU",
+    "initial_major": "Neuroscience",
+    "initial_year": "Senior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000209",
+    "full_name": "Jordan Walker",
+    "email": "jordanwalker3@brandeis.edu",
+    "birth_date": "2000-07-15",
+    "admit_term": "2023FA",
+    "initial_major": "International and Global Studies",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000210",
+    "full_name": "Reese Brown",
+    "email": "reesebrown2@brandeis.edu",
+    "birth_date": "2008-04-20",
+    "admit_term": "2024SP",
+    "initial_major": "Environmental Studies",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000211",
+    "full_name": "Parker Wilson",
+    "email": "parkerwilson2@brandeis.edu",
+    "birth_date": "1998-05-10",
+    "admit_term": "2023FA",
+    "initial_major": "Biology",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000212",
+    "full_name": "Jordan Garcia",
+    "email": "jordangarcia@brandeis.edu",
+    "birth_date": "2001-12-24",
+    "admit_term": "2024SU",
+    "initial_major": "Computer Science",
+    "initial_year": "Junior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000213",
+    "full_name": "Emerson White",
+    "email": "emersonwhite@brandeis.edu",
+    "birth_date": "2002-04-10",
+    "admit_term": "2023FA",
+    "initial_major": "Economics",
+    "initial_year": "Senior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000214",
+    "full_name": "Morgan Johnson",
+    "email": "morganjohnson2@brandeis.edu",
+    "birth_date": "2007-12-12",
+    "admit_term": "2024SP",
+    "initial_major": "Neuroscience",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000215",
+    "full_name": "Taylor Martinez",
+    "email": "taylormartinez3@brandeis.edu",
+    "birth_date": "2006-08-18",
+    "admit_term": "2024SP",
+    "initial_major": "Politics",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000216",
+    "full_name": "Parker Nguyen",
+    "email": "parkernguyen@brandeis.edu",
+    "birth_date": "1996-01-18",
+    "admit_term": "2023FA",
+    "initial_major": "Politics",
+    "initial_year": "Senior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000217",
+    "full_name": "Jamie Kim",
+    "email": "jamiekim@brandeis.edu",
+    "birth_date": "2007-10-05",
+    "admit_term": "2023FA",
+    "initial_major": "Economics",
+    "initial_year": "Junior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000218",
+    "full_name": "Parker Patel",
+    "email": "parkerpatel2@brandeis.edu",
+    "birth_date": "2007-12-16",
+    "admit_term": "2023FA",
+    "initial_major": "International and Global Studies",
+    "initial_year": "Junior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000219",
+    "full_name": "Quinn Thomas",
+    "email": "quinnthomas@brandeis.edu",
+    "birth_date": "1998-03-03",
+    "admit_term": "2023FA",
+    "initial_major": "Economics",
+    "initial_year": "Junior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000220",
+    "full_name": "Reese Harris",
+    "email": "reeseharris@brandeis.edu",
+    "birth_date": "1996-06-28",
+    "admit_term": "2023FA",
+    "initial_major": "Music",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000221",
+    "full_name": "Morgan Martinez",
+    "email": "morganmartinez@brandeis.edu",
+    "birth_date": "2007-01-10",
+    "admit_term": "2023FA",
+    "initial_major": "Psychology",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000222",
+    "full_name": "Reese Martinez",
+    "email": "reesemartinez3@brandeis.edu",
+    "birth_date": "2001-12-06",
+    "admit_term": "2024FA",
+    "initial_major": "Biology",
+    "initial_year": "Senior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000223",
+    "full_name": "Devin Clark",
+    "email": "devinclark@brandeis.edu",
+    "birth_date": "1997-09-12",
+    "admit_term": "2024FA",
+    "initial_major": "Economics",
+    "initial_year": "Junior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000224",
+    "full_name": "Rowan Kim",
+    "email": "rowankim@brandeis.edu",
+    "birth_date": "2005-02-13",
+    "admit_term": "2023FA",
+    "initial_major": "Sociology",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000225",
+    "full_name": "Reese Jackson",
+    "email": "reesejackson@brandeis.edu",
+    "birth_date": "2003-09-08",
+    "admit_term": "2024FA",
+    "initial_major": "Economics",
+    "initial_year": "Senior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000226",
+    "full_name": "Jordan White",
+    "email": "jordanwhite3@brandeis.edu",
+    "birth_date": "2007-05-15",
+    "admit_term": "2023FA",
+    "initial_major": "Mathematics",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000227",
+    "full_name": "Riley Clark",
+    "email": "rileyclark@brandeis.edu",
+    "birth_date": "1999-05-09",
+    "admit_term": "2023FA",
+    "initial_major": "History",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000228",
+    "full_name": "Emerson Miller",
+    "email": "emersonmiller@brandeis.edu",
+    "birth_date": "2006-05-14",
+    "admit_term": "2024FA",
+    "initial_major": "Studio Art",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000229",
+    "full_name": "Avery Davis",
+    "email": "averydavis@brandeis.edu",
+    "birth_date": "2007-05-08",
+    "admit_term": "2023FA",
+    "initial_major": "Computer Science",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000230",
+    "full_name": "Jordan Lewis",
+    "email": "jordanlewis@brandeis.edu",
+    "birth_date": "1997-03-03",
+    "admit_term": "2023FA",
+    "initial_major": "Psychology",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000231",
+    "full_name": "Drew Jackson",
+    "email": "drewjackson@brandeis.edu",
+    "birth_date": "2000-04-20",
+    "admit_term": "2025SP",
+    "initial_major": "Computer Science",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000232",
+    "full_name": "Jamie Wilson",
+    "email": "jamiewilson2@brandeis.edu",
+    "birth_date": "2008-11-09",
+    "admit_term": "2023FA",
+    "initial_major": "Business",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000233",
+    "full_name": "Sydney White",
+    "email": "sydneywhite@brandeis.edu",
+    "birth_date": "2008-07-04",
+    "admit_term": "2023FA",
+    "initial_major": "Psychology",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000234",
+    "full_name": "Emerson Thomas",
+    "email": "emersonthomas@brandeis.edu",
+    "birth_date": "1996-07-08",
+    "admit_term": "2023FA",
+    "initial_major": "Psychology",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000235",
+    "full_name": "Morgan Patel",
+    "email": "morganpatel5@brandeis.edu",
+    "birth_date": "1999-11-16",
+    "admit_term": "2023FA",
+    "initial_major": "Computer Science",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000236",
+    "full_name": "Rowan Thomas",
+    "email": "rowanthomas@brandeis.edu",
+    "birth_date": "2007-03-17",
+    "admit_term": "2023FA",
+    "initial_major": "Physics",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000237",
+    "full_name": "Jordan Smith",
+    "email": "jordansmith@brandeis.edu",
+    "birth_date": "2000-10-26",
+    "admit_term": "2023FA",
+    "initial_major": "Politics",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000238",
+    "full_name": "Parker Jackson",
+    "email": "parkerjackson4@brandeis.edu",
+    "birth_date": "1998-08-04",
+    "admit_term": "2023FA",
+    "initial_major": "Psychology",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000239",
+    "full_name": "Reese Lewis",
+    "email": "reeselewis@brandeis.edu",
+    "birth_date": "2001-02-09",
+    "admit_term": "2023FA",
+    "initial_major": "English",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000240",
+    "full_name": "Jordan Davis",
+    "email": "jordandavis2@brandeis.edu",
+    "birth_date": "2004-11-07",
+    "admit_term": "2023FA",
+    "initial_major": "Studio Art",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000241",
+    "full_name": "Avery Miller",
+    "email": "averymiller@brandeis.edu",
+    "birth_date": "2008-02-01",
+    "admit_term": "2023FA",
+    "initial_major": "Business",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000242",
+    "full_name": "Reese Garcia",
+    "email": "reesegarcia@brandeis.edu",
+    "birth_date": "2008-10-18",
+    "admit_term": "2024SP",
+    "initial_major": "History",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000243",
+    "full_name": "Kendall White",
+    "email": "kendallwhite@brandeis.edu",
+    "birth_date": "2004-09-27",
+    "admit_term": "2023FA",
+    "initial_major": "Music",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000244",
+    "full_name": "Devin Lewis",
+    "email": "devinlewis2@brandeis.edu",
+    "birth_date": "2008-01-14",
+    "admit_term": "2024SP",
+    "initial_major": "Neuroscience",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000245",
+    "full_name": "Taylor Patel",
+    "email": "taylorpatel@brandeis.edu",
+    "birth_date": "1999-12-28",
+    "admit_term": "2023FA",
+    "initial_major": "Economics and Business",
+    "initial_year": "Senior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000246",
+    "full_name": "Alex Walker",
+    "email": "alexwalker2@brandeis.edu",
+    "birth_date": "2000-01-20",
+    "admit_term": "2023FA",
+    "initial_major": "Biology",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000247",
+    "full_name": "Drew Davis",
+    "email": "drewdavis@brandeis.edu",
+    "birth_date": "2004-07-11",
+    "admit_term": "2024SP",
+    "initial_major": "Chemistry",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000248",
+    "full_name": "Alex Walker",
+    "email": "alexwalker3@brandeis.edu",
+    "birth_date": "1999-10-25",
+    "admit_term": "2024FA",
+    "initial_major": "Politics",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000249",
+    "full_name": "Quinn Martinez",
+    "email": "quinnmartinez2@brandeis.edu",
+    "birth_date": "2001-03-01",
+    "admit_term": "2025SP",
+    "initial_major": "Computer Science",
+    "initial_year": "Junior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000250",
+    "full_name": "Quinn Clark",
+    "email": "quinnclark2@brandeis.edu",
+    "birth_date": "2001-04-09",
+    "admit_term": "2023FA",
+    "initial_major": "Anthropology",
+    "initial_year": "Junior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000251",
+    "full_name": "Morgan Nguyen",
+    "email": "morgannguyen3@brandeis.edu",
+    "birth_date": "1996-09-04",
+    "admit_term": "2023FA",
+    "initial_major": "Sociology",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000252",
+    "full_name": "Hayden Kim",
+    "email": "haydenkim@brandeis.edu",
+    "birth_date": "1996-07-18",
+    "admit_term": "2023FA",
+    "initial_major": "Politics",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000253",
+    "full_name": "Quinn Martinez",
+    "email": "quinnmartinez3@brandeis.edu",
+    "birth_date": "2001-06-20",
+    "admit_term": "2023FA",
+    "initial_major": "Neuroscience",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000254",
+    "full_name": "Morgan Johnson",
+    "email": "morganjohnson3@brandeis.edu",
+    "birth_date": "1999-08-28",
+    "admit_term": "2024SU",
+    "initial_major": "Sociology",
+    "initial_year": "Senior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000255",
+    "full_name": "Morgan Kim",
+    "email": "morgankim@brandeis.edu",
+    "birth_date": "2008-04-17",
+    "admit_term": "2025SU",
+    "initial_major": "Physics",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000256",
+    "full_name": "Taylor Harris",
+    "email": "taylorharris2@brandeis.edu",
+    "birth_date": "2006-09-25",
+    "admit_term": "2023FA",
+    "initial_major": "Environmental Studies",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000257",
+    "full_name": "Hayden White",
+    "email": "haydenwhite@brandeis.edu",
+    "birth_date": "1996-07-22",
+    "admit_term": "2023FA",
+    "initial_major": "Philosophy",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000258",
+    "full_name": "Riley Brown",
+    "email": "rileybrown2@brandeis.edu",
+    "birth_date": "1998-10-17",
+    "admit_term": "2023FA",
+    "initial_major": "History",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000259",
+    "full_name": "Jordan Smith",
+    "email": "jordansmith2@brandeis.edu",
+    "birth_date": "1996-09-12",
+    "admit_term": "2023FA",
+    "initial_major": "Biology",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000260",
+    "full_name": "Rowan Wilson",
+    "email": "rowanwilson@brandeis.edu",
+    "birth_date": "2004-03-23",
+    "admit_term": "2023FA",
+    "initial_major": "Applied Mathematics",
+    "initial_year": "Senior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000261",
+    "full_name": "Morgan Garcia",
+    "email": "morgangarcia2@brandeis.edu",
+    "birth_date": "1997-01-12",
+    "admit_term": "2023FA",
+    "initial_major": "Neuroscience",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000262",
+    "full_name": "Devin Smith",
+    "email": "devinsmith2@brandeis.edu",
+    "birth_date": "2008-09-03",
+    "admit_term": "2023FA",
+    "initial_major": "Environmental Studies",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000263",
+    "full_name": "Parker Johnson",
+    "email": "parkerjohnson2@brandeis.edu",
+    "birth_date": "2007-01-19",
+    "admit_term": "2023FA",
+    "initial_major": "Psychology",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000264",
+    "full_name": "Cameron Jackson",
+    "email": "cameronjackson2@brandeis.edu",
+    "birth_date": "1998-03-21",
+    "admit_term": "2023FA",
+    "initial_major": "Computer Science",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000265",
+    "full_name": "Reese Kim",
+    "email": "reesekim@brandeis.edu",
+    "birth_date": "2002-08-13",
+    "admit_term": "2023FA",
+    "initial_major": "Anthropology",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000266",
+    "full_name": "Devin Harris",
+    "email": "devinharris@brandeis.edu",
+    "birth_date": "1999-08-02",
+    "admit_term": "2023FA",
+    "initial_major": "Neuroscience",
+    "initial_year": "Junior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000267",
+    "full_name": "Riley Martinez",
+    "email": "rileymartinez2@brandeis.edu",
+    "birth_date": "2005-02-11",
+    "admit_term": "2023FA",
+    "initial_major": "Economics",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000268",
+    "full_name": "Sydney Smith",
+    "email": "sydneysmith@brandeis.edu",
+    "birth_date": "1996-06-13",
+    "admit_term": "2023FA",
+    "initial_major": "Physics",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000269",
+    "full_name": "Skyler Walker",
+    "email": "skylerwalker@brandeis.edu",
+    "birth_date": "1998-08-22",
+    "admit_term": "2023FA",
+    "initial_major": "International and Global Studies",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000270",
+    "full_name": "Casey White",
+    "email": "caseywhite2@brandeis.edu",
+    "birth_date": "1999-10-06",
+    "admit_term": "2023FA",
+    "initial_major": "Physics",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000271",
+    "full_name": "Taylor Smith",
+    "email": "taylorsmith@brandeis.edu",
+    "birth_date": "2004-08-18",
+    "admit_term": "2023FA",
+    "initial_major": "East Asian Studies",
+    "initial_year": "Senior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000272",
+    "full_name": "Parker Brown",
+    "email": "parkerbrown2@brandeis.edu",
+    "birth_date": "1998-12-12",
+    "admit_term": "2025SP",
+    "initial_major": "Studio Art",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000273",
+    "full_name": "Kendall Garcia",
+    "email": "kendallgarcia@brandeis.edu",
+    "birth_date": "1996-06-24",
+    "admit_term": "2023FA",
+    "initial_major": "Politics",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000274",
+    "full_name": "Cameron Harris",
+    "email": "cameronharris@brandeis.edu",
+    "birth_date": "2006-05-17",
+    "admit_term": "2023FA",
+    "initial_major": "Health: Science, Society, and Policy",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000275",
+    "full_name": "Skyler Thomas",
+    "email": "skylerthomas2@brandeis.edu",
+    "birth_date": "2007-08-25",
+    "admit_term": "2023FA",
+    "initial_major": "Applied Mathematics",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000276",
+    "full_name": "Alex Lewis",
+    "email": "alexlewis2@brandeis.edu",
+    "birth_date": "2001-11-22",
+    "admit_term": "2023FA",
+    "initial_major": "Biology",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000277",
+    "full_name": "Skyler Nguyen",
+    "email": "skylernguyen2@brandeis.edu",
+    "birth_date": "2003-10-19",
+    "admit_term": "2023FA",
+    "initial_major": "Biochemistry",
+    "initial_year": "Senior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000278",
+    "full_name": "Avery Walker",
+    "email": "averywalker@brandeis.edu",
+    "birth_date": "1999-06-04",
+    "admit_term": "2025SU",
+    "initial_major": "Neuroscience",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000279",
+    "full_name": "Jamie Garcia",
+    "email": "jamiegarcia@brandeis.edu",
+    "birth_date": "1998-07-02",
+    "admit_term": "2024FA",
+    "initial_major": "Studio Art",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000280",
+    "full_name": "Casey Walker",
+    "email": "caseywalker@brandeis.edu",
+    "birth_date": "1999-09-28",
+    "admit_term": "2023FA",
+    "initial_major": "Physics",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000281",
+    "full_name": "Quinn Miller",
+    "email": "quinnmiller@brandeis.edu",
+    "birth_date": "2005-10-21",
+    "admit_term": "2024SP",
+    "initial_major": "Psychology",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000282",
+    "full_name": "Casey Clark",
+    "email": "caseyclark2@brandeis.edu",
+    "birth_date": "2005-08-09",
+    "admit_term": "2023FA",
+    "initial_major": "Computer Science",
+    "initial_year": "Senior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000283",
+    "full_name": "Casey Anderson",
+    "email": "caseyanderson@brandeis.edu",
+    "birth_date": "2004-03-02",
+    "admit_term": "2023FA",
+    "initial_major": "Biochemistry",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000284",
+    "full_name": "Reese Young",
+    "email": "reeseyoung@brandeis.edu",
+    "birth_date": "1997-11-09",
+    "admit_term": "2023FA",
+    "initial_major": "Anthropology",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000285",
+    "full_name": "Emerson Martinez",
+    "email": "emersonmartinez@brandeis.edu",
+    "birth_date": "1997-08-06",
+    "admit_term": "2023FA",
+    "initial_major": "Computer Science",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000286",
+    "full_name": "Rowan Anderson",
+    "email": "rowananderson3@brandeis.edu",
+    "birth_date": "2006-04-24",
+    "admit_term": "2024SU",
+    "initial_major": "Environmental Studies",
+    "initial_year": "Senior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000287",
+    "full_name": "Skyler Jackson",
+    "email": "skylerjackson@brandeis.edu",
+    "birth_date": "2000-10-12",
+    "admit_term": "2023FA",
+    "initial_major": "Health: Science, Society, and Policy",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000288",
+    "full_name": "Quinn Nguyen",
+    "email": "quinnnguyen@brandeis.edu",
+    "birth_date": "2006-06-15",
+    "admit_term": "2024FA",
+    "initial_major": "Sociology",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000289",
+    "full_name": "Sydney Walker",
+    "email": "sydneywalker@brandeis.edu",
+    "birth_date": "2000-09-01",
+    "admit_term": "2023FA",
+    "initial_major": "Biology",
+    "initial_year": "Junior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000290",
+    "full_name": "Riley Thomas",
+    "email": "rileythomas@brandeis.edu",
+    "birth_date": "2007-08-26",
+    "admit_term": "2024FA",
+    "initial_major": "Studio Art",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000291",
+    "full_name": "Cameron Patel",
+    "email": "cameronpatel@brandeis.edu",
+    "birth_date": "2003-12-10",
+    "admit_term": "2025SU",
+    "initial_major": "Politics",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000292",
+    "full_name": "Avery Garcia",
+    "email": "averygarcia2@brandeis.edu",
+    "birth_date": "2005-04-14",
+    "admit_term": "2023FA",
+    "initial_major": "Applied Mathematics",
+    "initial_year": "Junior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000293",
+    "full_name": "Avery Anderson",
+    "email": "averyanderson@brandeis.edu",
+    "birth_date": "2001-03-02",
+    "admit_term": "2023FA",
+    "initial_major": "Politics",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000294",
+    "full_name": "Cameron Jackson",
+    "email": "cameronjackson3@brandeis.edu",
+    "birth_date": "2006-08-11",
+    "admit_term": "2025SU",
+    "initial_major": "Politics",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000295",
+    "full_name": "Devin Brown",
+    "email": "devinbrown@brandeis.edu",
+    "birth_date": "2004-11-21",
+    "admit_term": "2023FA",
+    "initial_major": "Politics",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000296",
+    "full_name": "Morgan Jackson",
+    "email": "morganjackson@brandeis.edu",
+    "birth_date": "2005-08-03",
+    "admit_term": "2023FA",
+    "initial_major": "Health: Science, Society, and Policy",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000297",
+    "full_name": "Devin Martinez",
+    "email": "devinmartinez@brandeis.edu",
+    "birth_date": "1997-10-01",
+    "admit_term": "2025SP",
+    "initial_major": "Philosophy",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000298",
+    "full_name": "Emerson Anderson",
+    "email": "emersonanderson@brandeis.edu",
+    "birth_date": "2008-04-19",
+    "admit_term": "2023FA",
+    "initial_major": "Neuroscience",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000299",
+    "full_name": "Morgan Brown",
+    "email": "morganbrown@brandeis.edu",
+    "birth_date": "1999-04-15",
+    "admit_term": "2023FA",
+    "initial_major": "Biology",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000300",
+    "full_name": "Rowan Patel",
+    "email": "rowanpatel@brandeis.edu",
+    "birth_date": "2000-05-14",
+    "admit_term": "2023FA",
+    "initial_major": "Politics",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000301",
+    "full_name": "Casey Patel",
+    "email": "caseypatel2@brandeis.edu",
+    "birth_date": "1997-05-01",
+    "admit_term": "2024SU",
+    "initial_major": "Biology",
+    "initial_year": "Junior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000302",
+    "full_name": "Cameron Thomas",
+    "email": "cameronthomas2@brandeis.edu",
+    "birth_date": "2007-04-13",
+    "admit_term": "2023FA",
+    "initial_major": "Neuroscience",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000303",
+    "full_name": "Casey Thomas",
+    "email": "caseythomas@brandeis.edu",
+    "birth_date": "1998-12-15",
+    "admit_term": "2023FA",
+    "initial_major": "Biochemistry",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000304",
+    "full_name": "Jordan Harris",
+    "email": "jordanharris@brandeis.edu",
+    "birth_date": "2008-04-28",
+    "admit_term": "2023FA",
+    "initial_major": "Computer Science",
+    "initial_year": "Senior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000305",
+    "full_name": "Jordan Davis",
+    "email": "jordandavis3@brandeis.edu",
+    "birth_date": "2000-11-28",
+    "admit_term": "2023FA",
+    "initial_major": "Computer Science",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000306",
+    "full_name": "Jamie Nguyen",
+    "email": "jamienguyen@brandeis.edu",
+    "birth_date": "1996-05-16",
+    "admit_term": "2023FA",
+    "initial_major": "Psychology",
+    "initial_year": "Senior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000307",
+    "full_name": "Alex Brown",
+    "email": "alexbrown@brandeis.edu",
+    "birth_date": "2002-03-02",
+    "admit_term": "2023FA",
+    "initial_major": "International and Global Studies",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000308",
+    "full_name": "Kendall Miller",
+    "email": "kendallmiller2@brandeis.edu",
+    "birth_date": "2000-05-05",
+    "admit_term": "2023FA",
+    "initial_major": "Health: Science, Society, and Policy",
+    "initial_year": "Senior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000309",
+    "full_name": "Taylor Harris",
+    "email": "taylorharris3@brandeis.edu",
+    "birth_date": "1996-03-08",
+    "admit_term": "2024SU",
+    "initial_major": "International and Global Studies",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000310",
+    "full_name": "Jordan White",
+    "email": "jordanwhite4@brandeis.edu",
+    "birth_date": "2003-11-11",
+    "admit_term": "2023FA",
+    "initial_major": "Politics",
+    "initial_year": "Junior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000311",
+    "full_name": "Alex Patel",
+    "email": "alexpatel@brandeis.edu",
+    "birth_date": "2003-09-08",
+    "admit_term": "2023FA",
+    "initial_major": "Computer Science",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000312",
+    "full_name": "Avery Kim",
+    "email": "averykim@brandeis.edu",
+    "birth_date": "2006-08-04",
+    "admit_term": "2023FA",
+    "initial_major": "Economics",
+    "initial_year": "Senior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000313",
+    "full_name": "Skyler Wilson",
+    "email": "skylerwilson2@brandeis.edu",
+    "birth_date": "2003-05-16",
+    "admit_term": "2024FA",
+    "initial_major": "Politics",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000314",
+    "full_name": "Emerson Brown",
+    "email": "emersonbrown@brandeis.edu",
+    "birth_date": "1997-01-02",
+    "admit_term": "2023FA",
+    "initial_major": "History",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000315",
+    "full_name": "Quinn Johnson",
+    "email": "quinnjohnson@brandeis.edu",
+    "birth_date": "2001-05-19",
+    "admit_term": "2023FA",
+    "initial_major": "Economics",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000316",
+    "full_name": "Emerson Davis",
+    "email": "emersondavis@brandeis.edu",
+    "birth_date": "1996-05-11",
+    "admit_term": "2023FA",
+    "initial_major": "Psychology",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000317",
+    "full_name": "Jamie Nguyen",
+    "email": "jamienguyen2@brandeis.edu",
+    "birth_date": "2007-08-04",
+    "admit_term": "2023FA",
+    "initial_major": "Psychology",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000318",
+    "full_name": "Jordan Brown",
+    "email": "jordanbrown@brandeis.edu",
+    "birth_date": "2003-07-14",
+    "admit_term": "2023FA",
+    "initial_major": "Anthropology",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000319",
+    "full_name": "Emerson Martinez",
+    "email": "emersonmartinez2@brandeis.edu",
+    "birth_date": "2008-03-28",
+    "admit_term": "2024SU",
+    "initial_major": "Computer Science",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000320",
+    "full_name": "Taylor Kim",
+    "email": "taylorkim@brandeis.edu",
+    "birth_date": "1996-07-12",
+    "admit_term": "2023FA",
+    "initial_major": "Sociology",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000321",
+    "full_name": "Emerson White",
+    "email": "emersonwhite2@brandeis.edu",
+    "birth_date": "1999-07-27",
+    "admit_term": "2023FA",
+    "initial_major": "Applied Mathematics",
+    "initial_year": "Junior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000322",
+    "full_name": "Kendall Martinez",
+    "email": "kendallmartinez2@brandeis.edu",
+    "birth_date": "2005-05-03",
+    "admit_term": "2023FA",
+    "initial_major": "Studio Art",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000323",
+    "full_name": "Taylor Thomas",
+    "email": "taylorthomas4@brandeis.edu",
+    "birth_date": "2001-11-05",
+    "admit_term": "2023FA",
+    "initial_major": "Neuroscience",
+    "initial_year": "Senior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000324",
+    "full_name": "Rowan Johnson",
+    "email": "rowanjohnson@brandeis.edu",
+    "birth_date": "2002-11-05",
+    "admit_term": "2023FA",
+    "initial_major": "Biology",
+    "initial_year": "Senior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000325",
+    "full_name": "Taylor Kim",
+    "email": "taylorkim2@brandeis.edu",
+    "birth_date": "2002-05-10",
+    "admit_term": "2023FA",
+    "initial_major": "Studio Art",
+    "initial_year": "Senior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000326",
+    "full_name": "Casey Harris",
+    "email": "caseyharris2@brandeis.edu",
+    "birth_date": "1998-12-01",
+    "admit_term": "2025SU",
+    "initial_major": "History",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000327",
+    "full_name": "Sydney Martinez",
+    "email": "sydneymartinez@brandeis.edu",
+    "birth_date": "2001-03-05",
+    "admit_term": "2024SP",
+    "initial_major": "Psychology",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000328",
+    "full_name": "Hayden Brown",
+    "email": "haydenbrown@brandeis.edu",
+    "birth_date": "1998-02-03",
+    "admit_term": "2024SU",
+    "initial_major": "Health: Science, Society, and Policy",
+    "initial_year": "Junior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000329",
+    "full_name": "Jamie Miller",
+    "email": "jamiemiller@brandeis.edu",
+    "birth_date": "2004-05-06",
+    "admit_term": "2025SP",
+    "initial_major": "Computer Science",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000330",
+    "full_name": "Taylor Miller",
+    "email": "taylormiller@brandeis.edu",
+    "birth_date": "1998-05-10",
+    "admit_term": "2023FA",
+    "initial_major": "Computer Science",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000331",
+    "full_name": "Riley White",
+    "email": "rileywhite@brandeis.edu",
+    "birth_date": "1997-04-21",
+    "admit_term": "2023FA",
+    "initial_major": "Studio Art",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000332",
+    "full_name": "Casey Davis",
+    "email": "caseydavis@brandeis.edu",
+    "birth_date": "2008-05-04",
+    "admit_term": "2023FA",
+    "initial_major": "Biochemistry",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000333",
+    "full_name": "Devin Johnson",
+    "email": "devinjohnson3@brandeis.edu",
+    "birth_date": "2005-10-20",
+    "admit_term": "2023FA",
+    "initial_major": "Biochemistry",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000334",
+    "full_name": "Reese Jackson",
+    "email": "reesejackson2@brandeis.edu",
+    "birth_date": "2005-07-19",
+    "admit_term": "2023FA",
+    "initial_major": "Sociology",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000335",
+    "full_name": "Avery Garcia",
+    "email": "averygarcia3@brandeis.edu",
+    "birth_date": "2008-11-06",
+    "admit_term": "2023FA",
+    "initial_major": "Mathematics",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000336",
+    "full_name": "Emerson Miller",
+    "email": "emersonmiller2@brandeis.edu",
+    "birth_date": "2001-10-22",
+    "admit_term": "2023FA",
+    "initial_major": "Sociology",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000337",
+    "full_name": "Devin Jackson",
+    "email": "devinjackson@brandeis.edu",
+    "birth_date": "2006-10-08",
+    "admit_term": "2023FA",
+    "initial_major": "Politics",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000338",
+    "full_name": "Rowan Davis",
+    "email": "rowandavis@brandeis.edu",
+    "birth_date": "1996-08-11",
+    "admit_term": "2024FA",
+    "initial_major": "Politics",
+    "initial_year": "Senior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000339",
+    "full_name": "Jordan Brown",
+    "email": "jordanbrown2@brandeis.edu",
+    "birth_date": "2002-11-10",
+    "admit_term": "2023FA",
+    "initial_major": "Neuroscience",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000340",
+    "full_name": "Cameron Walker",
+    "email": "cameronwalker@brandeis.edu",
+    "birth_date": "2008-07-15",
+    "admit_term": "2023FA",
+    "initial_major": "International and Global Studies",
+    "initial_year": "Senior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000341",
+    "full_name": "Casey Thomas",
+    "email": "caseythomas2@brandeis.edu",
+    "birth_date": "1997-09-16",
+    "admit_term": "2023FA",
+    "initial_major": "Biology",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000342",
+    "full_name": "Reese Patel",
+    "email": "reesepatel@brandeis.edu",
+    "birth_date": "2003-06-25",
+    "admit_term": "2023FA",
+    "initial_major": "Neuroscience",
+    "initial_year": "Junior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000343",
+    "full_name": "Skyler Anderson",
+    "email": "skyleranderson2@brandeis.edu",
+    "birth_date": "2002-06-02",
+    "admit_term": "2023FA",
+    "initial_major": "Computer Science",
+    "initial_year": "Junior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000344",
+    "full_name": "Hayden Wilson",
+    "email": "haydenwilson@brandeis.edu",
+    "birth_date": "2007-08-02",
+    "admit_term": "2023FA",
+    "initial_major": "Physics",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000345",
+    "full_name": "Emerson Walker",
+    "email": "emersonwalker@brandeis.edu",
+    "birth_date": "1997-04-06",
+    "admit_term": "2023FA",
+    "initial_major": "International and Global Studies",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000346",
+    "full_name": "Sydney Clark",
+    "email": "sydneyclark2@brandeis.edu",
+    "birth_date": "2007-09-14",
+    "admit_term": "2023FA",
+    "initial_major": "English",
+    "initial_year": "Junior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000347",
+    "full_name": "Sydney Harris",
+    "email": "sydneyharris@brandeis.edu",
+    "birth_date": "2001-02-23",
+    "admit_term": "2023FA",
+    "initial_major": "Physics",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000348",
+    "full_name": "Alex Miller",
+    "email": "alexmiller@brandeis.edu",
+    "birth_date": "2001-01-14",
+    "admit_term": "2024SU",
+    "initial_major": "Mathematics",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000349",
+    "full_name": "Jamie Lewis",
+    "email": "jamielewis@brandeis.edu",
+    "birth_date": "2007-08-14",
+    "admit_term": "2023FA",
+    "initial_major": "Psychology",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000350",
+    "full_name": "Rowan Davis",
+    "email": "rowandavis2@brandeis.edu",
+    "birth_date": "2001-07-13",
+    "admit_term": "2023FA",
+    "initial_major": "International and Global Studies",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000351",
+    "full_name": "Devin White",
+    "email": "devinwhite2@brandeis.edu",
+    "birth_date": "2000-10-28",
+    "admit_term": "2023FA",
+    "initial_major": "English",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000352",
+    "full_name": "Jordan Garcia",
+    "email": "jordangarcia2@brandeis.edu",
+    "birth_date": "2000-12-24",
+    "admit_term": "2023FA",
+    "initial_major": "Biochemistry",
+    "initial_year": "Senior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000353",
+    "full_name": "Morgan Kim",
+    "email": "morgankim2@brandeis.edu",
+    "birth_date": "1996-05-25",
+    "admit_term": "2023FA",
+    "initial_major": "Biology",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000354",
+    "full_name": "Skyler Thomas",
+    "email": "skylerthomas3@brandeis.edu",
+    "birth_date": "2002-01-26",
+    "admit_term": "2024SP",
+    "initial_major": "Philosophy",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000355",
+    "full_name": "Emerson Clark",
+    "email": "emersonclark2@brandeis.edu",
+    "birth_date": "1996-01-01",
+    "admit_term": "2023FA",
+    "initial_major": "Psychology",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000356",
+    "full_name": "Alex Smith",
+    "email": "alexsmith3@brandeis.edu",
+    "birth_date": "2002-04-10",
+    "admit_term": "2023FA",
+    "initial_major": "American Studies",
+    "initial_year": "Junior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000357",
+    "full_name": "Morgan Thomas",
+    "email": "morganthomas2@brandeis.edu",
+    "birth_date": "2002-01-20",
+    "admit_term": "2023FA",
+    "initial_major": "Biochemistry",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000358",
+    "full_name": "Taylor Smith",
+    "email": "taylorsmith2@brandeis.edu",
+    "birth_date": "2002-03-15",
+    "admit_term": "2025SU",
+    "initial_major": "Mathematics",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000359",
+    "full_name": "Rowan Walker",
+    "email": "rowanwalker@brandeis.edu",
+    "birth_date": "2006-12-28",
+    "admit_term": "2024SU",
+    "initial_major": "Computer Science",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000360",
+    "full_name": "Jamie Lewis",
+    "email": "jamielewis2@brandeis.edu",
+    "birth_date": "1999-03-26",
+    "admit_term": "2023FA",
+    "initial_major": "International and Global Studies",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000361",
+    "full_name": "Devin Martinez",
+    "email": "devinmartinez2@brandeis.edu",
+    "birth_date": "1998-10-25",
+    "admit_term": "2024FA",
+    "initial_major": "Biochemistry",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000362",
+    "full_name": "Skyler Johnson",
+    "email": "skylerjohnson@brandeis.edu",
+    "birth_date": "2005-11-23",
+    "admit_term": "2023FA",
+    "initial_major": "Biology",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000363",
+    "full_name": "Kendall Thomas",
+    "email": "kendallthomas2@brandeis.edu",
+    "birth_date": "2004-05-17",
+    "admit_term": "2023FA",
+    "initial_major": "Economics",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000364",
+    "full_name": "Cameron Johnson",
+    "email": "cameronjohnson@brandeis.edu",
+    "birth_date": "1999-05-26",
+    "admit_term": "2024SP",
+    "initial_major": "Economics",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000365",
+    "full_name": "Kendall Jackson",
+    "email": "kendalljackson2@brandeis.edu",
+    "birth_date": "1998-12-24",
+    "admit_term": "2023FA",
+    "initial_major": "Computer Science",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000366",
+    "full_name": "Taylor Brown",
+    "email": "taylorbrown3@brandeis.edu",
+    "birth_date": "2001-04-07",
+    "admit_term": "2023FA",
+    "initial_major": "Psychology",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000367",
+    "full_name": "Skyler Lewis",
+    "email": "skylerlewis2@brandeis.edu",
+    "birth_date": "2003-10-04",
+    "admit_term": "2023FA",
+    "initial_major": "Neuroscience",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000368",
+    "full_name": "Jamie Walker",
+    "email": "jamiewalker2@brandeis.edu",
+    "birth_date": "2006-04-27",
+    "admit_term": "2023FA",
+    "initial_major": "Biology",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000369",
+    "full_name": "Riley Nguyen",
+    "email": "rileynguyen@brandeis.edu",
+    "birth_date": "2002-12-02",
+    "admit_term": "2023FA",
+    "initial_major": "Biochemistry",
+    "initial_year": "Senior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000370",
+    "full_name": "Devin Clark",
+    "email": "devinclark2@brandeis.edu",
+    "birth_date": "2008-11-02",
+    "admit_term": "2024SU",
+    "initial_major": "Health: Science, Society, and Policy",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000371",
+    "full_name": "Rowan Johnson",
+    "email": "rowanjohnson2@brandeis.edu",
+    "birth_date": "2004-05-05",
+    "admit_term": "2023FA",
+    "initial_major": "Economics",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000372",
+    "full_name": "Hayden Young",
+    "email": "haydenyoung2@brandeis.edu",
+    "birth_date": "2003-03-17",
+    "admit_term": "2023FA",
+    "initial_major": "English",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000373",
+    "full_name": "Emerson Walker",
+    "email": "emersonwalker2@brandeis.edu",
+    "birth_date": "2007-07-17",
+    "admit_term": "2023FA",
+    "initial_major": "Business",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000374",
+    "full_name": "Kendall Jackson",
+    "email": "kendalljackson3@brandeis.edu",
+    "birth_date": "2000-03-08",
+    "admit_term": "2023FA",
+    "initial_major": "Psychology",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000375",
+    "full_name": "Casey Wilson",
+    "email": "caseywilson@brandeis.edu",
+    "birth_date": "2002-05-03",
+    "admit_term": "2024SP",
+    "initial_major": "Health: Science, Society, and Policy",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000376",
+    "full_name": "Emerson Young",
+    "email": "emersonyoung@brandeis.edu",
+    "birth_date": "1997-12-24",
+    "admit_term": "2023FA",
+    "initial_major": "Politics",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000377",
+    "full_name": "Sydney Nguyen",
+    "email": "sydneynguyen@brandeis.edu",
+    "birth_date": "2006-04-26",
+    "admit_term": "2023FA",
+    "initial_major": "Computer Science",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000378",
+    "full_name": "Morgan Johnson",
+    "email": "morganjohnson4@brandeis.edu",
+    "birth_date": "2000-06-15",
+    "admit_term": "2023FA",
+    "initial_major": "Politics",
+    "initial_year": "Junior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000379",
+    "full_name": "Devin White",
+    "email": "devinwhite3@brandeis.edu",
+    "birth_date": "1997-10-10",
+    "admit_term": "2023FA",
+    "initial_major": "English",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000380",
+    "full_name": "Kendall Miller",
+    "email": "kendallmiller3@brandeis.edu",
+    "birth_date": "2002-03-27",
+    "admit_term": "2024SP",
+    "initial_major": "Biochemistry",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000381",
+    "full_name": "Alex Lewis",
+    "email": "alexlewis3@brandeis.edu",
+    "birth_date": "2006-02-23",
+    "admit_term": "2023FA",
+    "initial_major": "Biology",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000382",
+    "full_name": "Devin Smith",
+    "email": "devinsmith3@brandeis.edu",
+    "birth_date": "2004-09-28",
+    "admit_term": "2023FA",
+    "initial_major": "Environmental Studies",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000383",
+    "full_name": "Drew Martinez",
+    "email": "drewmartinez@brandeis.edu",
+    "birth_date": "2003-10-23",
+    "admit_term": "2023FA",
+    "initial_major": "Mathematics",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000384",
+    "full_name": "Casey Smith",
+    "email": "caseysmith2@brandeis.edu",
+    "birth_date": "2008-04-25",
+    "admit_term": "2024SU",
+    "initial_major": "Biochemistry",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000385",
+    "full_name": "Taylor Thomas",
+    "email": "taylorthomas5@brandeis.edu",
+    "birth_date": "2001-01-16",
+    "admit_term": "2023FA",
+    "initial_major": "Computer Science",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000386",
+    "full_name": "Hayden Garcia",
+    "email": "haydengarcia@brandeis.edu",
+    "birth_date": "2004-11-26",
+    "admit_term": "2023FA",
+    "initial_major": "Computer Science",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000387",
+    "full_name": "Cameron Clark",
+    "email": "cameronclark3@brandeis.edu",
+    "birth_date": "2008-01-12",
+    "admit_term": "2023FA",
+    "initial_major": "Music",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000388",
+    "full_name": "Parker Davis",
+    "email": "parkerdavis@brandeis.edu",
+    "birth_date": "2001-06-20",
+    "admit_term": "2023FA",
+    "initial_major": "Economics",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000389",
+    "full_name": "Morgan White",
+    "email": "morganwhite2@brandeis.edu",
+    "birth_date": "2007-12-10",
+    "admit_term": "2024FA",
+    "initial_major": "Mathematics",
+    "initial_year": "Junior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000390",
+    "full_name": "Riley Martinez",
+    "email": "rileymartinez3@brandeis.edu",
+    "birth_date": "2001-11-26",
+    "admit_term": "2024SU",
+    "initial_major": "Biochemistry",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000391",
+    "full_name": "Parker Patel",
+    "email": "parkerpatel3@brandeis.edu",
+    "birth_date": "2006-05-13",
+    "admit_term": "2024SP",
+    "initial_major": "Environmental Studies",
+    "initial_year": "Senior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000392",
+    "full_name": "Taylor White",
+    "email": "taylorwhite2@brandeis.edu",
+    "birth_date": "2001-05-25",
+    "admit_term": "2023FA",
+    "initial_major": "Psychology",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000393",
+    "full_name": "Sydney Wilson",
+    "email": "sydneywilson2@brandeis.edu",
+    "birth_date": "2008-02-02",
+    "admit_term": "2023FA",
+    "initial_major": "History",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000394",
+    "full_name": "Morgan Young",
+    "email": "morganyoung2@brandeis.edu",
+    "birth_date": "2006-12-05",
+    "admit_term": "2023FA",
+    "initial_major": "Business",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000395",
+    "full_name": "Emerson Kim",
+    "email": "emersonkim2@brandeis.edu",
+    "birth_date": "1998-08-14",
+    "admit_term": "2023FA",
+    "initial_major": "Health: Science, Society, and Policy",
+    "initial_year": "Junior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000396",
+    "full_name": "Devin Martinez",
+    "email": "devinmartinez3@brandeis.edu",
+    "birth_date": "2001-07-17",
+    "admit_term": "2023FA",
+    "initial_major": "American Studies",
+    "initial_year": "Junior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000397",
+    "full_name": "Taylor Brown",
+    "email": "taylorbrown4@brandeis.edu",
+    "birth_date": "2003-12-16",
+    "admit_term": "2023FA",
+    "initial_major": "Business",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000398",
+    "full_name": "Skyler Kim",
+    "email": "skylerkim@brandeis.edu",
+    "birth_date": "1999-03-05",
+    "admit_term": "2024SP",
+    "initial_major": "Psychology",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000399",
+    "full_name": "Jordan Patel",
+    "email": "jordanpatel@brandeis.edu",
+    "birth_date": "1996-04-08",
+    "admit_term": "2023FA",
+    "initial_major": "Computer Science",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000400",
+    "full_name": "Rowan Smith",
+    "email": "rowansmith2@brandeis.edu",
+    "birth_date": "2005-10-05",
+    "admit_term": "2023FA",
+    "initial_major": "Computer Science",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000401",
+    "full_name": "Riley Nguyen",
+    "email": "rileynguyen2@brandeis.edu",
+    "birth_date": "1999-04-07",
+    "admit_term": "2023FA",
+    "initial_major": "Biochemistry",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000402",
+    "full_name": "Riley Young",
+    "email": "rileyyoung2@brandeis.edu",
+    "birth_date": "2002-12-16",
+    "admit_term": "2023FA",
+    "initial_major": "History",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000403",
+    "full_name": "Drew Anderson",
+    "email": "drewanderson@brandeis.edu",
+    "birth_date": "2000-11-09",
+    "admit_term": "2023FA",
+    "initial_major": "Business",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000404",
+    "full_name": "Cameron Clark",
+    "email": "cameronclark4@brandeis.edu",
+    "birth_date": "2000-08-27",
+    "admit_term": "2023FA",
+    "initial_major": "History",
+    "initial_year": "Senior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000405",
+    "full_name": "Hayden Miller",
+    "email": "haydenmiller@brandeis.edu",
+    "birth_date": "2008-05-06",
+    "admit_term": "2023FA",
+    "initial_major": "Computer Science",
+    "initial_year": "Senior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000406",
+    "full_name": "Jamie Harris",
+    "email": "jamieharris2@brandeis.edu",
+    "birth_date": "2005-08-03",
+    "admit_term": "2024SP",
+    "initial_major": "Computer Science",
+    "initial_year": "Senior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000407",
+    "full_name": "Parker Miller",
+    "email": "parkermiller@brandeis.edu",
+    "birth_date": "2008-02-24",
+    "admit_term": "2023FA",
+    "initial_major": "Psychology",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000408",
+    "full_name": "Cameron Kim",
+    "email": "cameronkim2@brandeis.edu",
+    "birth_date": "2006-06-12",
+    "admit_term": "2023FA",
+    "initial_major": "Computer Science",
+    "initial_year": "Junior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000409",
+    "full_name": "Morgan Garcia",
+    "email": "morgangarcia3@brandeis.edu",
+    "birth_date": "1998-03-11",
+    "admit_term": "2023FA",
+    "initial_major": "Economics",
+    "initial_year": "Junior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000410",
+    "full_name": "Drew Miller",
+    "email": "drewmiller@brandeis.edu",
+    "birth_date": "2001-12-07",
+    "admit_term": "2023FA",
+    "initial_major": "Economics",
+    "initial_year": "Junior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000411",
+    "full_name": "Avery Kim",
+    "email": "averykim2@brandeis.edu",
+    "birth_date": "2001-03-21",
+    "admit_term": "2023FA",
+    "initial_major": "Health: Science, Society, and Policy",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000412",
+    "full_name": "Avery Smith",
+    "email": "averysmith3@brandeis.edu",
+    "birth_date": "1998-02-24",
+    "admit_term": "2023FA",
+    "initial_major": "Politics",
+    "initial_year": "Junior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000413",
+    "full_name": "Sydney Kim",
+    "email": "sydneykim2@brandeis.edu",
+    "birth_date": "2006-10-25",
+    "admit_term": "2023FA",
+    "initial_major": "Studio Art",
+    "initial_year": "Senior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000414",
+    "full_name": "Alex Clark",
+    "email": "alexclark@brandeis.edu",
+    "birth_date": "2006-03-03",
+    "admit_term": "2024SP",
+    "initial_major": "Sociology",
+    "initial_year": "Junior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000415",
+    "full_name": "Sydney Davis",
+    "email": "sydneydavis2@brandeis.edu",
+    "birth_date": "2008-09-01",
+    "admit_term": "2023FA",
+    "initial_major": "American Studies",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000416",
+    "full_name": "Reese Garcia",
+    "email": "reesegarcia2@brandeis.edu",
+    "birth_date": "2000-01-20",
+    "admit_term": "2023FA",
+    "initial_major": "Computer Science",
+    "initial_year": "Junior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000417",
+    "full_name": "Devin Martinez",
+    "email": "devinmartinez4@brandeis.edu",
+    "birth_date": "2007-12-26",
+    "admit_term": "2023FA",
+    "initial_major": "Biochemistry",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000418",
+    "full_name": "Cameron Clark",
+    "email": "cameronclark5@brandeis.edu",
+    "birth_date": "2007-08-11",
+    "admit_term": "2023FA",
+    "initial_major": "Environmental Studies",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000419",
+    "full_name": "Drew Patel",
+    "email": "drewpatel2@brandeis.edu",
+    "birth_date": "2001-09-18",
+    "admit_term": "2023FA",
+    "initial_major": "Psychology",
+    "initial_year": "Senior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000420",
+    "full_name": "Skyler Brown",
+    "email": "skylerbrown2@brandeis.edu",
+    "birth_date": "2000-03-01",
+    "admit_term": "2023FA",
+    "initial_major": "Computer Science",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000421",
+    "full_name": "Hayden Miller",
+    "email": "haydenmiller2@brandeis.edu",
+    "birth_date": "2005-02-26",
+    "admit_term": "2023FA",
+    "initial_major": "East Asian Studies",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000422",
+    "full_name": "Cameron Nguyen",
+    "email": "cameronnguyen@brandeis.edu",
+    "birth_date": "2006-02-05",
+    "admit_term": "2023FA",
+    "initial_major": "Economics",
+    "initial_year": "Junior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000423",
+    "full_name": "Kendall Johnson",
+    "email": "kendalljohnson2@brandeis.edu",
+    "birth_date": "2005-10-05",
+    "admit_term": "2023FA",
+    "initial_major": "American Studies",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000424",
+    "full_name": "Riley Clark",
+    "email": "rileyclark2@brandeis.edu",
+    "birth_date": "2004-12-27",
+    "admit_term": "2024SP",
+    "initial_major": "Studio Art",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000425",
+    "full_name": "Casey Clark",
+    "email": "caseyclark3@brandeis.edu",
+    "birth_date": "2005-08-15",
+    "admit_term": "2024SU",
+    "initial_major": "Biology",
+    "initial_year": "Senior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000426",
+    "full_name": "Rowan Garcia",
+    "email": "rowangarcia@brandeis.edu",
+    "birth_date": "1996-04-02",
+    "admit_term": "2023FA",
+    "initial_major": "Neuroscience",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000427",
+    "full_name": "Taylor Anderson",
+    "email": "tayloranderson@brandeis.edu",
+    "birth_date": "2005-09-10",
+    "admit_term": "2024SP",
+    "initial_major": "Biology",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000428",
+    "full_name": "Alex Young",
+    "email": "alexyoung@brandeis.edu",
+    "birth_date": "1998-05-12",
+    "admit_term": "2023FA",
+    "initial_major": "Politics",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000429",
+    "full_name": "Cameron Davis",
+    "email": "camerondavis2@brandeis.edu",
+    "birth_date": "2005-11-15",
+    "admit_term": "2023FA",
+    "initial_major": "Biochemistry",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000430",
+    "full_name": "Morgan Clark",
+    "email": "morganclark2@brandeis.edu",
+    "birth_date": "2000-05-25",
+    "admit_term": "2025SU",
+    "initial_major": "Biology",
+    "initial_year": "Senior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000431",
+    "full_name": "Reese Johnson",
+    "email": "reesejohnson@brandeis.edu",
+    "birth_date": "1999-11-19",
+    "admit_term": "2023FA",
+    "initial_major": "Anthropology",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000432",
+    "full_name": "Casey Anderson",
+    "email": "caseyanderson2@brandeis.edu",
+    "birth_date": "2007-06-27",
+    "admit_term": "2023FA",
+    "initial_major": "Computer Science",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000433",
+    "full_name": "Avery White",
+    "email": "averywhite@brandeis.edu",
+    "birth_date": "2004-05-13",
+    "admit_term": "2023FA",
+    "initial_major": "Economics",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000434",
+    "full_name": "Jamie Lewis",
+    "email": "jamielewis3@brandeis.edu",
+    "birth_date": "2007-01-24",
+    "admit_term": "2023FA",
+    "initial_major": "Applied Mathematics",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000435",
+    "full_name": "Reese Smith",
+    "email": "reesesmith2@brandeis.edu",
+    "birth_date": "2005-03-01",
+    "admit_term": "2025SU",
+    "initial_major": "Environmental Studies",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000436",
+    "full_name": "Jordan Nguyen",
+    "email": "jordannguyen2@brandeis.edu",
+    "birth_date": "1997-10-16",
+    "admit_term": "2023FA",
+    "initial_major": "Biology",
+    "initial_year": "Senior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000437",
+    "full_name": "Morgan Patel",
+    "email": "morganpatel6@brandeis.edu",
+    "birth_date": "2001-12-12",
+    "admit_term": "2023FA",
+    "initial_major": "Philosophy",
+    "initial_year": "Junior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000438",
+    "full_name": "Hayden Anderson",
+    "email": "haydenanderson@brandeis.edu",
+    "birth_date": "2000-10-20",
+    "admit_term": "2023FA",
+    "initial_major": "International and Global Studies",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000439",
+    "full_name": "Reese Clark",
+    "email": "reeseclark@brandeis.edu",
+    "birth_date": "2006-06-15",
+    "admit_term": "2023FA",
+    "initial_major": "Health: Science, Society, and Policy",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000440",
+    "full_name": "Skyler Wilson",
+    "email": "skylerwilson3@brandeis.edu",
+    "birth_date": "2000-11-28",
+    "admit_term": "2023FA",
+    "initial_major": "International and Global Studies",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000441",
+    "full_name": "Kendall Clark",
+    "email": "kendallclark@brandeis.edu",
+    "birth_date": "2000-05-09",
+    "admit_term": "2023FA",
+    "initial_major": "Applied Mathematics",
+    "initial_year": "Junior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000442",
+    "full_name": "Cameron Johnson",
+    "email": "cameronjohnson2@brandeis.edu",
+    "birth_date": "2007-11-12",
+    "admit_term": "2024SP",
+    "initial_major": "Psychology",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000443",
+    "full_name": "Jordan Harris",
+    "email": "jordanharris2@brandeis.edu",
+    "birth_date": "2003-02-05",
+    "admit_term": "2025SU",
+    "initial_major": "Philosophy",
+    "initial_year": "Senior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000444",
+    "full_name": "Emerson Clark",
+    "email": "emersonclark3@brandeis.edu",
+    "birth_date": "2001-02-07",
+    "admit_term": "2023FA",
+    "initial_major": "Economics",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000445",
+    "full_name": "Skyler Kim",
+    "email": "skylerkim2@brandeis.edu",
+    "birth_date": "2002-02-14",
+    "admit_term": "2023FA",
+    "initial_major": "Physics",
+    "initial_year": "Senior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000446",
+    "full_name": "Rowan Davis",
+    "email": "rowandavis3@brandeis.edu",
+    "birth_date": "2005-11-17",
+    "admit_term": "2023FA",
+    "initial_major": "Mathematics",
+    "initial_year": "Senior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000447",
+    "full_name": "Taylor Davis",
+    "email": "taylordavis@brandeis.edu",
+    "birth_date": "2003-12-14",
+    "admit_term": "2023FA",
+    "initial_major": "Biology",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000448",
+    "full_name": "Casey Martinez",
+    "email": "caseymartinez@brandeis.edu",
+    "birth_date": "2004-05-26",
+    "admit_term": "2024FA",
+    "initial_major": "Health: Science, Society, and Policy",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000449",
+    "full_name": "Sydney Lewis",
+    "email": "sydneylewis2@brandeis.edu",
+    "birth_date": "2005-01-27",
+    "admit_term": "2024SU",
+    "initial_major": "Economics",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000450",
+    "full_name": "Morgan White",
+    "email": "morganwhite3@brandeis.edu",
+    "birth_date": "2006-05-04",
+    "admit_term": "2023FA",
+    "initial_major": "Mathematics",
+    "initial_year": "Junior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000451",
+    "full_name": "Sydney Jackson",
+    "email": "sydneyjackson2@brandeis.edu",
+    "birth_date": "1999-12-22",
+    "admit_term": "2023FA",
+    "initial_major": "Biochemistry",
+    "initial_year": "Senior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000452",
+    "full_name": "Hayden Martinez",
+    "email": "haydenmartinez@brandeis.edu",
+    "birth_date": "1996-11-02",
+    "admit_term": "2023FA",
+    "initial_major": "Economics",
+    "initial_year": "Junior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000453",
+    "full_name": "Quinn White",
+    "email": "quinnwhite@brandeis.edu",
+    "birth_date": "2004-07-27",
+    "admit_term": "2023FA",
+    "initial_major": "Biology",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000454",
+    "full_name": "Quinn Young",
+    "email": "quinnyoung@brandeis.edu",
+    "birth_date": "2001-09-23",
+    "admit_term": "2023FA",
+    "initial_major": "Health: Science, Society, and Policy",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000455",
+    "full_name": "Jamie Patel",
+    "email": "jamiepatel@brandeis.edu",
+    "birth_date": "1997-10-03",
+    "admit_term": "2024SU",
+    "initial_major": "English",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000456",
+    "full_name": "Reese Clark",
+    "email": "reeseclark2@brandeis.edu",
+    "birth_date": "2005-08-06",
+    "admit_term": "2023FA",
+    "initial_major": "Computer Science",
+    "initial_year": "Senior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000457",
+    "full_name": "Riley Johnson",
+    "email": "rileyjohnson2@brandeis.edu",
+    "birth_date": "2005-11-25",
+    "admit_term": "2023FA",
+    "initial_major": "Computer Science",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000458",
+    "full_name": "Drew Miller",
+    "email": "drewmiller2@brandeis.edu",
+    "birth_date": "2008-04-05",
+    "admit_term": "2023FA",
+    "initial_major": "Psychology",
+    "initial_year": "Senior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000459",
+    "full_name": "Parker Harris",
+    "email": "parkerharris@brandeis.edu",
+    "birth_date": "2006-07-24",
+    "admit_term": "2023FA",
+    "initial_major": "East Asian Studies",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000460",
+    "full_name": "Drew Harris",
+    "email": "drewharris@brandeis.edu",
+    "birth_date": "1997-08-26",
+    "admit_term": "2023FA",
+    "initial_major": "Psychology",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000461",
+    "full_name": "Jamie White",
+    "email": "jamiewhite2@brandeis.edu",
+    "birth_date": "1998-08-01",
+    "admit_term": "2023FA",
+    "initial_major": "Chemistry",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000462",
+    "full_name": "Casey Lewis",
+    "email": "caseylewis@brandeis.edu",
+    "birth_date": "1999-10-09",
+    "admit_term": "2023FA",
+    "initial_major": "Philosophy",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000463",
+    "full_name": "Hayden Anderson",
+    "email": "haydenanderson2@brandeis.edu",
+    "birth_date": "2004-02-24",
+    "admit_term": "2023FA",
+    "initial_major": "Mathematics",
+    "initial_year": "Junior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000464",
+    "full_name": "Riley Nguyen",
+    "email": "rileynguyen3@brandeis.edu",
+    "birth_date": "2008-10-07",
+    "admit_term": "2023FA",
+    "initial_major": "Chemistry",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000465",
+    "full_name": "Jordan Walker",
+    "email": "jordanwalker4@brandeis.edu",
+    "birth_date": "2002-10-01",
+    "admit_term": "2023FA",
+    "initial_major": "Physics",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000466",
+    "full_name": "Hayden Smith",
+    "email": "haydensmith@brandeis.edu",
+    "birth_date": "1996-04-12",
+    "admit_term": "2025SP",
+    "initial_major": "English",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000467",
+    "full_name": "Parker Lewis",
+    "email": "parkerlewis@brandeis.edu",
+    "birth_date": "2006-08-03",
+    "admit_term": "2025SP",
+    "initial_major": "Computer Science",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000468",
+    "full_name": "Riley Walker",
+    "email": "rileywalker2@brandeis.edu",
+    "birth_date": "1997-04-15",
+    "admit_term": "2023FA",
+    "initial_major": "Biology",
+    "initial_year": "Junior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000469",
+    "full_name": "Drew Clark",
+    "email": "drewclark@brandeis.edu",
+    "birth_date": "1996-08-20",
+    "admit_term": "2024FA",
+    "initial_major": "Neuroscience",
+    "initial_year": "Junior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000470",
+    "full_name": "Skyler Brown",
+    "email": "skylerbrown3@brandeis.edu",
+    "birth_date": "2002-06-27",
+    "admit_term": "2023FA",
+    "initial_major": "Biochemistry",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000471",
+    "full_name": "Morgan Clark",
+    "email": "morganclark3@brandeis.edu",
+    "birth_date": "1997-04-07",
+    "admit_term": "2023FA",
+    "initial_major": "Economics",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000472",
+    "full_name": "Morgan Harris",
+    "email": "morganharris2@brandeis.edu",
+    "birth_date": "1997-03-04",
+    "admit_term": "2023FA",
+    "initial_major": "Computer Science",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000473",
+    "full_name": "Cameron White",
+    "email": "cameronwhite@brandeis.edu",
+    "birth_date": "2003-10-17",
+    "admit_term": "2023FA",
+    "initial_major": "Biochemistry",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000474",
+    "full_name": "Drew Lewis",
+    "email": "drewlewis2@brandeis.edu",
+    "birth_date": "2000-09-12",
+    "admit_term": "2023FA",
+    "initial_major": "International and Global Studies",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000475",
+    "full_name": "Hayden Patel",
+    "email": "haydenpatel2@brandeis.edu",
+    "birth_date": "2001-03-26",
+    "admit_term": "2023FA",
+    "initial_major": "International and Global Studies",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000476",
+    "full_name": "Rowan Martinez",
+    "email": "rowanmartinez@brandeis.edu",
+    "birth_date": "2002-03-12",
+    "admit_term": "2025SP",
+    "initial_major": "Biology",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000477",
+    "full_name": "Drew Harris",
+    "email": "drewharris2@brandeis.edu",
+    "birth_date": "2008-05-24",
+    "admit_term": "2023FA",
+    "initial_major": "Physics",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000478",
+    "full_name": "Drew Young",
+    "email": "drewyoung@brandeis.edu",
+    "birth_date": "1996-02-11",
+    "admit_term": "2023FA",
+    "initial_major": "Physics",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000479",
+    "full_name": "Rowan Martinez",
+    "email": "rowanmartinez2@brandeis.edu",
+    "birth_date": "2007-01-18",
+    "admit_term": "2023FA",
+    "initial_major": "Studio Art",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000480",
+    "full_name": "Reese Davis",
+    "email": "reesedavis@brandeis.edu",
+    "birth_date": "2003-08-02",
+    "admit_term": "2024SP",
+    "initial_major": "Physics",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000481",
+    "full_name": "Avery Smith",
+    "email": "averysmith4@brandeis.edu",
+    "birth_date": "1997-06-22",
+    "admit_term": "2025SU",
+    "initial_major": "Economics",
+    "initial_year": "Junior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000482",
+    "full_name": "Hayden Patel",
+    "email": "haydenpatel3@brandeis.edu",
+    "birth_date": "2005-11-01",
+    "admit_term": "2023FA",
+    "initial_major": "History",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000483",
+    "full_name": "Emerson Jackson",
+    "email": "emersonjackson3@brandeis.edu",
+    "birth_date": "2008-01-24",
+    "admit_term": "2023FA",
+    "initial_major": "Neuroscience",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000484",
+    "full_name": "Rowan Lewis",
+    "email": "rowanlewis2@brandeis.edu",
+    "birth_date": "2005-07-10",
+    "admit_term": "2023FA",
+    "initial_major": "Health: Science, Society, and Policy",
+    "initial_year": "Senior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000485",
+    "full_name": "Jamie Nguyen",
+    "email": "jamienguyen3@brandeis.edu",
+    "birth_date": "2001-05-14",
+    "admit_term": "2024SP",
+    "initial_major": "Psychology",
+    "initial_year": "Junior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000486",
+    "full_name": "Morgan Johnson",
+    "email": "morganjohnson5@brandeis.edu",
+    "birth_date": "1999-05-12",
+    "admit_term": "2023FA",
+    "initial_major": "Physics",
+    "initial_year": "Senior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000487",
+    "full_name": "Sydney Miller",
+    "email": "sydneymiller@brandeis.edu",
+    "birth_date": "2007-10-04",
+    "admit_term": "2023FA",
+    "initial_major": "Physics",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000488",
+    "full_name": "Avery Wilson",
+    "email": "averywilson@brandeis.edu",
+    "birth_date": "1998-10-12",
+    "admit_term": "2023FA",
+    "initial_major": "Biology",
+    "initial_year": "Senior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000489",
+    "full_name": "Emerson Walker",
+    "email": "emersonwalker3@brandeis.edu",
+    "birth_date": "1999-04-11",
+    "admit_term": "2023FA",
+    "initial_major": "Biology",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000490",
+    "full_name": "Morgan Nguyen",
+    "email": "morgannguyen4@brandeis.edu",
+    "birth_date": "1996-07-24",
+    "admit_term": "2023FA",
+    "initial_major": "Biochemistry",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000491",
+    "full_name": "Casey Anderson",
+    "email": "caseyanderson3@brandeis.edu",
+    "birth_date": "2003-04-20",
+    "admit_term": "2023FA",
+    "initial_major": "Physics",
+    "initial_year": "Senior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000492",
+    "full_name": "Morgan Anderson",
+    "email": "morgananderson3@brandeis.edu",
+    "birth_date": "2000-07-06",
+    "admit_term": "2023FA",
+    "initial_major": "Biology",
+    "initial_year": "Sophomore",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000493",
+    "full_name": "Reese Wilson",
+    "email": "reesewilson@brandeis.edu",
+    "birth_date": "2003-06-16",
+    "admit_term": "2023FA",
+    "initial_major": "Mathematics",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000494",
+    "full_name": "Morgan Wilson",
+    "email": "morganwilson@brandeis.edu",
+    "birth_date": "2007-03-04",
+    "admit_term": "2023FA",
+    "initial_major": "Chemistry",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000495",
+    "full_name": "Alex Harris",
+    "email": "alexharris2@brandeis.edu",
+    "birth_date": "1996-01-01",
+    "admit_term": "2023FA",
+    "initial_major": "Philosophy",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000496",
+    "full_name": "Sydney Miller",
+    "email": "sydneymiller2@brandeis.edu",
+    "birth_date": "2005-09-24",
+    "admit_term": "2023FA",
+    "initial_major": "International and Global Studies",
+    "initial_year": "Senior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000497",
+    "full_name": "Alex Kim",
+    "email": "alexkim2@brandeis.edu",
+    "birth_date": "2002-12-25",
+    "admit_term": "2023FA",
+    "initial_major": "Physics",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000498",
+    "full_name": "Drew Lewis",
+    "email": "drewlewis3@brandeis.edu",
+    "birth_date": "2003-05-09",
+    "admit_term": "2023FA",
+    "initial_major": "American Studies",
+    "initial_year": "Senior",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000499",
+    "full_name": "Drew White",
+    "email": "drewwhite3@brandeis.edu",
+    "birth_date": "1998-12-27",
+    "admit_term": "2023FA",
+    "initial_major": "Economics and Business",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  },
+  {
+    "student_id": "S000500",
+    "full_name": "Parker Young",
+    "email": "parkeryoung@brandeis.edu",
+    "birth_date": "2007-05-20",
+    "admit_term": "2023FA",
+    "initial_major": "Economics",
+    "initial_year": "Freshman",
+    "primary_system": "Workday Student"
+  }
+]

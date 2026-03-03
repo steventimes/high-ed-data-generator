@@ -1,0 +1,412 @@
+student_id,term_code,class_level,major,credits_attempted,credits_earned,term_gpa,cumulative_gpa,cumulative_credits,enrollment_status,registration_system
+S000001,2024SU,Senior,Physics,17,16,2.78,3.11,109,enrolled,Workday
+S000002,2024SU,Junior,English,16,16,3.81,3.57,60,enrolled,Workday
+S000004,2024SU,Sophomore,Mathematics,14,13,2.45,2.52,59,enrolled,Workday
+S000005,2024SU,Sophomore,Economics,10,7,0.2,0.19,49,enrolled,Workday
+S000006,2024SU,Senior,Economics,5,5,2.99,3.1,91,enrolled,Workday
+S000007,2024SU,Senior,Psychology,3,3,2.95,3.1,135,enrolled,Workday
+S000008,2024SU,Sophomore,Computer Science,18,17,3.14,3.28,58,enrolled,Workday
+S000009,2024SU,Sophomore,Biochemistry,4,4,2.92,3.58,51,enrolled,Workday
+S000011,2024SU,Senior,Neuroscience,3,3,3.37,3.48,139,enrolled,Workday
+S000013,2024SU,Senior,International and Global Studies,11,11,3.41,3.36,146,enrolled,Workday
+S000015,2024SU,Senior,Economics,7,7,3.37,3.5,90,enrolled,Workday
+S000016,2024SU,Senior,Music,18,17,3.27,3.14,148,enrolled,Workday
+S000017,2024SU,Junior,Neuroscience,7,7,4.0,3.96,60,enrolled,Workday
+S000018,2024SU,Sophomore,Computer Science,13,12,2.7,2.18,52,enrolled,Workday
+S000019,2024SU,Sophomore,Applied Mathematics,17,16,2.84,3.11,41,enrolled,Workday
+S000020,2024SU,Sophomore,Neuroscience,13,13,3.87,3.74,35,enrolled,Workday
+S000022,2024SU,Sophomore,Economics,15,15,3.36,3.38,43,enrolled,Workday
+S000023,2024SU,Freshman,Biochemistry,16,16,3.56,3.49,24,enrolled,Workday
+S000026,2024SU,Senior,Computer Science,15,14,2.81,2.68,120,enrolled,Workday
+S000027,2024SU,Junior,Applied Mathematics,18,18,3.67,3.74,64,enrolled,Workday
+S000028,2024SU,Sophomore,Economics,12,9,0.94,1.12,38,enrolled,Workday
+S000029,2024SU,Sophomore,Biochemistry,,,,2.71,45,not_enrolled,Workday
+S000032,2024SU,Senior,International and Global Studies,17,17,3.82,3.65,145,enrolled,Workday
+S000033,2024SU,Junior,American Studies,17,16,3.27,3.18,64,enrolled,Workday
+S000037,2024SU,Senior,Biology,15,13,2.33,3.02,93,enrolled,Workday
+S000039,2024SU,Junior,Neuroscience,15,15,3.38,3.43,87,enrolled,Workday
+S000040,2024SU,Junior,Music,15,14,3.07,3.26,87,enrolled,Workday
+S000041,2024SU,Junior,"Health: Science, Society, and Policy",12,9,1.11,1.42,71,enrolled,Workday
+S000042,2024SU,Sophomore,Psychology,8,7,2.66,3.25,31,enrolled,Workday
+S000043,2024SU,Sophomore,Neuroscience,14,14,3.54,3.52,44,enrolled,Workday
+S000044,2024SU,Freshman,Biochemistry,,,,0.92,29,not_enrolled,Workday
+S000045,2024SU,Sophomore,International and Global Studies,,,,3.69,46,not_enrolled,Workday
+S000046,2024SU,Sophomore,Psychology,13,12,3.06,3.33,41,enrolled,Workday
+S000048,2024SU,Senior,Neuroscience,12,11,2.63,3.05,115,enrolled,Workday
+S000049,2024SU,Junior,Biology,13,12,3.14,3.08,63,enrolled,Workday
+S000050,2024SU,Junior,Economics,5,5,4.0,3.92,75,enrolled,Workday
+S000051,2024SU,Sophomore,American Studies,16,15,3.07,2.97,50,enrolled,Workday
+S000052,2024SU,Junior,Psychology,16,15,2.98,3.18,88,enrolled,Workday
+S000053,2024SU,Senior,Economics,16,15,2.96,3.42,135,enrolled,Workday
+S000054,2024SU,Sophomore,Biology,,,,3.25,43,not_enrolled,Workday
+S000055,2024SU,Senior,Biology,15,14,2.84,3.1,139,enrolled,Workday
+S000056,2024SU,Junior,Politics,18,18,3.72,3.56,70,enrolled,Workday
+S000057,2024SU,Sophomore,Computer Science,18,18,3.45,3.22,47,enrolled,Workday
+S000058,2024SU,Junior,Politics,16,16,3.83,3.87,60,enrolled,Workday
+S000059,2024SU,Senior,Applied Mathematics,18,17,3.2,3.58,101,enrolled,Workday
+S000060,2024SU,Freshman,Mathematics,5,5,3.74,3.67,29,enrolled,Workday
+S000061,2024SU,Sophomore,Neuroscience,18,17,3.09,3.52,50,enrolled,Workday
+S000062,2024SU,Sophomore,Computer Science,12,11,3.1,3.15,52,enrolled,Workday
+S000063,2024SU,Freshman,Computer Science,12,12,3.4,3.24,27,enrolled,Workday
+S000064,2024SU,Sophomore,Chemistry,11,9,2.01,1.94,37,enrolled,Workday
+S000065,2024SU,Senior,Biochemistry,14,13,3.26,3.32,154,enrolled,Workday
+S000066,2024SU,Sophomore,"Health: Science, Society, and Policy",15,15,3.59,3.62,34,enrolled,Workday
+S000068,2024SU,Sophomore,Philosophy,13,13,3.94,3.85,36,enrolled,Workday
+S000070,2024SU,Freshman,Sociology,17,17,3.81,3.76,24,enrolled,Workday
+S000071,2024SU,Senior,Biology,12,10,1.5,1.25,112,enrolled,Workday
+S000072,2024SU,Junior,Psychology,14,11,1.49,1.86,66,enrolled,Workday
+S000073,2024SU,Junior,Biochemistry,12,9,1.01,1.28,66,enrolled,Workday
+S000074,2024SU,Sophomore,Economics,15,15,3.66,3.69,57,enrolled,Workday
+S000075,2024SU,Senior,Business,12,12,3.39,3.5,133,enrolled,Workday
+S000076,2024SU,Junior,East Asian Studies,9,9,3.06,3.41,73,enrolled,Workday
+S000077,2024SU,Freshman,Mathematics,11,8,0.75,0.72,15,enrolled,Workday
+S000079,2024SU,Junior,American Studies,12,11,2.65,3.16,83,enrolled,Workday
+S000080,2024SU,Senior,Environmental Studies,16,15,2.63,2.55,154,enrolled,Workday
+S000081,2024SU,Sophomore,Philosophy,14,14,3.66,3.33,51,enrolled,Workday
+S000082,2024SU,Senior,"Health: Science, Society, and Policy",14,11,1.37,1.48,138,enrolled,Workday
+S000083,2024SU,Sophomore,Computer Science,15,15,3.5,3.49,56,enrolled,Workday
+S000084,2024SU,Sophomore,Neuroscience,13,11,2.09,2.51,55,enrolled,Workday
+S000085,2024SU,Sophomore,Economics and Business,17,17,3.55,3.32,49,enrolled,Workday
+S000086,2024SU,Senior,Mathematics,14,13,3.11,3.36,130,enrolled,Workday
+S000087,2024SU,Junior,Anthropology,12,11,2.9,3.33,68,enrolled,Workday
+S000089,2024SU,Sophomore,International and Global Studies,16,16,3.88,3.65,59,enrolled,Workday
+S000090,2024SU,Senior,Biology,18,16,2.08,1.86,94,enrolled,Workday
+S000091,2024SU,Freshman,Computer Science,17,17,3.54,3.43,29,enrolled,Workday
+S000092,2024SU,Junior,English,5,4,0.44,0.58,72,enrolled,Workday
+S000093,2024SU,Sophomore,Chemistry,12,12,3.32,2.99,43,enrolled,Workday
+S000095,2024SU,Senior,Sociology,14,14,3.45,3.24,123,enrolled,Workday
+S000096,2024SU,Senior,Computer Science,9,7,1.26,0.61,95,enrolled,Workday
+S000097,2024SU,Freshman,Computer Science,15,14,3.27,3.27,15,enrolled,Workday
+S000098,2024SU,Sophomore,Biology,,,,3.75,36,not_enrolled,Workday
+S000099,2024SU,Sophomore,Computer Science,14,13,2.59,2.56,51,enrolled,Workday
+S000100,2024SU,Senior,Computer Science,,,,3.25,108,not_enrolled,Workday
+S000102,2024SU,Junior,Psychology,12,11,3.15,3.45,86,enrolled,Workday
+S000103,2024SU,Junior,Computer Science,17,16,3.04,3.02,87,enrolled,Workday
+S000104,2024SU,Junior,Neuroscience,9,9,3.68,3.41,82,enrolled,Workday
+S000106,2024SU,Senior,Politics,12,12,3.23,3.07,145,enrolled,Workday
+S000107,2024SU,Senior,Biology,13,12,3.18,3.35,128,enrolled,Workday
+S000108,2024SU,Sophomore,Politics,17,13,0.95,1.01,41,enrolled,Workday
+S000110,2024SU,Junior,Environmental Studies,,,,3.51,66,not_enrolled,Workday
+S000113,2024SU,Junior,East Asian Studies,14,13,3.23,3.58,72,enrolled,Workday
+S000114,2024SU,Senior,Biology,17,16,3.24,3.43,140,enrolled,Workday
+S000115,2024SU,Senior,Biology,15,13,2.11,2.96,138,enrolled,Workday
+S000116,2024SU,Sophomore,Anthropology,17,14,1.73,1.57,30,enrolled,Workday
+S000117,2024SU,Sophomore,Neuroscience,13,10,1.14,0.98,39,enrolled,Workday
+S000118,2024SU,Senior,International and Global Studies,12,12,3.41,3.93,114,enrolled,Workday
+S000119,2024SU,Sophomore,Chemistry,14,13,2.79,2.9,56,enrolled,Workday
+S000120,2024SU,Sophomore,American Studies,15,15,3.99,3.96,55,enrolled,Workday
+S000121,2024SU,Junior,Anthropology,12,11,2.91,3.24,68,enrolled,Workday
+S000124,2024SU,Senior,Economics,15,13,2.27,1.94,121,enrolled,Workday
+S000125,2024SU,Junior,Sociology,,,,2.86,64,not_enrolled,Workday
+S000126,2024SU,Junior,Politics,16,14,1.88,1.9,60,enrolled,Workday
+S000127,2024SU,Senior,Economics,15,15,4.0,3.97,100,enrolled,Workday
+S000128,2024SU,Sophomore,Computer Science,17,16,3.13,3.32,45,enrolled,Workday
+S000129,2024SU,Senior,Environmental Studies,14,13,2.65,3.1,119,enrolled,Workday
+S000130,2024SU,Senior,Economics,11,11,4.0,3.96,124,enrolled,Workday
+S000131,2024SU,Sophomore,Economics,7,7,3.92,3.57,35,enrolled,Workday
+S000132,2024SU,Junior,Neuroscience,7,7,3.44,3.47,63,enrolled,Workday
+S000133,2024SU,Senior,Computer Science,9,9,3.65,3.23,134,enrolled,Workday
+S000135,2024SU,Junior,History,4,4,2.4,2.59,85,enrolled,Workday
+S000136,2024SU,Junior,Biology,8,8,3.78,3.42,65,enrolled,Workday
+S000137,2024SU,Senior,Economics,14,10,0.51,0.09,134,enrolled,Workday
+S000138,2024SU,Sophomore,International and Global Studies,15,15,3.42,3.26,58,enrolled,Workday
+S000139,2024SU,Sophomore,Neuroscience,4,4,3.85,3.79,32,enrolled,Workday
+S000140,2024SU,Junior,International and Global Studies,11,11,3.32,3.46,73,enrolled,Workday
+S000141,2024SU,Senior,Economics and Business,13,13,3.42,3.62,110,enrolled,Workday
+S000142,2024SU,Sophomore,Computer Science,17,17,3.58,3.67,56,enrolled,Workday
+S000143,2024SU,Sophomore,Economics,3,3,3.94,3.73,40,enrolled,Workday
+S000144,2024SU,Junior,Psychology,17,16,2.95,2.71,72,enrolled,Workday
+S000145,2024SU,Junior,American Studies,15,15,3.46,3.43,75,enrolled,Workday
+S000146,2024SU,Junior,Computer Science,18,17,3.35,3.5,88,enrolled,Workday
+S000147,2024SU,Freshman,Computer Science,9,8,3.01,3.05,21,enrolled,Workday
+S000148,2024SU,Sophomore,Economics,10,8,0.67,0.63,36,enrolled,Workday
+S000150,2024SU,Sophomore,Studio Art,6,6,3.46,3.13,47,enrolled,Workday
+S000151,2024SU,Junior,Psychology,14,13,2.72,3.36,61,enrolled,Workday
+S000152,2024SU,Senior,Politics,16,13,1.12,0.61,92,enrolled,Workday
+S000153,2024SU,Senior,Anthropology,11,10,3.1,3.11,90,enrolled,Workday
+S000154,2024SU,Junior,East Asian Studies,14,14,3.87,3.89,63,enrolled,Workday
+S000155,2024SU,Senior,Music,12,12,3.97,3.88,150,enrolled,Workday
+S000156,2024SU,Sophomore,Mathematics,15,14,2.97,3.35,46,enrolled,Workday
+S000159,2024SU,Senior,American Studies,17,16,3.23,3.12,135,enrolled,Workday
+S000160,2024SU,Sophomore,Politics,,,,3.66,40,not_enrolled,Workday
+S000161,2024SU,Sophomore,Economics,5,5,3.79,3.73,48,enrolled,Workday
+S000162,2024SU,Senior,Computer Science,17,17,3.97,3.63,126,enrolled,Workday
+S000163,2024SU,Junior,Computer Science,9,8,2.5,2.47,84,enrolled,Workday
+S000165,2024SU,Junior,"Health: Science, Society, and Policy",17,17,3.45,3.51,63,enrolled,Workday
+S000166,2024SU,Sophomore,Politics,18,14,1.01,1.03,46,enrolled,Workday
+S000167,2024SU,Sophomore,Business,17,16,3.11,3.11,42,enrolled,Workday
+S000169,2024SU,Senior,Neuroscience,6,5,1.74,1.77,117,enrolled,Workday
+S000170,2024SU,Sophomore,Economics,15,14,2.82,3.03,55,enrolled,Workday
+S000171,2024SU,Senior,Biology,16,14,1.94,2.08,128,enrolled,Workday
+S000172,2024SU,Senior,History,15,15,3.41,3.48,99,enrolled,Workday
+S000173,2024SU,Senior,English,,,,2.48,123,not_enrolled,Workday
+S000174,2024SU,Senior,Computer Science,12,12,4.0,3.71,138,enrolled,Workday
+S000175,2024SU,Senior,Economics and Business,12,11,2.95,3.32,105,enrolled,Workday
+S000176,2024SU,Sophomore,Economics,6,6,2.91,3.34,53,enrolled,Workday
+S000177,2024SU,Junior,Philosophy,13,13,3.36,3.33,64,enrolled,Workday
+S000179,2024SU,Senior,Mathematics,15,15,4.0,3.76,150,enrolled,Workday
+S000180,2024SU,Sophomore,Biochemistry,13,13,3.79,3.46,48,enrolled,Workday
+S000182,2024SU,Sophomore,Biochemistry,6,6,3.4,3.25,56,enrolled,Workday
+S000183,2024SU,Senior,Biochemistry,16,16,3.38,3.34,107,enrolled,Workday
+S000185,2024SU,Sophomore,Psychology,14,12,1.55,1.51,43,enrolled,Workday
+S000186,2024SU,Sophomore,Computer Science,15,15,4.0,3.95,49,enrolled,Workday
+S000187,2024SU,Senior,Business,15,14,2.93,3.17,107,enrolled,Workday
+S000188,2024SU,Junior,Computer Science,18,17,3.37,3.27,64,enrolled,Workday
+S000190,2024SU,Senior,Sociology,15,15,3.65,3.49,95,enrolled,Workday
+S000191,2024SU,Junior,Philosophy,14,13,3.23,3.3,67,enrolled,Workday
+S000192,2024SU,Junior,Computer Science,17,15,2.48,2.42,85,enrolled,Workday
+S000193,2024SU,Senior,Psychology,15,14,2.65,2.65,121,enrolled,Workday
+S000194,2024SU,Junior,Neuroscience,18,18,3.88,3.58,76,enrolled,Workday
+S000195,2024SU,Sophomore,Mathematics,7,7,3.95,3.43,44,enrolled,Workday
+S000196,2024SU,Senior,Psychology,15,15,3.85,3.61,155,enrolled,Workday
+S000197,2024SU,Junior,History,17,17,3.68,3.89,82,enrolled,Workday
+S000198,2024SU,Sophomore,Computer Science,13,13,3.49,3.4,46,enrolled,Workday
+S000200,2024SU,Sophomore,Computer Science,,,,3.93,35,not_enrolled,Workday
+S000201,2024SU,Senior,Physics,16,16,3.52,3.75,119,enrolled,Workday
+S000202,2024SU,Junior,"Health: Science, Society, and Policy",12,11,3.09,3.28,86,enrolled,Workday
+S000203,2024SU,Junior,Economics and Business,15,11,0.52,0.61,75,enrolled,Workday
+S000204,2024SU,Senior,Biochemistry,18,16,2.4,3.09,119,enrolled,Workday
+S000205,2024SU,Senior,Business,14,10,0.4,0.27,117,enrolled,Workday
+S000206,2024SU,Senior,Applied Mathematics,14,14,3.42,3.39,93,enrolled,Workday
+S000207,2024SU,Sophomore,International and Global Studies,16,15,2.96,3.1,35,enrolled,Workday
+S000209,2024SU,Junior,International and Global Studies,14,14,3.46,3.86,86,enrolled,Workday
+S000210,2024SU,Freshman,Environmental Studies,3,2,1.31,1.76,24,enrolled,Workday
+S000211,2024SU,Sophomore,Biology,15,14,3.01,3.47,59,enrolled,Workday
+S000212,2024SU,Junior,Computer Science,16,15,3.29,3.24,77,enrolled,Workday
+S000213,2024SU,Senior,Economics,3,3,3.78,3.72,139,enrolled,Workday
+S000214,2024SU,Sophomore,Neuroscience,17,16,3.1,3.1,57,enrolled,Workday
+S000215,2024SU,Junior,Politics,18,17,2.89,3.14,65,enrolled,Workday
+S000216,2024SU,Senior,Politics,15,15,3.92,3.28,137,enrolled,Workday
+S000217,2024SU,Senior,Economics,18,17,3.32,3.44,122,enrolled,Workday
+S000218,2024SU,Senior,International and Global Studies,14,14,3.9,3.65,133,enrolled,Workday
+S000220,2024SU,Sophomore,Music,18,17,2.98,2.84,56,enrolled,Workday
+S000221,2024SU,Sophomore,Psychology,12,10,1.18,1.17,50,enrolled,Workday
+S000224,2024SU,Sophomore,Sociology,14,13,2.97,3.65,49,enrolled,Workday
+S000226,2024SU,Junior,Mathematics,16,16,3.45,3.12,76,enrolled,Workday
+S000227,2024SU,Sophomore,History,16,12,0.99,1.21,36,enrolled,Workday
+S000229,2024SU,Junior,Computer Science,18,18,4.0,3.95,79,enrolled,Workday
+S000230,2024SU,Sophomore,Psychology,17,14,1.78,1.6,40,enrolled,Workday
+S000232,2024SU,Sophomore,Business,18,17,3.16,3.0,47,enrolled,Workday
+S000233,2024SU,Sophomore,Psychology,15,15,4.0,3.63,52,enrolled,Workday
+S000234,2024SU,Sophomore,Psychology,14,13,3.13,3.47,48,enrolled,Workday
+S000235,2024SU,Sophomore,Business,16,15,2.95,3.43,49,enrolled,Workday
+S000236,2024SU,Sophomore,Physics,18,18,3.66,3.85,55,enrolled,Workday
+S000237,2024SU,Junior,Politics,11,11,3.31,3.09,70,enrolled,Workday
+S000238,2024SU,Sophomore,Environmental Studies,13,12,3.11,3.42,41,enrolled,Workday
+S000239,2024SU,Sophomore,English,14,14,3.58,3.71,41,enrolled,Workday
+S000240,2024SU,Sophomore,Studio Art,14,14,3.53,3.52,58,enrolled,Workday
+S000241,2024SU,Sophomore,East Asian Studies,13,13,4.0,3.96,48,enrolled,Workday
+S000242,2024SU,Sophomore,History,13,13,4.0,3.89,30,enrolled,Workday
+S000243,2024SU,Junior,Music,18,18,3.53,3.3,82,enrolled,Workday
+S000244,2024SU,Sophomore,Neuroscience,13,12,3.19,3.0,43,enrolled,Workday
+S000245,2024SU,Senior,Economics and Business,16,16,3.99,3.81,130,enrolled,Workday
+S000246,2024SU,Junior,Biology,13,13,3.76,3.18,60,enrolled,Workday
+S000247,2024SU,Sophomore,Chemistry,14,13,3.25,3.68,34,enrolled,Workday
+S000250,2024SU,Senior,Anthropology,18,17,3.09,3.47,126,enrolled,Workday
+S000251,2024SU,Junior,Sociology,15,15,3.81,3.24,65,enrolled,Workday
+S000252,2024SU,Sophomore,Politics,10,9,2.72,2.08,33,enrolled,Workday
+S000253,2024SU,Sophomore,Neuroscience,17,17,3.49,3.47,59,enrolled,Workday
+S000254,2024SU,Senior,Sociology,15,15,3.42,3.5,127,enrolled,Workday
+S000256,2024SU,Junior,Environmental Studies,14,14,3.85,3.48,72,enrolled,Workday
+S000257,2024SU,Junior,Philosophy,15,14,3.08,3.34,76,enrolled,Workday
+S000258,2024SU,Sophomore,History,15,14,3.27,3.03,35,enrolled,Workday
+S000259,2024SU,Sophomore,Applied Mathematics,11,11,3.45,3.31,33,enrolled,Workday
+S000260,2024SU,Senior,Applied Mathematics,5,5,3.69,3.39,119,enrolled,Workday
+S000261,2024SU,Junior,Neuroscience,17,16,3.07,3.22,70,enrolled,Workday
+S000263,2024SU,Junior,Psychology,15,14,2.94,3.05,79,enrolled,Workday
+S000264,2024SU,Senior,Computer Science,15,15,4.0,3.82,103,enrolled,Workday
+S000265,2024SU,Junior,Anthropology,12,9,1.1,1.85,74,enrolled,Workday
+S000266,2024SU,Senior,Neuroscience,14,14,3.32,3.51,107,enrolled,Workday
+S000267,2024SU,Junior,Economics,12,11,2.92,3.1,65,enrolled,Workday
+S000268,2024SU,Junior,Physics,,,,3.72,80,not_enrolled,Workday
+S000269,2024SU,Junior,International and Global Studies,17,17,3.57,3.54,88,enrolled,Workday
+S000270,2024SU,Junior,Physics,14,14,3.33,3.4,69,enrolled,Workday
+S000271,2024SU,Senior,Sociology,,,,3.49,124,not_enrolled,Workday
+S000273,2024SU,Sophomore,Politics,12,11,2.25,2.87,48,enrolled,Workday
+S000274,2024SU,Sophomore,"Health: Science, Society, and Policy",14,14,3.39,3.36,50,enrolled,Workday
+S000277,2024SU,Senior,Biochemistry,13,13,3.98,3.63,148,enrolled,Workday
+S000280,2024SU,Senior,Physics,16,16,3.83,3.77,90,enrolled,Workday
+S000281,2024SU,Sophomore,Psychology,15,13,2.17,2.32,57,enrolled,Workday
+S000282,2024SU,Senior,Sociology,15,15,3.38,3.48,150,enrolled,Workday
+S000283,2024SU,Senior,Biochemistry,18,18,3.89,3.5,95,enrolled,Workday
+S000284,2024SU,Freshman,History,5,5,3.94,3.37,27,enrolled,Workday
+S000285,2024SU,Junior,Computer Science,14,13,2.73,3.24,66,enrolled,Workday
+S000286,2024SU,Senior,Environmental Studies,18,17,3.26,3.44,136,enrolled,Workday
+S000287,2024SU,Sophomore,"Health: Science, Society, and Policy",15,15,4.0,3.5,43,enrolled,Workday
+S000289,2024SU,Senior,Biology,13,10,1.06,1.16,115,enrolled,Workday
+S000292,2024SU,Senior,Applied Mathematics,17,17,3.52,3.42,111,enrolled,Workday
+S000293,2024SU,Junior,Politics,8,8,3.61,3.15,67,enrolled,Workday
+S000295,2024SU,Junior,Politics,3,2,1.63,1.52,79,enrolled,Workday
+S000296,2024SU,Junior,"Health: Science, Society, and Policy",11,11,4.0,3.53,76,enrolled,Workday
+S000298,2024SU,Sophomore,Neuroscience,15,14,3.22,3.13,55,enrolled,Workday
+S000299,2024SU,Freshman,Biology,3,3,2.6,2.89,29,enrolled,Workday
+S000300,2024SU,Sophomore,Politics,,,,3.93,41,not_enrolled,Workday
+S000301,2024SU,Senior,Biology,13,13,3.52,3.51,93,enrolled,Workday
+S000302,2024SU,Sophomore,Neuroscience,11,10,3.16,3.11,58,enrolled,Workday
+S000304,2024SU,Senior,Computer Science,18,18,3.94,3.38,154,enrolled,Workday
+S000305,2024SU,Sophomore,Computer Science,12,9,0.95,1.27,43,enrolled,Workday
+S000306,2024SU,Senior,Psychology,12,12,3.96,3.83,160,enrolled,Workday
+S000307,2024SU,Sophomore,International and Global Studies,8,8,3.28,3.56,43,enrolled,Workday
+S000308,2024SU,Senior,"Health: Science, Society, and Policy",17,16,3.38,3.42,150,enrolled,Workday
+S000309,2024SU,Sophomore,International and Global Studies,16,16,4.0,3.57,35,enrolled,Workday
+S000310,2024SU,Senior,Politics,14,14,3.78,3.82,110,enrolled,Workday
+S000311,2024SU,Junior,Computer Science,3,3,2.82,3.06,60,enrolled,Workday
+S000312,2024SU,Senior,Economics,5,5,3.2,3.02,131,enrolled,Workday
+S000314,2024SU,Sophomore,History,15,14,3.19,3.01,44,enrolled,Workday
+S000315,2024SU,Sophomore,Computer Science,16,15,3.0,3.21,55,enrolled,Workday
+S000316,2024SU,Sophomore,Biochemistry,17,12,0.41,0.34,47,enrolled,Workday
+S000318,2024SU,Junior,Anthropology,17,16,3.35,2.86,67,enrolled,Workday
+S000319,2024SU,Sophomore,Computer Science,8,7,2.63,2.11,36,enrolled,Workday
+S000321,2024SU,Senior,Applied Mathematics,9,9,3.52,3.6,107,enrolled,Workday
+S000323,2024SU,Senior,Neuroscience,18,18,3.52,3.22,156,enrolled,Workday
+S000324,2024SU,Senior,Biology,14,14,3.73,3.95,143,enrolled,Workday
+S000325,2024SU,Senior,Studio Art,16,14,1.86,1.8,121,enrolled,Workday
+S000327,2024SU,Junior,Psychology,6,6,2.92,3.12,65,enrolled,Workday
+S000328,2024SU,Junior,"Health: Science, Society, and Policy",,,,3.37,77,not_enrolled,Workday
+S000331,2024SU,Junior,Studio Art,4,4,3.1,3.29,66,enrolled,Workday
+S000332,2024SU,Sophomore,Biochemistry,13,12,2.89,2.75,53,enrolled,Workday
+S000333,2024SU,Sophomore,Biochemistry,12,12,3.43,3.36,52,enrolled,Workday
+S000334,2024SU,Junior,Sociology,9,9,3.24,3.6,66,enrolled,Workday
+S000336,2024SU,Sophomore,Sociology,,,,3.54,53,not_enrolled,Workday
+S000337,2024SU,Sophomore,Politics,10,10,3.37,3.52,58,enrolled,Workday
+S000339,2024SU,Sophomore,Neuroscience,10,10,3.67,3.79,59,enrolled,Workday
+S000341,2024SU,Freshman,Biology,5,5,3.32,3.65,23,enrolled,Workday
+S000342,2024SU,Senior,Neuroscience,17,17,3.74,3.73,111,enrolled,Workday
+S000343,2024SU,Senior,Computer Science,18,18,3.72,3.71,125,enrolled,Workday
+S000344,2024SU,Sophomore,Physics,17,16,2.97,3.29,55,enrolled,Workday
+S000345,2024SU,Sophomore,International and Global Studies,12,12,3.29,3.34,54,enrolled,Workday
+S000346,2024SU,Senior,English,14,14,3.34,3.35,129,enrolled,Workday
+S000347,2024SU,Junior,Physics,18,18,3.91,3.6,63,enrolled,Workday
+S000348,2024SU,Freshman,Mathematics,10,9,2.92,2.75,27,enrolled,Workday
+S000349,2024SU,Junior,Psychology,9,9,3.68,3.2,72,enrolled,Workday
+S000350,2024SU,Junior,International and Global Studies,15,15,3.48,3.02,71,enrolled,Workday
+S000351,2024SU,Junior,English,9,9,3.86,3.9,73,enrolled,Workday
+S000352,2024SU,Senior,Philosophy,11,11,3.29,3.4,153,enrolled,Workday
+S000354,2024SU,Sophomore,Philosophy,18,18,3.42,3.41,54,enrolled,Workday
+S000355,2024SU,Junior,Psychology,15,15,3.63,3.23,69,enrolled,Workday
+S000357,2024SU,Junior,Biochemistry,18,14,1.15,1.16,66,enrolled,Workday
+S000359,2024SU,Sophomore,Computer Science,16,15,3.01,3.21,42,enrolled,Workday
+S000360,2024SU,Junior,International and Global Studies,18,18,3.76,3.61,65,enrolled,Workday
+S000362,2024SU,Sophomore,Biology,12,12,3.31,3.45,51,enrolled,Workday
+S000363,2024SU,Junior,Economics,17,16,3.36,3.42,84,enrolled,Workday
+S000364,2024SU,Sophomore,Economics,14,10,0.0,0.27,52,enrolled,Workday
+S000365,2024SU,Sophomore,"Health: Science, Society, and Policy",4,3,2.03,1.62,53,enrolled,Workday
+S000366,2024SU,Sophomore,Psychology,12,12,4.0,3.88,54,enrolled,Workday
+S000367,2024SU,Senior,Neuroscience,18,18,3.9,3.97,99,enrolled,Workday
+S000368,2024SU,Junior,Biology,5,4,1.79,1.28,87,enrolled,Workday
+S000369,2024SU,Senior,Biochemistry,14,14,3.35,3.28,158,enrolled,Workday
+S000370,2024SU,Sophomore,"Health: Science, Society, and Policy",14,13,2.75,3.09,37,enrolled,Workday
+S000371,2024SU,Junior,Economics,17,12,0.32,0.5,60,enrolled,Workday
+S000372,2024SU,Sophomore,English,8,8,4.0,3.87,41,enrolled,Workday
+S000374,2024SU,Junior,Psychology,13,10,0.58,0.1,80,enrolled,Workday
+S000375,2024SU,Sophomore,"Health: Science, Society, and Policy",15,13,1.92,1.8,47,enrolled,Workday
+S000376,2024SU,Sophomore,Politics,12,11,2.85,3.36,44,enrolled,Workday
+S000377,2024SU,Junior,Computer Science,12,12,3.98,3.72,67,enrolled,Workday
+S000378,2024SU,Senior,Politics,12,12,3.35,3.7,113,enrolled,Workday
+S000379,2024SU,Sophomore,English,16,16,3.48,3.63,58,enrolled,Workday
+S000380,2024SU,Junior,Biochemistry,18,18,3.43,3.7,61,enrolled,Workday
+S000381,2024SU,Junior,Biology,12,12,4.0,3.68,81,enrolled,Workday
+S000382,2024SU,Sophomore,Environmental Studies,16,16,3.63,3.63,47,enrolled,Workday
+S000383,2024SU,Sophomore,Mathematics,13,11,1.97,1.97,51,enrolled,Workday
+S000384,2024SU,Junior,Biochemistry,13,13,3.31,3.43,61,enrolled,Workday
+S000385,2024SU,Sophomore,Computer Science,17,17,4.0,3.85,57,enrolled,Workday
+S000386,2024SU,Junior,Computer Science,9,9,3.43,3.4,64,enrolled,Workday
+S000387,2024SU,Junior,Music,18,14,0.68,0.6,66,enrolled,Workday
+S000388,2024SU,Sophomore,Economics,17,17,3.76,3.49,44,enrolled,Workday
+S000390,2024SU,Freshman,Biochemistry,16,16,3.69,3.52,22,enrolled,Workday
+S000391,2024SU,Senior,Environmental Studies,3,3,3.39,3.59,121,enrolled,Workday
+S000392,2024SU,Senior,Psychology,10,10,3.6,3.83,98,enrolled,Workday
+S000393,2024SU,Sophomore,Chemistry,9,9,3.07,3.33,54,enrolled,Workday
+S000394,2024SU,Sophomore,Business,18,16,2.47,1.95,47,enrolled,Workday
+S000395,2024SU,Senior,"Health: Science, Society, and Policy",11,11,3.89,3.51,102,enrolled,Workday
+S000396,2024SU,Senior,American Studies,13,13,3.27,3.27,112,enrolled,Workday
+S000397,2024SU,Junior,Business,17,15,2.62,2.81,70,enrolled,Workday
+S000398,2024SU,Junior,Anthropology,15,15,3.35,3.18,88,enrolled,Workday
+S000399,2024SU,Senior,Computer Science,15,15,3.77,3.69,92,enrolled,Workday
+S000400,2024SU,Freshman,Computer Science,13,13,3.66,3.76,29,enrolled,Workday
+S000402,2024SU,Freshman,History,,,,3.87,19,not_enrolled,Workday
+S000403,2024SU,Senior,Business,14,14,3.38,3.6,90,enrolled,Workday
+S000404,2024SU,Senior,History,,,,3.48,113,not_enrolled,Workday
+S000405,2024SU,Senior,Computer Science,8,8,3.74,3.81,141,enrolled,Workday
+S000406,2024SU,Senior,Computer Science,13,13,4.0,3.93,121,enrolled,Workday
+S000407,2024SU,Sophomore,Psychology,13,13,3.52,3.11,36,enrolled,Workday
+S000408,2024SU,Senior,Computer Science,13,13,3.8,3.54,112,enrolled,Workday
+S000409,2024SU,Senior,Economics,15,15,4.0,3.9,104,enrolled,Workday
+S000410,2024SU,Senior,Economics,14,13,2.63,2.77,107,enrolled,Workday
+S000411,2024SU,Junior,"Health: Science, Society, and Policy",13,12,2.9,2.87,62,enrolled,Workday
+S000412,2024SU,Senior,Politics,8,7,2.76,2.63,107,enrolled,Workday
+S000414,2024SU,Senior,Sociology,18,18,3.91,3.86,93,enrolled,Workday
+S000415,2024SU,Junior,Applied Mathematics,16,15,3.21,3.05,62,enrolled,Workday
+S000416,2024SU,Senior,Computer Science,14,14,3.41,3.45,107,enrolled,Workday
+S000417,2024SU,Sophomore,Biochemistry,4,4,3.85,3.92,50,enrolled,Workday
+S000418,2024SU,Senior,Environmental Studies,15,11,0.0,0.11,93,enrolled,Workday
+S000419,2024SU,Senior,Psychology,17,17,3.68,3.6,142,enrolled,Workday
+S000420,2024SU,Sophomore,Computer Science,4,3,1.75,2.08,50,enrolled,Workday
+S000421,2024SU,Junior,East Asian Studies,16,14,2.53,2.7,70,enrolled,Workday
+S000422,2024SU,Senior,Economics,14,14,4.0,3.59,114,enrolled,Workday
+S000423,2024SU,Junior,American Studies,18,17,3.02,3.04,81,enrolled,Workday
+S000424,2024SU,Junior,Studio Art,18,18,3.95,3.68,79,enrolled,Workday
+S000425,2024SU,Senior,Biology,12,12,3.6,3.51,103,enrolled,Workday
+S000426,2024SU,Sophomore,Neuroscience,14,13,2.74,2.78,42,enrolled,Workday
+S000427,2024SU,Sophomore,Biology,18,18,3.59,3.5,55,enrolled,Workday
+S000428,2024SU,Junior,Politics,,,,3.01,85,not_enrolled,Workday
+S000429,2024SU,Junior,Biochemistry,18,18,3.47,3.68,77,enrolled,Workday
+S000431,2024SU,Senior,Anthropology,14,14,3.44,3.77,96,enrolled,Workday
+S000432,2024SU,Junior,Computer Science,16,16,4.0,3.99,66,enrolled,Workday
+S000433,2024SU,Sophomore,Economics,16,16,3.75,3.37,53,enrolled,Workday
+S000434,2024SU,Senior,Applied Mathematics,17,17,4.0,3.9,97,enrolled,Workday
+S000436,2024SU,Senior,Biology,18,15,1.98,2.23,138,enrolled,Workday
+S000437,2024SU,Senior,Philosophy,16,16,3.44,3.22,131,enrolled,Workday
+S000439,2024SU,Senior,"Health: Science, Society, and Policy",5,5,3.94,3.71,91,enrolled,Workday
+S000440,2024SU,Sophomore,International and Global Studies,18,18,3.9,3.44,34,enrolled,Workday
+S000441,2024SU,Senior,American Studies,12,12,3.74,3.42,125,enrolled,Workday
+S000442,2024SU,Sophomore,Psychology,13,12,2.74,3.06,39,enrolled,Workday
+S000444,2024SU,Sophomore,Economics,13,10,0.54,0.35,38,enrolled,Workday
+S000445,2024SU,Senior,Physics,16,12,0.32,0.87,122,enrolled,Workday
+S000447,2024SU,Junior,Biology,15,15,3.94,3.99,79,enrolled,Workday
+S000449,2024SU,Sophomore,Economics,14,13,2.44,2.91,37,enrolled,Workday
+S000450,2024SU,Senior,Mathematics,14,14,3.31,3.47,123,enrolled,Workday
+S000451,2024SU,Senior,Biochemistry,14,11,0.64,0.74,127,enrolled,Workday
+S000452,2024SU,Senior,Economics,13,12,2.9,3.12,115,enrolled,Workday
+S000453,2024SU,Sophomore,Biology,14,14,3.98,3.5,53,enrolled,Workday
+S000454,2024SU,Junior,"Health: Science, Society, and Policy",15,15,3.94,3.61,85,enrolled,Workday
+S000455,2024SU,Freshman,English,13,13,4.0,3.94,29,enrolled,Workday
+S000456,2024SU,Senior,Computer Science,9,9,3.55,3.6,158,enrolled,Workday
+S000457,2024SU,Junior,Computer Science,16,15,2.68,2.63,72,enrolled,Workday
+S000458,2024SU,Senior,Neuroscience,14,11,1.37,1.89,131,enrolled,Workday
+S000459,2024SU,Freshman,East Asian Studies,12,11,2.81,3.28,27,enrolled,Workday
+S000460,2024SU,Junior,Psychology,3,2,0.48,0.21,74,enrolled,Workday
+S000461,2024SU,Junior,Chemistry,12,12,3.32,3.4,77,enrolled,Workday
+S000463,2024SU,Senior,Mathematics,,,,3.04,115,not_enrolled,Workday
+S000464,2024SU,Sophomore,Chemistry,12,11,2.78,2.98,38,enrolled,Workday
+S000465,2024SU,Junior,Physics,15,14,2.76,3.37,69,enrolled,Workday
+S000468,2024SU,Senior,Biology,15,12,0.89,1.04,109,enrolled,Workday
+S000470,2024SU,Junior,Biochemistry,3,3,3.15,3.16,70,enrolled,Workday
+S000471,2024SU,Junior,Economics,17,16,2.92,3.22,65,enrolled,Workday
+S000472,2024SU,Freshman,Computer Science,,,,2.78,20,not_enrolled,Workday
+S000473,2024SU,Junior,Biochemistry,14,14,3.32,3.14,66,enrolled,Workday
+S000474,2024SU,Junior,International and Global Studies,7,7,4.0,3.8,73,enrolled,Workday
+S000475,2024SU,Sophomore,International and Global Studies,17,16,3.35,3.35,31,enrolled,Workday
+S000477,2024SU,Junior,Physics,12,12,3.89,3.26,72,enrolled,Workday
+S000478,2024SU,Junior,Physics,13,11,1.64,1.59,77,enrolled,Workday
+S000479,2024SU,Freshman,Studio Art,6,6,3.27,2.98,27,enrolled,Workday
+S000480,2024SU,Junior,Physics,15,14,2.68,2.73,84,enrolled,Workday
+S000482,2024SU,Junior,History,8,8,3.92,3.68,62,enrolled,Workday
+S000483,2024SU,Sophomore,Neuroscience,12,12,4.0,3.64,48,enrolled,Workday
+S000484,2024SU,Senior,"Health: Science, Society, and Policy",8,7,2.07,2.23,132,enrolled,Workday
+S000485,2024SU,Junior,Psychology,14,12,1.77,1.62,83,enrolled,Workday
+S000486,2024SU,Senior,Physics,15,15,3.63,3.33,135,enrolled,Workday
+S000487,2024SU,Sophomore,Physics,14,12,2.16,2.03,45,enrolled,Workday
+S000488,2024SU,Senior,Biology,18,17,2.78,2.53,145,enrolled,Workday
+S000489,2024SU,Junior,Biology,12,12,3.97,3.55,62,enrolled,Workday
+S000490,2024SU,Sophomore,Biochemistry,,,,3.28,52,not_enrolled,Workday
+S000491,2024SU,Senior,Physics,12,12,3.42,3.75,135,enrolled,Workday
+S000492,2024SU,Senior,Biology,18,17,3.27,3.19,103,enrolled,Workday
+S000493,2024SU,Sophomore,Studio Art,12,11,2.64,2.13,53,enrolled,Workday
+S000494,2024SU,Sophomore,Chemistry,18,16,2.2,2.02,37,enrolled,Workday
+S000495,2024SU,Sophomore,Philosophy,7,7,4.0,3.89,43,enrolled,Workday
+S000496,2024SU,Senior,International and Global Studies,13,9,0.04,0.39,129,enrolled,Workday
+S000497,2024SU,Sophomore,Neuroscience,17,17,3.55,3.43,45,enrolled,Workday
+S000498,2024SU,Senior,American Studies,14,14,3.44,3.71,142,enrolled,Workday
+S000499,2024SU,Sophomore,Economics and Business,9,9,3.15,3.06,45,enrolled,Workday
+S000500,2024SU,Sophomore,Economics,17,14,1.48,1.68,39,enrolled,Workday

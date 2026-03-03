@@ -1,0 +1,18 @@
+{
+  "institution": "Brandeis University",
+  "seed": 12345,
+  "start_term": "2023FA",
+  "students": 500,
+  "systems": {
+    "lms": "Moodle",
+    "registration": "Workday"
+  },
+  "terms": [
+    "2023FA",
+    "2024SP",
+    "2024SU",
+    "2024FA",
+    "2025SP",
+    "2025SU"
+  ]
+}
