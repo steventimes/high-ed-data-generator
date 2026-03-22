@@ -1,6 +1,6 @@
 use anyhow::{Context, Result};
 
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum TermSeason {
     SP,
     SU,
@@ -21,6 +21,22 @@ impl Term {
             TermSeason::FA => "FA",
         };
         format!("{}{}", self.year, s)
+    }
+
+    pub fn label(&self) -> &'static str {
+        match self.season {
+            TermSeason::FA => "Fall",
+            TermSeason::SP => "Spring",
+            TermSeason::SU => "Summer",
+        }
+    }
+
+    pub fn academic_year(&self) -> String {
+        let start = match self.season {
+            TermSeason::FA => self.year,
+            TermSeason::SP | TermSeason::SU => self.year - 1,
+        };
+        format!("{start}-{}", start + 1)
     }
 
     pub fn next(&self) -> Term {

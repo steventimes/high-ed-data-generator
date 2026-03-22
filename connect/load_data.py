@@ -116,7 +116,7 @@ def load_csv_file(path: Path) -> pd.DataFrame:
 def table_name_for_file(path: Path) -> str:
     """Derive a table name from a file path.
 
-    Example: `/tmp/out/students_master.json` -> `students_master`.  The
+    Example: `/tmp/out/student_demographics.json` -> `student_demographics`.  The
     parent term directory is not included in the name.  File suffixes
     like `.csv` and `.json` are removed.
     """
@@ -162,30 +162,28 @@ def process_file(con: duckdb.DuckDBPyConnection, path: Path, clear: bool):
 
 
 def process_directory(con: duckdb.DuckDBPyConnection, input_dir: Path, clear: bool):
-    """Walk the generator output directory and load each file.
+    """Recursively walk the generator output directory and load each file.
 
-    This function loads top‑level files (e.g. students_master.json,
-    identity_crosswalk.csv, metadata.json) as well as files under the
-    `terms/` subdirectory.  Term subdirectories are expected to
-    contain CSV and JSON files which will be appended to the same
-    tables across terms.
+    This loader is resilient to different output layouts.  It will load
+    any `.csv` or `.json` files found anywhere under `input_dir`,
+    skipping `metadata.json`.  When `--clear` is specified, each
+    distinct table (based on the filename stem) is dropped once before
+    the first insert.  Subsequent files with the same table name (as
+    may happen when loading multiple runs) are appended.
     """
-    # Top‑level files
-    for child in input_dir.iterdir():
-        if child.is_file() and child.suffix.lower() in {".csv", ".json"}:
-            # Skip metadata.json (not loaded into DB)
-            if child.name == "metadata.json":
+    seen_tables = set()
+    for root, _, files in os.walk(input_dir):
+        for filename in files:
+            suffix = Path(filename).suffix.lower()
+            if suffix not in {".csv", ".json"}:
                 continue
-            process_file(con, child, clear)
-    # Term files
-    terms_dir = input_dir / "terms"
-    if terms_dir.exists() and terms_dir.is_dir():
-        for term_subdir in sorted(terms_dir.iterdir()):
-            if not term_subdir.is_dir():
+            if filename == "metadata.json":
                 continue
-            for file in term_subdir.iterdir():
-                if file.is_file() and file.suffix.lower() in {".csv", ".json"}:
-                    process_file(con, file, clear=False)
+            path = Path(root) / filename
+            table = table_name_for_file(path)
+            drop = clear and table not in seen_tables
+            process_file(con, path, clear=drop)
+            seen_tables.add(table)
 
 
 def main() -> None:
@@ -195,8 +193,9 @@ def main() -> None:
         raise FileNotFoundError(f"Input directory not found: {input_dir}")
     # Establish DuckDB connection
     con = duckdb.connect(args.db)
-    # Enable JSON extension for storing receipts later
-    con.execute("PRAGMA create_or_replace_journal_mode = 'wal'")
+    # Optionally adjust PRAGMA settings here.  DuckDB versions prior to
+    # 0.9 do not recognize create_or_replace_journal_mode.  Journaling
+    # is not required for loading data, so we omit the WAL setting.
     # Process files
     process_directory(con, input_dir, args.clear)
     # Commit and close

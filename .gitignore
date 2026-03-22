@@ -1,5 +1,15 @@
-# out/
+out/
+out_baseline/
 target/
 
 __pycache__/
 .venv/
+db/*
+!db/README.md
+db.log
+db_baseline.log
+db_fragmented.log
+result.log
+.env
+.env.*
+!.env.example

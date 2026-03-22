@@ -2,80 +2,35 @@
 evaluate.py
 -----------
 
-Example script for running a small workload of SQL queries against a
-DuckDB database populated with the synthetic high‑ed data.  It uses
-the `QueryReceiptLayer` to execute each query, capturing runtime and
-plan metadata, and prints a summary table of the collected receipts.
-
-You can customise the workload by editing the `QUERIES` list below
-or by adding new items.  Each entry must have a unique name and
-contain a valid SQL statement that references tables loaded by
-`load_data.py`.
-
-Usage:
-
-    python evaluate.py --db /path/to/edu.duckdb
-
-The script will log receipts into the `receipts` table of the
-database and emit a summary of metrics to stdout.  To inspect the
-receipts afterwards, open the database using DuckDB CLI or any
-compatible tool.
+Run declarative workload queries and compute fragmentation scores using
+the Query Receipt Layer (QRL) plus baseline-vs-target comparison.
 """
 
 import argparse
-from typing import List, Tuple
+from typing import Optional
 
 from tabulate import tabulate
 
+from fragmentation_scoring import FragmentationScorer, QueryScoreResult
 from query_receipt_layer import QueryReceiptLayer
-
-
-# Define workload queries.  Each tuple contains (query_name, sql).
-# You can modify or extend this list to suit your own analysis.  The
-# default workload covers a few basic joins across the generated
-# tables.  Note that DuckDB will infer null values for missing fields.
-QUERIES: List[Tuple[str, str]] = [
-    (
-        "q1_enrollment_status",
-        """
-        SELECT term_code, enrollment_status, COUNT(*) AS cnt
-        FROM sis_enrollments
-        GROUP BY term_code, enrollment_status
-        ORDER BY term_code, enrollment_status
-        """,
-    ),
-    (
-        "q2_login_average",
-        """
-        SELECT s.student_id, AVG(l.login_count) AS avg_logins
-        FROM identity_crosswalk AS cw
-        JOIN lms_activity AS l ON cw.moodle_user_key = l.moodle_user_key
-        JOIN sis_enrollments AS s ON cw.student_id = s.student_id AND s.term_code = l.term_code
-        GROUP BY s.student_id
-        LIMIT 10
-        """,
-    ),
-    (
-        "q3_loans_gpa",
-        """
-        SELECT s.term_code, AVG(f.loans) AS avg_loans, AVG(s.term_gpa) AS avg_term_gpa
-        FROM financial_aid AS f
-        JOIN identity_crosswalk AS cw ON f.workday_person_id = cw.workday_person_id
-        JOIN sis_enrollments AS s ON cw.student_id = s.student_id AND f.term_code = s.term_code
-        GROUP BY s.term_code
-        ORDER BY s.term_code
-        """,
-    ),
-]
+from workload_spec import default_workload
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Execute workload queries and record receipts")
+    parser = argparse.ArgumentParser(
+        description="Execute workload queries and compute fragmentation scores"
+    )
     parser.add_argument(
         "--db",
         type=str,
         required=True,
-        help="Path to the DuckDB database file",
+        help="Path to the fragmented/target DuckDB database file",
+    )
+    parser.add_argument(
+        "--baseline-db",
+        type=str,
+        default=None,
+        help="Path to the clean baseline DuckDB database file",
     )
     parser.add_argument(
         "--frag-level",
@@ -91,52 +46,131 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
+def _fmt_metric(value: Optional[float]) -> str:
+    if value is None:
+        return "n/a"
+    return f"{value:.3f}"
+
+
+def _summary_row(result: QueryScoreResult):
+    metrics = result.metrics
+    return [
+        result.query_name,
+        result.frag_level or "-",
+        result.source_fanout,
+        f"{result.runtime_ms:.2f}",
+        result.row_count,
+        _fmt_metric(metrics.get("JML")),
+        _fmt_metric(metrics.get("CCL")),
+        _fmt_metric(metrics.get("MNS")),
+        _fmt_metric(metrics.get("RTL")),
+        _fmt_metric(metrics.get("SBL")),
+        _fmt_metric(metrics.get("STL")),
+        _fmt_metric(metrics.get("accuracy_score")),
+        _fmt_metric(metrics.get("efficiency_score")),
+        _fmt_metric(metrics.get("fragmentation_score")),
+    ]
+
+
+def _missing_default_workload_tables(qrl: QueryReceiptLayer):
+    required = {
+        "sis_enrollments",
+        "identity_crosswalk_integration",
+        "financial_aid_wide",
+        "lms_activity_wide",
+    }
+    missing = []
+    for table in sorted(required):
+        row = qrl.con.execute(
+            """
+            SELECT 1
+            FROM information_schema.tables
+            WHERE table_name = ?
+            LIMIT 1
+            """,
+            (table,),
+        ).fetchone()
+        if row is None:
+            missing.append(table)
+    return missing
+
+
 def main() -> None:
     args = parse_args()
-    qrl = QueryReceiptLayer(args.db)
+    if not args.baseline_db:
+        raise SystemExit("Missing required argument: --baseline-db")
+
+    target_qrl = QueryReceiptLayer(args.db)
+    baseline_qrl = QueryReceiptLayer(args.baseline_db)
+    scorer = FragmentationScorer(target_qrl=target_qrl, baseline_qrl=baseline_qrl)
+    target_missing_tables = _missing_default_workload_tables(target_qrl)
+    if target_missing_tables:
+        target_qrl.close()
+        baseline_qrl.close()
+        raise SystemExit(
+            "Missing required tables for target workload: "
+            + ", ".join(target_missing_tables)
+            + ". Expected schema-aligned outputs including wide bridge tables."
+        )
+    baseline_missing_tables = _missing_default_workload_tables(baseline_qrl)
+    if baseline_missing_tables:
+        target_qrl.close()
+        baseline_qrl.close()
+        raise SystemExit(
+            "Missing required tables for baseline workload: "
+            + ", ".join(baseline_missing_tables)
+            + ". Expected schema-aligned outputs including wide bridge tables."
+        )
+    query_specs = default_workload()
+
     summary_rows = []
-    for name, sql in QUERIES:
-        print(f"Executing {name}...")
-        result_df = None
+    results = []
+    for spec in query_specs:
+        print(f"Executing {spec.name}...")
         try:
-            result_df = qrl.execute(
-                query_name=name,
-                sql=sql,
+            result = scorer.score_query(
+                query_spec=spec,
                 frag_level=args.frag_level,
                 return_result=not args.no_result,
             )
+            results.append(result)
         except Exception as exc:
-            print(f"  Query {name} failed: {exc}")
+            print(f"  Query {spec.name} failed: {exc}")
             continue
-        # Fetch the latest receipt for this query
-        receipt_row = qrl.con.execute(
-            f"SELECT source_fanout, runtime_ms, row_count, receipt FROM receipts WHERE query_name=? ORDER BY timestamp DESC LIMIT 1",
-            (name,),
-        ).fetchone()
-        if receipt_row:
-            source_fanout, runtime_ms, row_count, receipt_json = receipt_row
-            summary_rows.append(
-                [
-                    name,
-                    args.frag_level or "-",
-                    source_fanout,
-                    f"{runtime_ms:.2f} ms",
-                    row_count,
-                ]
-            )
-        # Optionally print result preview
-        if result_df is not None:
-            print(result_df.head())
-    # Print summary table
+
+        summary_rows.append(_summary_row(result))
+        if result.result_df is not None:
+            print(result.result_df.head())
+
     print("\nSummary of Query Metrics:")
     print(
         tabulate(
             summary_rows,
-            headers=["Query", "FragLevel", "Source Fan‑out", "Runtime", "Rows"],
+            headers=[
+                "Query",
+                "FragLevel",
+                "Source Fanout",
+                "Runtime(ms)",
+                "Rows",
+                "JML",
+                "CCL",
+                "MNS",
+                "RTL",
+                "SBL",
+                "STL",
+                "Accuracy",
+                "Efficiency",
+                "Fragmentation",
+            ],
             tablefmt="github",
         )
     )
-    qrl.close()
+
+    workload_score = FragmentationScorer.workload_score(results, query_specs)
+    print(f"\nWorkload Fragmentation Score: {_fmt_metric(workload_score)}")
+
+    target_qrl.close()
+    baseline_qrl.close()
 
 
 if __name__ == "__main__":

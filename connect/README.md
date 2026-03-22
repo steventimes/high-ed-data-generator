@@ -1,109 +1,77 @@
-# High‑Ed DuckDB Connector and Query Evaluation Layer
+# High-Ed DuckDB Connector and Fragmentation Scoring
 
-This folder contains a small Python toolkit for loading the synthetic
-higher‑education datasets produced by the
-[`high‑ed‑data‑generator`](https://github.com/steventimes/high-ed-data-generator)
-project into a DuckDB database and for evaluating SQL workloads with a
-Query Receipt Layer (QRL).  The code is designed to be self‑contained
-and does not require the generator’s Rust sources.  It expects that
-you have already run the generator’s `run.sh` script and produced
-output files (CSV and JSON) under a single output directory.
+This folder contains a Python toolkit for:
 
-## Contents
+- loading generated high-ed CSV/JSON files into DuckDB (`load_data.py`)
+- executing SQL through a Query Receipt Layer (`query_receipt_layer.py`)
+- scoring query-level fragmentation against a clean baseline (`evaluate.py`)
 
-* `load_data.py` – Command‑line script that walks the generator’s
-  output directory, infers table schemas and loads the files into a
-  DuckDB database.  Both CSV and JSON input are supported.  The
-  script creates one table per file (e.g. `students_master`,
-  `identity_crosswalk`, `sis_enrollments`, `registrar_course_enrollments`,
-  `lms_activity`, `financial_aid`, `advising_holds`) and appends data
-  across terms.  If a composite key column contains a delimiter such
-  as `|`, it will be split into separate columns.
+## Files
 
-* `query_receipt_layer.py` – Defines a `QueryReceiptLayer` class
-  which wraps DuckDB query execution.  It captures simple metrics
-  about each query (execution time, source fan‑out and the raw
-  `EXPLAIN ANALYZE` JSON plan) and writes a structured receipt to
-  a `receipts` table inside the same database.  The class can be
-  reused to run arbitrary workloads and inspect the resulting
-  receipts.
+- `load_data.py`: Recursively loads `.csv` and `.json` files into DuckDB tables.
+- `query_receipt_layer.py`: Executes queries and logs runtime/plan receipts into `receipts`.
+- `workload_spec.py`: Declarative workload specs (`QuerySpec` and `JoinSpec`).
+- `fragmentation_scoring.py`: Computes `JML`, `CCL`, `MNS`, `RTL`, `SBL`, `STL`, then component and final scores.
+- `evaluate.py`: Runs the default workload on target + baseline DBs and prints score summaries.
+- `requirements.txt`: Python dependencies.
 
-* `evaluate.py` – Example script that demonstrates how to execute a
-  small workload of SQL queries against a database loaded with
-  generator outputs.  The script uses `QueryReceiptLayer` to log
-  receipts and prints a summary table of the collected metrics.
-
-* `requirements.txt` – Lists the minimal Python dependencies.
-
-## Installation
-
-1. Install Python 3.9+ and [pip](https://pip.pypa.io).  The only
-   required dependencies are `duckdb`, `pandas` and `tabulate`.
-
-   ```bash
-   cd high_ed_duckdb
-   python -m pip install -r requirements.txt
-   ```
-
-2. Ensure that you have generated data using the high‑ed data
-   generator.  For example:
-
-   ```bash
-   # Clone the generator if you don’t have it
-   git clone https://github.com/steventimes/high-ed-data-generator.git
-   cd high-ed-data-generator
-   # Produce a low‑fragmentation dataset
-   STUDENTS=500 LMS_MISSING_RATE=0.0 FIN_MISSING_RATE=0.0 \
-   HOLD_RATE=0.0 CROSSWALK_MISMATCH_RATE=0.0 ./run.sh
-   # outputs will appear in ./out by default
-   ```
-
-## Loading Data
-
-Use the `load_data.py` script to import the generator’s outputs into a
-DuckDB database.  You can specify the output directory and database
-file with command‑line flags.  By default the script will append data
-into existing tables; passing `--clear` will drop and recreate
-existing tables.
+## Install
 
 ```bash
-python load_data.py \
-  --input /path/to/high-ed-data-generator/out \
-  --db /path/to/edu.duckdb \
-  --clear
+python -m pip install -r connect/requirements.txt
 ```
 
-Once complete you can open the database with the DuckDB CLI or use
-Python to query the tables.
+## Load Data
 
-## Running Evaluation Workloads
-
-The `evaluate.py` script provides a template for running a set of
-SQL workloads across different fragmentation levels.  It accepts a
-database path and will execute a list of example queries, logging
-receipts into a `receipts` table and printing a summary of the
-metrics.
+Load one dataset run into one DuckDB file:
 
 ```bash
-python evaluate.py --db /path/to/edu.duckdb
+python connect/load_data.py --input ./out_baseline --db ./db/edu_baseline.duckdb --clear
+python connect/load_data.py --input ./out --db ./db/edu_fragmented.duckdb --clear
 ```
 
-You can customise the queries or fragmentation levels by editing
-`evaluate.py`.  Each call to the `execute()` method of
-`QueryReceiptLayer` records a JSON plan, runtime and source fan‑out.
-For more advanced analysis (join fractions, schema drift, etc.) you
-may extend the implementation accordingly.
+Important behavior:
 
-## Notes
+- The loader skips `metadata.json`.
+- Tables are named by file stem (`sis_enrollments`, `identity_crosswalk_integration`, `financial_aid`, `financial_aid_wide`, `lms_activity`, `lms_activity_wide`, ...).
+- v1 scoring assumes one run per DuckDB file. Do not mix baseline and fragmented runs into one DB.
 
-* The scripts are intentionally conservative about schema inference.
-  Column types are inferred using pandas and DuckDB’s automatic
-  casting.  If you need stricter types or indexing, adjust the
-  `load_data.py` script.
-* DuckDB JSON profiling is enabled via `EXPLAIN ANALYZE FORMAT JSON`.
-  For metrics such as join cardinality or bytes scanned you may need
-  to parse deeper into the plan; see the DuckDB documentation for
-  details.  The generator’s `run.sh` script exposes knobs for
-  controlling fragmentation levels through environment variables
-  (e.g. `LMS_MISSING_RATE` and `FIN_MISSING_RATE` control missing
-  percentages【942396643357201†L12-L18】).
+Default workload assumptions:
+
+- `q1` reads `sis_enrollments` (schema-core fields).
+- Cross-system bridge queries (`q2`, `q3`) use `identity_crosswalk_integration` plus wide tables (`financial_aid_wide`, `lms_activity_wide`) so joins can be evaluated on integration identifiers (`erp_person_id`, `sis_user_id`).
+
+## Run Fragmentation Evaluation
+
+```bash
+python connect/evaluate.py \
+  --db ./db/edu_fragmented.duckdb \
+  --baseline-db ./db/edu_baseline.duckdb \
+  --frag-level generated
+```
+
+Optional:
+
+- `--no-result`: Skip returning result DataFrames (faster when only scoring is needed).
+- Use `../db.sh` for the full default pipeline (load baseline + fragmented + evaluate).
+
+Validation behavior:
+
+- `evaluate.py` checks that required default-workload tables exist before running:
+  `sis_enrollments`, `identity_crosswalk_integration`, `financial_aid_wide`, `lms_activity_wide`.
+
+## Stored Outputs
+
+The target database gets two receipt tables:
+
+- `receipts`: Raw execution receipts from `QueryReceiptLayer`.
+- `fragmentation_receipts`: Per-query summary columns plus a JSON payload with:
+  join diagnostics, null rates, baseline comparisons, primitive metrics, and final score.
+
+## Scoring Formula (default)
+
+- `accuracy_score = 0.5*JML + 0.3*CCL + 0.2*MNS`
+- `efficiency_score = 0.5*RTL + 0.3*SBL + 0.2*STL`
+- `fragmentation_score = 0.6*accuracy_score + 0.4*efficiency_score`
+
+Efficiency metrics are renormalized across available terms if scanned bytes are unavailable in the current DuckDB plan JSON.

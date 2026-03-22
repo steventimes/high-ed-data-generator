@@ -21,7 +21,7 @@ pub fn write_csv<T: Serialize>(path: &Path, rows: &[T]) -> Result<()> {
     Ok(())
 }
 
-pub fn write_json<T: Serialize>(path: &Path, value: &T, pretty: bool) -> Result<()> {
+pub fn write_json<T: Serialize + ?Sized>(path: &Path, value: &T, pretty: bool) -> Result<()> {
     let file =
         fs::File::create(path).with_context(|| format!("failed to create {}", path.display()))?;
     let writer = BufWriter::new(file);
