@@ -1,0 +1,16 @@
+[project]
+name = "fragmentation-benchmark"
+version = "0.1.0"
+requires-python = ">=3.10"
+dependencies = [
+  "duckdb>=1.0",
+  "matplotlib>=3.8",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8.0"]
+text-to-sql = ["openai>=1.0", "python-dotenv>=1.0", "vanna[duckdb,openai]>=2.0"]
+
+[tool.pytest.ini_options]
+pythonpath = ["python/src"]
+testpaths = ["tests/python"]

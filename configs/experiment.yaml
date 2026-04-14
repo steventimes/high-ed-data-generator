@@ -1,0 +1,21 @@
+experiment_version: 1
+population_size: 500
+baseline_seed: 20260410
+variants:
+  baseline:
+    corruption: []
+  low_fragmentation:
+    corruption:
+      drop_row: 0.10
+  medium_fragmentation:
+    corruption:
+      drop_row: 0.30
+  high_fragmentation:
+    corruption:
+      drop_row: 0.50
+query:
+  at_risk_gpa_threshold: 2.5
+baseline_to_fragment_invariant:
+  mutate_academic_records: false
+  regenerate_population_per_variant: false
+  corruption_applies_only_to: financial_aid_records

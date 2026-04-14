@@ -4,14 +4,7 @@ set -euo pipefail
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "${ROOT_DIR}"
 
-CARGO_BIN="${CARGO_BIN:-cargo}"
 PYTHON_BIN="${PYTHON_BIN:-}"
-RUN_ID="${RUN_ID:-local}"
-SCHEMA_CONFIG="${SCHEMA_CONFIG:-configs/schema_registry.yaml}"
-EXPERIMENT_CONFIG="${EXPERIMENT_CONFIG:-configs/experiment.yaml}"
-RUN_ROOT="${RUN_ROOT:-artifacts/runs}"
-AUTO_INSTALL_PY_DEPS="${AUTO_INSTALL_PY_DEPS:-true}"
-
 if [[ -z "${PYTHON_BIN}" ]]; then
   if [[ -x ".venv/bin/python" ]]; then
     PYTHON_BIN=".venv/bin/python"
@@ -19,14 +12,13 @@ if [[ -z "${PYTHON_BIN}" ]]; then
     PYTHON_BIN="python"
   elif command -v python3 >/dev/null 2>&1; then
     PYTHON_BIN="python3"
-  elif command -v python.exe >/dev/null 2>&1; then
-    PYTHON_BIN="python.exe"
   else
-    echo "Could not find python, python3, or python.exe. Set PYTHON_BIN explicitly." >&2
+    echo "Could not find python or python3. Set PYTHON_BIN explicitly." >&2
     exit 1
   fi
 fi
 
+AUTO_INSTALL_PY_DEPS="${AUTO_INSTALL_PY_DEPS:-true}"
 if [[ "${AUTO_INSTALL_PY_DEPS}" != "true" && "${AUTO_INSTALL_PY_DEPS}" != "false" ]]; then
   echo "AUTO_INSTALL_PY_DEPS must be true or false." >&2
   exit 1
@@ -39,17 +31,17 @@ if [[ "${AUTO_INSTALL_PY_DEPS}" == "true" ]]; then
   fi
 fi
 
-echo "Generating benchmark run ${RUN_ID}"
-"${CARGO_BIN}" run -p fragmentation-cli -- generate \
-  --schema "${SCHEMA_CONFIG}" \
-  --experiment "${EXPERIMENT_CONFIG}" \
-  --out-root "${RUN_ROOT}" \
-  --run-id "${RUN_ID}" \
-  --overwrite
+EVAL_ARGS=("$@")
+if [[ "$#" -eq 0 ]]; then
+  QUESTIONS_FILE="${QUESTIONS_FILE:-question.json}"
+  RUN_DIR="${RUN_DIR:-artifacts/runs/local}"
+  OUTPUT_DIR="${OUTPUT_DIR:-${RUN_DIR}/evaluation/text_to_sql}"
+  EVAL_ARGS=(
+    --questions-file "${QUESTIONS_FILE}"
+    --run-dir "${RUN_DIR}"
+    --output-dir "${OUTPUT_DIR}"
+  )
+fi
 
-echo "Running analysis for ${RUN_ROOT%/}/${RUN_ID}"
 PYTHONPATH="${ROOT_DIR}/python/src${PYTHONPATH:+:${PYTHONPATH}}" \
-  "${PYTHON_BIN}" -m benchmark.run_analysis \
-  --run-dir "${RUN_ROOT%/}/${RUN_ID}"
-
-echo "Done. Artifacts are in ${RUN_ROOT%/}/${RUN_ID}"
+  "${PYTHON_BIN}" -m benchmark.evaluation.run_text_to_sql "${EVAL_ARGS[@]}"

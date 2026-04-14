@@ -1,0 +1,2777 @@
+\begin{table*}
+    \small
+    \centering
+    \caption{Selected knobs (RM: available memory)}\label{tab:methods}
+    \vspace{-1.5em}
+    \begin{tabular}{l@{}llp{6cm}p{2cm}p{2cm}l}
+        \toprule
+        & \textbf{\#} & \textbf{knob} & \textbf{Description} & \textbf{Default} & \textbf{Range} & \textbf{Impact} \\
+        \midrule
+        & 1 & \texttt{rate\_limiter} & limits internal file read/write bandwidth & nullptr &  & read/write \\
+        \midrule
+        & 2 & \texttt{max\_open\_files} & high value or -1 cause high memory usage & -1 & -1 to \# files in db &  memory \\
+        \midrule
+        & 3 & \texttt{max\_file\_opening\_threads} & threads used to open files & 16 & 1 to \# files in db &  parallelism \\
+        \midrule
+        & 4 & \texttt{max\_total\_wal\_size} & applicable when more than 1 CF (wbs: write\_buffer\_size; mwbn: max\_write\_buffer\_number & \#CFs $*$ wbs $*$ mwbn $*$ 4 & wbs to RM & read/write \\
+        \midrule
+        & 5 & \texttt{delete\_obsolete\_files\_period\_micros} & frequency to delete obsolete files & 6 hours &  & space \\
+        \midrule
+        & 6 & \texttt{max\_background\_jobs} & concurrent background jobs & 2 &  & parallelism \\
+        \midrule
+        & 7 & \texttt{max\_subcompactions} & breaking compaction into concurrent small jobs & 1 &  & parallelism \\
+        \bottomrule
+    \end{tabular}
+\end{table*}
+
+
+
+
+
+
+
+
+\renewcommand{\arraystretch}{1.12}
+\setlength{\tabcolsep}{4pt}
+
+% Color tag helper for operation importance.
+\newcommand{\optag}[2]{%
+  \begingroup\setlength{\fboxsep}{1pt}\colorbox{#1}{\scriptsize\strut #2}\endgroup%
+}
+
+{\footnotesize
+\noindent\textbf{Notes.} \\
+(1) Request-scoped \texttt{ReadOptions}/\texttt{WriteOptions} are omitted from the main table because they are per-operation controls rather than persistent DB tuning knobs. \\
+
+\subsection*{Main tuning table}
+{\footnotesize
+\begin{longtable}{@{}p{3.4cm}p{5.0cm}p{3.6cm}p{2.5cm}p{2.6cm}@{}}
+    \toprule
+    \textbf{Metric} & \textbf{Description} & \textbf{Range of values} & \textbf{Default value} & \textbf{Important for Operations} \\
+    \midrule
+    \endfirsthead
+
+    \toprule
+    \textbf{Metric} & \textbf{Description} & \textbf{Range of values} & \textbf{Default value} & \textbf{Important for} \\
+    \midrule
+    \endhead
+
+    \midrule
+    \multicolumn{5}{r}{\textit{Continued on next page}} \\
+    \endfoot
+
+    \bottomrule
+    \endlastfoot
+
+    \multicolumn{5}{>{\columncolor{gray!15}}l}{\textbf{[ColumnFamilyOptions : AdvancedColumnFamilyOptions]}} \\
+    \multicolumn{5}{>{\columncolor{green!8}}l}{\textit{Mutable at runtime}} \\
+
+    \texttt{write\_buffer\_size}
+    & amount of data buffered in memory before flushing
+    & size\_t
+    & 64 \textless{}\textless{} 20
+    & \\
+
+    \texttt{compression}
+    & compression algorithm for SST blocks
+    & CompressionType
+    & 
+    & \\
+
+    \texttt{bottommost\_compression}
+    & compression algorithm for bottommost-level files
+    & CompressionType
+    & kDisableCompressionOption
+    & \\
+
+    \texttt{bottommost\_compression\_opts}
+    & compression options for bottommost-level files
+    & CompressionOptions
+    & 
+    & \\
+
+    \texttt{compression\_opts}
+    & compression option set
+    & CompressionOptions
+    & 
+    & \\
+
+    \texttt{level0\_file\_num\_compaction\_trigger}
+    & number of L0 files that triggers compaction
+    & int
+    & 4
+    & \\
+
+    \texttt{prefix\_extractor}
+    & prefix transform used for filtering and prefix seeks
+    & std::shared\_ptr\textless{}const SliceTransform\textgreater{}
+    & nullptr
+    & \\
+
+    \texttt{max\_bytes\_for\_level\_base}
+    & base size limit for level 1
+    & uint64\_t
+    & 256 * 1048576
+    & \\
+
+    \texttt{snap\_refresh\_nanos}
+    & snapshot refresh interval in nanoseconds
+    & uint64\_t
+    & 0
+    & \\
+
+    \texttt{disable\_auto\_compactions}
+    & disable automatic compactions
+    & bool
+    & false
+    & \\
+
+    \texttt{table\_factory}
+    & SST table format factory
+    & std::shared\_ptr\textless{}TableFactory\textgreater{}
+    & 
+    & \\
+
+    \texttt{cf\_paths}
+    & paths and target sizes for column-family SST files
+    & std::vector\textless{}DbPath\textgreater{}
+    & 
+    & \\
+
+    \texttt{compaction\_thread\_limiter}
+    & limiter for outstanding compaction tasks
+    & std::shared\_ptr\textless{}ConcurrentTaskLimiter\textgreater{}
+    & nullptr
+    & \\
+
+    \texttt{sst\_partitioner\_factory}
+    & factory for SST partition boundaries
+    & std::shared\_ptr\textless{}SstPartitionerFactory\textgreater{}
+    & nullptr
+    & \\
+
+    \texttt{memtable\_max\_range\_deletions}
+    & range-deletion count threshold for flushing
+    & uint32\_t
+    & 0
+    & \\
+
+    \texttt{uncache\_aggressiveness}
+    & aggressiveness of erasing cache entries for obsolete files
+    & uint32\_t
+    & 0
+    & \\
+
+    \multicolumn{5}{>{\columncolor{orange!8}}l}{\textit{Immutable}} \\
+
+    \texttt{comparator}
+    & key comparator
+    & const Comparator*
+    & BytewiseComparator()
+    & \\
+
+    \texttt{merge\_operator}
+    & merge semantics implementation
+    & std::shared\_ptr\textless{}MergeOperator\textgreater{}
+    & nullptr
+    & \\
+
+    \texttt{compaction\_filter}
+    & single compaction filter instance
+    & const CompactionFilter*
+    & nullptr
+    & \\
+
+    \texttt{compaction\_filter\_factory}
+    & factory for compaction filters
+    & std::shared\_ptr\textless{}CompactionFilterFactory\textgreater{}
+    & nullptr
+    & \\
+
+    \multicolumn{5}{>{\columncolor{gray!15}}l}{\textbf{[DBOptions]}} \\
+    \multicolumn{5}{>{\columncolor{green!8}}l}{\textit{Mutable at runtime}} \\
+
+    \texttt{max\_open\_files}
+    & limit on open files
+    & int
+    & -1
+    & \\
+
+    \texttt{max\_total\_wal\_size}
+    & WAL size threshold before forced flush
+    & uint64\_t
+    & 0
+    & \\
+
+    \texttt{delete\_obsolete\_files\_period\_micros}
+    & period for deleting obsolete files
+    & uint64\_t
+    & 6ULL * 60 * 60 * 1000000
+    & \\
+
+    \texttt{max\_background\_jobs}
+    & maximum background jobs
+    & int
+    & 2
+    & \\
+
+    \texttt{max\_background\_compactions}
+    & maximum background compactions
+    & int
+    & -1
+    & \\
+
+    \texttt{max\_subcompactions}
+    & maximum subcompactions per compaction
+    & uint32\_t
+    & 1
+    & \\
+
+    \texttt{max\_background\_flushes}
+    & maximum background flushes
+    & int
+    & -1
+    & \\
+
+    \texttt{max\_manifest\_file\_size}
+    & manifest roll-over threshold
+    & uint64\_t
+    & 1024 * 1024 * 1024
+    & \\
+
+    \texttt{stats\_dump\_period\_sec}
+    & stats dump period sec
+    & unsigned int
+    & 600
+    & \\
+
+    \texttt{compaction\_readahead\_size}
+    & read-ahead size for compaction reads
+    & size\_t
+    & 2 * 1024 * 1024
+    & \\
+
+    \texttt{writable\_file\_max\_buffer\_size}
+    & maximum writable-file buffer size
+    & size\_t
+    & 1024 * 1024
+    & \\
+
+    \texttt{bytes\_per\_sync}
+    & incremental sync interval for SST writes
+    & uint64\_t
+    & 0
+    & \\
+
+    \texttt{wal\_bytes\_per\_sync}
+    & incremental sync interval for WAL writes
+    & uint64\_t
+    & 0
+    & \\
+
+    \texttt{strict\_bytes\_per\_sync}
+    & stricter dirty-byte cap for sync pacing
+    & bool
+    & false
+    & \\
+
+    \texttt{delayed\_write\_rate}
+    & write rate during slowdown
+    & uint64\_t
+    & 0
+    & \\
+
+    \multicolumn{5}{>{\columncolor{orange!8}}l}{\textit{Immutable}} \\
+
+    \texttt{create\_if\_missing}
+    & create the DB if it is missing
+    & bool
+    & false
+    & \\
+
+    \texttt{create\_missing\_column\_families}
+    & create missing column families on open
+    & bool
+    & false
+    & \\
+
+    \texttt{error\_if\_exists}
+    & error if the DB already exists
+    & bool
+    & false
+    & \\
+
+    \texttt{paranoid\_checks}
+    & extra corruption and consistency checks
+    & bool
+    & true
+    & \\
+
+    \texttt{flush\_verify\_memtable\_count}
+    & flush verify memtable count
+    & bool
+    & true
+    & \\
+
+    \texttt{compaction\_verify\_record\_count}
+    & compaction verify record count
+    & bool
+    & true
+    & \\
+
+    \texttt{track\_and\_verify\_wals\_in\_manifest}
+    & track and verify wals in manifest
+    & bool
+    & false
+    & \\
+
+    \texttt{track\_and\_verify\_wals}
+    & track and verify wals
+    & bool
+    & false
+    & \\
+
+    \texttt{verify\_sst\_unique\_id\_in\_manifest}
+    & verify sst unique id in manifest
+    & bool
+    & true
+    & \\
+
+    \texttt{env}
+    & env
+    & Env*
+    & Env::Default()
+    & \\
+
+    \texttt{rate\_limiter}
+    & rate limiter
+    & std::shared\_ptr\textless{}RateLimiter\textgreater{}
+    & nullptr
+    & \\
+
+    \texttt{sst\_file\_manager}
+    & sst file manager
+    & std::shared\_ptr\textless{}SstFileManager\textgreater{}
+    & nullptr
+    & \\
+
+    \texttt{info\_log}
+    & info log
+    & std::shared\_ptr\textless{}Logger\textgreater{}
+    & nullptr
+    & \\
+
+    \texttt{info\_log\_level}
+    & info log level
+    & InfoLogLevel
+    & Logger::kDefaultLogLevel
+    & \\
+
+    \texttt{max\_file\_opening\_threads}
+    & max file opening threads
+    & int
+    & 16
+    & \\
+
+    \texttt{statistics}
+    & statistics
+    & std::shared\_ptr\textless{}Statistics\textgreater{}
+    & nullptr
+    & \\
+
+    \texttt{use\_fsync}
+    & use fsync
+    & bool
+    & false
+    & \\
+
+    \texttt{db\_paths}
+    & db paths
+    & std::vector\textless{}DbPath\textgreater{}
+    & 
+    & \\
+
+    \texttt{db\_log\_dir}
+    & db log dir
+    & std::string
+    & ""
+    & \\
+
+    \texttt{wal\_dir}
+    & wal dir
+    & std::string
+    & ""
+    & \\
+
+    \texttt{max\_log\_file\_size}
+    & max log file size
+    & size\_t
+    & 0
+    & \\
+
+    \texttt{log\_file\_time\_to\_roll}
+    & log file time to roll
+    & size\_t
+    & 0
+    & \\
+
+    \texttt{keep\_log\_file\_num}
+    & keep log file num
+    & size\_t
+    & 1000
+    & \\
+
+    \texttt{recycle\_log\_file\_num}
+    & recycle log file num
+    & size\_t
+    & 0
+    & \\
+
+    \texttt{table\_cache\_numshardbits}
+    & table cache numshardbits
+    & int
+    & 6
+    & \\
+
+    \texttt{WAL\_ttl\_seconds}
+    & WAL ttl seconds
+    & uint64\_t
+    & 0
+    & \\
+
+    \texttt{WAL\_size\_limit\_MB}
+    & WAL size limit MB
+    & uint64\_t
+    & 0
+    & \\
+
+    \texttt{manifest\_preallocation\_size}
+    & manifest preallocation size
+    & size\_t
+    & 4 * 1024 * 1024
+    & \\
+
+    \texttt{allow\_mmap\_reads}
+    & allow mmap reads
+    & bool
+    & false
+    & \\
+
+    \texttt{allow\_mmap\_writes}
+    & allow mmap writes
+    & bool
+    & false
+    & \\
+
+    \texttt{use\_direct\_reads}
+    & use direct reads
+    & bool
+    & false
+    & \\
+
+    \texttt{use\_direct\_io\_for\_flush\_and\_compaction}
+    & use direct io for flush and compaction
+    & bool
+    & false
+    & \\
+
+    \texttt{allow\_fallocate}
+    & allow fallocate
+    & bool
+    & true
+    & \\
+
+    \texttt{is\_fd\_close\_on\_exec}
+    & is fd close on exec
+    & bool
+    & true
+    & \\
+
+    \texttt{stats\_persist\_period\_sec}
+    & stats persist period sec
+    & unsigned int
+    & 600
+    & \\
+
+    \texttt{persist\_stats\_to\_disk}
+    & persist stats to disk
+    & bool
+    & false
+    & \\
+
+    \texttt{stats\_history\_buffer\_size}
+    & stats history buffer size
+    & size\_t
+    & 1024 * 1024
+    & \\
+
+    \texttt{advise\_random\_on\_open}
+    & advise random on open
+    & bool
+    & true
+    & \\
+
+    \texttt{db\_write\_buffer\_size}
+    & db write buffer size
+    & size\_t
+    & 0
+    & \\
+
+    \texttt{write\_buffer\_manager}
+    & write buffer manager
+    & std::shared\_ptr\textless{}WriteBufferManager\textgreater{}
+    & nullptr
+    & \\
+
+    \texttt{use\_adaptive\_mutex}
+    & use adaptive mutex
+    & bool
+    & false
+    & \\
+
+    \texttt{listeners}
+    & listeners
+    & std::vector\textless{}std::shared\_ptr\textless{}EventListener\textgreater{}\textgreater{}
+    & 
+    & \\
+
+    \texttt{enable\_thread\_tracking}
+    & enable thread tracking
+    & bool
+    & false
+    & \\
+
+    \texttt{enable\_pipelined\_write}
+    & enable pipelined write
+    & bool
+    & false
+    & \\
+
+    \texttt{unordered\_write}
+    & unordered write
+    & bool
+    & false
+    & \\
+
+    \texttt{allow\_concurrent\_memtable\_write}
+    & allow concurrent memtable write
+    & bool
+    & true
+    & \\
+
+    \texttt{enable\_write\_thread\_adaptive\_yield}
+    & enable write thread adaptive yield
+    & bool
+    & true
+    & \\
+
+    \texttt{max\_write\_batch\_group\_size\_bytes}
+    & max write batch group size bytes
+    & uint64\_t
+    & 1 \textless{}\textless{} 20
+    & \\
+
+    \texttt{write\_thread\_max\_yield\_usec}
+    & write thread max yield usec
+    & uint64\_t
+    & 100
+    & \\
+
+    \texttt{write\_thread\_slow\_yield\_usec}
+    & write thread slow yield usec
+    & uint64\_t
+    & 3
+    & \\
+
+    \texttt{skip\_stats\_update\_on\_db\_open}
+    & skip stats update on db open
+    & bool
+    & false
+    & \\
+
+    \texttt{skip\_checking\_sst\_file\_sizes\_on\_db\_open}
+    & skip checking sst file sizes on db open
+    & bool
+    & false
+    & \\
+
+    \texttt{wal\_recovery\_mode}
+    & wal recovery mode
+    & WALRecoveryMode
+    & WALRecoveryMode::kPointInTimeRecovery
+    & \\
+
+    \texttt{allow\_2pc}
+    & allow 2pc
+    & bool
+    & false
+    & \\
+
+    \texttt{row\_cache}
+    & row cache
+    & std::shared\_ptr\textless{}RowCache\textgreater{}
+    & nullptr
+    & \\
+
+    \texttt{wal\_filter}
+    & wal filter
+    & WalFilter*
+    & nullptr
+    & \\
+
+    \texttt{fail\_if\_options\_file\_error}
+    & fail if options file error
+    & bool
+    & true
+    & \\
+
+    \texttt{dump\_malloc\_stats}
+    & dump malloc stats
+    & bool
+    & false
+    & \\
+
+    \texttt{avoid\_flush\_during\_recovery}
+    & avoid flush during recovery
+    & bool
+    & false
+    & \\
+
+    \texttt{avoid\_flush\_during\_shutdown}
+    & avoid flush during shutdown
+    & bool
+    & false
+    & \\
+
+    \texttt{allow\_ingest\_behind}
+    & allow ingest behind
+    & bool
+    & false
+    & \\
+
+    \texttt{two\_write\_queues}
+    & two write queues
+    & bool
+    & false
+    & \\
+
+    \texttt{manual\_wal\_flush}
+    & manual wal flush
+    & bool
+    & false
+    & \\
+
+    \texttt{wal\_compression}
+    & wal compression
+    & CompressionType
+    & kNoCompression
+    & \\
+
+    \texttt{background\_close\_inactive\_wals}
+    & background close inactive wals
+    & bool
+    & false
+    & \\
+
+    \texttt{atomic\_flush}
+    & atomic flush
+    & bool
+    & false
+    & \\
+
+    \texttt{avoid\_unnecessary\_blocking\_io}
+    & avoid unnecessary blocking io
+    & bool
+    & false
+    & \\
+
+    \texttt{write\_dbid\_to\_manifest}
+    & write dbid to manifest
+    & bool
+    & true
+    & \\
+
+    \texttt{write\_identity\_file}
+    & write identity file
+    & bool
+    & true
+    & \\
+
+    \texttt{prefix\_seek\_opt\_in\_only}
+    & prefix seek opt in only
+    & bool
+    & false
+    & \\
+
+    \texttt{log\_readahead\_size}
+    & log readahead size
+    & size\_t
+    & 0
+    & \\
+
+    \texttt{file\_checksum\_gen\_factory}
+    & file checksum gen factory
+    & std::shared\_ptr\textless{}FileChecksumGenFactory\textgreater{}
+    & nullptr
+    & \\
+
+    \texttt{best\_efforts\_recovery}
+    & best efforts recovery
+    & bool
+    & false
+    & \\
+
+    \texttt{max\_bgerror\_resume\_count}
+    & max bgerror resume count
+    & int
+    & INT\_MAX
+    & \\
+
+    \texttt{bgerror\_resume\_retry\_interval}
+    & bgerror resume retry interval
+    & uint64\_t
+    & 1000000
+    & \\
+
+    \texttt{allow\_data\_in\_errors}
+    & allow data in errors
+    & bool
+    & false
+    & \\
+
+    \texttt{db\_host\_id}
+    & db host id
+    & std::string
+    & kHostnameForDbHostId
+    & \\
+
+    \texttt{checksum\_handoff\_file\_types}
+    & checksum handoff file types
+    & FileTypeSet
+    & 
+    & \\
+
+    \texttt{compaction\_service}
+    & compaction service
+    & std::shared\_ptr\textless{}CompactionService\textgreater{}
+    & nullptr
+    & \\
+
+    \texttt{lowest\_used\_cache\_tier}
+    & lowest used cache tier
+    & CacheTier
+    & CacheTier::kNonVolatileBlockTier
+    & \\
+
+    \texttt{enforce\_single\_del\_contracts}
+    & enforce single del contracts
+    & bool
+    & true
+    & \\
+
+    \texttt{daily\_offpeak\_time\_utc}
+    & daily offpeak time utc
+    & std::string
+    & ""
+    & \\
+
+    \texttt{follower\_refresh\_catchup\_period\_ms}
+    & follower refresh catchup period ms
+    & uint64\_t
+    & 10000
+    & \\
+
+    \texttt{follower\_catchup\_retry\_count}
+    & follower catchup retry count
+    & uint64\_t
+    & 10
+    & \\
+
+    \texttt{follower\_catchup\_retry\_wait\_ms}
+    & follower catchup retry wait ms
+    & uint64\_t
+    & 100
+    & \\
+
+    \texttt{metadata\_write\_temperature}
+    & metadata write temperature
+    & Temperature
+    & Temperature::kUnknown
+    & \\
+
+    \texttt{wal\_write\_temperature}
+    & wal write temperature
+    & Temperature
+    & Temperature::kUnknown
+    & \\
+
+    \multicolumn{5}{>{\columncolor{gray!15}}l}{\textbf{[ReadOptions]}} \\
+    \multicolumn{5}{>{\columncolor{green!8}}l}{\textit{Mutable at runtime}} \\
+
+    \texttt{snapshot}
+    & snapshot
+    & const Snapshot*
+    & nullptr
+    & \\
+
+    \texttt{timestamp}
+    & timestamp
+    & const Slice*
+    & nullptr
+    & \\
+
+    \texttt{iter\_start\_ts}
+    & iter start ts
+    & const Slice*
+    & nullptr
+    & \\
+
+    \texttt{deadline}
+    & deadline
+    & std::chrono::microseconds
+    & std::chrono::microseconds::zero()
+    & \\
+
+    \texttt{io\_timeout}
+    & io timeout
+    & std::chrono::microseconds
+    & std::chrono::microseconds::zero()
+    & \\
+
+    \texttt{read\_tier}
+    & read tier
+    & ReadTier
+    & kReadAllTier
+    & \\
+
+    \texttt{rate\_limiter\_priority}
+    & rate limiter priority
+    & Env::IOPriority
+    & Env::IO\_TOTAL
+    & \\
+
+    \texttt{value\_size\_soft\_limit}
+    & value size soft limit
+    & uint64\_t
+    & std::numeric\_limits\textless{}uint64\_t\textgreater{}::max()
+    & \\
+
+    \texttt{merge\_operand\_count\_threshold}
+    & merge operand count threshold
+    & std::optional\textless{}size\_t\textgreater{}
+    & 
+    & \\
+
+    \texttt{verify\_checksums}
+    & verify checksums
+    & bool
+    & true
+    & \\
+
+    \texttt{fill\_cache}
+    & fill cache
+    & bool
+    & true
+    & \\
+
+    \texttt{ignore\_range\_deletions}
+    & ignore range deletions
+    & bool
+    & false
+    & \\
+
+    \texttt{async\_io}
+    & async io
+    & bool
+    & false
+    & \\
+
+    \texttt{optimize\_multiget\_for\_io}
+    & optimize multiget for io
+    & bool
+    & true
+    & \\
+
+    \texttt{readahead\_size}
+    & readahead size
+    & size\_t
+    & 0
+    & \\
+
+    \texttt{max\_skippable\_internal\_keys}
+    & max skippable internal keys
+    & uint64\_t
+    & 0
+    & \\
+
+    \texttt{iterate\_lower\_bound}
+    & iterate lower bound
+    & const Slice*
+    & nullptr
+    & \\
+
+    \texttt{iterate\_upper\_bound}
+    & iterate upper bound
+    & const Slice*
+    & nullptr
+    & \\
+
+    \texttt{tailing}
+    & tailing
+    & bool
+    & false
+    & \\
+
+    \texttt{managed}
+    & managed
+    & bool
+    & false
+    & \\
+
+    \texttt{total\_order\_seek}
+    & total order seek
+    & bool
+    & false
+    & \\
+
+    \texttt{auto\_prefix\_mode}
+    & auto prefix mode
+    & bool
+    & false
+    & \\
+
+    \texttt{prefix\_same\_as\_start}
+    & prefix same as start
+    & bool
+    & false
+    & \\
+
+    \texttt{pin\_data}
+    & pin data
+    & bool
+    & false
+    & \\
+
+    \texttt{adaptive\_readahead}
+    & adaptive readahead
+    & bool
+    & false
+    & \\
+
+    \texttt{background\_purge\_on\_iterator\_cleanup}
+    & background purge on iterator cleanup
+    & bool
+    & false
+    & \\
+
+    \texttt{table\_filter}
+    & table filter
+    & std::function\textless{}bool(const TableProperties\&)\textgreater{}
+    & 
+    & \\
+
+    \texttt{auto\_readahead\_size}
+    & auto readahead size
+    & bool
+    & true
+    & \\
+
+    \texttt{allow\_unprepared\_value}
+    & allow unprepared value
+    & bool
+    & false
+    & \\
+
+    \texttt{auto\_refresh\_iterator\_with\_snapshot}
+    & auto refresh iterator with snapshot
+    & bool
+    & false
+    & \\
+
+    \texttt{io\_activity}
+    & io activity
+    & Env::IOActivity
+    & Env::IOActivity::kUnknown
+    & \\
+
+    \texttt{weight}
+    & weight
+    & uint64\_t
+    & 0
+    & \\
+
+    \multicolumn{5}{>{\columncolor{gray!15}}l}{\textbf{[WriteOptions]}} \\
+    \multicolumn{5}{>{\columncolor{green!8}}l}{\textit{Mutable at runtime}} \\
+
+    \texttt{sync}
+    & sync
+    & bool
+    & false
+    & \\
+
+    \texttt{disableWAL}
+    & disable WAL
+    & bool
+    & false
+    & \\
+
+    \texttt{ignore\_missing\_column\_families}
+    & ignore missing column families
+    & bool
+    & false
+    & \\
+
+    \texttt{no\_slowdown}
+    & no slowdown
+    & bool
+    & false
+    & \\
+
+    \texttt{low\_pri}
+    & low pri
+    & bool
+    & false
+    & \\
+
+    \texttt{memtable\_insert\_hint\_per\_batch}
+    & memtable insert hint per batch
+    & bool
+    & false
+    & \\
+
+    \texttt{rate\_limiter\_priority}
+    & rate limiter priority
+    & Env::IOPriority
+    & Env::IO\_TOTAL
+    & \\
+
+    \texttt{protection\_bytes\_per\_key}
+    & protection bytes per key
+    & size\_t
+    & 0
+    & \\
+
+    \texttt{io\_activity}
+    & io activity
+    & Env::IOActivity
+    & Env::IOActivity::kUnknown
+    & \\
+
+    \multicolumn{5}{>{\columncolor{gray!15}}l}{\textbf{[FlushOptions]}} \\
+    \multicolumn{5}{>{\columncolor{green!8}}l}{\textit{Mutable at runtime}} \\
+
+    \texttt{wait}
+    & wait
+    & bool
+    & 
+    & \\
+
+    \texttt{allow\_write\_stall}
+    & allow write stall
+    & bool
+    & 
+    & \\
+
+    \multicolumn{5}{>{\columncolor{gray!15}}l}{\textbf{[CompactRangeOptions]}} \\
+    \multicolumn{5}{>{\columncolor{green!8}}l}{\textit{Mutable at runtime}} \\
+
+    \texttt{exclusive\_manual\_compaction}
+    & exclusive manual compaction
+    & bool
+    & false
+    & \\
+
+    \texttt{change\_level}
+    & change level
+    & bool
+    & false
+    & \\
+
+    \texttt{target\_level}
+    & target level
+    & int
+    & -1
+    & \\
+
+    \texttt{target\_path\_id}
+    & target path id
+    & uint32\_t
+    & 0
+    & \\
+
+    \texttt{bottommost\_level\_compaction}
+    & bottommost level compaction
+    & BottommostLevelCompaction
+    & BottommostLevelCompaction::kIfHaveCompactionFilter
+    & \\
+
+    \texttt{allow\_write\_stall}
+    & allow write stall
+    & bool
+    & false
+    & \\
+
+    \texttt{full\_history\_ts\_low}
+    & full history ts low
+    & const Slice*
+    & nullptr
+    & \\
+
+    \texttt{canceled}
+    & canceled
+    & std::atomic\textless{}bool\textgreater{}*
+    & nullptr
+    & \\
+
+    \texttt{blob\_garbage\_collection\_policy}
+    & blob garbage collection policy
+    & BlobGarbageCollectionPolicy
+    & BlobGarbageCollectionPolicy::kUseDefault
+    & \\
+
+    \texttt{blob\_garbage\_collection\_age\_cutoff}
+    & blob age cutoff for garbage collection
+    & double
+    & -1
+    & \\
+
+    \multicolumn{5}{>{\columncolor{gray!15}}l}{\textbf{[IngestExternalFileOptions]}} \\
+    \multicolumn{5}{>{\columncolor{green!8}}l}{\textit{Mutable at runtime}} \\
+
+    \texttt{move\_files}
+    & move files
+    & bool
+    & false
+    & \\
+
+    \texttt{link\_files}
+    & link files
+    & bool
+    & false
+    & \\
+
+    \texttt{failed\_move\_fall\_back\_to\_copy}
+    & failed move fall back to copy
+    & bool
+    & true
+    & \\
+
+    \texttt{snapshot\_consistency}
+    & snapshot consistency
+    & bool
+    & true
+    & \\
+
+    \texttt{allow\_global\_seqno}
+    & allow global seqno
+    & bool
+    & true
+    & \\
+
+    \texttt{allow\_blocking\_flush}
+    & allow blocking flush
+    & bool
+    & true
+    & \\
+
+    \texttt{ingest\_behind}
+    & ingest behind
+    & bool
+    & false
+    & \\
+
+    \texttt{write\_global\_seqno}
+    & write global seqno
+    & bool
+    & false
+    & \\
+
+    \texttt{verify\_checksums\_before\_ingest}
+    & verify checksums before ingest
+    & bool
+    & false
+    & \\
+
+    \texttt{verify\_checksums\_readahead\_size}
+    & verify checksums readahead size
+    & size\_t
+    & 0
+    & \\
+
+    \texttt{verify\_file\_checksum}
+    & verify file checksum
+    & bool
+    & true
+    & \\
+
+    \texttt{fail\_if\_not\_bottommost\_level}
+    & fail if not bottommost level
+    & bool
+    & false
+    & \\
+
+    \texttt{allow\_db\_generated\_files}
+    & allow db generated files
+    & bool
+    & false
+    & \\
+
+    \texttt{fill\_cache}
+    & fill cache
+    & bool
+    & true
+    & \\
+
+    \multicolumn{5}{>{\columncolor{gray!15}}l}{\textbf{[TraceOptions]}} \\
+    \multicolumn{5}{>{\columncolor{green!8}}l}{\textit{Mutable at runtime}} \\
+
+    \texttt{max\_trace\_file\_size}
+    & max trace file size
+    & uint64\_t
+    & uint64\_t\{64\} * 1024 * 1024 * 1024
+    & \\
+
+    \texttt{sampling\_frequency}
+    & sampling frequency
+    & uint64\_t
+    & 1
+    & \\
+
+    \texttt{filter}
+    & filter
+    & uint64\_t
+    & kTraceFilterNone
+    & \\
+
+    \texttt{preserve\_write\_order}
+    & preserve write order
+    & bool
+    & false
+    & \\
+
+    \multicolumn{5}{>{\columncolor{gray!15}}l}{\textbf{[ImportColumnFamilyOptions]}} \\
+
+    \multicolumn{5}{>{\columncolor{gray!15}}l}{\textbf{[SizeApproximationOptions]}} \\
+    \multicolumn{5}{>{\columncolor{green!8}}l}{\textit{Mutable at runtime}} \\
+
+    \texttt{include\_memtables}
+    & include memtables
+    & bool
+    & false
+    & \\
+
+    \texttt{include\_files}
+    & include files
+    & bool
+    & true
+    & \\
+
+    \texttt{files\_size\_error\_margin}
+    & files size error margin
+    & double
+    & -1.0
+    & \\
+
+    \multicolumn{5}{>{\columncolor{gray!15}}l}{\textbf{[OpenAndCompactOptions]}} \\
+
+    \multicolumn{5}{>{\columncolor{gray!15}}l}{\textbf{[LiveFilesStorageInfoOptions]}} \\
+    \multicolumn{5}{>{\columncolor{green!8}}l}{\textit{Mutable at runtime}} \\
+
+    \texttt{include\_checksum\_info}
+    & include checksum info
+    & bool
+    & false
+    & \\
+
+    \texttt{wal\_size\_for\_flush}
+    & wal size for flush
+    & uint64\_t
+    & 0
+    & \\
+
+    \multicolumn{5}{>{\columncolor{gray!15}}l}{\textbf{[WaitForCompactOptions]}} \\
+    \multicolumn{5}{>{\columncolor{green!8}}l}{\textit{Mutable at runtime}} \\
+
+    \texttt{abort\_on\_pause}
+    & abort on pause
+    & bool
+    & false
+    & \\
+
+    \texttt{flush}
+    & flush
+    & bool
+    & false
+    & \\
+
+    \texttt{wait\_for\_purge}
+    & wait for purge
+    & bool
+    & false
+    & \\
+
+    \texttt{close\_db}
+    & close db
+    & bool
+    & false
+    & \\
+
+    \texttt{timeout}
+    & timeout
+    & std::chrono::microseconds
+    & std::chrono::microseconds::zero()
+    & \\
+
+    \multicolumn{5}{>{\columncolor{gray!15}}l}{\textbf{[CassandraOptions]}} \\
+    \multicolumn{5}{>{\columncolor{orange!8}}l}{\textit{Immutable}} \\
+
+    \texttt{operands\_limit}
+    & operands limit
+    & size\_t
+    & 
+    & \\
+
+    \texttt{gc\_grace\_period\_in\_seconds}
+    & gc grace period in seconds
+    & int32\_t
+    & 
+    & \\
+
+    \texttt{purge\_ttl\_on\_expiration}
+    & purge ttl on expiration
+    & bool
+    & 
+    & \\
+
+    \multicolumn{5}{>{\columncolor{gray!15}}l}{\textbf{[CompactionOptionsFIFO]}} \\
+    \multicolumn{5}{>{\columncolor{green!8}}l}{\textit{Mutable at runtime}} \\
+
+    \texttt{file\_temperature\_age\_thresholds}
+    & file temperature age thresholds
+    & std::vector\textless{}FileTemperatureAge\textgreater{}
+    & \{\}
+    & \\
+
+    \multicolumn{5}{>{\columncolor{orange!8}}l}{\textit{Immutable}} \\
+
+    \texttt{max\_table\_files\_size}
+    & max table files size
+    & uint64\_t
+    & 
+    & \\
+
+    \texttt{allow\_compaction}
+    & allow compaction
+    & bool
+    & false
+    & \\
+
+    \texttt{age\_for\_warm}
+    & age for warm
+    & uint64\_t
+    & 0
+    & \\
+
+    \multicolumn{5}{>{\columncolor{gray!15}}l}{\textbf{[AdvancedColumnFamilyOptions]}} \\
+    \multicolumn{5}{>{\columncolor{green!8}}l}{\textit{Mutable at runtime}} \\
+
+    \texttt{max\_write\_buffer\_number}
+    & max write buffer number
+    & int
+    & 2
+    & \\
+
+    \texttt{inplace\_update\_num\_locks}
+    & inplace update num locks
+    & size\_t
+    & 10000
+    & \\
+
+    \texttt{experimental\_mempurge\_threshold}
+    & experimental mempurge threshold
+    & double
+    & 0.0
+    & \\
+
+    \texttt{compression\_per\_level}
+    & compression per level
+    & std::vector\textless{}CompressionType\textgreater{}
+    & 
+    & \\
+
+    \texttt{level0\_slowdown\_writes\_trigger}
+    & level0 slowdown writes trigger
+    & int
+    & 20
+    & \\
+
+    \texttt{level0\_stop\_writes\_trigger}
+    & level0 stop writes trigger
+    & int
+    & 36
+    & \\
+
+    \texttt{max\_bytes\_for\_level\_multiplier}
+    & max bytes for level multiplier
+    & double
+    & 10
+    & \\
+
+    \texttt{max\_bytes\_for\_level\_multiplier\_additional}
+    & max bytes for level multiplier additional
+    & std::vector\textless{}int\textgreater{}
+    & std::vector\textless{}int\textgreater{}(static\_cast\textless{}size\_t\textgreater{}(num\_levels), 1)
+    & \\
+
+    \texttt{max\_compaction\_bytes}
+    & max compaction bytes
+    & uint64\_t
+    & 0
+    & \\
+
+    \texttt{soft\_pending\_compaction\_bytes\_limit}
+    & soft pending compaction bytes limit
+    & uint64\_t
+    & 64 * 1073741824ull
+    & \\
+
+    \texttt{hard\_pending\_compaction\_bytes\_limit}
+    & hard pending compaction bytes limit
+    & uint64\_t
+    & 256 * 1073741824ull
+    & \\
+
+    \texttt{compaction\_options\_fifo}
+    & compaction options fifo
+    & CompactionOptionsFIFO
+    & 
+    & \\
+
+    \texttt{enable\_blob\_files}
+    & enable blob files for value separation
+    & bool
+    & false
+    & \\
+
+    \texttt{min\_blob\_size}
+    & minimum value size for blob separation
+    & uint64\_t
+    & 0
+    & \\
+
+    \texttt{blob\_file\_size}
+    & target blob file size
+    & uint64\_t
+    & 1ULL \textless{}\textless{} 28
+    & \\
+
+    \texttt{blob\_compression\_type}
+    & compression for blob files
+    & CompressionType
+    & kNoCompression
+    & \\
+
+    \texttt{enable\_blob\_garbage\_collection}
+    & enable blob garbage collection
+    & bool
+    & false
+    & \\
+
+    \texttt{blob\_garbage\_collection\_age\_cutoff}
+    & blob age cutoff for garbage collection
+    & double
+    & 0.25
+    & \\
+
+    \texttt{blob\_garbage\_collection\_force\_threshold}
+    & force threshold for blob garbage collection
+    & double
+    & 1.0
+    & \\
+
+    \texttt{blob\_compaction\_readahead\_size}
+    & read-ahead size for blob compaction
+    & uint64\_t
+    & 0
+    & \\
+
+    \texttt{prepopulate\_blob\_cache}
+    & prepopulate blob cache on open
+    & PrepopulateBlobCache
+    & PrepopulateBlobCache::kDisable
+    & \\
+
+    \texttt{bottommost\_file\_compaction\_delay}
+    & delay before bottommost-file compaction
+    & uint32\_t
+    & 0
+    & \\
+
+    \multicolumn{5}{>{\columncolor{orange!8}}l}{\textit{Immutable}} \\
+
+    \texttt{min\_write\_buffer\_number\_to\_merge}
+    & min write buffer number to merge
+    & int
+    & 1
+    & \\
+
+    \texttt{max\_write\_buffer\_number\_to\_maintain}
+    & max write buffer number to maintain
+    & int
+    & 0
+    & \\
+
+    \texttt{max\_write\_buffer\_size\_to\_maintain}
+    & max write buffer size to maintain
+    & int64\_t
+    & 0
+    & \\
+
+    \texttt{inplace\_update\_support}
+    & inplace update support
+    & bool
+    & false
+    & \\
+
+    \texttt{memtable\_prefix\_bloom\_size\_ratio}
+    & memtable prefix bloom size ratio
+    & double
+    & 0.0
+    & \\
+
+    \texttt{memtable\_whole\_key\_filtering}
+    & memtable whole key filtering
+    & bool
+    & false
+    & \\
+
+    \texttt{memtable\_huge\_page\_size}
+    & memtable huge page size
+    & size\_t
+    & 0
+    & \\
+
+    \texttt{memtable\_insert\_with\_hint\_prefix\_extractor}
+    & memtable insert with hint prefix extractor
+    & std::shared\_ptr\textless{}const SliceTransform\textgreater{}
+    & nullptr
+    & \\
+
+    \texttt{bloom\_locality}
+    & bloom locality
+    & uint32\_t
+    & 0
+    & \\
+
+    \texttt{arena\_block\_size}
+    & arena block size
+    & size\_t
+    & 0
+    & \\
+
+    \texttt{num\_levels}
+    & num levels
+    & int
+    & 7
+    & \\
+
+    \texttt{target\_file\_size\_base}
+    & target file size base
+    & uint64\_t
+    & 64 * 1048576
+    & \\
+
+    \texttt{target\_file\_size\_multiplier}
+    & target file size multiplier
+    & int
+    & 1
+    & \\
+
+    \texttt{level\_compaction\_dynamic\_level\_bytes}
+    & level compaction dynamic level bytes
+    & bool
+    & true
+    & \\
+
+    \texttt{compaction\_style}
+    & compaction style
+    & CompactionStyle
+    & kCompactionStyleLevel
+    & \\
+
+    \texttt{compaction\_pri}
+    & compaction pri
+    & CompactionPri
+    & kMinOverlappingRatio
+    & \\
+
+    \texttt{compaction\_options\_universal}
+    & compaction options universal
+    & CompactionOptionsUniversal
+    & 
+    & \\
+
+    \texttt{max\_sequential\_skip\_in\_iterations}
+    & max sequential skip in iterations
+    & uint64\_t
+    & 8
+    & \\
+
+    \texttt{memtable\_factory}
+    & memtable factory
+    & std::shared\_ptr\textless{}MemTableRepFactory\textgreater{}
+    & std::shared\_ptr\textless{}SkipListFactory\textgreater{}(new SkipListFactory)
+    & \\
+
+    \texttt{table\_properties\_collector\_factories}
+    & table properties collector factories
+    & TablePropertiesCollectorFactories
+    & 
+    & \\
+
+    \texttt{max\_successive\_merges}
+    & max successive merges
+    & size\_t
+    & 0
+    & \\
+
+    \texttt{strict\_max\_successive\_merges}
+    & strict max successive merges
+    & bool
+    & false
+    & \\
+
+    \texttt{optimize\_filters\_for\_hits}
+    & optimize filters for hits
+    & bool
+    & false
+    & \\
+
+    \texttt{paranoid\_file\_checks}
+    & paranoid file checks
+    & bool
+    & false
+    & \\
+
+    \texttt{force\_consistency\_checks}
+    & force consistency checks
+    & bool
+    & true
+    & \\
+
+    \texttt{report\_bg\_io\_stats}
+    & report bg io stats
+    & bool
+    & false
+    & \\
+
+    \texttt{ttl}
+    & ttl
+    & uint64\_t
+    & 0xfffffffffffffffe
+    & \\
+
+    \texttt{periodic\_compaction\_seconds}
+    & periodic compaction seconds
+    & uint64\_t
+    & 0xfffffffffffffffe
+    & \\
+
+    \texttt{sample\_for\_compression}
+    & sample for compression
+    & uint64\_t
+    & 0
+    & \\
+
+    \texttt{last\_level\_temperature}
+    & last level temperature
+    & Temperature
+    & Temperature::kUnknown
+    & \\
+
+    \texttt{default\_write\_temperature}
+    & default write temperature
+    & Temperature
+    & Temperature::kUnknown
+    & \\
+
+    \texttt{default\_temperature}
+    & default temperature
+    & Temperature
+    & Temperature::kUnknown
+    & \\
+
+    \texttt{preclude\_last\_level\_data\_seconds}
+    & preclude last level data seconds
+    & uint64\_t
+    & 0
+    & \\
+
+    \texttt{preserve\_internal\_time\_seconds}
+    & preserve internal time seconds
+    & uint64\_t
+    & 0
+    & \\
+
+    \texttt{blob\_file\_starting\_level}
+    & blob file starting level
+    & int
+    & 0
+    & \\
+
+    \texttt{blob\_cache}
+    & blob cache
+    & std::shared\_ptr\textless{}Cache\textgreater{}
+    & nullptr
+    & \\
+
+    \texttt{memtable\_protection\_bytes\_per\_key}
+    & memtable protection bytes per key
+    & uint32\_t
+    & 0
+    & \\
+
+    \texttt{persist\_user\_defined\_timestamps}
+    & persist user defined timestamps
+    & bool
+    & true
+    & \\
+
+    \texttt{block\_protection\_bytes\_per\_key}
+    & block protection bytes per key
+    & uint8\_t
+    & 0
+    & \\
+
+    \texttt{paranoid\_memory\_checks}
+    & paranoid memory checks
+    & bool
+    & false
+    & \\
+
+    \texttt{ilevel}
+    & ilevel
+    & int
+    & 0
+    & \\
+
+    \texttt{is\_pure\_leveling}
+    & is pure leveling
+    & bool
+    & false
+    & \\
+
+    \texttt{dynamic\_file\_size}
+    & dynamic file size
+    & bool
+    & 
+    & \\
+
+    \texttt{level\_compaction\_granularity}
+    & level compaction granularity
+    & std::shared\_ptr\textless{}const CompactionRunPolicy\textgreater{}
+    & nullptr
+    & \\
+
+    \texttt{fluidlsm\_policy}
+    & fluidlsm policy
+    & std::shared\_ptr\textless{}const FluidLSMPolicy\textgreater{}
+    & nullptr
+    & \\
+
+    \multicolumn{5}{>{\columncolor{gray!15}}l}{\textbf{[LevelDBOptions]}} \\
+
+    \multicolumn{5}{>{\columncolor{gray!15}}l}{\textbf{[PersistentCacheOptions]}} \\
+    \multicolumn{5}{>{\columncolor{orange!8}}l}{\textit{Immutable}} \\
+
+    \texttt{base\_cache\_key}
+    & base cache key
+    & OffsetableCacheKey
+    & 
+    & \\
+
+    \texttt{kEmpty}
+    & special constant
+    & PersistentCacheOptions
+    & 
+    & \\
+
+    \multicolumn{5}{>{\columncolor{gray!15}}l}{\textbf{[ImmutableCFOptions]}} \\
+    \multicolumn{5}{>{\columncolor{orange!8}}l}{\textit{Immutable}} \\
+
+    \texttt{user\_comparator}
+    & user comparator
+    & const Comparator*
+    & 
+    & \\
+
+    \texttt{internal\_comparator}
+    & internal comparator
+    & InternalKeyComparator
+    & 
+    & \\
+
+    \multicolumn{5}{>{\columncolor{gray!15}}l}{\textbf{[MutableCFOptions]}} \\
+    \multicolumn{5}{>{\columncolor{green!8}}l}{\textit{Mutable at runtime}} \\
+
+    \texttt{max\_file\_size}
+    & max file size
+    & std::vector\textless{}uint64\_t\textgreater{}
+    & 
+    & \\
+
+    \multicolumn{5}{>{\columncolor{gray!15}}l}{\textbf{[ImmutableDBOptions]}} \\
+    \multicolumn{5}{>{\columncolor{orange!8}}l}{\textit{Immutable}} \\
+
+    \texttt{fs}
+    & fs
+    & std::shared\_ptr\textless{}FileSystem\textgreater{}
+    & 
+    & \\
+
+    \texttt{clock}
+    & clock
+    & SystemClock*
+    & 
+    & \\
+
+    \texttt{stats}
+    & stats
+    & Statistics*
+    & 
+    & \\
+
+    \texttt{logger}
+    & logger
+    & Logger*
+    & 
+    & \\
+
+    \multicolumn{5}{>{\columncolor{gray!15}}l}{\textbf{[MutableDBOptions]}} \\
+
+    \multicolumn{5}{>{\columncolor{gray!15}}l}{\textbf{[EnvOptions]}} \\
+    \multicolumn{5}{>{\columncolor{orange!8}}l}{\textit{Immutable}} \\
+
+    \texttt{use\_mmap\_reads}
+    & use mmap reads
+    & bool
+    & false
+    & \\
+
+    \texttt{use\_mmap\_writes}
+    & use mmap writes
+    & bool
+    & true
+    & \\
+
+    \texttt{use\_direct\_writes}
+    & use direct writes
+    & bool
+    & false
+    & \\
+
+    \texttt{set\_fd\_cloexec}
+    & set fd cloexec
+    & bool
+    & true
+    & \\
+
+    \texttt{fallocate\_with\_keep\_size}
+    & fallocate with keep size
+    & bool
+    & true
+    & \\
+
+    \multicolumn{5}{>{\columncolor{gray!15}}l}{\textbf{[ImmutableMemTableOptions]}} \\
+    \multicolumn{5}{>{\columncolor{orange!8}}l}{\textit{Immutable}} \\
+
+    \texttt{memtable\_prefix\_bloom\_bits}
+    & memtable prefix bloom bits
+    & uint32\_t
+    & 
+    & \\
+
+    \multicolumn{5}{>{\columncolor{gray!15}}l}{\textbf{[BlockCacheTraceOptions]}} \\
+
+    \multicolumn{5}{>{\columncolor{gray!15}}l}{\textbf{[BlockCacheTraceWriterOptions]}} \\
+
+    \multicolumn{5}{>{\columncolor{gray!15}}l}{\textbf{[ShardedCacheOptions]}} \\
+    \multicolumn{5}{>{\columncolor{orange!8}}l}{\textit{Immutable}} \\
+
+    \texttt{capacity}
+    & capacity
+    & size\_t
+    & 0
+    & \\
+
+    \texttt{num\_shard\_bits}
+    & num shard bits
+    & int
+    & -1
+    & \\
+
+    \texttt{strict\_capacity\_limit}
+    & strict capacity limit
+    & bool
+    & false
+    & \\
+
+    \texttt{memory\_allocator}
+    & memory allocator
+    & std::shared\_ptr\textless{}MemoryAllocator\textgreater{}
+    & 
+    & \\
+
+    \texttt{metadata\_charge\_policy}
+    & metadata charge policy
+    & CacheMetadataChargePolicy
+    & kDefaultCacheMetadataChargePolicy
+    & \\
+
+    \texttt{secondary\_cache}
+    & secondary cache
+    & std::shared\_ptr\textless{}SecondaryCache\textgreater{}
+    & 
+    & \\
+
+    \texttt{kQuasiRandomHashSeed}
+    & special constant
+    & int32\_t
+    & -1
+    & \\
+
+    \texttt{kHostHashSeed}
+    & special constant
+    & int32\_t
+    & -2
+    & \\
+
+    \texttt{hash\_seed}
+    & hash seed
+    & int32\_t
+    & kHostHashSeed
+    & \\
+
+    \multicolumn{5}{>{\columncolor{gray!15}}l}{\textbf{[LRUCacheOptions : ShardedCacheOptions]}} \\
+    \multicolumn{5}{>{\columncolor{orange!8}}l}{\textit{Immutable}} \\
+
+    \texttt{high\_pri\_pool\_ratio}
+    & high pri pool ratio
+    & double
+    & 0.5
+    & \\
+
+    \texttt{low\_pri\_pool\_ratio}
+    & low pri pool ratio
+    & double
+    & 0.0
+    & \\
+
+    \texttt{use\_adaptive\_mutex}
+    & use adaptive mutex
+    & bool
+    & kDefaultToAdaptiveMutex
+    & \\
+
+    \multicolumn{5}{>{\columncolor{gray!15}}l}{\textbf{[CompressedSecondaryCacheOptions : LRUCacheOptions]}} \\
+    \multicolumn{5}{>{\columncolor{orange!8}}l}{\textit{Immutable}} \\
+
+    \texttt{compression\_type}
+    & compression type
+    & CompressionType
+    & CompressionType::kLZ4Compression
+    & \\
+
+    \texttt{compression\_opts}
+    & compression option set
+    & CompressionOptions
+    & 
+    & \\
+
+    \texttt{compress\_format\_version}
+    & compress format version
+    & uint32\_t
+    & 2
+    & \\
+
+    \texttt{enable\_custom\_split\_merge}
+    & enable custom split merge
+    & bool
+    & false
+    & \\
+
+    \texttt{do\_not\_compress\_roles}
+    & do not compress roles
+    & CacheEntryRoleSet
+    & \{CacheEntryRole::kFilterBlock\}
+    & \\
+
+    \multicolumn{5}{>{\columncolor{gray!15}}l}{\textbf{[HyperClockCacheOptions : ShardedCacheOptions]}} \\
+    \multicolumn{5}{>{\columncolor{orange!8}}l}{\textit{Immutable}} \\
+
+    \texttt{estimated\_entry\_charge}
+    & estimated entry charge
+    & size\_t
+    & 
+    & \\
+
+    \texttt{min\_avg\_entry\_charge}
+    & min avg entry charge
+    & size\_t
+    & 450
+    & \\
+
+    \texttt{eviction\_effort\_cap}
+    & eviction effort cap
+    & int
+    & 30
+    & \\
+
+    \multicolumn{5}{>{\columncolor{gray!15}}l}{\textbf{[TieredCacheOptions]}} \\
+    \multicolumn{5}{>{\columncolor{orange!8}}l}{\textit{Immutable}} \\
+
+    \texttt{cache\_opts}
+    & cache opts
+    & ShardedCacheOptions*
+    & nullptr
+    & \\
+
+    \texttt{cache\_type}
+    & cache type
+    & PrimaryCacheType
+    & PrimaryCacheType::kCacheTypeLRU
+    & \\
+
+    \texttt{adm\_policy}
+    & adm policy
+    & TieredAdmissionPolicy
+    & TieredAdmissionPolicy::kAdmPolicyAuto
+    & \\
+
+    \texttt{comp\_cache\_opts}
+    & comp cache opts
+    & CompressedSecondaryCacheOptions
+    & 
+    & \\
+
+    \texttt{total\_capacity}
+    & total capacity
+    & size\_t
+    & 0
+    & \\
+
+    \texttt{compressed\_secondary\_ratio}
+    & compressed secondary ratio
+    & double
+    & 0.0
+    & \\
+
+    \texttt{nvm\_sec\_cache}
+    & nvm sec cache
+    & std::shared\_ptr\textless{}SecondaryCache\textgreater{}
+    & 
+    & \\
+
+    \multicolumn{5}{>{\columncolor{gray!15}}l}{\textbf{[CompressionOptions]}} \\
+    \multicolumn{5}{>{\columncolor{orange!8}}l}{\textit{Immutable}} \\
+
+    \texttt{kDefaultCompressionLevel}
+    & special constant
+    & int
+    & 32767
+    & \\
+
+    \texttt{window\_bits}
+    & window bits
+    & int
+    & -14
+    & \\
+
+    \texttt{level}
+    & level
+    & int
+    & kDefaultCompressionLevel
+    & \\
+
+    \texttt{strategy}
+    & strategy
+    & int
+    & 0
+    & \\
+
+    \texttt{max\_dict\_bytes}
+    & max dict bytes
+    & uint32\_t
+    & 0
+    & \\
+
+    \texttt{zstd\_max\_train\_bytes}
+    & zstd max train bytes
+    & uint32\_t
+    & 0
+    & \\
+
+    \texttt{parallel\_threads}
+    & parallel threads
+    & uint32\_t
+    & 1
+    & \\
+
+    \texttt{enabled}
+    & enabled
+    & bool
+    & false
+    & \\
+
+    \texttt{max\_dict\_buffer\_bytes}
+    & max dict buffer bytes
+    & uint64\_t
+    & 0
+    & \\
+
+    \texttt{use\_zstd\_dict\_trainer}
+    & use zstd dict trainer
+    & bool
+    & true
+    & \\
+
+    \texttt{max\_compressed\_bytes\_per\_kb}
+    & max compressed bytes per kb
+    & int
+    & 1024 * 7 / 8
+    & \\
+
+    \texttt{checksum}
+    & checksum
+    & bool
+    & false
+    & \\
+
+    \multicolumn{5}{>{\columncolor{gray!15}}l}{\textbf{[GetMergeOperandsOptions]}} \\
+    \multicolumn{5}{>{\columncolor{green!8}}l}{\textit{Mutable at runtime}} \\
+
+    \texttt{expected\_max\_number\_of\_operands}
+    & expected max number of operands
+    & int
+    & 0
+    & \\
+
+    \texttt{continue\_cb}
+    & continue cb
+    & ContinueCallback
+    & 
+    & \\
+
+    \multicolumn{5}{>{\columncolor{gray!15}}l}{\textbf{[UpdateManifestForFilesStateOptions]}} \\
+    \multicolumn{5}{>{\columncolor{green!8}}l}{\textit{Mutable at runtime}} \\
+
+    \texttt{update\_temperatures}
+    & update temperatures
+    & bool
+    & true
+    & \\
+
+    \multicolumn{5}{>{\columncolor{gray!15}}l}{\textbf{[ExternalTableOptions]}} \\
+
+    \multicolumn{5}{>{\columncolor{gray!15}}l}{\textbf{[IOOptions]}} \\
+    \multicolumn{5}{>{\columncolor{green!8}}l}{\textit{Mutable at runtime}} \\
+
+    \texttt{timeout}
+    & timeout
+    & std::chrono::microseconds
+    & 
+    & \\
+
+    \texttt{prio}
+    & prio
+    & IOPriority
+    & 
+    & \\
+
+    \texttt{rate\_limiter\_priority}
+    & rate limiter priority
+    & Env::IOPriority
+    & 
+    & \\
+
+    \texttt{type}
+    & type
+    & IOType
+    & 
+    & \\
+
+    \texttt{property\_bag}
+    & property bag
+    & std::unordered\_map\textless{}std::string, std::string\textgreater{}
+    & 
+    & \\
+
+    \texttt{force\_dir\_fsync}
+    & force dir fsync
+    & bool
+    & 
+    & \\
+
+    \texttt{do\_not\_recurse}
+    & do not recurse
+    & bool
+    & 
+    & \\
+
+    \texttt{verify\_and\_reconstruct\_read}
+    & verify and reconstruct read
+    & bool
+    & 
+    & \\
+
+    \texttt{io\_activity}
+    & io activity
+    & Env::IOActivity
+    & Env::IOActivity::kUnknown
+    & \\
+
+    \multicolumn{5}{>{\columncolor{gray!15}}l}{\textbf{[FileOptions : EnvOptions]}} \\
+    \multicolumn{5}{>{\columncolor{orange!8}}l}{\textit{Immutable}} \\
+
+    \texttt{io\_options}
+    & io options
+    & IOOptions
+    & 
+    & \\
+
+    \texttt{temperature}
+    & temperature
+    & Temperature
+    & Temperature::kUnknown
+    & \\
+
+    \texttt{handoff\_checksum\_type}
+    & handoff checksum type
+    & ChecksumType
+    & 
+    & \\
+
+    \multicolumn{5}{>{\columncolor{gray!15}}l}{\textbf{[MetadataCacheOptions]}} \\
+    \multicolumn{5}{>{\columncolor{orange!8}}l}{\textit{Immutable}} \\
+
+    \texttt{top\_level\_index\_pinning}
+    & top level index pinning
+    & PinningTier
+    & PinningTier::kFallback
+    & \\
+
+    \texttt{partition\_pinning}
+    & partition pinning
+    & PinningTier
+    & PinningTier::kFallback
+    & \\
+
+    \texttt{unpartitioned\_pinning}
+    & unpartitioned pinning
+    & PinningTier
+    & PinningTier::kFallback
+    & \\
+
+    \multicolumn{5}{>{\columncolor{gray!15}}l}{\textbf{[BlockBasedTableOptions]}} \\
+    \multicolumn{5}{>{\columncolor{orange!8}}l}{\textit{Immutable}} \\
+
+    \texttt{flush\_block\_policy\_factory}
+    & flush block policy factory
+    & std::shared\_ptr\textless{}FlushBlockPolicyFactory\textgreater{}
+    & 
+    & \\
+
+    \texttt{cache\_index\_and\_filter\_blocks}
+    & cache index and filter blocks
+    & bool
+    & false
+    & \\
+
+    \texttt{cache\_index\_and\_filter\_blocks\_with\_high\_priority}
+    & cache index and filter blocks with high priority
+    & bool
+    & true
+    & \\
+
+    \texttt{pin\_l0\_filter\_and\_index\_blocks\_in\_cache}
+    & pin l0 filter and index blocks in cache
+    & bool
+    & false
+    & \\
+
+    \texttt{pin\_top\_level\_index\_and\_filter}
+    & pin top level index and filter
+    & bool
+    & true
+    & \\
+
+    \texttt{metadata\_cache\_options}
+    & metadata cache options
+    & MetadataCacheOptions
+    & 
+    & \\
+
+    \texttt{index\_type}
+    & index type
+    & IndexType
+    & kBinarySearch
+    & \\
+
+    \texttt{data\_block\_index\_type}
+    & data block index type
+    & DataBlockIndexType
+    & kDataBlockBinarySearch
+    & \\
+
+    \texttt{data\_block\_hash\_table\_util\_ratio}
+    & data block hash table util ratio
+    & double
+    & 0.75
+    & \\
+
+    \texttt{checksum}
+    & checksum
+    & ChecksumType
+    & kXXH3
+    & \\
+
+    \texttt{no\_block\_cache}
+    & no block cache
+    & bool
+    & false
+    & \\
+
+    \texttt{block\_cache}
+    & block cache
+    & std::shared\_ptr\textless{}Cache\textgreater{}
+    & nullptr
+    & \\
+
+    \texttt{persistent\_cache}
+    & persistent cache
+    & std::shared\_ptr\textless{}PersistentCache\textgreater{}
+    & nullptr
+    & \\
+
+    \texttt{block\_size}
+    & block size
+    & uint64\_t
+    & 4 * 1024
+    & \\
+
+    \texttt{block\_size\_deviation}
+    & block size deviation
+    & int
+    & 10
+    & \\
+
+    \texttt{block\_restart\_interval}
+    & block restart interval
+    & int
+    & 16
+    & \\
+
+    \texttt{index\_block\_restart\_interval}
+    & index block restart interval
+    & int
+    & 1
+    & \\
+
+    \texttt{metadata\_block\_size}
+    & metadata block size
+    & uint64\_t
+    & 4096
+    & \\
+
+    \texttt{cache\_usage\_options}
+    & cache usage options
+    & CacheUsageOptions
+    & 
+    & \\
+
+    \texttt{partition\_filters}
+    & partition filters
+    & bool
+    & false
+    & \\
+
+    \texttt{decouple\_partitioned\_filters}
+    & decouple partitioned filters
+    & bool
+    & false
+    & \\
+
+    \texttt{optimize\_filters\_for\_memory}
+    & optimize filters for memory
+    & bool
+    & true
+    & \\
+
+    \texttt{use\_delta\_encoding}
+    & use delta encoding
+    & bool
+    & true
+    & \\
+
+    \texttt{filter\_policy}
+    & filter policy
+    & std::shared\_ptr\textless{}const FilterPolicy\textgreater{}
+    & nullptr
+    & \\
+
+    \texttt{whole\_key\_filtering}
+    & whole key filtering
+    & bool
+    & true
+    & \\
+
+    \texttt{detect\_filter\_construct\_corruption}
+    & detect filter construct corruption
+    & bool
+    & false
+    & \\
+
+    \texttt{verify\_compression}
+    & verify compression
+    & bool
+    & false
+    & \\
+
+    \texttt{read\_amp\_bytes\_per\_bit}
+    & read amp bytes per bit
+    & uint32\_t
+    & 0
+    & \\
+
+    \texttt{format\_version}
+    & format version
+    & uint32\_t
+    & 6
+    & \\
+
+    \texttt{enable\_index\_compression}
+    & enable index compression
+    & bool
+    & true
+    & \\
+
+    \texttt{block\_align}
+    & block align
+    & bool
+    & false
+    & \\
+
+    \texttt{index\_shortening}
+    & index shortening
+    & IndexShorteningMode
+    & IndexShorteningMode::kShortenSeparators
+    & \\
+
+    \texttt{max\_auto\_readahead\_size}
+    & max auto readahead size
+    & size\_t
+    & 256 * 1024
+    & \\
+
+    \texttt{prepopulate\_block\_cache}
+    & prepopulate block cache
+    & PrepopulateBlockCache
+    & PrepopulateBlockCache::kDisable
+    & \\
+
+    \texttt{initial\_auto\_readahead\_size}
+    & initial auto readahead size
+    & size\_t
+    & 8 * 1024
+    & \\
+
+    \texttt{num\_file\_reads\_for\_auto\_readahead}
+    & num file reads for auto readahead
+    & uint64\_t
+    & 2
+    & \\
+
+    \multicolumn{5}{>{\columncolor{gray!15}}l}{\textbf{[PlainTableOptions]}} \\
+    \multicolumn{5}{>{\columncolor{orange!8}}l}{\textit{Immutable}} \\
+
+    \texttt{user\_key\_len}
+    & user key len
+    & uint32\_t
+    & kPlainTableVariableLength
+    & \\
+
+    \texttt{bloom\_bits\_per\_key}
+    & bloom bits per key
+    & int
+    & 10
+    & \\
+
+    \texttt{hash\_table\_ratio}
+    & hash table ratio
+    & double
+    & 0.75
+    & \\
+
+    \texttt{index\_sparseness}
+    & index sparseness
+    & size\_t
+    & 16
+    & \\
+
+    \texttt{huge\_page\_tlb\_size}
+    & huge page tlb size
+    & size\_t
+    & 0
+    & \\
+
+    \texttt{encoding\_type}
+    & encoding type
+    & EncodingType
+    & kPlain
+    & \\
+
+    \texttt{full\_scan\_mode}
+    & full scan mode
+    & bool
+    & false
+    & \\
+
+    \texttt{store\_index\_in\_file}
+    & store index in file
+    & bool
+    & false
+    & \\
+
+    \multicolumn{5}{>{\columncolor{gray!15}}l}{\textbf{[CuckooTableOptions]}} \\
+    \multicolumn{5}{>{\columncolor{orange!8}}l}{\textit{Immutable}} \\
+
+    \texttt{hash\_table\_ratio}
+    & hash table ratio
+    & double
+    & 0.9
+    & \\
+
+    \texttt{max\_search\_depth}
+    & max search depth
+    & uint32\_t
+    & 100
+    & \\
+
+    \texttt{cuckoo\_block\_size}
+    & cuckoo block size
+    & uint32\_t
+    & 5
+    & \\
+
+    \texttt{identity\_as\_first\_hash}
+    & identity as first hash
+    & bool
+    & false
+    & \\
+
+    \texttt{use\_module\_hash}
+    & use module hash
+    & bool
+    & true
+    & \\
+
+    \multicolumn{5}{>{\columncolor{gray!15}}l}{\textbf{[BlobDBOptions]}} \\
+    \multicolumn{5}{>{\columncolor{orange!8}}l}{\textit{Immutable}} \\
+
+    \texttt{blob\_dir}
+    & blob dir
+    & std::string
+    & "blob\_dir"
+    & \\
+
+    \texttt{path\_relative}
+    & path relative
+    & bool
+    & true
+    & \\
+
+    \texttt{is\_fifo}
+    & is fifo
+    & bool
+    & false
+    & \\
+
+    \texttt{max\_db\_size}
+    & max db size
+    & uint64\_t
+    & 0
+    & \\
+
+    \texttt{ttl\_range\_secs}
+    & ttl range secs
+    & uint64\_t
+    & 3600
+    & \\
+
+    \texttt{enable\_garbage\_collection}
+    & enable garbage collection
+    & bool
+    & false
+    & \\
+
+    \texttt{garbage\_collection\_cutoff}
+    & garbage collection cutoff
+    & double
+    & 0.25
+    & \\
+
+    \texttt{disable\_background\_tasks}
+    & disable background tasks
+    & bool
+    & false
+    & \\
+
+    \multicolumn{5}{>{\columncolor{gray!15}}l}{\textbf{[TableReaderOptions]}} \\
+    \multicolumn{5}{>{\columncolor{green!8}}l}{\textit{Mutable at runtime}} \\
+
+    \texttt{env\_options}
+    & env options
+    & const EnvOptions\&
+    & 
+    & \\
+
+    \texttt{internal\_comparator}
+    & internal comparator
+    & const InternalKeyComparator\&
+    & 
+    & \\
+
+    \texttt{skip\_filters}
+    & skip filters
+    & bool
+    & 
+    & \\
+
+    \texttt{immortal}
+    & immortal
+    & bool
+    & 
+    & \\
+
+    \texttt{force\_direct\_prefetch}
+    & force direct prefetch
+    & bool
+    & 
+    & \\
+
+    \texttt{level}
+    & level
+    & int
+    & 
+    & \\
+
+    \texttt{largest\_seqno}
+    & largest seqno
+    & SequenceNumber
+    & 
+    & \\
+
+    \texttt{block\_cache\_tracer}
+    & block cache tracer
+    & BlockCacheTracer* const
+    & 
+    & \\
+
+    \texttt{max\_file\_size\_for\_l0\_meta\_pin}
+    & max file size for l0 meta pin
+    & const size\_t
+    & 
+    & \\
+
+    \texttt{cur\_db\_session\_id}
+    & cur db session id
+    & std::string
+    & 
+    & \\
+
+    \texttt{cur\_file\_num}
+    & cur file num
+    & uint64\_t
+    & 
+    & \\
+
+    \texttt{unique\_id}
+    & unique id
+    & UniqueId64x2
+    & 
+    & \\
+
+    \texttt{block\_protection\_bytes\_per\_key}
+    & block protection bytes per key
+    & uint8\_t
+    & 
+    & \\
+
+    \texttt{tail\_size}
+    & tail size
+    & uint64\_t
+    & 
+    & \\
+
+    \texttt{user\_defined\_timestamps\_persisted}
+    & user defined timestamps persisted
+    & bool
+    & 
+    & \\
+
+    \multicolumn{5}{>{\columncolor{gray!15}}l}{\textbf{[HashSkipListRepOptions]}} \\
+    \multicolumn{5}{>{\columncolor{orange!8}}l}{\textit{Immutable}} \\
+
+    \texttt{bucket\_count}
+    & bucket count
+    & size\_t
+    & 
+    & \\
+
+    \texttt{skiplist\_height}
+    & skiplist height
+    & int32\_t
+    & 
+    & \\
+
+    \texttt{skiplist\_branching\_factor}
+    & skiplist branching factor
+    & int32\_t
+    & 
+    & \\
+
+    \multicolumn{5}{>{\columncolor{gray!15}}l}{\textbf{[HashLinkListRepOptions]}} \\
+    \multicolumn{5}{>{\columncolor{orange!8}}l}{\textit{Immutable}} \\
+
+    \texttt{bucket\_count}
+    & bucket count
+    & size\_t
+    & 
+    & \\
+
+    \texttt{threshold\_use\_skiplist}
+    & threshold use skiplist
+    & uint32\_t
+    & 
+    & \\
+
+    \texttt{huge\_page\_tlb\_size}
+    & huge page tlb size
+    & size\_t
+    & 
+    & \\
+
+    \texttt{bucket\_entries\_logging\_threshold}
+    & bucket entries logging threshold
+    & int
+    & 
+    & \\
+
+    \texttt{if\_log\_bucket\_dist\_when\_flash}
+    & if log bucket dist when flash
+    & bool
+    & 
+    & \\
+
+\end{longtable}
+}

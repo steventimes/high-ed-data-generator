@@ -1,15 +1,18 @@
-out/
-out_baseline/
+artifacts/runs/*
+!artifacts/runs/.gitkeep
+rust/target/
 target/
 
 __pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
 .venv/
-db/*
-!db/README.md
-db.log
-db_baseline.log
-db_fragmented.log
-result.log
+
 .env
 .env.*
 !.env.example
+
+*.duckdb
+*.log

@@ -1,0 +1,14 @@
+[package]
+name = "fragmentation-cli"
+version.workspace = true
+edition.workspace = true
+
+[[bin]]
+name = "fragmentation-cli"
+path = "src/main.rs"
+
+[dependencies]
+anyhow.workspace = true
+clap.workspace = true
+fragmentation-infrastructure = { path = "../infrastructure" }
+

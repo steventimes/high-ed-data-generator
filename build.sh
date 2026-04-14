@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-cargo build --release
+cargo build --release -p fragmentation-cli
 
-echo "Build complete: target/release/higher-ed-synth"
+echo "Build complete: target/release/fragmentation-cli"

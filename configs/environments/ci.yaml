@@ -1,0 +1,3 @@
+environment: ci
+run_root: artifacts/runs
+pythonpath: python/src
