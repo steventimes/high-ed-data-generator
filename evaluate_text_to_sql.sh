@@ -1,35 +1,22 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+source "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/scripts/lib/runtime.sh"
+
+ROOT_DIR="$(hdg_root_dir)"
 cd "${ROOT_DIR}"
 
-PYTHON_BIN="${PYTHON_BIN:-}"
-if [[ -z "${PYTHON_BIN}" ]]; then
-  if [[ -x ".venv/bin/python" ]]; then
-    PYTHON_BIN=".venv/bin/python"
-  elif command -v python >/dev/null 2>&1; then
-    PYTHON_BIN="python"
-  elif command -v python3 >/dev/null 2>&1; then
-    PYTHON_BIN="python3"
-  else
-    echo "Could not find python or python3. Set PYTHON_BIN explicitly." >&2
-    exit 1
-  fi
-fi
+PYTHON_BIN="$(hdg_resolve_python_bin "${ROOT_DIR}")"
 
-AUTO_INSTALL_PY_DEPS="${AUTO_INSTALL_PY_DEPS:-true}"
-if [[ "${AUTO_INSTALL_PY_DEPS}" != "true" && "${AUTO_INSTALL_PY_DEPS}" != "false" ]]; then
-  echo "AUTO_INSTALL_PY_DEPS must be true or false." >&2
-  exit 1
-fi
+AUTO_INSTALL_PY_DEPS="${AUTO_INSTALL_PY_DEPS:-false}"
+hdg_require_boolean_flag "AUTO_INSTALL_PY_DEPS" "${AUTO_INSTALL_PY_DEPS}"
 
-if [[ "${AUTO_INSTALL_PY_DEPS}" == "true" ]]; then
-  if ! "${PYTHON_BIN}" -c "import duckdb, matplotlib" >/dev/null 2>&1; then
-    echo "Installing Python benchmark dependencies with ${PYTHON_BIN}"
-    "${PYTHON_BIN}" -m pip install -r python/requirements.txt
-  fi
-fi
+hdg_ensure_requirements \
+  "${PYTHON_BIN}" \
+  "python/requirements.txt" \
+  "import duckdb, matplotlib" \
+  "${AUTO_INSTALL_PY_DEPS}" \
+  "Python benchmark"
 
 EVAL_ARGS=("$@")
 if [[ "$#" -eq 0 ]]; then

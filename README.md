@@ -17,12 +17,34 @@ Synthetic higher-ed administrative data generator (Rust) plus a DuckDB connector
 - Rust toolchain (`cargo`) for generation.
 - Python 3.10+ for connector tools.
 
+The repository root now uses a standard `Cargo.toml` workspace file, so `cargo build` and `cargo run`
+work directly from the project root.
+
+Shell entrypoints do not auto-install Python packages unless you opt in with
+`AUTO_INSTALL_PY_DEPS=true` or `AUTO_INSTALL_TEXT_TO_SQL_DEPS=true`.
+
+## Refactor Verification
+
+Run the refactor-only guard before changing shell entrypoints:
+
+```bash
+scripts/verify-refactor.sh
+```
+
+It checks the standard `Cargo.toml` workspace file, shared shell runtime usage, strict shell syntax, and explicit opt-in dependency installation behavior.
+
 ## Generate Data
 
 Run with defaults (generates both runs):
 
 ```bash
 ./run.sh
+```
+
+If you want the script to bootstrap Python requirements on demand:
+
+```bash
+AUTO_INSTALL_PY_DEPS=true ./run.sh
 ```
 
 Default outputs:
@@ -53,6 +75,12 @@ GENERATE_BASELINE=false ./run.sh
 
 ```bash
 python -m pip install -r connect/requirements.txt
+```
+
+Or allow the evaluation shell scripts to install them explicitly:
+
+```bash
+AUTO_INSTALL_PY_DEPS=true ./evaluate_text_to_sql.sh
 ```
 
 2. Run the default load+evaluate pipeline:

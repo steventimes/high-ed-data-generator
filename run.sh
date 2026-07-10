@@ -1,43 +1,26 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+source "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/scripts/lib/runtime.sh"
+
+ROOT_DIR="$(hdg_root_dir)"
 cd "${ROOT_DIR}"
 
 CARGO_BIN="${CARGO_BIN:-cargo}"
-PYTHON_BIN="${PYTHON_BIN:-}"
+PYTHON_BIN="$(hdg_resolve_python_bin "${ROOT_DIR}")"
 RUN_ID="${RUN_ID:-local}"
 SCHEMA_CONFIG="${SCHEMA_CONFIG:-configs/schema_registry.yaml}"
 EXPERIMENT_CONFIG="${EXPERIMENT_CONFIG:-configs/experiment.yaml}"
 RUN_ROOT="${RUN_ROOT:-artifacts/runs}"
-AUTO_INSTALL_PY_DEPS="${AUTO_INSTALL_PY_DEPS:-true}"
+AUTO_INSTALL_PY_DEPS="${AUTO_INSTALL_PY_DEPS:-false}"
 
-if [[ -z "${PYTHON_BIN}" ]]; then
-  if [[ -x ".venv/bin/python" ]]; then
-    PYTHON_BIN=".venv/bin/python"
-  elif command -v python >/dev/null 2>&1; then
-    PYTHON_BIN="python"
-  elif command -v python3 >/dev/null 2>&1; then
-    PYTHON_BIN="python3"
-  elif command -v python.exe >/dev/null 2>&1; then
-    PYTHON_BIN="python.exe"
-  else
-    echo "Could not find python, python3, or python.exe. Set PYTHON_BIN explicitly." >&2
-    exit 1
-  fi
-fi
-
-if [[ "${AUTO_INSTALL_PY_DEPS}" != "true" && "${AUTO_INSTALL_PY_DEPS}" != "false" ]]; then
-  echo "AUTO_INSTALL_PY_DEPS must be true or false." >&2
-  exit 1
-fi
-
-if [[ "${AUTO_INSTALL_PY_DEPS}" == "true" ]]; then
-  if ! "${PYTHON_BIN}" -c "import duckdb, matplotlib" >/dev/null 2>&1; then
-    echo "Installing Python benchmark dependencies with ${PYTHON_BIN}"
-    "${PYTHON_BIN}" -m pip install -r python/requirements.txt
-  fi
-fi
+hdg_require_boolean_flag "AUTO_INSTALL_PY_DEPS" "${AUTO_INSTALL_PY_DEPS}"
+hdg_ensure_requirements \
+  "${PYTHON_BIN}" \
+  "python/requirements.txt" \
+  "import duckdb, matplotlib" \
+  "${AUTO_INSTALL_PY_DEPS}" \
+  "Python benchmark"
 
 echo "Generating benchmark run ${RUN_ID}"
 "${CARGO_BIN}" run -p fragmentation-cli -- generate \
