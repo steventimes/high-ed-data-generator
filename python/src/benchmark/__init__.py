@@ -1,3 +1,1 @@
-"""Two-table higher-ed fragmentation benchmark."""
-
-__all__ = ["duckdb_runner"]
+"""高等教育数据碎片化基准工具。"""

@@ -220,54 +220,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "d9c4f5dac5e15c24eb999c26181a6ca40b39fe946cbe4c263c7209467bc83af2"
 
 [[package]]
-name = "fragmentation-application"
-version = "0.1.0"
-dependencies = [
- "chrono",
- "fragmentation-domain",
- "thiserror",
-]
-
-[[package]]
-name = "fragmentation-cli"
-version = "0.1.0"
-dependencies = [
- "anyhow",
- "clap",
- "fragmentation-infrastructure",
-]
-
-[[package]]
-name = "fragmentation-domain"
-version = "0.1.0"
-dependencies = [
- "chrono",
- "rand",
- "rand_chacha",
- "rand_distr",
- "serde",
- "sha2",
- "thiserror",
-]
-
-[[package]]
-name = "fragmentation-infrastructure"
-version = "0.1.0"
-dependencies = [
- "anyhow",
- "chrono",
- "csv",
- "fragmentation-application",
- "fragmentation-domain",
- "hex",
- "serde",
- "serde_json",
- "serde_yaml",
- "sha2",
- "tempfile",
-]
-
-[[package]]
 name = "generic-array"
 version = "0.14.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -327,6 +279,26 @@ name = "hex"
 version = "0.4.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "7f24254aa9a54b5c858eaee2f5bccdb46aaf0e486a595ed5fd8f86ba55232a70"
+
+[[package]]
+name = "high-ed-data-generator"
+version = "0.1.0"
+dependencies = [
+ "anyhow",
+ "chrono",
+ "clap",
+ "csv",
+ "hex",
+ "rand",
+ "rand_chacha",
+ "rand_distr",
+ "serde",
+ "serde_json",
+ "serde_yaml",
+ "sha2",
+ "tempfile",
+ "thiserror",
+]
 
 [[package]]
 name = "id-arena"

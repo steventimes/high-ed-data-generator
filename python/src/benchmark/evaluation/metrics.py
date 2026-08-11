@@ -5,14 +5,14 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
-from benchmark.question_registry import WeightingPolicy
+from benchmark.questions import WeightingPolicy
 
-VARIANT_NAMES = [
+VARIANT_NAMES = (
     "baseline",
     "low_fragmentation",
     "medium_fragmentation",
     "high_fragmentation",
-]
+)
 
 FRAGMENTATION_LEVELS = {
     "baseline": "baseline",
@@ -65,7 +65,9 @@ def missed_students_vs_baseline(
     baseline_rows: list[dict[str, Any]],
     variant_rows: list[dict[str, Any]],
 ) -> list[str]:
-    return sorted(identified_student_ids(baseline_rows) - identified_student_ids(variant_rows))
+    return sorted(
+        identified_student_ids(baseline_rows) - identified_student_ids(variant_rows)
+    )
 
 
 def fragmentation_level_for_variant(variant: str) -> str:
@@ -108,7 +110,9 @@ def prepare_entity_rows(
             continue
 
         duplicate_count += 1
-        prepared[normalized_key] = choose_preferred_row(existing, candidate, score_column=score_column)
+        prepared[normalized_key] = choose_preferred_row(
+            existing, candidate, score_column=score_column
+        )
     return prepared, duplicate_count, null_count
 
 
@@ -121,18 +125,26 @@ def compare_entity_sets(
     uppercase_entity_key: bool = True,
     trim_whitespace: bool = True,
 ) -> tuple[OutcomeMetrics, list[str], list[str]]:
-    baseline_map, _, _ = prepare_entity_rows(
+    baseline_map, _, baseline_null_count = prepare_entity_rows(
         baseline_rows,
         entity_key=entity_key,
         uppercase_entity_key=uppercase_entity_key,
         trim_whitespace=trim_whitespace,
     )
-    observed_map, _, _ = prepare_entity_rows(
+    observed_map, _, observed_null_count = prepare_entity_rows(
         observed_rows,
         entity_key=entity_key,
         uppercase_entity_key=uppercase_entity_key,
         trim_whitespace=trim_whitespace,
     )
+    if baseline_null_count:
+        raise ValueError(
+            f"Baseline result contains {baseline_null_count} rows without {entity_key}"
+        )
+    if observed_null_count:
+        raise ValueError(
+            f"Observed result contains {observed_null_count} rows without {entity_key}"
+        )
 
     baseline_ids = set(baseline_map)
     observed_ids = set(observed_map)
@@ -155,7 +167,9 @@ def compare_entity_sets(
     weighted_miss_loss = None
     weighted_extra = None
     if weight_lookup is not None:
-        baseline_weight_total = sum(weight_lookup.get(entity_id, 1.0) for entity_id in baseline_ids)
+        baseline_weight_total = sum(
+            weight_lookup.get(entity_id, 1.0) for entity_id in baseline_ids
+        )
         weighted_miss_loss = safe_ratio(
             sum(weight_lookup.get(entity_id, 1.0) for entity_id in missing_ids),
             baseline_weight_total,
@@ -192,7 +206,9 @@ def build_weight_lookup(
     if weighting_policy is None:
         return {}
     if weighting_policy.policy_type != "gpa_band":
-        raise ValueError(f"Unsupported weighting policy type: {weighting_policy.policy_type}")
+        raise ValueError(
+            f"Unsupported weighting policy type: {weighting_policy.policy_type}"
+        )
 
     lookup: dict[str, float] = {}
     for row in read_csv_rows(Path(academic_csv)):
@@ -211,7 +227,9 @@ def build_weight_lookup(
     return lookup
 
 
-def weight_for_gpa(gpa_value: float | None, *, weighting_policy: WeightingPolicy) -> float:
+def weight_for_gpa(
+    gpa_value: float | None, *, weighting_policy: WeightingPolicy
+) -> float:
     if gpa_value is None:
         return weighting_policy.default_weight
     for band in weighting_policy.bands:

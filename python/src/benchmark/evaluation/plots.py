@@ -15,18 +15,14 @@ BAR_COLORS = {
 CAUSE_COLORS = {
     "missing_record": "#bc4749",
     "null_critical_field": "#f4a261",
-    "join_failure": "#6a994e",
-    "stale_record": "#577590",
-    "semantic_mismatch": "#7b2cbf",
+    "identity_mismatch": "#457b9d",
     "unknown": "#8d99ae",
 }
 
 CAUSE_ORDER = [
     "missing_record",
     "null_critical_field",
-    "join_failure",
-    "stale_record",
-    "semantic_mismatch",
+    "identity_mismatch",
     "unknown",
 ]
 
@@ -44,13 +40,20 @@ def plot_miss_rate_bars(
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
 
-    ordered = sorted(records, key=lambda row: fragmentation_level_sort_key(str(row["fragmentation_level"])))
-    labels = [display_fragmentation_label(str(row["fragmentation_level"])) for row in ordered]
+    ordered = sorted(
+        records,
+        key=lambda row: fragmentation_level_sort_key(str(row["fragmentation_level"])),
+    )
+    labels = [
+        display_fragmentation_label(str(row["fragmentation_level"])) for row in ordered
+    ]
     values = [
         0.0 if row.get(y_key) in (None, "") else float(row[y_key]) * 100.0
         for row in ordered
     ]
-    colors = [BAR_COLORS.get(str(row["fragmentation_level"]), "#8d99ae") for row in ordered]
+    colors = [
+        BAR_COLORS.get(str(row["fragmentation_level"]), "#8d99ae") for row in ordered
+    ]
 
     path = Path(output_path)
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -98,16 +101,17 @@ def plot_cause_breakdown(
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
 
-    filtered = [
-        row
-        for row in records
-        if str(row["fragmentation_level"]) != "baseline"
-    ]
-    ordered = sorted(filtered, key=lambda row: fragmentation_level_sort_key(str(row["fragmentation_level"])))
+    filtered = [row for row in records if str(row["fragmentation_level"]) != "baseline"]
+    ordered = sorted(
+        filtered,
+        key=lambda row: fragmentation_level_sort_key(str(row["fragmentation_level"])),
+    )
     if not ordered:
         raise ValueError("No non-baseline records available for cause breakdown plot")
 
-    labels = [display_fragmentation_label(str(row["fragmentation_level"])) for row in ordered]
+    labels = [
+        display_fragmentation_label(str(row["fragmentation_level"])) for row in ordered
+    ]
     path = Path(output_path)
     path.parent.mkdir(parents=True, exist_ok=True)
 

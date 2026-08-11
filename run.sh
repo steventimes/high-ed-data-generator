@@ -1,38 +1,36 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-source "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/scripts/lib/runtime.sh"
-
-ROOT_DIR="$(hdg_root_dir)"
+ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "${ROOT_DIR}"
 
-CARGO_BIN="${CARGO_BIN:-cargo}"
-PYTHON_BIN="$(hdg_resolve_python_bin "${ROOT_DIR}")"
-RUN_ID="${RUN_ID:-local}"
-SCHEMA_CONFIG="${SCHEMA_CONFIG:-configs/schema_registry.yaml}"
-EXPERIMENT_CONFIG="${EXPERIMENT_CONFIG:-configs/experiment.yaml}"
-RUN_ROOT="${RUN_ROOT:-artifacts/runs}"
-AUTO_INSTALL_PY_DEPS="${AUTO_INSTALL_PY_DEPS:-false}"
+if [[ -n "${PYTHON_BIN:-}" ]]; then
+  BENCHMARK_PYTHON="${PYTHON_BIN}"
+elif [[ -x ".venv/bin/python" ]]; then
+  BENCHMARK_PYTHON=".venv/bin/python"
+else
+  BENCHMARK_PYTHON="python3"
+fi
 
-hdg_require_boolean_flag "AUTO_INSTALL_PY_DEPS" "${AUTO_INSTALL_PY_DEPS}"
-hdg_ensure_requirements \
-  "${PYTHON_BIN}" \
-  "python/requirements.txt" \
-  "import duckdb, matplotlib" \
-  "${AUTO_INSTALL_PY_DEPS}" \
-  "Python benchmark"
+CONFIG_PATH="${CONFIG_PATH:-configs/benchmark.yaml}"
+RUN_DIR="${RUN_DIR:-artifacts/runs/local}"
+REGISTRY_PATH="${REGISTRY_PATH:-configs/query_registry.json}"
 
-echo "Generating benchmark run ${RUN_ID}"
-"${CARGO_BIN}" run -p fragmentation-cli -- generate \
-  --schema "${SCHEMA_CONFIG}" \
-  --experiment "${EXPERIMENT_CONFIG}" \
-  --out-root "${RUN_ROOT}" \
-  --run-id "${RUN_ID}" \
+if ! "${BENCHMARK_PYTHON}" -c "import duckdb, sqlglot" >/dev/null 2>&1; then
+  echo "Missing Python dependencies. Install the project with: python -m pip install -e ." >&2
+  exit 1
+fi
+
+# 数据生成规模会快速放大，默认使用 release profile 避免 debug 构建拖慢主链路。
+cargo run --quiet --release -- \
+  --config "${CONFIG_PATH}" \
+  --output "${RUN_DIR}" \
   --overwrite
 
-echo "Running analysis for ${RUN_ROOT%/}/${RUN_ID}"
+# 统一从注册表执行参考 SQL，生成的数据和分析结果因此共享同一问题定义。
 PYTHONPATH="${ROOT_DIR}/python/src${PYTHONPATH:+:${PYTHONPATH}}" \
-  "${PYTHON_BIN}" -m benchmark.run_analysis \
-  --run-dir "${RUN_ROOT%/}/${RUN_ID}"
+  "${BENCHMARK_PYTHON}" -m benchmark analyze \
+  --run-dir "${RUN_DIR}" \
+  --registry "${REGISTRY_PATH}"
 
-echo "Done. Artifacts are in ${RUN_ROOT%/}/${RUN_ID}"
+echo "Benchmark artifacts: ${RUN_DIR}"

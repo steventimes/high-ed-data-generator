@@ -1,0 +1,39 @@
+version: 1
+population:
+  size: 500
+  seed: 20260410
+  academic:
+    gpa:
+      mean: 2.8
+      std: 0.6
+      min: 0.0
+      max: 4.0
+    full_time_probability: 0.62
+    semester: Fall 2024
+    term_anchor_date: 2024-09-01
+  financial_aid:
+    zero_probability: 0.28
+    recipient_mean: 14100.0
+    gamma_shape: 2.0
+    active_probability: 0.95
+    suspended_probability: 0.05
+    disbursement_offset_days:
+      min: -10
+      max: 30
+variants:
+  baseline: {}
+  low_fragmentation:
+    drop_row: 0.10
+    null_aid_amount: 0.05
+    null_aid_status: 0.05
+    identifier_mismatch: 0.05
+  medium_fragmentation:
+    drop_row: 0.30
+    null_aid_amount: 0.15
+    null_aid_status: 0.15
+    identifier_mismatch: 0.15
+  high_fragmentation:
+    drop_row: 0.50
+    null_aid_amount: 0.30
+    null_aid_status: 0.30
+    identifier_mismatch: 0.30

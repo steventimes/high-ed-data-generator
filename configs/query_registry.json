@@ -80,6 +80,33 @@
           }
         ]
       }
+    },
+    {
+      "question_id": "at_risk_financial_disruption_resolved",
+      "question": "Which students are academically at risk and have a disruption in financial aid after resolving department-local student identifiers?",
+      "institution_role": "institutional_research_analyst",
+      "decision_type": "identity_resolution_control",
+      "entity_key": "student_id",
+      "evaluation_title": "Identity Crosswalk Recovery for Students Requiring Financial-Aid Outreach",
+      "reference_sql": "SELECT DISTINCT a.student_id\nFROM academic_records AS a\nJOIN identity_crosswalk AS x\n  ON a.student_id = x.canonical_student_id\nLEFT JOIN financial_aid_records AS f\n  ON x.financial_aid_student_id = f.student_id\nWHERE a.gpa < 2.5\n  AND f.aid_amount IS NOT NULL\n  AND f.aid_status IS NOT NULL\n  AND f.aid_status <> 'active';",
+      "weighting_policy": {
+        "type": "gpa_band",
+        "default_weight": 1.0,
+        "bands": [
+          {
+            "max_gpa": 1.5,
+            "weight": 3.0
+          },
+          {
+            "max_gpa": 2.0,
+            "weight": 2.0
+          },
+          {
+            "max_gpa": 2.5,
+            "weight": 1.0
+          }
+        ]
+      }
     }
   ]
 }

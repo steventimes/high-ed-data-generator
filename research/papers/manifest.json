@@ -1,0 +1,153 @@
+{
+  "schema_version": 1,
+  "verified_on": "2026-08-10",
+  "verification": {
+    "checks": [
+      "PDF magic",
+      "pdfinfo page count",
+      "first-page text extraction",
+      "first-page rendering",
+      "SHA-256"
+    ],
+    "paper_count": 8,
+    "total_pages": 117
+  },
+  "papers": [
+    {
+      "file": "01-laigner-2021-data-management-in-microservices.pdf",
+      "title": "Data Management in Microservices: State of the Practice, Challenges, and Research Directions",
+      "authors": [
+        "Rodrigo Laigner",
+        "Yongluan Zhou",
+        "Marcos Antonio Vaz Salles",
+        "Yijian Liu",
+        "Marcos Kalinowski"
+      ],
+      "year": 2021,
+      "doi": "10.14778/3484224.3484232",
+      "source_url": "https://www.vldb.org/pvldb/vol14/p3348-laigner.pdf",
+      "access_note": "PVLDB official PDF; CC BY-NC-ND 4.0 stated in the paper.",
+      "pages": 14,
+      "sha256": "1b6f68a476cf192d87e9d01d51aaa3c828ec241b5b4119692e9bc42eb191a957",
+      "relevance": "Database-per-service practice, cross-service consistency, querying, and research challenges."
+    },
+    {
+      "file": "02-goedegebuure-2023-data-mesh-review.pdf",
+      "title": "Data Mesh: A Systematic Gray Literature Review",
+      "authors": [
+        "Abel Goedegebuure",
+        "Indika Kumara",
+        "Stefan Driessen",
+        "Willem-Jan van den Heuvel",
+        "Geert Monsieur",
+        "Damian Andrew Tamburri",
+        "Dario Di Nucci"
+      ],
+      "year": 2023,
+      "arxiv": "2304.01062",
+      "source_url": "https://arxiv.org/pdf/2304.01062",
+      "access_note": "Author manuscript distributed through arXiv.",
+      "pages": 35,
+      "sha256": "70ad69acd51dfffadf728053ce0c4ab81b09181a647ff022bfb5a1437e59971f",
+      "relevance": "Evidence synthesis for domain ownership, data products, self-service platforms, and federated governance."
+    },
+    {
+      "file": "03-kumara-2024-self-serve-data-platform.pdf",
+      "title": "Architectural Design Decisions for Self-Serve Data Platforms in Data Meshes",
+      "authors": [
+        "Tom van Eijk",
+        "Indika Kumara",
+        "Dario Di Nucci",
+        "Damian Andrew Tamburri",
+        "Willem-Jan van den Heuvel"
+      ],
+      "year": 2024,
+      "arxiv": "2402.04681",
+      "source_url": "https://arxiv.org/pdf/2402.04681",
+      "access_note": "Author manuscript distributed through arXiv.",
+      "pages": 13,
+      "sha256": "5658ea7964e12da59b3536f09f38e00bca672826f8034b8ea83d81ab9c24fe77",
+      "relevance": "Concrete platform decisions for making domain-owned products governable and operable."
+    },
+    {
+      "file": "04-helland-2007-life-beyond-distributed-transactions.pdf",
+      "title": "Life beyond Distributed Transactions: an Apostate's Opinion",
+      "authors": [
+        "Pat Helland"
+      ],
+      "year": 2007,
+      "source_url": "https://www.cidrdb.org/cidr2007/papers/cidr07p15.pdf",
+      "access_note": "CIDR official PDF; CC BY 2.5 stated in the paper.",
+      "pages": 10,
+      "sha256": "a2e1af4dc44b405c3b7041108f63d1d9e0d38c2ed64d52ee5f44633efa7b7935",
+      "relevance": "Why cross-domain workflows should use messages, idempotency, and reconciliation instead of global transactions."
+    },
+    {
+      "file": "05-shen-2025-chinese-higher-ed-data-governance-review.pdf",
+      "title": "Data Governance in Chinese Higher Education: A Systematic Literature Review",
+      "authors": [
+        "Jian Shen",
+        "Norris Syed Abdullah",
+        "Zheng Fu"
+      ],
+      "year": 2025,
+      "doi": "10.6007/IJARBSS/v15-i12/27267",
+      "source_url": "https://hrmars.com/papers_submitted/27267/data-governance-in-chinese-higher-education-a-systematic-literature-review.pdf",
+      "access_note": "Official open-access journal PDF; CC BY 4.0 stated by the journal.",
+      "pages": 12,
+      "sha256": "6d0624472e0ed401f848512cb24cd849c1715266380eb113b538d2038eaad7bf",
+      "relevance": "Higher-education-specific evidence on silos, inconsistent quality, weak data culture, literacy, and security."
+    },
+    {
+      "file": "06-garcia-juanes-2014-linked-data-higher-education.pdf",
+      "title": "Linked Data Strategy to Achieve Interoperability in Higher Education",
+      "authors": [
+        "Guillermo Garcia Juanes",
+        "Alioth Rodriguez Barrios",
+        "Jose Luis Roda Garcia",
+        "Laura Gutierrez Medina",
+        "Rita Diaz Adan",
+        "Pedro Gonzalez Yanes"
+      ],
+      "year": 2014,
+      "source_url": "https://www.scitepress.org/Papers/2014/48535/48535.pdf",
+      "access_note": "SCITEPRESS official conference PDF; retain publisher citation and copyright notice.",
+      "pages": 8,
+      "sha256": "35eb3500dce56a2f6f5353c6b4b02a77dfeda7314205900d6bc685de28628c63",
+      "relevance": "A higher-education interoperability implementation using linked data and ontologies."
+    },
+    {
+      "file": "07-schnell-2009-privacy-preserving-record-linkage.pdf",
+      "title": "Privacy-preserving record linkage using Bloom filters",
+      "authors": [
+        "Rainer Schnell",
+        "Tobias Bachteler",
+        "Jorg Reiher"
+      ],
+      "year": 2009,
+      "doi": "10.1186/1472-6947-9-41",
+      "source_url": "https://link.springer.com/content/pdf/10.1186/1472-6947-9-41.pdf",
+      "access_note": "Open-access BMC article; CC BY 2.0 stated in the paper.",
+      "pages": 11,
+      "sha256": "51416e045ceecd0aaa3ca867b59a3751e82dafb1d0db7e4e4cc008bdb96bd59e",
+      "relevance": "Approximate cross-database entity linkage without sharing clear-text identifiers."
+    },
+    {
+      "file": "08-christen-2018-bloom-filter-cryptanalysis.pdf",
+      "title": "Precise and Fast Cryptanalysis for Bloom Filter Based Privacy-Preserving Record Linkage",
+      "authors": [
+        "Peter Christen",
+        "Thilina Ranbaduge",
+        "Dinusha Vatsalan",
+        "Rainer Schnell"
+      ],
+      "year": 2018,
+      "doi": "10.1109/TKDE.2018.2874004",
+      "source_url": "https://openresearch-repository.anu.edu.au/server/api/core/bitstreams/7ae20ce8-5c48-45dd-a71d-89229ee226fd/content",
+      "access_note": "ANU open-repository author manuscript; publisher copyright may apply.",
+      "pages": 14,
+      "sha256": "5c92625b9cbd4bde77a1a34618c1d59823ec2f93fdd294b8b4835e9e7a3bea9f",
+      "relevance": "Security counter-evidence: basic Bloom-filter linkage can leak identifiers through cryptanalysis."
+    }
+  ]
+}

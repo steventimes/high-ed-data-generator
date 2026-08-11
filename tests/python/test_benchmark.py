@@ -5,27 +5,24 @@ import os
 from pathlib import Path
 
 import pytest
-
-from benchmark.duckdb_runner import CANONICAL_SQL, run_canonical_query
 from benchmark.evaluation.metrics import (
     compare_entity_sets,
     compute_fragmentation_score,
     missed_students_vs_baseline,
 )
-from benchmark.evaluation.run_text_to_sql import assign_missing_causes
-from benchmark.question_registry import (
-    QuestionSpec,
-    apply_query_registry_metadata,
-    load_questions_file,
-)
-from benchmark.text_to_sql.vanna_adapter import (
-    build_system_prompt,
+from benchmark.evaluation.pipeline import assign_missing_causes
+from benchmark.questions import QuestionSpec, load_questions, resolve_questions
+from benchmark.sql_runtime import (
     extract_sql,
     infer_missing_initial_cte_name,
-    manual_load_dotenv,
     normalize_generated_sql,
-    validate_generated_sql_against_targets,
+    run_sql_on_variant,
+)
+from benchmark.text_to_sql.openai_client import load_dotenv
+from benchmark.text_to_sql.prompts import build_schema_context, build_system_prompt
+from benchmark.text_to_sql.runner import (
     TextToSqlTarget,
+    validate_generated_sql_against_targets,
 )
 
 
@@ -42,27 +39,62 @@ def write_toy_variant(path: Path) -> None:
         path / "academic_records.csv",
         ["student_id", "gpa", "enrollment_status", "semester"],
         [
-            {"student_id": "S0001", "gpa": "2.40", "enrollment_status": "full_time", "semester": "Fall 2024"},
-            {"student_id": "S0002", "gpa": "2.10", "enrollment_status": "part_time", "semester": "Fall 2024"},
-            {"student_id": "S0003", "gpa": "3.20", "enrollment_status": "full_time", "semester": "Fall 2024"},
+            {
+                "student_id": "S0001",
+                "gpa": "2.40",
+                "enrollment_status": "full_time",
+                "semester": "Fall 2024",
+            },
+            {
+                "student_id": "S0002",
+                "gpa": "2.10",
+                "enrollment_status": "part_time",
+                "semester": "Fall 2024",
+            },
+            {
+                "student_id": "S0003",
+                "gpa": "3.20",
+                "enrollment_status": "full_time",
+                "semester": "Fall 2024",
+            },
         ],
     )
     write_csv(
         path / "financial_aid_records.csv",
         ["student_id", "aid_amount", "aid_status", "disbursement_date"],
         [
-            {"student_id": "S0001", "aid_amount": "1000.00", "aid_status": "suspended", "disbursement_date": "2024-09-01"},
-            {"student_id": "S0003", "aid_amount": "0.00", "aid_status": "none", "disbursement_date": "2024-09-02"},
+            {
+                "student_id": "S0001",
+                "aid_amount": "1000.00",
+                "aid_status": "suspended",
+                "disbursement_date": "2024-09-01",
+            },
+            {
+                "student_id": "S0003",
+                "aid_amount": "0.00",
+                "aid_status": "none",
+                "disbursement_date": "2024-09-02",
+            },
         ],
     )
 
 
-def test_canonical_query_uses_left_join_and_requires_observed_non_active_aid(tmp_path: Path) -> None:
+def test_query_runtime_preserves_missing_rows_without_classifying_them(
+    tmp_path: Path,
+) -> None:
     variant = tmp_path / "variant"
     write_toy_variant(variant)
-    rows = run_canonical_query(variant)
-    assert "LEFT JOIN" in CANONICAL_SQL.upper()
-    assert "INNER JOIN" not in CANONICAL_SQL.upper()
+    rows = run_sql_on_variant(
+        variant,
+        """
+        SELECT a.student_id
+        FROM academic_records AS a
+        LEFT JOIN financial_aid_records AS f USING (student_id)
+        WHERE a.gpa < 2.5
+          AND f.aid_status IS NOT NULL
+          AND f.aid_status <> 'active';
+        """,
+    )
     assert [row["student_id"] for row in rows] == ["S0001"]
 
 
@@ -87,7 +119,7 @@ def test_question_json_loader_accepts_query_registry_metadata(tmp_path: Path) ->
     questions_file.write_text(
         """
         {
-          "questions": [
+          "queries": [
             {
               "question_id": "target",
               "question": "Which students are at risk?",
@@ -105,7 +137,7 @@ def test_question_json_loader_accepts_query_registry_metadata(tmp_path: Path) ->
         """,
         encoding="utf-8",
     )
-    questions = load_questions_file(questions_file)
+    questions = load_questions(questions_file)
     assert questions[0].question_id == "target"
     assert questions[0].institution_role == "retention_advisor"
     assert questions[0].reference_sql == "SELECT student_id FROM academic_records;"
@@ -113,13 +145,10 @@ def test_question_json_loader_accepts_query_registry_metadata(tmp_path: Path) ->
     assert questions[0].weighting_policy.bands[0].weight == 3.0
 
 
-def test_natural_language_questions_can_be_enriched_from_separate_registry(tmp_path: Path) -> None:
-    questions_file = tmp_path / "question.json"
+def test_natural_language_questions_can_be_enriched_from_separate_registry(
+    tmp_path: Path,
+) -> None:
     registry_file = tmp_path / "query_registry.json"
-    questions_file.write_text(
-        '{"questions":["Which students are at risk?"]}',
-        encoding="utf-8",
-    )
     registry_file.write_text(
         """
         {
@@ -135,8 +164,10 @@ def test_natural_language_questions_can_be_enriched_from_separate_registry(tmp_p
         """,
         encoding="utf-8",
     )
-    questions = load_questions_file(questions_file)
-    enriched = apply_query_registry_metadata(questions, registry_file)
+    enriched = resolve_questions(
+        registry_path=registry_file,
+        inline_questions=["Which students are at risk?"],
+    )
     assert enriched[0].question_id == "target"
     assert enriched[0].reference_sql == "SELECT student_id FROM academic_records;"
     assert enriched[0].institution_role == "retention_advisor"
@@ -148,11 +179,13 @@ def test_extract_sql_removes_markdown_fence() -> None:
 
 
 def test_extract_sql_preserves_with_cte() -> None:
-    sql = extract_sql("WITH flagged AS (SELECT student_id FROM academic_records) SELECT student_id FROM flagged;")
+    sql = extract_sql(
+        "WITH flagged AS (SELECT student_id FROM academic_records) SELECT student_id FROM flagged;"
+    )
     assert sql.startswith("WITH flagged AS (")
 
 
-def test_manual_dotenv_loader_reads_openai_key_without_dotenv_package(
+def test_dotenv_loader_reads_openai_key_without_extra_dependency(
     tmp_path: Path, monkeypatch
 ) -> None:
     env_file = tmp_path / ".env"
@@ -162,24 +195,32 @@ def test_manual_dotenv_loader_reads_openai_key_without_dotenv_package(
     )
     monkeypatch.delenv("OPENAI_API_KEY", raising=False)
     monkeypatch.delenv("OPENAI_MODEL", raising=False)
-    manual_load_dotenv(env_file)
+    load_dotenv(env_file)
     assert "OPENAI_API_KEY" in os.environ
     assert os.environ["OPENAI_MODEL"] == "gpt-test"
 
 
 def test_system_prompt_contains_benchmark_semantics() -> None:
     prompt = build_system_prompt(
-        schema_context="schema here",
+        schema_context=build_schema_context(),
         question=QuestionSpec(
             question_id="baseline",
             question="Which students are at risk?",
             institution_role="financial_aid_admin",
             decision_type="manual_review",
+            reference_sql=(
+                "SELECT a.student_id FROM academic_records AS a "
+                "JOIN identity_crosswalk AS x "
+                "ON a.student_id = x.canonical_student_id"
+            ),
         ),
     )
     assert "GPA below 2.5" in prompt
     assert "active, suspended, none" in prompt
     assert "Use a LEFT JOIN" in prompt
+    assert "identity_crosswalk" in prompt
+    assert "canonical_student_id" in prompt
+    assert "resolve department-local identifiers" in prompt
     assert "Institution role: financial_aid_admin" in prompt
 
 
@@ -213,13 +254,23 @@ def test_compare_entity_sets_computes_weighted_miss_loss() -> None:
     assert metrics.weighted_miss_loss == 0.75
 
 
+def test_entity_comparison_rejects_rows_without_the_configured_key() -> None:
+    with pytest.raises(ValueError, match="student_id"):
+        compare_entity_sets(
+            baseline_rows=[{"gpa": 2.1}],
+            observed_rows=[],
+            entity_key="student_id",
+        )
+
+
 def test_assign_missing_causes_uses_manifest_row_ids() -> None:
     causes = assign_missing_causes(
-        ["S0001", "S0002", "S0003"],
+        ["S0001", "S0002", "S0003", "S0004"],
         {
             "selected_row_ids": {
                 "drop_row": ["S0001"],
                 "null_aid_status": ["S0002"],
+                "identifier_mismatch": ["S0004"],
             }
         },
     )
@@ -227,41 +278,79 @@ def test_assign_missing_causes_uses_manifest_row_ids() -> None:
         "S0001": "missing_record",
         "S0002": "null_critical_field",
         "S0003": "unknown",
+        "S0004": "identity_mismatch",
     }
 
 
-def test_generated_sql_validation_rejects_null_join_as_positive_match(tmp_path: Path) -> None:
+def test_generated_sql_validation_rejects_null_join_as_positive_match(
+    tmp_path: Path,
+) -> None:
     baseline = tmp_path / "baseline"
     fragmented = tmp_path / "low_fragmentation"
     write_csv(
         baseline / "academic_records.csv",
         ["student_id", "gpa", "enrollment_status", "semester"],
         [
-            {"student_id": "S0001", "gpa": "2.10", "enrollment_status": "full_time", "semester": "Fall 2024"},
-            {"student_id": "S0002", "gpa": "2.20", "enrollment_status": "part_time", "semester": "Fall 2024"},
+            {
+                "student_id": "S0001",
+                "gpa": "2.10",
+                "enrollment_status": "full_time",
+                "semester": "Fall 2024",
+            },
+            {
+                "student_id": "S0002",
+                "gpa": "2.20",
+                "enrollment_status": "part_time",
+                "semester": "Fall 2024",
+            },
         ],
     )
     write_csv(
         fragmented / "academic_records.csv",
         ["student_id", "gpa", "enrollment_status", "semester"],
         [
-            {"student_id": "S0001", "gpa": "2.10", "enrollment_status": "full_time", "semester": "Fall 2024"},
-            {"student_id": "S0002", "gpa": "2.20", "enrollment_status": "part_time", "semester": "Fall 2024"},
+            {
+                "student_id": "S0001",
+                "gpa": "2.10",
+                "enrollment_status": "full_time",
+                "semester": "Fall 2024",
+            },
+            {
+                "student_id": "S0002",
+                "gpa": "2.20",
+                "enrollment_status": "part_time",
+                "semester": "Fall 2024",
+            },
         ],
     )
     write_csv(
         baseline / "financial_aid_records.csv",
         ["student_id", "aid_amount", "aid_status", "disbursement_date"],
         [
-            {"student_id": "S0001", "aid_amount": "1000.00", "aid_status": "suspended", "disbursement_date": "2024-09-01"},
-            {"student_id": "S0002", "aid_amount": "0.00", "aid_status": "none", "disbursement_date": "2024-09-02"},
+            {
+                "student_id": "S0001",
+                "aid_amount": "1000.00",
+                "aid_status": "suspended",
+                "disbursement_date": "2024-09-01",
+            },
+            {
+                "student_id": "S0002",
+                "aid_amount": "0.00",
+                "aid_status": "none",
+                "disbursement_date": "2024-09-02",
+            },
         ],
     )
     write_csv(
         fragmented / "financial_aid_records.csv",
         ["student_id", "aid_amount", "aid_status", "disbursement_date"],
         [
-            {"student_id": "S0001", "aid_amount": "1000.00", "aid_status": "suspended", "disbursement_date": "2024-09-01"},
+            {
+                "student_id": "S0001",
+                "aid_amount": "1000.00",
+                "aid_status": "suspended",
+                "disbursement_date": "2024-09-01",
+            },
         ],
     )
 
