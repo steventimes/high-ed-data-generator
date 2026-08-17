@@ -11,6 +11,9 @@ from benchmark.evaluation.pipeline import evaluate_text_to_sql_outputs
 from benchmark.questions import DEFAULT_REGISTRY, load_questions, resolve_questions
 from benchmark.text_to_sql.openai_client import OpenAiSqlGenerator
 from benchmark.text_to_sql.runner import (
+    TextToSqlTarget,
+    _validate_generated_results_directory,
+    require_publishable_targets,
     resolve_targets,
     run_text_to_sql_experiment,
     write_results,
@@ -51,6 +54,8 @@ def build_parser() -> argparse.ArgumentParser:
     evaluate.add_argument("--generated-results-dir", type=Path)
     evaluate.add_argument("--output-dir", type=Path)
     evaluate.add_argument("--query-id", action="append", default=[])
+    evaluate.add_argument("--variant", action="append")
+    evaluate.add_argument("--target", action="append", default=[])
     evaluate.add_argument("--plot-format", default="png,pdf")
     evaluate.add_argument("--strict", action="store_true")
     evaluate.set_defaults(handler=_run_evaluation)
@@ -85,8 +90,20 @@ def _run_text_to_sql(args: argparse.Namespace) -> int:
         variants=variants,
         explicit_targets=args.target,
     )
+    # 在构造需要 API key 的客户端前拒绝 evaluation 无法消费的目标集合。
+    require_publishable_targets(targets)
     generated_dir = args.generated_results_dir or (
         args.run_dir / "metrics" / "text_to_sql_generated_results"
+    )
+    generated_dir = _validate_generated_results_directory(
+        generated_dir, targets=targets, run_dirs=[args.run_dir]
+    )
+    output = args.output or args.run_dir / "metrics" / "text_to_sql_experiments.csv"
+    output = _validate_text_to_sql_summary_output(
+        output,
+        run_dir=args.run_dir,
+        generated_results_dir=generated_dir,
+        targets=targets,
     )
     results = run_text_to_sql_experiment(
         questions=questions,
@@ -96,12 +113,58 @@ def _run_text_to_sql(args: argparse.Namespace) -> int:
         max_retries=args.max_retries,
         generated_results_dir=generated_dir,
     )
-    output = args.output or args.run_dir / "metrics" / "text_to_sql_experiments.csv"
     write_results(output, results)
     failed = [result for result in results if not result.success]
     print(f"text_to_sql_results: {output}")
     print(f"successful={len(results) - len(failed)} failed={len(failed)}")
     return 1 if failed else 0
+
+
+def _validate_text_to_sql_summary_output(
+    output: Path,
+    *,
+    run_dir: Path,
+    generated_results_dir: Path,
+    targets: list[TextToSqlTarget],
+) -> Path:
+    raw = os.fspath(output)
+    if not raw or raw == "." or output == Path("/") or ".." in output.parts:
+        raise ValueError("text-to-sql output must be a specific safe CSV path")
+    if output.is_symlink():
+        raise ValueError("text-to-sql output must not be a symbolic link")
+    destination = output.resolve(strict=False)
+    if output.exists() and output.is_dir():
+        raise ValueError("text-to-sql output must be a file")
+
+    canonical_run_dir = run_dir.resolve(strict=False)
+    protected = {
+        generated_results_dir.resolve(strict=False),
+        canonical_run_dir / "variants",
+        canonical_run_dir / "manifests",
+        canonical_run_dir / "config_snapshot",
+    }
+    target_dirs = {target.variant_dir.resolve(strict=False) for target in targets}
+    protected.update(target_dirs)
+    for target_dir in target_dirs:
+        if target_dir.parent.name == "variants":
+            run_root = target_dir.parent.parent
+            protected.update(
+                {
+                    run_root / "variants",
+                    run_root / "manifests",
+                    run_root / "config_snapshot",
+                }
+            )
+    for path in protected:
+        if (
+            path == destination
+            or path.is_relative_to(destination)
+            or destination.is_relative_to(path)
+        ):
+            raise ValueError(
+                "text-to-sql output must not overlap generated or benchmark inputs"
+            )
+    return destination
 
 
 def _run_evaluation(args: argparse.Namespace) -> int:
@@ -110,6 +173,11 @@ def _run_evaluation(args: argparse.Namespace) -> int:
         args.run_dir / "metrics" / "text_to_sql_generated_results"
     )
     output_dir = args.output_dir or args.run_dir / "evaluation" / "text_to_sql"
+    targets = resolve_targets(
+        run_dir=args.run_dir,
+        variants=args.variant or list(VARIANT_NAMES),
+        explicit_targets=args.target,
+    )
     plot_formats = [
         value.strip()
         for value in args.plot_format.split(",")
@@ -122,6 +190,7 @@ def _run_evaluation(args: argparse.Namespace) -> int:
         output_dir=output_dir,
         plot_formats=plot_formats,
         strict=args.strict,
+        targets=[(target.label, target.variant_dir) for target in targets],
     ).items():
         print(f"{label}: {path}")
     return 0

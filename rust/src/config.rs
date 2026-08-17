@@ -15,7 +15,7 @@ pub enum ConfigError {
         source: std::io::Error,
     },
     #[error("invalid YAML config: {0}")]
-    Yaml(#[from] serde_yaml::Error),
+    Yaml(#[from] serde_yaml_bw::Error),
     #[error("invalid benchmark config: {0}")]
     Validation(String),
 }
@@ -66,6 +66,8 @@ pub struct FinancialAidConfig {
     pub active_probability: f64,
     pub suspended_probability: f64,
     pub disbursement_offset_days: DayRange,
+    #[serde(default = "default_late_publication_delay_days")]
+    pub late_publication_delay_days: i64,
 }
 
 #[derive(Clone, Debug, Deserialize)]
@@ -82,11 +84,13 @@ pub struct CorruptionConfig {
     pub null_aid_amount: f64,
     pub null_aid_status: f64,
     pub identifier_mismatch: f64,
+    pub publication_delay: f64,
+    pub aid_status_code_drift: f64,
 }
 
 impl BenchmarkConfig {
     pub fn from_yaml(source: &str) -> Result<Self> {
-        let config: Self = serde_yaml::from_str(source)?;
+        let config: Self = serde_yaml_bw::from_str(source)?;
         config.validate()?;
         Ok(config)
     }
@@ -100,8 +104,8 @@ impl BenchmarkConfig {
     }
 
     pub fn validate(&self) -> Result<()> {
-        if self.version != 1 {
-            return Err(validation("version must be 1"));
+        if !matches!(self.version, 1 | 2) {
+            return Err(validation("version must be 1 or 2"));
         }
         let population = &self.population;
         if population.size == 0 {
@@ -199,6 +203,32 @@ impl BenchmarkConfig {
                 ));
             }
         }
+        if aid.late_publication_delay_days <= 0 {
+            return Err(validation(
+                "financial-aid late publication delay must be greater than zero",
+            ));
+        }
+        let replay_delay = Duration::try_days(aid.late_publication_delay_days)
+            .ok_or_else(|| validation("financial-aid late publication delay is out of range"))?;
+        let watermark = population
+            .academic
+            .term_anchor_date
+            .checked_add_signed(
+                Duration::try_days(aid.disbursement_offset_days.max).ok_or_else(|| {
+                    validation("financial-aid disbursement day offset is out of range")
+                })?,
+            )
+            .ok_or_else(|| validation("financial-aid disbursement date is out of range"))?;
+        let current_snapshot = watermark
+            .checked_add_signed(Duration::days(1))
+            .ok_or_else(|| validation("financial-aid current snapshot date is out of range"))?;
+        current_snapshot
+            .checked_add_signed(replay_delay)
+            .ok_or_else(|| {
+                validation(
+                    "financial-aid late publication delay produces an out-of-range replay date",
+                )
+            })?;
 
         let actual = self
             .variants
@@ -227,6 +257,26 @@ impl BenchmarkConfig {
         {
             return Err(validation("baseline corruption rates must all be zero"));
         }
+        if self.version == 1 {
+            // v1 只保留历史生成语义；启用延迟发布或状态漂移时必须显式升级配置。
+            if aid.late_publication_delay_days != default_late_publication_delay_days() {
+                return Err(validation(
+                    "population.financial_aid.late_publication_delay_days requires config version 2 when it is not 7",
+                ));
+            }
+            for (name, corruption) in &self.variants {
+                if corruption.publication_delay != 0.0 {
+                    return Err(validation(format!(
+                        "variants.{name}.publication_delay requires config version 2"
+                    )));
+                }
+                if corruption.aid_status_code_drift != 0.0 {
+                    return Err(validation(format!(
+                        "variants.{name}.aid_status_code_drift requires config version 2"
+                    )));
+                }
+            }
+        }
         Ok(())
     }
 }
@@ -238,6 +288,8 @@ impl CorruptionConfig {
             FragmentationOperator::NullAidAmount => self.null_aid_amount,
             FragmentationOperator::NullAidStatus => self.null_aid_status,
             FragmentationOperator::IdentifierMismatch => self.identifier_mismatch,
+            FragmentationOperator::PublicationDelay => self.publication_delay,
+            FragmentationOperator::AidStatusCodeDrift => self.aid_status_code_drift,
         }
     }
 }
@@ -258,4 +310,8 @@ fn validate_finite(name: &str, value: f64) -> Result<()> {
 
 fn validation(message: impl Into<String>) -> ConfigError {
     ConfigError::Validation(message.into())
+}
+
+fn default_late_publication_delay_days() -> i64 {
+    7
 }

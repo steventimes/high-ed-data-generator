@@ -8,10 +8,19 @@ def build_schema_context() -> str:
         "Tables available in DuckDB:\n"
         "- academic_records(student_id, gpa, enrollment_status, semester)\n"
         "- financial_aid_records(student_id, aid_amount, aid_status, disbursement_date)\n"
-        "- identity_crosswalk(canonical_student_id, financial_aid_student_id)\n\n"
+        "- financial_aid_late_arrivals(student_id, aid_amount, aid_status, disbursement_date)\n"
+        "- identity_crosswalk(canonical_student_id, financial_aid_student_id)\n"
+        "- aid_status_crosswalk(financial_aid_status, canonical_aid_status)\n"
+        "- financial_aid_publication_events(event_id, financial_aid_student_id, event_time, observed_at, published_at, arrival_stream)\n"
+        "- benchmark_temporal_snapshots(snapshot, published_at, event_time_watermark)\n\n"
         "academic_records.student_id is the institution canonical ID. "
         "financial_aid_records.student_id may use a department-local ID; "
-        "identity_crosswalk is the governed mapping between them.\n"
+        "identity_crosswalk is the governed mapping between them. "
+        "financial_aid_late_arrivals contains records published after the current snapshot. "
+        "aid_status_crosswalk maps source-local status codes to canonical values. "
+        "publication events use arrival_stream current or late and UTC observation/publication times. "
+        "For temporal comparisons, filter both snapshots to the minimum event_time_watermark "
+        "and apply each snapshot's own published_at cutoff.\n"
         "The same SQL must work across the baseline and every fragmented variant."
     )
 
@@ -31,9 +40,9 @@ def build_system_prompt(*, schema_context: str, question: QuestionSpec) -> str:
         "or external file access.\n\n"
         "Benchmark semantics:\n"
         "- academic_records.enrollment_status allowed values: full_time, part_time.\n"
-        "- financial_aid_records.aid_status allowed values: active, suspended, none.\n"
+        "- Canonical aid status values are active, suspended, none; raw aid tables may contain source-local codes.\n"
         "- Academically at risk means GPA below 2.5 unless the question says otherwise.\n"
-        "- Use a LEFT JOIN from academic_records to financial_aid_records so missing aid rows remain observable.\n"
+        "- Use a LEFT JOIN from academic_records to the applicable raw or governed aid relation so missing rows remain observable.\n"
         "- Missing aid rows are fragmentation artifacts, not positive matches by default.\n"
         "- Do not turn NULL joined rows into matches unless the question explicitly asks for missing records.\n"
         "- Return the entity key so benchmark comparison can be performed.\n"
@@ -47,10 +56,18 @@ def build_system_prompt(*, schema_context: str, question: QuestionSpec) -> str:
 def question_specific_semantic_hint(question: QuestionSpec) -> str:
     reference_sql = (question.reference_sql or "").lower()
     hints = ["Question-specific benchmark hints:"]
+    if "financial_aid_late_arrivals" in reference_sql:
+        hints.append(
+            "- Replay financial_aid_late_arrivals with UNION ALL before applying business filters."
+        )
     if "identity_crosswalk" in reference_sql:
         hints.append(
             "- Use identity_crosswalk to resolve department-local identifiers "
             "to the canonical student ID before joining records."
+        )
+    if "aid_status_crosswalk" in reference_sql:
+        hints.append(
+            "- Resolve raw aid_status through aid_status_crosswalk and filter on canonical_aid_status."
         )
     if "aid_status = 'suspended'" in reference_sql:
         hints.append("- Use only observed rows with aid_status = 'suspended'.")

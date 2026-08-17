@@ -16,13 +16,17 @@ CAUSE_COLORS = {
     "missing_record": "#bc4749",
     "null_critical_field": "#f4a261",
     "identity_mismatch": "#457b9d",
+    "publication_delay": "#6a4c93",
+    "semantic_drift": "#2a9d8f",
     "unknown": "#8d99ae",
 }
 
 CAUSE_ORDER = [
     "missing_record",
+    "publication_delay",
     "null_critical_field",
     "identity_mismatch",
+    "semantic_drift",
     "unknown",
 ]
 

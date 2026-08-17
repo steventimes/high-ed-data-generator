@@ -1,14 +1,25 @@
 from __future__ import annotations
 
+import shutil
+import tempfile
+import uuid
 from contextlib import ExitStack
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Protocol
 
+import duckdb
+
 from benchmark.evaluation.metrics import VARIANT_NAMES, write_csv
+from benchmark.generated_batch import (
+    build_target_batch_identity,
+    write_generated_batch_contract,
+)
 from benchmark.questions import QuestionSpec, slugify, validate_questions
 from benchmark.sql_runtime import (
+    SqlValidationError,
     VariantSqlRuntime,
+    require_matching_cohorts,
     run_sql_on_variant,
     validate_read_only_sql,
 )
@@ -74,6 +85,10 @@ class SqlGenerator(Protocol):
     ) -> str: ...
 
 
+class _HiddenResultMismatch(ValueError):
+    """候选行动集不匹配；异常文本不得携带任何 reference 真值。"""
+
+
 def run_text_to_sql_experiment(
     *,
     questions: list[QuestionSpec],
@@ -87,6 +102,8 @@ def run_text_to_sql_experiment(
         raise ValueError("max_retries must not be negative")
     validate_questions(questions)
     _validate_targets(targets)
+    if generated_results_dir is not None:
+        require_publishable_targets(targets)
     schema_context = build_schema_context()
 
     with ExitStack() as stack:
@@ -95,6 +112,13 @@ def run_text_to_sql_experiment(
             target.label: stack.enter_context(VariantSqlRuntime(target.variant_dir))
             for target in targets
         }
+        # 在清理旧结果和执行任何查询前，确认所有目标属于同一生成批次。
+        require_matching_cohorts(
+            [
+                (target.label, runtimes[target.label].cohort_fingerprint)
+                for target in targets
+            ]
+        )
         return _run_text_to_sql_with_runtimes(
             questions=questions,
             targets=targets,
@@ -118,17 +142,75 @@ def _run_text_to_sql_with_runtimes(
     schema_context: str,
     runtimes: dict[str, VariantSqlRuntime],
 ) -> list[TextToSqlResult]:
-    results = []
-    if generated_results_dir is not None:
-        # 整批执行前清空所有目标，避免中途异常让后续问题误用上一轮结果。
-        for question in questions:
-            for target in targets:
-                _generated_result_path(
-                    generated_results_dir,
-                    question.question_id,
-                    target.label,
-                ).unlink(missing_ok=True)
+    if generated_results_dir is None:
+        return _execute_text_to_sql_batch(
+            questions=questions,
+            targets=targets,
+            generator=generator,
+            model=model,
+            max_retries=max_retries,
+            output_dir=None,
+            schema_context=schema_context,
+            runtimes=runtimes,
+        )
 
+    destination = _validate_generated_results_directory(
+        generated_results_dir, targets=targets
+    )
+    staging_dir = _create_generation_staging_directory(destination)
+    try:
+        results = _execute_text_to_sql_batch(
+            questions=questions,
+            targets=targets,
+            generator=generator,
+            model=model,
+            max_retries=max_retries,
+            output_dir=staging_dir,
+            schema_context=schema_context,
+            runtimes=runtimes,
+        )
+        if all(result.success for result in results):
+            write_generated_batch_contract(
+                staging_dir,
+                question_ids=[question.question_id for question in questions],
+                question_specs=questions,
+                targets=[
+                    (
+                        target.label,
+                        build_target_batch_identity(
+                            fallback_variant=target.variant_dir.name,
+                            cohort_fingerprint=getattr(
+                                runtimes[target.label], "cohort_fingerprint", None
+                            ),
+                            manifest=getattr(runtimes[target.label], "manifest", {}),
+                            variant_dir=target.variant_dir,
+                        ),
+                    )
+                    for target in targets
+                ],
+                result_files=list(staging_dir.glob("*.csv")),
+            )
+            # 只有整批结果均满足契约后才切换目录，评估端永远看不到半批数据。
+            _publish_generation_directory(staging_dir, destination)
+            staging_dir = None
+        return results
+    finally:
+        if staging_dir is not None:
+            shutil.rmtree(staging_dir, ignore_errors=True)
+
+
+def _execute_text_to_sql_batch(
+    *,
+    questions: list[QuestionSpec],
+    targets: list[TextToSqlTarget],
+    generator: SqlGenerator,
+    model: str,
+    max_retries: int,
+    output_dir: Path | None,
+    schema_context: str,
+    runtimes: dict[str, VariantSqlRuntime],
+) -> list[TextToSqlResult]:
+    results = []
     for question in questions:
         reference_sql = _reference_sql(question)
         reference_rows = {
@@ -167,11 +249,11 @@ def _run_text_to_sql_with_runtimes(
                 continue
             output_csv = (
                 _generated_result_path(
-                    generated_results_dir,
+                    output_dir,
                     question.question_id,
                     target.label,
                 )
-                if generated_results_dir is not None
+                if output_dir is not None
                 else None
             )
             results.append(
@@ -187,6 +269,145 @@ def _run_text_to_sql_with_runtimes(
                 )
             )
     return results
+
+
+def _validate_generated_results_directory(
+    directory: Path,
+    *,
+    targets: list[TextToSqlTarget],
+    run_dirs: list[Path] | None = None,
+) -> Path:
+    if not directory.name or directory.name in {".", ".."} or ".." in directory.parts:
+        raise ValueError("generated_results_dir must name a dedicated directory")
+    if directory.is_symlink():
+        raise ValueError("generated_results_dir must not be a symbolic link")
+    destination = directory.resolve(strict=False)
+    if destination.parent == destination or destination == Path.cwd().resolve():
+        raise ValueError("generated_results_dir must not be a filesystem root or cwd")
+    target_dirs = {target.variant_dir.resolve(strict=False) for target in targets}
+    run_roots = {run_dir.resolve(strict=False) for run_dir in run_dirs or []}
+    run_roots.update(
+        target_dir.parent.parent
+        for target_dir in target_dirs
+        if target_dir.parent.name == "variants"
+    )
+    protected_paths = set(target_dirs)
+    for run_root in run_roots:
+        protected_paths.update(
+            {
+                run_root / "variants",
+                run_root / "manifests",
+                run_root / "config_snapshot",
+            }
+        )
+        metrics_root = run_root / "metrics"
+        if metrics_root == destination or metrics_root.is_relative_to(destination):
+            raise ValueError(
+                "generated_results_dir must not equal or contain the metrics root"
+            )
+    for protected in protected_paths:
+        if (
+            protected == destination
+            or protected.is_relative_to(destination)
+            or destination.is_relative_to(protected)
+        ):
+            raise ValueError(
+                "generated_results_dir must not overlap benchmark input trees"
+            )
+    if destination.exists() and not destination.is_dir():
+        raise ValueError("generated_results_dir must be a directory")
+    return destination
+
+
+def _create_generation_staging_directory(destination: Path) -> Path:
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    return Path(
+        tempfile.mkdtemp(
+            prefix=f".{destination.name}.staging-",
+            dir=destination.parent,
+        )
+    )
+
+
+_FileIdentity = tuple[int, int]
+
+
+def _file_identity(path: Path) -> _FileIdentity | None:
+    try:
+        metadata = path.lstat()
+    except FileNotFoundError:
+        return None
+    return metadata.st_dev, metadata.st_ino
+
+
+def _remove_owned_directory(path: Path, identity: _FileIdentity) -> None:
+    # 路径名可能已被并发发布者复用；只有 dev/inode 仍属于本事务时才允许删除。
+    if _file_identity(path) != identity:
+        raise RuntimeError("directory ownership changed before cleanup")
+    shutil.rmtree(path)
+
+
+def _rollback_generation_publish(
+    *,
+    destination: Path,
+    backup: Path,
+    staged_identity: _FileIdentity,
+    previous_identity: _FileIdentity | None,
+) -> None:
+    current_identity = _file_identity(destination)
+    if current_identity == staged_identity:
+        _remove_owned_directory(destination, staged_identity)
+        current_identity = _file_identity(destination)
+    elif previous_identity is not None and current_identity == previous_identity:
+        # 旧批次已经在目标路径，无需再从备份恢复。
+        if _file_identity(backup) is not None:
+            raise RuntimeError("backup ownership is ambiguous during rollback")
+        return
+
+    if current_identity is not None:
+        raise RuntimeError("destination ownership changed during rollback")
+    if previous_identity is None:
+        return
+    if _file_identity(backup) != previous_identity:
+        raise RuntimeError("backup ownership changed during rollback")
+
+    backup.replace(destination)
+    if _file_identity(destination) != previous_identity:
+        raise RuntimeError("restored directory ownership could not be verified")
+
+
+def _publish_generation_directory(staging_dir: Path, destination: Path) -> None:
+    backup = destination.parent / f".{destination.name}.backup-{uuid.uuid4().hex}"
+    staged_identity = _file_identity(staging_dir)
+    if staged_identity is None:
+        raise ValueError("generation staging directory does not exist")
+    previous_identity = _file_identity(destination)
+    try:
+        if previous_identity is not None:
+            destination.replace(backup)
+            if _file_identity(backup) != previous_identity:
+                raise RuntimeError("backup ownership changed during publish")
+        staging_dir.replace(destination)
+        if _file_identity(destination) != staged_identity:
+            raise RuntimeError("destination ownership changed during publish")
+    except BaseException:
+        try:
+            # rename 成功后仍可能抛错；按事务保存的身份决定是否有权回滚。
+            _rollback_generation_publish(
+                destination=destination,
+                backup=backup,
+                staged_identity=staged_identity,
+                previous_identity=previous_identity,
+            )
+        except BaseException as rollback_error:
+            raise RuntimeError(
+                "Failed to publish generated results because directory ownership "
+                "changed during rollback"
+            ) from rollback_error
+        raise
+    else:
+        if previous_identity is not None:
+            _remove_owned_directory(backup, previous_identity)
 
 
 def generate_question_sql(
@@ -223,9 +444,50 @@ def generate_question_sql(
                 runtimes=runtimes,
             )
             return generated_sql, None
+        except _HiddenResultMismatch as error:
+            # reference 行动集属于评测金标，不能成为下一轮模型的修复 oracle。
+            return generated_sql, str(error)
         except Exception as error:  # noqa: BLE001
-            last_error = str(error)
+            if generated_sql is None:
+                # 模型自身失败时下一轮重新生成，不会把该文本回传到 prompt。
+                last_error = str(error)
+                continue
+            repair_feedback = _safe_repair_feedback(error)
+            if repair_feedback is None:
+                return generated_sql, "Generated SQL validation failed"
+            last_error = repair_feedback
     return generated_sql, last_error or "SQL generation failed"
+
+
+def _safe_repair_feedback(error: Exception) -> str | None:
+    """只允许结构类错误进入模型 prompt，绝不携带数据行值。"""
+    message = str(error)
+    if isinstance(error, SqlValidationError):
+        return message
+    if isinstance(error, TimeoutError):
+        return "Generated SQL exceeded the benchmark query timeout"
+    if isinstance(error, duckdb.BinderException):
+        return "Generated SQL does not bind to the benchmark schema"
+    if isinstance(error, duckdb.Error):
+        return "Generated SQL failed during benchmark execution"
+    if not isinstance(error, ValueError):
+        return None
+    if message.startswith("SQL result contains duplicate ") and ":" in message:
+        return "Generated SQL returned duplicate entity rows"
+    if message.startswith("SQL result contains duplicate column names"):
+        return "Generated SQL returned duplicate output columns"
+    if message.startswith(
+        (
+            "SQL result is missing required columns:",
+            "Generated result must include ",
+        )
+    ):
+        return "Generated SQL result is missing the required entity column"
+    if message.startswith("Generated result contains an empty "):
+        return "Generated SQL returned an empty entity identifier"
+    if message.startswith("SQL result exceeds maximum of "):
+        return "Generated SQL returned too many rows"
+    return None
 
 
 def validate_generated_sql_against_targets(
@@ -252,17 +514,10 @@ def validate_generated_sql_against_targets(
         missing = sorted(expected_ids - generated_ids)
         extra = sorted(generated_ids - expected_ids)
         if missing or extra:
-            parts = []
-            if missing:
-                parts.append(f"missing={len(missing)} sample={','.join(missing[:5])}")
-            if extra:
-                parts.append(f"extra={len(extra)} sample={','.join(extra[:5])}")
-            mismatches.append(f"{target.label}: {'; '.join(parts)}")
+            mismatches.append(target.label)
     if mismatches:
-        raise ValueError(
-            "Generated SQL changes the benchmark action set across variants. "
-            "Missing joined aid rows must not become positive matches. "
-            + " | ".join(mismatches)
+        raise _HiddenResultMismatch(
+            "Generated SQL does not match the hidden benchmark action set"
         )
 
 
@@ -315,6 +570,9 @@ def run_generated_sql_against_target(
             extra_entity_ids=extra,
         )
     except Exception as error:  # noqa: BLE001
+        if output_csv is not None:
+            # SQL 已执行但结果契约校验失败时，不留下可被后续评估误读的半成品。
+            output_csv.unlink(missing_ok=True)
         return _failed_result(
             question=question,
             target=target,
@@ -379,7 +637,13 @@ def entity_ids(rows: list[dict[str, Any]], entity_key: str) -> set[str]:
         value = row[entity_key]
         if value is None or not str(value).strip():
             raise ValueError(f"Generated result contains an empty {entity_key}")
-        identifiers.add(str(value).strip())
+        identifier = str(value).strip()
+        if identifier in identifiers:
+            # 行数和行动集大小必须使用同一口径；重复实体通常意味着连接放大。
+            raise ValueError(
+                f"SQL result contains duplicate {entity_key}: {identifier}"
+            )
+        identifiers.add(identifier)
     return identifiers
 
 
@@ -401,6 +665,19 @@ def _reference_sql(question: QuestionSpec) -> str:
             f"Question {question.question_id} does not define reference_sql"
         )
     return validate_read_only_sql(question.reference_sql)
+
+
+def require_publishable_targets(targets: list[TextToSqlTarget]) -> None:
+    """保证落盘批次能被同一套 evaluation 入口完整消费。"""
+    baseline_targets = [target for target in targets if target.label == "baseline"]
+    if not baseline_targets:
+        raise ValueError("Published text-to-SQL targets must include baseline")
+    baseline = baseline_targets[0]
+    if baseline.variant_dir.resolve(strict=False).name != "baseline":
+        # evaluation 以 baseline 标签作为比较真值，不能允许别的变体冒充。
+        raise ValueError(
+            "Published text-to-SQL baseline label must point to the actual baseline"
+        )
 
 
 def _validate_targets(targets: list[TextToSqlTarget]) -> None:

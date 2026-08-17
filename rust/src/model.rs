@@ -22,7 +22,7 @@ pub struct AcademicRecord {
 pub struct FinancialAidRecord {
     pub student_id: String,
     pub aid_amount: Option<f64>,
-    pub aid_status: Option<AidStatus>,
+    pub aid_status: Option<AidStatusValue>,
     pub disbursement_date: Option<NaiveDate>,
 }
 
@@ -60,20 +60,39 @@ impl fmt::Display for AidStatus {
     }
 }
 
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Hash, Serialize, Deserialize)]
+pub enum AidStatusValue {
+    Canonical(AidStatus),
+    DepartmentLocal(AidStatus),
+}
+
+impl fmt::Display for AidStatusValue {
+    fn fmt(&self, formatter: &mut fmt::Formatter<'_>) -> fmt::Result {
+        match self {
+            Self::Canonical(status) => status.fmt(formatter),
+            Self::DepartmentLocal(status) => write!(formatter, "financial-aid::{status}"),
+        }
+    }
+}
+
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Hash, Ord, PartialOrd)]
 pub enum FragmentationOperator {
     DropRow,
     NullAidAmount,
     NullAidStatus,
     IdentifierMismatch,
+    PublicationDelay,
+    AidStatusCodeDrift,
 }
 
 impl FragmentationOperator {
-    pub const ALL: [Self; 4] = [
+    pub const ALL: [Self; 6] = [
         Self::DropRow,
         Self::NullAidAmount,
         Self::NullAidStatus,
         Self::IdentifierMismatch,
+        Self::PublicationDelay,
+        Self::AidStatusCodeDrift,
     ];
 
     pub fn as_str(self) -> &'static str {
@@ -82,6 +101,8 @@ impl FragmentationOperator {
             Self::NullAidAmount => "null_aid_amount",
             Self::NullAidStatus => "null_aid_status",
             Self::IdentifierMismatch => "identifier_mismatch",
+            Self::PublicationDelay => "publication_delay",
+            Self::AidStatusCodeDrift => "aid_status_code_drift",
         }
     }
 }
@@ -96,6 +117,7 @@ pub struct BaselinePopulation {
 pub struct FragmentedVariant {
     pub name: String,
     pub financial_aid_records: Vec<FinancialAidRecord>,
+    pub late_financial_aid_records: Vec<FinancialAidRecord>,
     pub selected_row_ids: BTreeMap<FragmentationOperator, Vec<String>>,
     pub corruption_percentages: BTreeMap<FragmentationOperator, f64>,
     pub fragmentation_score: f64,

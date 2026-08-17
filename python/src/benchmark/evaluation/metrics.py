@@ -5,6 +5,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
+from benchmark.csv_io import write_csv_atomically
 from benchmark.questions import WeightingPolicy
 
 VARIANT_NAMES = (
@@ -40,8 +41,17 @@ class OutcomeMetrics:
 
 
 def compute_fragmentation_score(academic_csv: Path | str, aid_csv: Path | str) -> float:
-    academic_rows = read_csv_rows(Path(academic_csv))
-    aid_rows = {row["student_id"]: row for row in read_csv_rows(Path(aid_csv))}
+    return compute_fragmentation_score_from_rows(
+        read_csv_rows(Path(academic_csv)),
+        read_csv_rows(Path(aid_csv)),
+    )
+
+
+def compute_fragmentation_score_from_rows(
+    academic_rows: list[dict[str, Any]],
+    financial_aid_rows: list[dict[str, Any]],
+) -> float:
+    aid_rows = {str(row["student_id"]): row for row in financial_aid_rows}
     if not academic_rows:
         raise ValueError("academic_records must not be empty")
 
@@ -51,8 +61,10 @@ def compute_fragmentation_score(academic_csv: Path | str, aid_csv: Path | str) -
         if aid is None:
             continue
         row_exists = 1.0
-        amount_present = 1.0 if aid.get("aid_amount", "") != "" else 0.0
-        status_present = 1.0 if aid.get("aid_status", "") != "" else 0.0
+        amount_present = 1.0 if aid.get("aid_amount") not in (None, "") else 0.0
+        status_present = (
+            1.0 if aid.get("aid_status") in {"active", "suspended", "none"} else 0.0
+        )
         total += (row_exists + amount_present + status_present) / 3.0
     return total / len(academic_rows)
 
@@ -125,13 +137,13 @@ def compare_entity_sets(
     uppercase_entity_key: bool = True,
     trim_whitespace: bool = True,
 ) -> tuple[OutcomeMetrics, list[str], list[str]]:
-    baseline_map, _, baseline_null_count = prepare_entity_rows(
+    baseline_map, baseline_duplicate_count, baseline_null_count = prepare_entity_rows(
         baseline_rows,
         entity_key=entity_key,
         uppercase_entity_key=uppercase_entity_key,
         trim_whitespace=trim_whitespace,
     )
-    observed_map, _, observed_null_count = prepare_entity_rows(
+    observed_map, observed_duplicate_count, observed_null_count = prepare_entity_rows(
         observed_rows,
         entity_key=entity_key,
         uppercase_entity_key=uppercase_entity_key,
@@ -144,6 +156,14 @@ def compare_entity_sets(
     if observed_null_count:
         raise ValueError(
             f"Observed result contains {observed_null_count} rows without {entity_key}"
+        )
+    if baseline_duplicate_count:
+        raise ValueError(
+            f"Baseline result contains {baseline_duplicate_count} duplicate {entity_key} rows"
+        )
+    if observed_duplicate_count:
+        raise ValueError(
+            f"Observed result contains {observed_duplicate_count} duplicate {entity_key} rows"
         )
 
     baseline_ids = set(baseline_map)
@@ -203,6 +223,23 @@ def build_weight_lookup(
     uppercase_entity_key: bool = True,
     trim_whitespace: bool = True,
 ) -> dict[str, float]:
+    return build_weight_lookup_from_rows(
+        read_csv_rows(Path(academic_csv)),
+        entity_key=entity_key,
+        weighting_policy=weighting_policy,
+        uppercase_entity_key=uppercase_entity_key,
+        trim_whitespace=trim_whitespace,
+    )
+
+
+def build_weight_lookup_from_rows(
+    rows: list[dict[str, Any]],
+    *,
+    entity_key: str,
+    weighting_policy: WeightingPolicy | None,
+    uppercase_entity_key: bool = True,
+    trim_whitespace: bool = True,
+) -> dict[str, float]:
     if weighting_policy is None:
         return {}
     if weighting_policy.policy_type != "gpa_band":
@@ -211,7 +248,7 @@ def build_weight_lookup(
         )
 
     lookup: dict[str, float] = {}
-    for row in read_csv_rows(Path(academic_csv)):
+    for row in rows:
         normalized_key = normalize_entity_value(
             row.get(entity_key),
             uppercase=uppercase_entity_key,
@@ -293,12 +330,7 @@ def read_csv_rows(path: Path) -> list[dict[str, str]]:
 
 
 def write_csv(path: Path, rows: list[dict[str, Any]], fieldnames: list[str]) -> None:
-    path.parent.mkdir(parents=True, exist_ok=True)
-    with path.open("w", encoding="utf-8", newline="") as handle:
-        writer = csv.DictWriter(handle, fieldnames=fieldnames)
-        writer.writeheader()
-        for row in rows:
-            writer.writerow({key: stringify(row.get(key)) for key in fieldnames})
+    write_csv_atomically(path, rows, fieldnames, stringify)
 
 
 def stringify(value: Any) -> str:

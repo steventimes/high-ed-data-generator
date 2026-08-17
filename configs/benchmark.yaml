@@ -1,4 +1,4 @@
-version: 1
+version: 2
 population:
   size: 500
   seed: 20260410
@@ -20,6 +20,7 @@ population:
     disbursement_offset_days:
       min: -10
       max: 30
+    late_publication_delay_days: 7
 variants:
   baseline: {}
   low_fragmentation:
@@ -27,13 +28,19 @@ variants:
     null_aid_amount: 0.05
     null_aid_status: 0.05
     identifier_mismatch: 0.05
+    publication_delay: 0.05
+    aid_status_code_drift: 0.05
   medium_fragmentation:
     drop_row: 0.30
     null_aid_amount: 0.15
     null_aid_status: 0.15
     identifier_mismatch: 0.15
+    publication_delay: 0.15
+    aid_status_code_drift: 0.15
   high_fragmentation:
     drop_row: 0.50
     null_aid_amount: 0.30
     null_aid_status: 0.30
     identifier_mismatch: 0.30
+    publication_delay: 0.30
+    aid_status_code_drift: 0.30

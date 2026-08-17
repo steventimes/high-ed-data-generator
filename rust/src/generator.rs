@@ -1,7 +1,7 @@
 use crate::config::{BenchmarkConfig, PopulationConfig};
 use crate::model::{
-    AcademicRecord, AidStatus, BaselinePopulation, EnrollmentStatus, FinancialAidRecord,
-    FragmentationOperator, FragmentedVariant, GeneratedRun, VARIANT_NAMES,
+    AcademicRecord, AidStatus, AidStatusValue, BaselinePopulation, EnrollmentStatus,
+    FinancialAidRecord, FragmentationOperator, FragmentedVariant, GeneratedRun, VARIANT_NAMES,
 };
 use chrono::Duration;
 use rand::seq::SliceRandom;
@@ -97,7 +97,7 @@ fn generate_baseline(config: &PopulationConfig) -> Result<BaselinePopulation> {
         financial_aid_records.push(FinancialAidRecord {
             student_id,
             aid_amount: Some(aid_amount),
-            aid_status: Some(aid_status),
+            aid_status: Some(AidStatusValue::Canonical(aid_status)),
             disbursement_date: Some(disbursement_date),
         });
     }
@@ -141,40 +141,60 @@ fn derive_variant(
     let null_amount = selected(FragmentationOperator::NullAidAmount);
     let null_status = selected(FragmentationOperator::NullAidStatus);
     let identifier_mismatch = selected(FragmentationOperator::IdentifierMismatch);
+    let publication_delay = selected(FragmentationOperator::PublicationDelay);
+    let status_code_drift = selected(FragmentationOperator::AidStatusCodeDrift);
 
     let mut completeness = 0.0;
-    let financial_aid_records = baseline
-        .financial_aid_records
-        .iter()
-        .filter_map(|record| {
-            let canonical_id = record.student_id.as_str();
-            if dropped.contains(canonical_id) {
-                return None;
-            }
-            let mut observed = record.clone();
-            if null_amount.contains(canonical_id) {
-                observed.aid_amount = None;
-            }
-            if null_status.contains(canonical_id) {
-                observed.aid_status = None;
-            }
-            let mismatched = identifier_mismatch.contains(canonical_id);
-            if mismatched {
-                observed.student_id = financial_aid_student_id(canonical_id);
-            } else {
-                let amount = f64::from(observed.aid_amount.is_some());
-                let status = f64::from(observed.aid_status.is_some());
-                completeness += (1.0 + amount + status) / 3.0;
-            }
-            Some(observed)
-        })
-        .collect::<Vec<_>>();
+    let mut financial_aid_records = Vec::with_capacity(baseline.financial_aid_records.len());
+    let mut late_financial_aid_records = Vec::new();
+    for record in &baseline.financial_aid_records {
+        let canonical_id = record.student_id.as_str();
+        if dropped.contains(canonical_id) {
+            continue;
+        }
 
-    // 变体只保存真正发生变化的助学金表；学业表由输出层复用基线文件。
+        let mut observed = record.clone();
+        if null_amount.contains(canonical_id) {
+            observed.aid_amount = None;
+        }
+        if null_status.contains(canonical_id) {
+            observed.aid_status = None;
+        }
+        if status_code_drift.contains(canonical_id) {
+            observed.aid_status = observed.aid_status.map(|status| match status {
+                AidStatusValue::Canonical(value) | AidStatusValue::DepartmentLocal(value) => {
+                    AidStatusValue::DepartmentLocal(value)
+                }
+            });
+        }
+
+        let mismatched = identifier_mismatch.contains(canonical_id);
+        if mismatched {
+            observed.student_id = financial_aid_student_id(canonical_id);
+        }
+        if publication_delay.contains(canonical_id) {
+            // 延迟数据仍会到达，只是不进入当前快照；治理层可以在重放后恢复。
+            late_financial_aid_records.push(observed);
+            continue;
+        }
+
+        if !mismatched {
+            let amount = f64::from(observed.aid_amount.is_some());
+            let status = f64::from(matches!(
+                observed.aid_status,
+                Some(AidStatusValue::Canonical(_))
+            ));
+            completeness += (1.0 + amount + status) / 3.0;
+        }
+        financial_aid_records.push(observed);
+    }
+
+    // 变体分别保存当前快照和迟到记录；学业表仍由输出层复用基线文件。
     let fragmentation_score = completeness / baseline.academic_records.len() as f64;
     Ok(FragmentedVariant {
         name: name.to_string(),
         financial_aid_records,
+        late_financial_aid_records,
         selected_row_ids,
         corruption_percentages,
         fragmentation_score,

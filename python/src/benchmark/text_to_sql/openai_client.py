@@ -52,34 +52,29 @@ class OpenAiSqlGenerator:
         return extract_sql(self._call_model(system, user))
 
     def _call_model(self, system_prompt: str, user_prompt: str) -> str:
-        responses_error: Exception | None = None
         if hasattr(self._client, "responses"):
-            try:
-                response = self._client.responses.create(
-                    model=self._model,
-                    input=[
-                        {"role": "system", "content": system_prompt},
-                        {"role": "user", "content": user_prompt},
-                    ],
-                )
-                if response.output_text:
-                    return str(response.output_text)
-            except Exception as error:  # noqa: BLE001
-                # 兼容仅实现 Chat Completions 的旧客户端，同时保留 Responses 的原始错误。
-                responses_error = error
-        try:
-            response = self._client.chat.completions.create(
+            response = self._client.responses.create(
                 model=self._model,
-                messages=[
+                input=[
                     {"role": "system", "content": system_prompt},
                     {"role": "user", "content": user_prompt},
                 ],
             )
-            return str(response.choices[0].message.content or "")
-        except Exception:
-            if responses_error is not None:
-                raise responses_error
-            raise
+            output_text = str(getattr(response, "output_text", "") or "")
+            if not output_text.strip():
+                # 已进入 Responses 链路后不再二次请求，避免限流或空结果导致重复计费。
+                raise RuntimeError("Responses API returned empty output")
+            return output_text
+
+        # 仅兼容根本没有 Responses 能力的旧版客户端。
+        response = self._client.chat.completions.create(
+            model=self._model,
+            messages=[
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": user_prompt},
+            ],
+        )
+        return str(response.choices[0].message.content or "")
 
 
 def load_dotenv(path: Path = Path(".env")) -> None:

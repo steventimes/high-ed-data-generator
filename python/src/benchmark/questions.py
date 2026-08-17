@@ -9,7 +9,7 @@ from typing import Any
 
 from benchmark.sql_runtime import validate_read_only_sql
 
-DEFAULT_REGISTRY = Path("configs/query_registry.json")
+DEFAULT_REGISTRY = Path(__file__).with_name("query_registry.json")
 _QUESTION_FIELDS = {
     "question_id",
     "question",
@@ -19,9 +19,20 @@ _QUESTION_FIELDS = {
     "evaluation_title",
     "reference_sql",
     "weighting_policy",
+    "temporal_evaluation",
+    "remediated_causes",
 }
+_ALLOWED_REMEDIATED_CAUSES = frozenset(
+    {"publication_delay", "identity_mismatch", "semantic_drift"}
+)
 _WEIGHTING_POLICY_FIELDS = {"type", "default_weight", "bands"}
 _WEIGHT_BAND_FIELDS = {"max_gpa", "weight"}
+_TEMPORAL_EVALUATION_FIELDS = {
+    "current_reference_sql",
+    "replay_reference_sql",
+    "snapshot",
+}
+_TEMPORAL_SNAPSHOTS = {"current", "replayed"}
 
 
 @dataclass(frozen=True)
@@ -38,6 +49,13 @@ class WeightingPolicy:
 
 
 @dataclass(frozen=True)
+class TemporalEvaluation:
+    current_reference_sql: str
+    replay_reference_sql: str
+    snapshot: str = "replayed"
+
+
+@dataclass(frozen=True)
 class QuestionSpec:
     question_id: str
     question: str
@@ -47,6 +65,8 @@ class QuestionSpec:
     evaluation_title: str | None = None
     reference_sql: str | None = None
     weighting_policy: WeightingPolicy | None = None
+    temporal_evaluation: TemporalEvaluation | None = None
+    remediated_causes: frozenset[str] = frozenset()
 
     @property
     def display_title(self) -> str:
@@ -57,6 +77,7 @@ def load_questions(path: Path = DEFAULT_REGISTRY) -> list[QuestionSpec]:
     try:
         payload = json.loads(
             path.read_text(encoding="utf-8"),
+            object_pairs_hook=_reject_duplicate_json_keys,
             parse_constant=_reject_non_finite_json,
         )
     except FileNotFoundError as error:
@@ -103,6 +124,8 @@ def resolve_questions(
                     evaluation_title=match.evaluation_title,
                     reference_sql=match.reference_sql,
                     weighting_policy=match.weighting_policy,
+                    temporal_evaluation=match.temporal_evaluation,
+                    remediated_causes=match.remediated_causes,
                 )
             )
     validate_questions(resolved)
@@ -131,6 +154,18 @@ def _parse_question(item: Any, index: int) -> QuestionSpec:
     if reference_sql is not None:
         reference_sql = validate_read_only_sql(reference_sql.strip().rstrip(";") + ";")
 
+    temporal_evaluation = _parse_temporal_evaluation(
+        item.get("temporal_evaluation"), index
+    )
+    if temporal_evaluation is not None:
+        if temporal_evaluation.snapshot == "current":
+            expected_reference_sql = temporal_evaluation.current_reference_sql
+            expected_field = "current_reference_sql"
+        else:
+            expected_reference_sql = temporal_evaluation.replay_reference_sql
+            expected_field = "replay_reference_sql"
+        if reference_sql != expected_reference_sql:
+            raise ValueError(f"Query {index} reference_sql must match {expected_field}")
     return QuestionSpec(
         question_id=question_id,
         question=question,
@@ -140,7 +175,58 @@ def _parse_question(item: Any, index: int) -> QuestionSpec:
         evaluation_title=_optional_text(item.get("evaluation_title")),
         reference_sql=reference_sql,
         weighting_policy=_parse_weighting_policy(item.get("weighting_policy"), index),
+        temporal_evaluation=temporal_evaluation,
+        remediated_causes=_parse_remediated_causes(
+            item.get("remediated_causes"), index
+        ),
     )
+
+
+def _parse_temporal_evaluation(payload: Any, index: int) -> TemporalEvaluation | None:
+    if payload is None:
+        return None
+    if not isinstance(payload, dict):
+        raise TypeError(f"Query {index} temporal_evaluation must be an object")
+    _reject_unknown_fields(
+        payload,
+        _TEMPORAL_EVALUATION_FIELDS,
+        f"Query {index} temporal_evaluation",
+    )
+
+    current_sql = _required_text(payload, "current_reference_sql", index)
+    replay_sql = _required_text(payload, "replay_reference_sql", index)
+    current_sql = validate_read_only_sql(current_sql.rstrip(";") + ";")
+    replay_sql = validate_read_only_sql(replay_sql.rstrip(";") + ";")
+
+    snapshot = _optional_text(payload.get("snapshot")) or "replayed"
+    if snapshot not in _TEMPORAL_SNAPSHOTS:
+        raise ValueError(
+            f"Query {index} temporal_evaluation.snapshot must be current or replayed"
+        )
+    return TemporalEvaluation(
+        current_reference_sql=current_sql,
+        replay_reference_sql=replay_sql,
+        snapshot=snapshot,
+    )
+
+
+def _parse_remediated_causes(payload: Any, index: int) -> frozenset[str]:
+    if payload is None:
+        return frozenset()
+    if not isinstance(payload, list):
+        raise TypeError(f"Query {index} remediated_causes must be a list")
+
+    causes: list[str] = []
+    for value in payload:
+        cause = _optional_text(value)
+        if cause is None:
+            raise ValueError(f"Query {index} remediated_causes must not contain blanks")
+        if cause not in _ALLOWED_REMEDIATED_CAUSES:
+            raise ValueError(f"Query {index} has unsupported remediated cause: {cause}")
+        causes.append(cause)
+    if len(causes) != len(set(causes)):
+        raise ValueError(f"Query {index} remediated_causes contains duplicates")
+    return frozenset(causes)
 
 
 def _parse_weighting_policy(payload: Any, index: int) -> WeightingPolicy | None:
@@ -233,6 +319,52 @@ def validate_questions(questions: list[QuestionSpec]) -> None:
     if not questions:
         raise ValueError("Question registry must contain at least one query")
 
+    for index, question in enumerate(questions, start=1):
+        if not isinstance(question, QuestionSpec):
+            raise TypeError(f"Question {index} must be a QuestionSpec")
+        for field_name, value in (
+            ("question_id", question.question_id),
+            ("question", question.question),
+            ("entity_key", question.entity_key),
+        ):
+            if not isinstance(value, str) or not value.strip():
+                raise ValueError(f"Question {index} must define {field_name}")
+
+        invalid_causes = sorted(
+            set(question.remediated_causes) - _ALLOWED_REMEDIATED_CAUSES
+        )
+        if invalid_causes:
+            raise ValueError(
+                f"Question {index} has unsupported remediated cause: "
+                + ", ".join(invalid_causes)
+            )
+
+        if question.reference_sql is not None:
+            if not isinstance(question.reference_sql, str):
+                raise TypeError(f"Question {index} reference_sql must be a string")
+            validate_read_only_sql(question.reference_sql)
+        temporal = question.temporal_evaluation
+        if temporal is not None:
+            if not isinstance(temporal, TemporalEvaluation):
+                raise TypeError(
+                    f"Question {index} temporal_evaluation must be TemporalEvaluation"
+                )
+            if temporal.snapshot not in _TEMPORAL_SNAPSHOTS:
+                raise ValueError(
+                    f"Question {index} temporal_evaluation.snapshot must be current or replayed"
+                )
+            validate_read_only_sql(temporal.current_reference_sql)
+            validate_read_only_sql(temporal.replay_reference_sql)
+            selected_sql = (
+                temporal.current_reference_sql
+                if temporal.snapshot == "current"
+                else temporal.replay_reference_sql
+            )
+            if question.reference_sql != selected_sql:
+                raise ValueError(
+                    f"Question {index} reference_sql must match selected temporal SQL"
+                )
+
     ids = [question.question_id for question in questions]
     if len(ids) != len(set(ids)):
         raise ValueError("Question registry contains duplicate question_id values")
@@ -270,3 +402,14 @@ def _finite_float(value: Any, location: str) -> float:
 
 def _reject_non_finite_json(value: str) -> None:
     raise ValueError(f"Non-finite JSON number is not allowed: {value}")
+
+
+def _reject_duplicate_json_keys(
+    pairs: list[tuple[str, Any]],
+) -> dict[str, Any]:
+    payload: dict[str, Any] = {}
+    for key, value in pairs:
+        if key in payload:
+            raise ValueError(f"Duplicate JSON key: {key}")
+        payload[key] = value
+    return payload

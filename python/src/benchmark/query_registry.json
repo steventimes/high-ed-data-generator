@@ -1,0 +1,152 @@
+{
+  "queries": [
+    {
+      "question_id": "at_risk_financial_disruption",
+      "question": "Which students are academically at risk and have a disruption in their financial aid?",
+      "institution_role": "retention_advisor",
+      "decision_type": "flag_for_outreach",
+      "entity_key": "student_id",
+      "evaluation_title": "Effect of Fragmentation on Students Flagged for Financial-Aid Outreach",
+      "reference_sql": "SELECT DISTINCT a.student_id\nFROM academic_records AS a\nLEFT JOIN financial_aid_records AS f\n  ON a.student_id = f.student_id\nWHERE a.gpa < 2.5\n  AND f.aid_amount IS NOT NULL\n  AND f.aid_status IS NOT NULL\n  AND f.aid_status <> 'active';",
+      "weighting_policy": {
+        "type": "gpa_band",
+        "default_weight": 1.0,
+        "bands": [
+          {
+            "max_gpa": 1.5,
+            "weight": 3.0
+          },
+          {
+            "max_gpa": 2.0,
+            "weight": 2.0
+          },
+          {
+            "max_gpa": 2.5,
+            "weight": 1.0
+          }
+        ]
+      }
+    },
+    {
+      "question_id": "urgent_suspended_aid_review",
+      "question": "Which students are academically at risk and have suspended financial aid that should trigger urgent manual review?",
+      "institution_role": "financial_aid_admin",
+      "decision_type": "urgent_manual_review",
+      "entity_key": "student_id",
+      "evaluation_title": "Effect of Fragmentation on Students Requiring Urgent Suspended-Aid Review",
+      "reference_sql": "SELECT DISTINCT a.student_id\nFROM academic_records AS a\nLEFT JOIN financial_aid_records AS f\n  ON a.student_id = f.student_id\nWHERE a.gpa < 2.5\n  AND f.aid_amount IS NOT NULL\n  AND f.aid_status = 'suspended';",
+      "weighting_policy": {
+        "type": "gpa_band",
+        "default_weight": 1.0,
+        "bands": [
+          {
+            "max_gpa": 1.5,
+            "weight": 3.0
+          },
+          {
+            "max_gpa": 2.0,
+            "weight": 2.0
+          },
+          {
+            "max_gpa": 2.5,
+            "weight": 1.0
+          }
+        ]
+      }
+    },
+    {
+      "question_id": "at_risk_no_active_aid_followup",
+      "question": "Which students are academically at risk and currently have no active aid award on file, so they should be reviewed for follow-up?",
+      "institution_role": "financial_aid_admin",
+      "decision_type": "review_for_followup",
+      "entity_key": "student_id",
+      "evaluation_title": "Effect of Fragmentation on Students Flagged for No-Active-Aid Follow-Up",
+      "reference_sql": "SELECT DISTINCT a.student_id\nFROM academic_records AS a\nLEFT JOIN financial_aid_records AS f\n  ON a.student_id = f.student_id\nWHERE a.gpa < 2.5\n  AND f.aid_amount IS NOT NULL\n  AND f.aid_status = 'none';",
+      "weighting_policy": {
+        "type": "gpa_band",
+        "default_weight": 1.0,
+        "bands": [
+          {
+            "max_gpa": 1.5,
+            "weight": 3.0
+          },
+          {
+            "max_gpa": 2.0,
+            "weight": 2.0
+          },
+          {
+            "max_gpa": 2.5,
+            "weight": 1.0
+          }
+        ]
+      }
+    },
+    {
+      "question_id": "at_risk_financial_disruption_resolved",
+      "question": "Which students are academically at risk and have a disruption in financial aid after resolving department-local student identifiers?",
+      "institution_role": "institutional_research_analyst",
+      "decision_type": "identity_resolution_control",
+      "entity_key": "student_id",
+      "evaluation_title": "Identity Crosswalk Recovery for Students Requiring Financial-Aid Outreach",
+      "reference_sql": "SELECT DISTINCT a.student_id\nFROM academic_records AS a\nJOIN identity_crosswalk AS x\n  ON a.student_id = x.canonical_student_id\nLEFT JOIN financial_aid_records AS f\n  ON x.financial_aid_student_id = f.student_id\nWHERE a.gpa < 2.5\n  AND f.aid_amount IS NOT NULL\n  AND f.aid_status IS NOT NULL\n  AND f.aid_status <> 'active';",
+      "weighting_policy": {
+        "type": "gpa_band",
+        "default_weight": 1.0,
+        "bands": [
+          {
+            "max_gpa": 1.5,
+            "weight": 3.0
+          },
+          {
+            "max_gpa": 2.0,
+            "weight": 2.0
+          },
+          {
+            "max_gpa": 2.5,
+            "weight": 1.0
+          }
+        ]
+      },
+      "remediated_causes": [
+        "identity_mismatch"
+      ]
+    },
+    {
+      "question_id": "at_risk_financial_disruption_governed",
+      "question": "Which students are academically at risk and have a disruption in financial aid after replaying late records and resolving governed identifiers and status codes?",
+      "institution_role": "institutional_research_analyst",
+      "decision_type": "fully_governed_recovery_control",
+      "entity_key": "student_id",
+      "evaluation_title": "Governed Recovery for Students Requiring Financial-Aid Outreach",
+      "reference_sql": "WITH all_aid AS (\n  SELECT student_id, aid_amount, aid_status, disbursement_date\n  FROM financial_aid_records\n  UNION ALL\n  SELECT student_id, aid_amount, aid_status, disbursement_date\n  FROM financial_aid_late_arrivals\n),\neligible_aid AS (\n  SELECT f.student_id,\n         f.aid_amount,\n         f.aid_status,\n         f.disbursement_date\n  FROM all_aid AS f\n  LEFT JOIN financial_aid_publication_events AS e\n    ON f.student_id = e.financial_aid_student_id\n   AND f.disbursement_date = e.event_time\n  WHERE NOT EXISTS (\n          SELECT 1 FROM benchmark_temporal_snapshots\n        )\n     OR (\n          e.event_time <= (\n            SELECT MIN(event_time_watermark)\n            FROM benchmark_temporal_snapshots\n            WHERE snapshot IN ('current', 'replayed')\n          )\n      AND e.published_at <= (\n            SELECT published_at\n            FROM benchmark_temporal_snapshots\n            WHERE snapshot = 'replayed'\n          )\n        )\n),\nresolved_aid AS (\n  SELECT x.canonical_student_id AS student_id,\n         f.aid_amount,\n         s.canonical_aid_status AS aid_status,\n         f.disbursement_date\n  FROM eligible_aid AS f\n  JOIN identity_crosswalk AS x\n    ON f.student_id = x.financial_aid_student_id\n  JOIN aid_status_crosswalk AS s\n    ON f.aid_status = s.financial_aid_status\n)\nSELECT DISTINCT a.student_id\nFROM academic_records AS a\nLEFT JOIN resolved_aid AS f\n  ON a.student_id = f.student_id\nWHERE a.gpa < 2.5\n  AND f.aid_amount IS NOT NULL\n  AND f.aid_status IS NOT NULL\n  AND f.aid_status <> 'active';",
+      "weighting_policy": {
+        "type": "gpa_band",
+        "default_weight": 1.0,
+        "bands": [
+          {
+            "max_gpa": 1.5,
+            "weight": 3.0
+          },
+          {
+            "max_gpa": 2.0,
+            "weight": 2.0
+          },
+          {
+            "max_gpa": 2.5,
+            "weight": 1.0
+          }
+        ]
+      },
+      "remediated_causes": [
+        "publication_delay",
+        "identity_mismatch",
+        "semantic_drift"
+      ],
+      "temporal_evaluation": {
+        "current_reference_sql": "WITH eligible_aid AS (\n  SELECT f.student_id,\n         f.aid_amount,\n         f.aid_status,\n         f.disbursement_date\n  FROM financial_aid_records AS f\n  LEFT JOIN financial_aid_publication_events AS e\n    ON f.student_id = e.financial_aid_student_id\n   AND f.disbursement_date = e.event_time\n  WHERE NOT EXISTS (\n          SELECT 1 FROM benchmark_temporal_snapshots\n        )\n     OR (\n          e.event_time <= (\n            SELECT MIN(event_time_watermark)\n            FROM benchmark_temporal_snapshots\n            WHERE snapshot IN ('current', 'replayed')\n          )\n      AND e.published_at <= (\n            SELECT published_at\n            FROM benchmark_temporal_snapshots\n            WHERE snapshot = 'current'\n          )\n        )\n),\nresolved_aid AS (\n  SELECT x.canonical_student_id AS student_id,\n         f.aid_amount,\n         s.canonical_aid_status AS aid_status,\n         f.disbursement_date\n  FROM eligible_aid AS f\n  JOIN identity_crosswalk AS x\n    ON f.student_id = x.financial_aid_student_id\n  JOIN aid_status_crosswalk AS s\n    ON f.aid_status = s.financial_aid_status\n)\nSELECT DISTINCT a.student_id\nFROM academic_records AS a\nLEFT JOIN resolved_aid AS f\n  ON a.student_id = f.student_id\nWHERE a.gpa < 2.5\n  AND f.aid_amount IS NOT NULL\n  AND f.aid_status IS NOT NULL\n  AND f.aid_status <> 'active';",
+        "replay_reference_sql": "WITH all_aid AS (\n  SELECT student_id, aid_amount, aid_status, disbursement_date\n  FROM financial_aid_records\n  UNION ALL\n  SELECT student_id, aid_amount, aid_status, disbursement_date\n  FROM financial_aid_late_arrivals\n),\neligible_aid AS (\n  SELECT f.student_id,\n         f.aid_amount,\n         f.aid_status,\n         f.disbursement_date\n  FROM all_aid AS f\n  LEFT JOIN financial_aid_publication_events AS e\n    ON f.student_id = e.financial_aid_student_id\n   AND f.disbursement_date = e.event_time\n  WHERE NOT EXISTS (\n          SELECT 1 FROM benchmark_temporal_snapshots\n        )\n     OR (\n          e.event_time <= (\n            SELECT MIN(event_time_watermark)\n            FROM benchmark_temporal_snapshots\n            WHERE snapshot IN ('current', 'replayed')\n          )\n      AND e.published_at <= (\n            SELECT published_at\n            FROM benchmark_temporal_snapshots\n            WHERE snapshot = 'replayed'\n          )\n        )\n),\nresolved_aid AS (\n  SELECT x.canonical_student_id AS student_id,\n         f.aid_amount,\n         s.canonical_aid_status AS aid_status,\n         f.disbursement_date\n  FROM eligible_aid AS f\n  JOIN identity_crosswalk AS x\n    ON f.student_id = x.financial_aid_student_id\n  JOIN aid_status_crosswalk AS s\n    ON f.aid_status = s.financial_aid_status\n)\nSELECT DISTINCT a.student_id\nFROM academic_records AS a\nLEFT JOIN resolved_aid AS f\n  ON a.student_id = f.student_id\nWHERE a.gpa < 2.5\n  AND f.aid_amount IS NOT NULL\n  AND f.aid_status IS NOT NULL\n  AND f.aid_status <> 'active';",
+        "snapshot": "replayed"
+      }
+    }
+  ]
+}
